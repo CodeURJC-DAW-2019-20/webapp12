@@ -8652,8 +8652,24 @@ h1, h2, h3, h4, h5,
       width: 40px;
       height: 40px;
       background: #e86ed0;
+      border-radius: 50% 0 0 0; }ç
+    .property-wrap .text .btn-custom-delete {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: #d10b15;
       border-radius: 50% 0 0 0; }
-      .property-wrap .text .btn-custom span {
+    .property-wrap .text .btn-custom-edit {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: #2cebeb;
+      border-radius: 50% 0 0 0; }
+    .property-wrap .text .btn-custom span {
         color: #fff; }
   .property-wrap:hover .text {
     -webkit-box-shadow: 0px 5px 39px -14px rgba(0, 0, 0, 0.26);
