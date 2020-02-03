@@ -3,7 +3,7 @@
 ## FASE 0
 
 ### Nombre de App
-NombreApp
+WebApp12
 
 ### Miembros (Grupo 12)
 
@@ -20,7 +20,7 @@ NombreApp
 * Para organizar las tareas y asignarlas, hemos utilizado la herramienta trello:
  [Trello grupo 12](https://trello.com/b/QKFyV5xQ/practica-daw).
 
-##Requisitos
+## Requisitos
 
 Aplicación de anuncio de casas, locales,.. para alquiler, venta etc..
 
