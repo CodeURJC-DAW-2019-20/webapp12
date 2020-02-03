@@ -22,12 +22,13 @@ WebApp12
 
 ## Requisitos
 
-Aplicación de anuncio de casas, locales,.. para alquiler, venta etc..
+Aplicación de anuncio de casas, locales, pisos. Para alquiler, venta etc..
 
 * Entidades:
-     - Anuncio:Un anuncio es la propiedad que se va a exponer en la página. Cada anuncio tendrá , sus imagenes, caracteristica como       número de habitaciones , metros cuadrados..
+     - Anuncio: Un anuncio es la propiedad que se va a exponer en la página. Cada anuncio tendrá , sus imagenes, caracteristica como       número de habitaciones , metros cuadrados..
      - Comentarios: Son los comentarios que pongan los usuarios a los anuncios.
      - Blog: Un blog con novedades y recomendaciones para alquilar,comprar y vender.
+     - Usuarios.
 * Usuarios.
      - Usuario Anónimo: Podrá ver y buscar los anuncios.
      - Usuario Registrado: Podrá publicar sus propios anuncios, editarlos.Tendrá una sección con sus anuncios favoritos y recomendaciones personalizadas.También podrá comentar en los anuncios.
