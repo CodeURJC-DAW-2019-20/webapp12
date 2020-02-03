@@ -25,7 +25,7 @@ WebApp12
 Aplicación de anuncio de casas, locales,.. para alquiler, venta etc..
 
 * Entidades:
-     - Anuncio:Un anuncio es la propiedad que se va a exponer en la página. Cada aunucio tendrá , sus imagenes, caracteristica como       número de habitaciones , metros cuadrados..
+     - Anuncio:Un anuncio es la propiedad que se va a exponer en la página. Cada anuncio tendrá , sus imagenes, caracteristica como       número de habitaciones , metros cuadrados..
      - Comentarios: Son los comentarios que pongan los usuarios a los anuncios.
      - Blog: Un blog con novedades y recomendaciones para alquilar,comprar y vender.
 * Usuarios.
@@ -33,7 +33,7 @@ Aplicación de anuncio de casas, locales,.. para alquiler, venta etc..
      - Usuario Registrado: Podrá publicar sus propios anuncios, editarlos.Tendrá una sección con sus anuncios favoritos y recomendaciones personalizadas.También podrá comentar en los anuncios.
      - Usuario Administrador: Podrá eliminar todos anuncios y comentarios. Crear publicaciones en el blog. 
 * Gráficos: 
-     - Se genera un gráfico en los anuncios con la variación del precio de este.
+     - Se genera un gráfico con las ventas generales de la aplicación, se pueden filtrar por distintos campos.
 * Tecnología complementaria:
      - Uso de mapas de GoogleMaps para localizar la posición de esas propiedad.
      - Login con Google, Facebook o Twitter.
