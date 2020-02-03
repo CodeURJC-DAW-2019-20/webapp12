@@ -82,3 +82,7 @@ Blog: Sólo los usuarios registrados podrá ver las novedades.
 Gráfica: Muestra número de ventas de distintos meses.
 
 ![Graph](uptown/screenshots/graph.PNG)
+
+### Diagrama de Navegación
+
+![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion%20.jpg)
