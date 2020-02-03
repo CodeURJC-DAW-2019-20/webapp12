@@ -28,7 +28,10 @@
 
   textarea{
     background-color: #f6f6f6 !important;
-    border: hidden;
+    border:none;
+    border-bottom: 2px solid cornflowerblue;
+    resize: vertical;
+    border-radius: 4px;
     width:400px;
     height: 111px;
   }
