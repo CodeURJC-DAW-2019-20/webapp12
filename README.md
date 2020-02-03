@@ -37,7 +37,6 @@ Aplicación de anuncio de casas, locales, pisos. Para alquiler, venta etc..
      - Se genera un gráfico con las ventas generales de la aplicación, se pueden filtrar por distintos campos.
 * Tecnología complementaria:
      - Uso de mapas de GoogleMaps para localizar la posición de esas propiedad.
-     - Login con Google, Facebook o Twitter.
 
 * Algoritmo o consulta avanzada: 
      - Un algoritmo que crea recomendaciones con el historial de búsqueda, y se ordenan por valoración.
