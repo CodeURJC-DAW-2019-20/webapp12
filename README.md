@@ -43,3 +43,42 @@ Aplicación de anuncio de casas, locales, pisos. Para alquiler, venta etc..
      
 ## FASE 1
 ### Capturas
+
+Sign in: Es la página de Login, el usuario podrá iniciar la sesión con su cuenta.
+
+![Login](uptown/screenshots/login.PNG)
+
+Sign Up: En esta página, el usuario sin cuenta podrá registrarse
+
+![SignUp](uptown/screenshots/SignUp.PNG)
+
+Índice: Es la página principal de los usuarios registrados
+
+![Index](uptown/screenshots/index.jpg)
+
+Índice modo visitante: Es la página principal de los usuarios sin registrado, tiene menos funciones que los usuarios registrados
+
+![Index-visitor](uptown/screenshots/index-visitor.jpg)
+
+Resultado de búsqueda: Son resultados de la búsqueda
+
+![Properties List](uptown/screenshots/propertiesList.jpg)
+
+Mis anuncios: Los usuarios registrados pueden ver sus anuncios y modificarlos
+
+![My Ads](uptown/screenshots/my%20ads.jpg)
+
+Opiniones: Los usuarios registrados podrá ver las opiniones de los distintos usuarios sobre un anuncio
+
+![Opinions](uptown/screenshots/opinions.jpg)
+
+Opiniones modo visitante: Los usuarios sin registrar no podrá ver las opiniones.
+![Opinions-visitor](uptown/screenshots/opinions-visitor.jpg)
+
+Blog: Sólo los usuarios registrados podrá ver las novedades.
+
+![Blog](uptown/screenshots/blog.jpg)
+
+Gráfica: Muestra número de ventas de distintos meses.
+
+![Graph](uptown/screenshots/graph.PNG)
