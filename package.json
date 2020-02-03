@@ -1,0 +1,23 @@
+{
+  "name": "ruvik",
+  "version": "1.0.0",
+  "description": "package.json",
+  "main": "index.js",
+  "dependencies": {
+    "chart.js": "^2.9.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeURJC-DAW-2019-20/webapp12.git"
+  },
+  "author": "ruvik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeURJC-DAW-2019-20/webapp12/issues"
+  },
+  "homepage": "https://github.com/CodeURJC-DAW-2019-20/webapp12#readme"
+}
