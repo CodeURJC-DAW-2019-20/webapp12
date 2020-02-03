@@ -8652,22 +8652,23 @@ h1, h2, h3, h4, h5,
       width: 40px;
       height: 40px;
       background: #e86ed0;
-      border-radius: 50% 0 0 0; }ç
-    .property-wrap .text .btn-custom-delete {
+      border-radius: 50% 0 0 0; }
+    .property-wrap .text .btn-custom-edit2 {
       position: absolute;
       bottom: 0;
       right: 0;
       width: 40px;
       height: 40px;
-      background: #d10b15;
+      background: #1cf7ff;
       border-radius: 50% 0 0 0; }
+    
     .property-wrap .text .btn-custom-edit {
       position: absolute;
       bottom: 0;
-      right: 0;
+      right: 100%;
       width: 40px;
       height: 40px;
-      background: #2cebeb;
+      background: #ff959a;
       border-radius: 50% 0 0 0; }
     .property-wrap .text .btn-custom span {
         color: #fff; }
