@@ -89,4 +89,4 @@ Gráfica: Muestra número de ventas de distintos meses.
 
 ### Diagrama de Navegación
 
-![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion%20.jpg)
+![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion.jpg)
