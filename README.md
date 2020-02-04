@@ -3,7 +3,7 @@
 ## FASE 0
 
 ### Nombre de App
-WebApp12
+Ruvik
 
 ### Miembros (Grupo 12)
 
