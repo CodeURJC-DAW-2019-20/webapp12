@@ -68,6 +68,10 @@ Mis anuncios: Los usuarios registrados pueden ver sus anuncios y modificarlos
 
 ![My Ads](uptown/screenshots/my%20ads.jpg)
 
+Subir un nuevo anuncio: Los usuarios registrados pueden subir anuncios
+
+![My Ads](uptown/screenshots/propertyUpload.jpg)
+
 Opiniones: Los usuarios registrados podrá ver las opiniones de los distintos usuarios sobre un anuncio
 
 ![Opinions](uptown/screenshots/opinions.jpg)
