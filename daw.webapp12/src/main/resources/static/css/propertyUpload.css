@@ -1,0 +1,37 @@
+.myBody{
+    background-image: url("../images/bg_1.jpg");
+}
+
+.myContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+  }
+
+  #content {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    visibility: none;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    text-align: center;
+  }
+
+  textarea{
+    background-color: #f6f6f6 !important;
+    border:none;
+    border-bottom: 2px solid cornflowerblue;
+    resize: vertical;
+    border-radius: 4px;
+    width:400px;
+    height: 111px;
+  }
