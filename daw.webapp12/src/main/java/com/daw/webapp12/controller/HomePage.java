@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomePage {
 
-    @GetMapping("/main")
-    public String index(){
+    @RequestMapping(path =  "/")
+    public String main(){
         return "index";
+    }
+
+    @RequestMapping(path = "/login")
+    public String login(){
+        return "Login";
     }
 
 }
