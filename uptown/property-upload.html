@@ -13,17 +13,124 @@
     </style>
     <body class="myBody">
       <div class="myContainer">
+              
             <div class="col-md-8 mb-md-5 d-flex align-middle justify-content-center" id="content">
-                <h2 class="text-center">Publicar anuncio <br></h2>
-              <form action="#" class="bg-light p-5 contact-form">
-                <div class="md-form">
-                    <textarea name="property" cols="30" rows="7" class="md-textarea form-control" placeholder="Caracteristicas"></textarea>
-                </div>
+                <h2 class="text-center witt">PUBLICAR ANUNCIO <br></h2>
                 <br>
+                <h3 class="botonDesp1">Tipo de anuncio:</h3>
+                <select class="botonDesp" name="cars"> 
+                  <option value="piso">Piso</option>
+                  <option value="casa">Casa</option>
+                  <option value="local">Local</option>
+                </select>
+                <h3 class="botonDesp1">Nº de habitaciones:</h3>
+                <select class="botonDesp" name="cars"> 
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+                <h3 class="botonDesp1">Nº de baños:</h3>
+                <select class="botonDesp" name="cars"> 
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+                <h3 class="botonDesp1">Metros cuadrados:</h3>
+                <select class="botonDesp" name="cars"> 
+                  <option value="1">de 45 a 103</option>
+                  <option value="2">103 a 147</option>
+                  <option value="3">147 a 191</option>
+                  <option value="4">191 a 234</option>
+                  <option value="5">234 a 278</option>
+                  <option value="6">278 a 328</option>
+                  <option value="7">328 a 638</option>
+                </select>
+                <form action="/action_page.php">
+                  <h3 class="botonDesp1">Localización:</h3>
+                  <input class="botonDesp" list="browsers" name="browser">
+                  <datalist id="browsers">
+                    <option value="Madrid">
+                    <option value="Galicia">
+                    <option value="Asturias">
+                    <option value="Santander">
+                    <option value="País Vasco">
+                    <option value="Navarra">
+                    <option value="La Rioja">
+                    <option value="Huesca">
+                    <option value="Zaragoza">
+                    <option value="Teruel">
+                    <option value="Barcelona">
+                    <option value="Gerona">
+                    <option value="Lérida">
+                    <option value="Tarragona">
+                    <option value="Valencia">
+                    <option value="Castellón">
+                    <option value="Alicante">
+                    <option value="Murcia">
+                    <option value="Almeria">
+                    <option value="Granada">
+                    <option value="Jaén">
+                    <option value="Córdoba">
+                    <option value="Málaga">
+                    <option value="Sevilla">
+                    <option value="Cádiz">
+                    <option value="Huelva">
+                    <option value="Badajoz">
+                    <option value="Cáceres">
+                    <option value="Toledo">
+                    <option value="Ciudad Real">
+                    <option value="Albacete">
+                    <option value="Cuenca">
+                    <option value="Guadalajara">
+                    <option value="Segovia">
+                    <option value="Ávila">
+                    <option value="Soria">
+                    <option value="Burgos">
+                    <option value="Valladolid">
+                    <option value="Palencia">
+                    <option value="León">
+                    <option value="Valladolid">
+                    <option value="Salamanca">
+                    <option value="Mallorca">
+                    <option value="Menorca">
+                    <option value="Ibiza">
+                    <option value="Islas Canarias">
+                    <option value="Ceuta">
+                    <option value="Melilla">
+                    <option value="Móstoles">
+                    <option value="Fuenlabrada">
+                    <option value="Leganés">
+                    <option value="Alcorcón">
+                    <option value="Parla">
+                    <option value="El Escorial">
+                    <option value="Getafe">
+                    <option value="Griñón">
+                    <option value="Madrid Capital">
+                    <option value="Sierra de Madrid">
+                  </datalist>
+                </form>
+                
+                <form action="/action_page.php">
+                  <h3 class="botonDesp2">Introduzca aquí el precio del anuncio:</h3><br><br><br>
+                  <input name="Precio" type="text">
+                  <br>
+                </form>
+              <form action="#" class="bg-light p-5 contact-form">
+               
+                
                 <br>
                 <br>
                 <div class="form-group">
-                  <textarea name="description" id="" cols="30" rows="7" class="form-control" placeholder="Descripcion"></textarea>
+                  <textarea name="descripcion" id="" cols="30" rows="7" class="form-control" placeholder="Descripción del anuncio"></textarea>
                 </div>
                 <div class="form-group">
                   <input type="submit" value="Subir imagenes" class="btn btn-primary py-3 px-5">
@@ -32,4 +139,5 @@
               </form>     
             </div>
           </div>
+    </body>
 </html>
