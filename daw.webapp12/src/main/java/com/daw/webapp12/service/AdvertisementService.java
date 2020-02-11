@@ -1,4 +1,4 @@
 package com.daw.webapp12.service;
 
-public class AnuncioService {
+public class AdvertisementService {
 }
