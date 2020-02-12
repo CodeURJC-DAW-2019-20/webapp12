@@ -30,7 +30,7 @@ public class Anuncio {
     private double precio;
 
 
-    public Anuncio(String tipo, String vivienda,  Integer habitaciones, Integer baños, String metros2,  String localizacion, String direccion, Integer precio) {
+    public Anuncio(String tipo, String vivienda,  Integer habitaciones, Integer baños, String metros2,  String localizacion, String direccion, double precio) {
         this.tipo = tipo;
         this.vivienda = vivienda;
         this.habitaciones = habitaciones;
@@ -109,7 +109,7 @@ public class Anuncio {
         return precio;
     }
 
-    public void setPrecio(Integer precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 }
