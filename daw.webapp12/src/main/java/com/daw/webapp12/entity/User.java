@@ -11,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @NotNull
     private String nombre;
@@ -27,7 +27,7 @@ public class User {
         this.contraseña = contraseña;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class Anuncio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
 
     @NotNull
@@ -27,7 +27,7 @@ public class Anuncio {
 
     private String direccion;
 
-    private Integer precio;
+    private double precio;
 
 
     public Anuncio(String tipo, String vivienda,  Integer habitaciones, Integer baños, String metros2,  String localizacion, String direccion, Integer precio) {
@@ -41,7 +41,7 @@ public class Anuncio {
         this.precio = precio;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -105,7 +105,7 @@ public class Anuncio {
         this.direccion = direccion;
     }
 
-    public Integer getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
