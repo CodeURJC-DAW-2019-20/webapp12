@@ -12,14 +12,12 @@ public class MainController {
 
     @RequestMapping(value =  "/", method = RequestMethod.GET)
     public String main(Model model){
-        model.addAttribute("hola","Hola Mundo");
-        model.addAttribute("que","Que tal");
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(){
-        return "Login";
+        return "login";
     }
 
 }
