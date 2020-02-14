@@ -18,7 +18,6 @@ public class User {
 
     private String email;
 
-
     private String contraseña;
 
     public User(String nombre, String email,  String contraseña) {
