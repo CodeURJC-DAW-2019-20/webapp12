@@ -12,14 +12,18 @@ public class Comment {
     private long id;
 
 
-    @NotNull
-    private String author;
+    //@NotNull
+    @OneToOne(cascade=CascadeType.ALL)
+    private User author;
+    @OneToOne(cascade=CascadeType.ALL)
+    private Anuncio advertisement;
 
     private String message;
 
-    public Comment(String author, String message) {
-        this.author = author;
+    public Comment(String message) {
+       // this.author = author;
         this.message = message;
+        //this.advertisement = advertisement;
     }
 
     public long getId() {
@@ -30,12 +34,19 @@ public class Comment {
         this.id = id;
     }
 
-    public String getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(User author) {
         this.author = author;
+    }
+    public Anuncio getAdvertisement() {
+        return advertisement;
+    }
+
+    public void setAdvertisement(Anuncio adv) {
+        this.advertisement = adv;
     }
 
     public String getMessage() {
