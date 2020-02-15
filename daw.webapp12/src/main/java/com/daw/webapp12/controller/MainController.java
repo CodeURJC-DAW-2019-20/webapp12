@@ -10,14 +10,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 
-    @RequestMapping(value =  "/", method = RequestMethod.GET)
+    @RequestMapping(value =  "/MainPage", method = RequestMethod.GET)
     public String main(Model model){
+        model.addAttribute("hola","Hola Mundo");
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(){
         return "login";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signup(){
+        return "signUp";
+    }
+
+    @RequestMapping(value = "/blog", method = RequestMethod.GET)
+    public String blog(){
+        return "blog";
     }
 
 }
