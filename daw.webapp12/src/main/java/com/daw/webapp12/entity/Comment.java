@@ -5,7 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "anuncios")
+@Table(name = "comment")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +31,7 @@ public class Comment {
     }
 
     public String getAuthor() {
-        return nombre;
+        return author;
     }
 
     public void setAuthor(String author) {
@@ -45,3 +45,4 @@ public class Comment {
     public void setMessage(String message) {
         this.message = message;
     }
+}
