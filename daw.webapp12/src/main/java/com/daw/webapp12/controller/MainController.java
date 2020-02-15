@@ -31,4 +31,18 @@ public class MainController {
         return "blog";
     }
 
+    @RequestMapping(value = "/properties-modificar", method = RequestMethod.GET)
+    public String misAnuncios(){
+        return "properties-modificar";
+    }
+
+    @RequestMapping(value = "/properties", method = RequestMethod.GET)
+    public String favoritos() {
+        return "properties";
+    }
+
+    @RequestMapping(value = "/property-upload", method = RequestMethod.GET)
+    public String ponerAnuncios() {
+        return "property-upload";
+    }
 }
