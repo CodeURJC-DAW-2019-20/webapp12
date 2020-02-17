@@ -16,7 +16,7 @@ public class Favorites {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
     @OneToOne(cascade=CascadeType.ALL)
-    private Anuncio advertisement;
+    private Advertisement advertisement;
     public Favorites() {}
  
      public long getId() {
@@ -34,11 +34,11 @@ public class Favorites {
      public void setUser(User user) {
          this.user = user;
      }
-     public Anuncio getAdvertisement() {
+     public Advertisement getAdvertisement() {
          return advertisement;
      }
  
-     public void setAdvertisement(Anuncio adv) {
+     public void setAdvertisement(Advertisement adv) {
          this.advertisement = adv;
      }
  
