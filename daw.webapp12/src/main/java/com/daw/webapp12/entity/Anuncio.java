@@ -1,5 +1,7 @@
 package com.daw.webapp12.entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -28,6 +30,9 @@ public class Anuncio {
     private String direccion;
 
     private double precio;
+    
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Comment> comments;
 
 
     public Anuncio(String tipo, String vivienda,  Integer habitaciones, Integer baños, String metros2,  String localizacion, String direccion, double precio) {
