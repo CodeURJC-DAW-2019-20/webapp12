@@ -15,8 +15,7 @@ public class Comment {
     //@NotNull
     @OneToOne(cascade=CascadeType.ALL)
     private User author;
-    @OneToOne(cascade=CascadeType.ALL)
-    private Anuncio advertisement;
+
 
     private String message;
 
@@ -40,13 +39,6 @@ public class Comment {
 
     public void setAuthor(User author) {
         this.author = author;
-    }
-    public Anuncio getAdvertisement() {
-        return advertisement;
-    }
-
-    public void setAdvertisement(Anuncio adv) {
-        this.advertisement = adv;
     }
 
     public String getMessage() {
