@@ -47,11 +47,7 @@ public class iniBBDD {
         Anuncio anun5 = new Anuncio("Local","Local",(Integer)1,(Integer)1,"78","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun5);
 
-        //Comment example
-        Comment s1 = new Comment("Genial casero");
-        s1.setAdvertisement(new Anuncio("Casa", "Casita", (Integer)3, (Integer)2, "70", "Barcelona", "plz.Luis XV, 35", (double)34000));
-        s1.setAuthor(new User("Pepe", "pepe@mmail.com", "123abc."));
-        commentRepository.save(s1);
+        
 
     }
 

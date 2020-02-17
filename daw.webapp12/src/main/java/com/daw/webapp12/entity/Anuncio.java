@@ -1,5 +1,6 @@
 package com.daw.webapp12.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -30,7 +31,7 @@ public class Anuncio {
     private String direccion;
 
     private double precio;
-    
+
     @OneToMany(cascade=CascadeType.ALL)
     private List<Comment> comments;
 
@@ -65,6 +66,15 @@ public class Anuncio {
     public String getVivienda() {
         return vivienda;
     }
+    public void setComment(Comment comment) {
+        this.comments = new ArrayList<Comment>();
+        this.comments.add(comment);
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
 
     public void setVivienda(String vivienda) {
         this.vivienda = vivienda;
