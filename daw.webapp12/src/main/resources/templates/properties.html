@@ -37,12 +37,12 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="/MainPage" class="nav-link">Home</a></li>
-				<li class="nav-item"><a href="/property-upload" class="nav-link">Poner anuncio</a></li>
-				<li class="nav-item"><a href="/properties" class="nav-link">Mis favoritos</a></li>
-				<li class="nav-item"><a href="/properties-modificar" class="nav-link">Mis anuncios</a></li>
-				<li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
-				<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="property-upload.html" class="nav-link">Poner anuncio</a></li>
+            <li class="nav-item active"><a href="properties.html" class="nav-link">Mis favoritos</a></li>
+            <li class="nav-item"><a href="properties-modificar.html" class="nav-link">Mis anuncios</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -54,8 +54,8 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Properties <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Choose <br>Your Desired Home</h1>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Favoritos <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Tus <br>anuncios favoritos</h1>
           </div>
         </div>
       </div>
@@ -64,26 +64,186 @@
 		<section class="ftco-section">
     	<div class="container">
         <div class="row">
-			{{#advertisements}}
         	<div class="col-md-4">
         		<div class="property-wrap ftco-animate">
         			<a href="properties-single.html" class="img" style="background-image: url(images/work-1.jpg);"></a>
         			<div class="text">
-        				<p class="price"><span class="old-price">{{price}}</span><span class="orig-price">{{price}}<small>/mo</small></span></p>
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
         				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>{{rooms}}</li>
-        					<li><span class="flaticon-bathtub"></span>{{bathrooms}}</li>
-        					<li><span class="flaticon-floor-plan"></span>{{squareMeters}}</li>
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
         				</ul>
         				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
-        				<span class="location">{{location}}</span>
-        				<a class="d-flex align-items-center justify-content-center btn-custom">
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
         					<span class="icon-star-o"></span>
-        				</a>
+        				</button>
         			</div>
         		</div>
-			</div>
-			{{/advertisements}}
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-2.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-3.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-4.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-5.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-6.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-4.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-5.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="properties-single.html" class="img" style="background-image: url(images/work-6.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="properties-single.html">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<button class="d-flex align-items-center justify-content-center btn-custom"><a href="http://127.0.0.1:5500/uptown/favs.html">
+        					<span class="icon-star-o"></span>
+        				</button>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
     	</div>
     </section>
 
