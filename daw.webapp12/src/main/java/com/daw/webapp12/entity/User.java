@@ -1,5 +1,8 @@
 package com.daw.webapp12.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -19,11 +22,23 @@ public class User {
     private String email;
 
     private String contraseña;
+    
+    @OneToMany
+    private List<Advertisement> myFavourites;
 
     public User(String nombre, String email,  String contraseña) {
         this.nombre = nombre;
         this.email = email;
         this.contraseña = contraseña;
+        this.myFavourites = new ArrayList<Advertisement>();
+    }
+
+    public void addFavourite(Advertisement advertisement){
+        this.myFavourites.add(advertisement);
+    }
+
+    public void deleteFavourite(Advertisement advertisement){
+        this.myFavourites.remove(advertisement);
     }
 
     public long getId() {
@@ -56,5 +71,13 @@ public class User {
 
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
+    }
+
+    public List<Advertisement> getMyFavourites() {
+        return myFavourites;
+    }
+
+    public void setMyFavourites(List<Advertisement> list) {
+        this.myFavourites = list;
     }
 }
