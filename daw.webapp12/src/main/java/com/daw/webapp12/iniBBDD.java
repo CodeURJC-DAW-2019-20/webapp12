@@ -30,7 +30,7 @@ public class iniBBDD {
         userRepository.save(user1);
         User user2 = new User("Edu", "edu@gmail.com","12345678");
         userRepository.save(user2);
-        User user3 = new User("Karol","karil@gmail.com","12345678");
+        User user3 = new User("Karol","karol@gmail.com","12345678");
         userRepository.save(user3);
         User user4 = new User("Sebastian","sebastian@gmail.com","12345678");
         userRepository.save(user4);
