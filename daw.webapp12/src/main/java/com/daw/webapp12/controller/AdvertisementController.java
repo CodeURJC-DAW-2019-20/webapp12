@@ -20,7 +20,7 @@ public class AdvertisementController {
 	private AdvertisementService advertisementService;
 
 	@RequestMapping(value = "/properties")
-    public String favoritos(Model model) {
+    public String advertisements(Model model) {
 	 	model.addAttribute("advertisements", advertisementService.findAll());
         return "properties";
     }
