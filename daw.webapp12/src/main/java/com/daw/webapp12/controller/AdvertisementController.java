@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.service.AdvertisementService;
+import com.daw.webapp12.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AdvertisementController {
 
 	@Autowired
-	private AdvertisementService advertisementService;
+	AdvertisementService advertisementService;
 
 	@RequestMapping(value = "/properties")
-    public String favoritos(Model model) {
+    public String advertisements(Model model) {
 	 	model.addAttribute("advertisements", advertisementService.findAll());
         return "properties";
-    }
+	}
 
 }

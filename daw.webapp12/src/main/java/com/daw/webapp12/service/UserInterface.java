@@ -14,5 +14,7 @@ public interface UserInterface {
 
     public User findById(Long id);
 
+    public User findExample(String string);
+
 
 }

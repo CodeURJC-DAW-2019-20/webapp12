@@ -1,9 +1,10 @@
-package com.daw.webapp12;
-
-import com.daw.webapp12.entity.Advertisement;
+package com.daw.webapp12;import com.daw.webapp12.entity.Advertisement;
+import com.daw.webapp12.entity.Blog;
 import com.daw.webapp12.entity.Comment;
+import com.daw.webapp12.entity.Favorites;
 import com.daw.webapp12.entity.User;
 import com.daw.webapp12.repository.AdvertisementRepository;
+import com.daw.webapp12.repository.BlogRepository;
 import com.daw.webapp12.repository.CommentRepository;
 import com.daw.webapp12.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,16 @@ public class iniBBDD {
     AdvertisementRepository anuncioRepository;
     @Autowired
     CommentRepository commentRepository;
+    @Autowired
+    BlogRepository blogRepository;
 
     @PostConstruct
     public void init(){
 
-        User user1 = new User("Angel","angel@gmail.com","12345678");
-        userRepository.save(user1);
+        
         User user2 = new User("Edu", "edu@gmail.com","12345678");
         userRepository.save(user2);
-        User user3 = new User("Karol","karil@gmail.com","12345678");
+        User user3 = new User("Karol","karol@gmail.com","12345678");
         userRepository.save(user3);
         User user4 = new User("Sebastian","sebastian@gmail.com","12345678");
         userRepository.save(user4);
@@ -47,8 +49,17 @@ public class iniBBDD {
         Advertisement anun5 = new Advertisement("Local","Local",(Integer)1,(Integer)1,"78","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun5);
 
-        
+        User user1 = new User("Angel","angel@gmail.com","12345678");
+        user1.getMyFavourites().add(anun1);
+        user1.getMyFavourites().add(anun2);
+        user1.getMyFavourites().add(anun3);
+        userRepository.save(user1);
+           
 
+        Blog blog1 = new Blog("CALIDEZ Y CARÁCTER SE ENCUENTRAN FRENTE A FRENTE EN ESTA CASA", "Los propietarios ");//de esta casa unifamiliar en una población cercana a Barcelona —una pareja con hijos adolescentes— querían reformarla para adaptarla a los tiempos modernos. Solo querían un lavado de cara y que les ayudáramos a escoger mobiliario y textiles para modernizar la vivienda.");
+        blogRepository.save(blog1);
+
+        Blog blog2 = new Blog("TENDENCIAS EN COCINAS QUE TE VOLVERÁN CRAZY ESTE 2020", "VERDE NATURAL" );//La preocupación por la sostenibilidad ha hecho que los tonos verdes más naturales se cuelen en nuestras cocinas durante este 2020. ACENTOS TURQUESA Los tonos turquesa no solo aportan luminosidad a la cocina, sino también mucha frescura. Además, resaltan un montón con otros colores de base como el blanco, y siempre se ven muy limpios. Ideales para armarios y azulejos.");        
+        blogRepository.save(blog2);
     }
-
 }

@@ -17,6 +17,8 @@ public class Blog {
 
     private String text;
 
+    public Blog(){}
+
     public Blog(String title, String text) {
         this.title = title;
         this.text = text;

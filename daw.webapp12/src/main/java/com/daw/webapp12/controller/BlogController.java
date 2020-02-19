@@ -13,7 +13,7 @@ public class BlogController {
 	private BlogService blogService;
 
 	@RequestMapping(value = "/blog")
-    public String favoritos(Model model) {
+    public String blogs(Model model) {
 	 	model.addAttribute("blogs", blogService.findAll());
         return "blog";
     }
