@@ -13,10 +13,10 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value = "/properties-modificar")
+	@RequestMapping(value = "/properties")
     public String favAdvertisements(Model model) {
-	 	model.addAttribute("Favourites", userService.findExample("Angel"));
-        return "properties-modificar";
+	 	model.addAttribute("Favourites", userService.findExample("Angel").getMyFavourites());
+        return "properties";
     }
 
 }
