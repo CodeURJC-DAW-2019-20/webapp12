@@ -32,6 +32,7 @@ public class User {
         this.email = email;
         this.contraseña = contraseña;
         this.myFavourites = new ArrayList<Advertisement>();
+        this.mySearches = new ArrayList<Search>();
     }
 
     public void addFavourite(Advertisement advertisement){
