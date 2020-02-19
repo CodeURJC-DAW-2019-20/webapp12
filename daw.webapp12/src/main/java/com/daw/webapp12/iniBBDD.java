@@ -3,7 +3,6 @@ package com.daw.webapp12;
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Blog;
 import com.daw.webapp12.entity.Comment;
-import com.daw.webapp12.entity.Favorites;
 import com.daw.webapp12.entity.Search;
 import com.daw.webapp12.entity.User;
 import com.daw.webapp12.repository.AdvertisementRepository;
@@ -37,11 +36,18 @@ public class iniBBDD {
         userRepository.save(user3);
         User user4 = new User("Sebastian","sebastian@gmail.com","12345678");
         userRepository.save(user4);
-        User user5 = new User("Maria","maria@gmail.com","12345678");
-        userRepository.save(user5);
+        //User user5 = new User("Maria","maria@gmail.com","12345678");
+        //userRepository.save(user5);
         
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
         Advertisement anun1 = new Advertisement("Casa","Casa ",(Integer)4,(Integer)2,"120","Madrid","calle azul,2",(double)200000);
+        Comment coment1= new Comment("Hola, me ha encantado");
+        User user5 = new User("Maria","maria@gmail.com","12345678");
+        userRepository.save(user5);
+        coment1.setAuthor(user5);
+        commentRepository.save(coment1);
+
+        anun1.getComments().add(coment1);
         anuncioRepository.save(anun1);
         Advertisement anun2 = new Advertisement("Local","Local",(Integer)2,(Integer)1,"50","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun2);

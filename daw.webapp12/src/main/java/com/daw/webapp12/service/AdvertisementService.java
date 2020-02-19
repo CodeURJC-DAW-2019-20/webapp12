@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AdvertisementService {
+public class AdvertisementService implements AdvertisementInterface{
 
     @Autowired
     private AdvertisementRepository advertisementRepository;
@@ -17,4 +17,25 @@ public class AdvertisementService {
     public List<Advertisement> findAll(){
         return advertisementRepository.findAll();
     }
+
+    @Override
+    public List<Advertisement> findAdvertisement (String string) {
+        return advertisementRepository.findByLocation(string);
+    }
+
+    @Override
+    public Advertisement addAdvertisement(Advertisement advertisement) {
+        return advertisementRepository.save(advertisement);
+    }
+
+    @Override
+    public void deleteAdvertisement(Advertisement advertisement) {
+        advertisementRepository.delete(advertisement);
+    }
+
+    @Override
+    public Advertisement findById(Long id) {
+        return advertisementRepository.findById(id).orElse(null);
+    }
+
 }

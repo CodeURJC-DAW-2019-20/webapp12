@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -35,7 +34,7 @@ public class Advertisement
 
     private double price;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany
     private List<Comment> comments;
 
 
@@ -50,6 +49,7 @@ public class Advertisement
         this.location = location;
         this.address = address;
         this.price = price;
+        this.comments = new ArrayList<Comment>();
     }
 
     public long getId() {
