@@ -1,7 +1,6 @@
 package com.daw.webapp12.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -44,7 +43,7 @@ public class Blog {
         return text;
     }
 
-    public void setText(String email) {
+    public void setText(String text) {
         this.text = text;
     }
 }

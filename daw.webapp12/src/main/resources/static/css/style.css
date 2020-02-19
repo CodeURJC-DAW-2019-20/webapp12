@@ -466,6 +466,7 @@ pre {
   margin-left: auto; }
 
 .row {
+  margin: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -473,6 +474,16 @@ pre {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px; }
+
+.row .search-form{
+ 
+  background-color:rgba(255, 255, 255, 0.51);
+  border-radius: 20PX;
+}
+.filter{
+  padding-left: 10px;
+}
+
 
 .no-gutters {
   margin-right: 0;
@@ -8314,6 +8325,9 @@ h1, h2, h3, h4, h5,
 .search-location .form-group {
   position: relative; }
   .search-location .form-group .form-field .form-control {
+
+    background: #fde8f885;
+    height: 300px;
     border: none;
     height: 70px !important;
     -webkit-border-radius: 40px;
@@ -8329,13 +8343,13 @@ h1, h2, h3, h4, h5,
     background: transparent;
     border: none;
     position: absolute;
-    top: 50%;
+    top: 80.35%;
     right: 0;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 70px;
-    height: 70px;
+    height: 71px;
     border-radius: 0 50% 50% 50%;
     background: #e86ed0; }
     .search-location .form-group button span {
@@ -9941,6 +9955,7 @@ textarea.form-control {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
+
 
 @-webkit-keyframes loader-rotate {
   100% {

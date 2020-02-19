@@ -1,8 +1,6 @@
 package com.daw.webapp12.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "comment")
@@ -13,7 +11,7 @@ public class Comment {
 
 
     //@NotNull
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne
     private User author;
 
 

@@ -1,9 +1,5 @@
 package com.daw.webapp12.controller;
 
-import java.util.List;
-
-import com.daw.webapp12.entity.Advertisement;
-import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
