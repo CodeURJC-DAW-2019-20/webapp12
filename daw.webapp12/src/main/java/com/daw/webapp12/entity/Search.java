@@ -79,11 +79,11 @@ public class Search
         this.bathrooms = bathrooms;
     }
 
-    public String getsquareMeters() {
+    public int getsquareMeters() {
         return squareMeters;
     }
 
-    public void setsquareMeters(String squareMeters) {
+    public void setsquareMeters(int squareMeters) {
         this.squareMeters = squareMeters;
     }
 
