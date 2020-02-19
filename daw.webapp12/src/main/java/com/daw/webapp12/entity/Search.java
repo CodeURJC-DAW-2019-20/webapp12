@@ -1,17 +1,11 @@
-
-
 package com.daw.webapp12.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "advertisement")
-public class Advertisement
+@Table(name = "search")
+public class Search
  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +21,7 @@ public class Advertisement
 
     private Integer bathrooms;
 
-    private String  squareMeters;
+    private int squareMeters;
 
     private String location;
 
@@ -35,20 +29,13 @@ public class Advertisement
 
     private double price;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    private List<Comment> comments;
+    public Search(){}
 
-
-    public Advertisement(){}
-
-    public Advertisement(String type, String property,  Integer rooms, Integer bathrooms, String squareMeters,  String location, String address, double price) {
-        this.type = type;
-        this.property = property;
+    public Search(Integer rooms, Integer bathrooms, int squareMeters,  String location, double price) {
         this.rooms = rooms;
         this.bathrooms = bathrooms;
         this.squareMeters = squareMeters;
         this.location = location;
-        this.address = address;
         this.price = price;
     }
 
@@ -71,14 +58,6 @@ public class Advertisement
     public String getproperty() {
         return property;
     }
-    public void setComment(Comment comment) {
-        this.comments.add(comment);
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
 
     public void setproperty(String property) {
         this.property = property;

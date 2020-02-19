@@ -1,7 +1,10 @@
-package com.daw.webapp12;import com.daw.webapp12.entity.Advertisement;
+package com.daw.webapp12;
+
+import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Blog;
 import com.daw.webapp12.entity.Comment;
 import com.daw.webapp12.entity.Favorites;
+import com.daw.webapp12.entity.Search;
 import com.daw.webapp12.entity.User;
 import com.daw.webapp12.repository.AdvertisementRepository;
 import com.daw.webapp12.repository.BlogRepository;
@@ -49,10 +52,27 @@ public class iniBBDD {
         Advertisement anun5 = new Advertisement("Local","Local",(Integer)1,(Integer)1,"78","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun5);
 
+        Search search1 = new Search((Integer)2,(Integer)1,60,"Madrid",(double)800);
+        Search search2 = new Search((Integer)3,(Integer)2,80,"Mostoles",(double)1000);
+        Search search3 = new Search((Integer)1,(Integer)1,40,"Mostoles",(double)750);
+        Search search4 = new Search((Integer)4,(Integer)3,100,"Mostoles",(double)1200);
+        Search search5 = new Search((Integer)2,(Integer)2,70,"Madrid",(double)900);
+        Search search6 = new Search((Integer)2,(Integer)1,55,"Fuenlabrada",(double)700);
+
+
         User user1 = new User("Angel","angel@gmail.com","12345678");
         user1.getMyFavourites().add(anun1);
         user1.getMyFavourites().add(anun2);
         user1.getMyFavourites().add(anun3);
+
+        user1.getMySearches().add(search1);
+        user1.getMySearches().add(search2);
+        user1.getMySearches().add(search3);
+        user1.getMySearches().add(search4);
+        user1.getMySearches().add(search5);
+        user1.getMySearches().add(search6);
+
+
         userRepository.save(user1);
            
 

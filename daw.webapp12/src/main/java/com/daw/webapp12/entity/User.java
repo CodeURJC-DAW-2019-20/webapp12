@@ -26,6 +26,9 @@ public class User {
     @OneToMany
     private List<Advertisement> myFavourites;
 
+    @OneToMany
+    private List<Search> mySearches;
+
     public User(String nombre, String email,  String contraseña) {
         this.nombre = nombre;
         this.email = email;
@@ -79,5 +82,13 @@ public class User {
 
     public void setMyFavourites(List<Advertisement> list) {
         this.myFavourites = list;
+    }
+
+    public List<Search> getMySearches() {
+        return mySearches;
+    }
+
+    public void setMySearches(List<Search> list) {
+        this.mySearches = list;
     }
 }
