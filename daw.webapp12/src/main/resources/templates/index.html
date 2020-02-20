@@ -60,38 +60,44 @@
 	            <p style="font-size: 18px;">Introduce la zona deseada y disfruta de nuestro catálogo de viviendas</p>
 	            <form action="#" class="search-location mt-md-5">
 		        		<div class="row justify-content-center search-form">
-		        			<div class="col-lg-10 align-items-end">
+		        			<div class="col-lg-12 align-items-end">
 		        				<div class="form-group">
 		          				<div class="form-field">
 		          				<div class="row">
                         <a class="filter">Busqueda de:</a>
-                        <select class="type"> 
+                        <select class="selectInput"> 
                           <option value="renting">Alquiler</option>
                           <option value="buy">Compra</option>
                         </select>
                         <a class="filter">Tipo de propiedad:</a>
-                        <select class="property"> 
+                        <select class="selectInput"> 
                           <option value="house">Casa</option>
                           <option value="apartment">Apartamento</option>
                           <option value="local">Local</option>
                         </select>
-                        </div>
-                        <div class="row">
-                        <a class="filter"> Nº habitaciones:</a>
-                        <select class="rooms"> 
-                          <option value="1+">1 o más</option>
-                          <option value="2+">2 o más</option>
-                          <option value="3+">3 o más</option>
-                        </select>
-                        <a class="filter"> Nº baños:</a>
-
-                        <select class="bathrooms"> 
-                          <option value="1+">1 o más</option>
-                          <option value="2+">2 o más</option>
-                          <option value="3+">3 o más</option>
-                        </select>
+                        <label class="filter">Metros Cuadrados:</label>
+                        <input class="numberInput" type="number" min="10" max="250">
                       </div>
-				                <input type="text" class="form-control" placeholder="Introduce una zona">
+                        <div class="row">
+                        <a class="filter"> Número de habitaciones:</a>
+                        <select class="selectInput" > 
+                          <option value="1+">1 o más</option>
+                          <option value="2+">2 o más</option>
+                          <option value="3+">3 o más</option>
+                        </select>
+                        <a class="filter"> Número de baños:</a>
+
+                        <select class="selectInput"> 
+                          <option value="1+">1 o más</option>
+                          <option value="2+">2 o más</option>
+                          <option value="3+">3 o más</option>
+                        </select>
+                        
+                        <label class="filter" >Precio:</label>
+                        <input class="numberInput" type="number" min="10000" max="5000000">
+                        
+                      </div>
+				                <input type="text" class="form-control search" placeholder="Introduce una zona">
 				                <button><span class="ion-ios-search"></span></button>
 				              </div>
 			              </div>
