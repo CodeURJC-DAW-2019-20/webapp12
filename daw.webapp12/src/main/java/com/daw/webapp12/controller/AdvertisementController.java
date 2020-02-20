@@ -85,12 +85,5 @@ public class AdvertisementController {
         return "index";
 	}
 
-	@RequestMapping(value = "/properties")
-    public String favoritos(Model model) {
-	 	model.addAttribute("advertisements", advertisementService.findAll());
-        return "properties";
-    }
-
 	
-
 }

@@ -27,6 +27,8 @@ public class User {
     @OneToMany
     private List<Search> mySearches;
 
+    public User(){}
+
     public User(String nombre, String email,  String contraseña) {
         this.nombre = nombre;
         this.email = email;
