@@ -12,7 +12,6 @@ public class Search
     private long id;
 
 
-    @NotNull
     private String type;
 
     private String property;

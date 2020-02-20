@@ -24,7 +24,7 @@ public class User {
     @OneToMany
     private List<Advertisement> myFavourites;
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     private List<Search> mySearches;
 
     public User(){}

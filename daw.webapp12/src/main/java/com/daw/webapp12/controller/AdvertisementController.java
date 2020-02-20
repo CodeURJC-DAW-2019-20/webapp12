@@ -2,8 +2,11 @@ package com.daw.webapp12.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Search;
@@ -69,6 +72,7 @@ public class AdvertisementController {
 			//Para una compra
 			
 			scores.put(score, i);
+			score = 0;
 		}
 			//Ordenar por puntuacion
 			List<Integer> mapKeys = new ArrayList<>(scores.keySet());
@@ -79,11 +83,32 @@ public class AdvertisementController {
 			recommendeds.add(ads.get(scores.get(mapKeys.get(1))));
 			recommendeds.add(ads.get(scores.get(mapKeys.get(2))));
 		
+			HashMap<String, Integer> mostCommonLocations = new HashMap<String, Integer>();
+			for(int i = 0; i< ads.size();i++){
+				String auxLocation = ads.get(i).getlocalization();
+				if(mostCommonLocations.containsKey(auxLocation)){
+					int value = mostCommonLocations.get(auxLocation);
+					mostCommonLocations.replace(auxLocation,value+1);
+				}else{
+					mostCommonLocations.put(auxLocation, 1);
+				}
+			}
 
+			List<Map.Entry<String, Integer> > list = 
+			new LinkedList<Map.Entry<String, Integer> >(mostCommonLocations.entrySet()); 
 
+	 Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() { 
+		 public int compare(Map.Entry<String, Integer> o1,  
+							Map.Entry<String, Integer> o2) 
+		 { 
+			 return (o1.getValue()).compareTo(o2.getValue());
+		 } 
+	 }); 
+	   for(int i = 3;i<list.size();i++){
+		list.remove(i);
+	   }
+	   	model.addAttribute("graphValues", list);
 	 	model.addAttribute("recommendedAds", recommendeds);
         return "index";
 	}
-
-	
 }
