@@ -482,6 +482,7 @@ pre {
 }
 .filter{
   padding-left: 10px;
+  color:black !important;
 }
 
 
@@ -8343,7 +8344,7 @@ h1, h2, h3, h4, h5,
     background: transparent;
     border: none;
     position: absolute;
-    top: 80.35%;
+    top: 82%;
     right: 0;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -8715,10 +8716,18 @@ h1, h2, h3, h4, h5,
     color: #000000; }
 
 .property-details .img {
-  width: 100%;
-  height: 600px;
+  width: 30%;
+  height: 350px;
+  margin-left: 30px;
   margin-bottom: 40px; }
-
+.numberInput{
+  padding-right: 0;
+  height: 80%;
+  /* width: 10%; */
+}
+.selectInput{
+  height: 80%;
+}
 .property-details span.subheading {
   font-size: 12px;
   text-transform: uppercase;
@@ -9748,7 +9757,7 @@ textarea.form-control {
   padding: 10px; }
   .search-form .form-group {
     position: relative; }
-    .search-form .form-group input {
+    .search-form .form-group .search {
       padding-right: 50px;
       font-size: 14px; }
   .search-form .icon {

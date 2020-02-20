@@ -16,6 +16,7 @@ import com.daw.webapp12.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -111,4 +112,11 @@ public class AdvertisementController {
 	 	model.addAttribute("recommendedAds", recommendeds);
         return "index";
 	}
+
+	@RequestMapping(value = "/properties/{id}")
+    public String favAdvertisements(Model model, @PathVariable  long id) {
+	 	model.addAttribute("Property", advertisementService.findById(id));
+        return "properties-single";
+    }
+	
 }
