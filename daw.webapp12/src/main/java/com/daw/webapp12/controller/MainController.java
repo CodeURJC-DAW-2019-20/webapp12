@@ -19,7 +19,7 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
     public String signup(){
         return "signUp";
     }
