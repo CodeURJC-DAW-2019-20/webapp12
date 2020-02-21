@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AdvertisementController {
@@ -117,6 +118,12 @@ public class AdvertisementController {
     public String favAdvertisements(Model model, @PathVariable  long id) {
 	 	model.addAttribute("Property", advertisementService.findById(id));
         return "properties-single";
+	}
+	@RequestMapping(value = "/search")
+	public String searchAdvertisement(Model model , @RequestParam  String location , @RequestParam int price, @RequestParam(value="searchType")  String searchType,@RequestParam(value="propertyType") String propertyType,
+													@RequestParam  int squareMeters, @RequestParam(value="rooms")  int rooms, @RequestParam(value="bathrooms")  int bathrooms) {
+	 	model.addAttribute("Property", advertisementService.findByLocation(location));
+        return "properties-search";
     }
 	
 }

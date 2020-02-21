@@ -53,15 +53,8 @@
                   <option value="6">6</option>
                 </select>
                 <h3 class="botonDesp1">Metros cuadrados:</h3>
-                <select class="botonDesp" name="cars"> 
-                  <option value="1">de 45 a 103</option>
-                  <option value="2">103 a 147</option>
-                  <option value="3">147 a 191</option>
-                  <option value="4">191 a 234</option>
-                  <option value="5">234 a 278</option>
-                  <option value="6">278 a 328</option>
-                  <option value="7">328 a 638</option>
-                </select>
+               
+                <input class="numberInput" type="number" min="15" max="800">
              
                   <h3 class="botonDesp1">Localización:</h3>
                   <input class="botonDesp" list="browsers" name="browser">
@@ -125,18 +118,13 @@
                     <option value="Madrid Capital">
                     <option value="Sierra de Madrid">
                   </datalist>
-            
-               
+                  <h3 class="botonDesp1">Introduzca el precio del anuncio:</h3>
+                  <input class="numberInput" type="number" min="100" max="2000000">               
                   <h3 class="botonDesp2">Introduzca la dirección:</h3><br><br><br>
-                  <input name="Precio" type="text">
-                  <br>
+                  <input name="addreess" type="text">
+                  <br>                  
                 </form>
-              <form action="#" class="bg-light p-5 contact-form">
-                
-                
-                  
-                  <h3 class="botonDesp2">Introduzca el precio del anuncio:</h3><br><br><br>
-                  <input name="Precio" type="text">
+              <form action="#" class="bg-light p-5 contact-form">              
                   <br>
                   <br>
                   <br>
@@ -145,18 +133,13 @@
                   <br>
                   <input name="Precio" type="text">
                   <h3 class="botonDesp2">Introduzca las coordenadas de latitud:</h3><br><br><br>
-                  <input name="Precio" type="text">
-                  
+                  <input name="latitud" type="text">                  
+                  <br>
+                  <br>                                                         
                   <br>
                   <br>
-              
-            
-               
-                
-                <br>
-                <br>
                 <div class="form-group">
-                  <textarea name="descripcion" id="" cols="30" rows="7" class="form-control" placeholder="Descripción del anuncio"></textarea>
+                  <input type="text" name="descripcion" id="" cols="30" rows="7" class="bigInput" placeholder="Descripción del anuncio"></textarea>
                 </div>
                 <br>
                 <div class="form-group">

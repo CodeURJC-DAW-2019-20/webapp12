@@ -14,7 +14,7 @@ public interface AdvertisementInterface {
 
     public Advertisement findById(Long id);
 
-    public List<Advertisement> findAdvertisement(String string);
+    public List<Advertisement> findByLocation(String string);
 
 
 }

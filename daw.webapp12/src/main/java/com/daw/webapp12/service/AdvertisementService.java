@@ -19,11 +19,6 @@ public class AdvertisementService implements AdvertisementInterface{
     }
 
     @Override
-    public List<Advertisement> findAdvertisement (String string) {
-        return advertisementRepository.findByLocation(string);
-    }
-
-    @Override
     public Advertisement addAdvertisement(Advertisement advertisement) {
         return advertisementRepository.save(advertisement);
     }
@@ -36,6 +31,10 @@ public class AdvertisementService implements AdvertisementInterface{
     @Override
     public Advertisement findById(Long id) {
         return advertisementRepository.findById(id).orElse(null);
+    }
+    @Override
+    public List<Advertisement> findByLocation(String location) {
+        return advertisementRepository.findByLocation(location);
     }
 
 }

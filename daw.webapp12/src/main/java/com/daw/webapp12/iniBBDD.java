@@ -40,7 +40,7 @@ public class iniBBDD {
         //userRepository.save(user5);
         
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
-        Advertisement anun1 = new Advertisement("Casa","Casa ",(Integer)4,(Integer)2,"120","Madrid","calle azul,2",(double)200000);
+        Advertisement anun1 = new Advertisement("Alquiler","Casa ",(Integer)4,(Integer)2,"120","Madrid","calle azul,2",(double)200000);
         Comment coment1= new Comment("Hola, me ha encantado");
         User user5 = new User("Maria","maria@gmail.com","12345678");
         userRepository.save(user5);
@@ -49,13 +49,13 @@ public class iniBBDD {
 
         anun1.getComments().add(coment1);
         anuncioRepository.save(anun1);
-        Advertisement anun2 = new Advertisement("Local","Local",(Integer)2,(Integer)1,"50","Madrid","calle verde,3",(double)12000);
+        Advertisement anun2 = new Advertisement("Compra","Local",(Integer)2,(Integer)1,"50","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun2);
-        Advertisement anun3 = new Advertisement("Piso","Piso",(Integer)3,(Integer)1,"90","Pontevedra","calle carlos v,4,2 C",(double)80000);
+        Advertisement anun3 = new Advertisement("Alquiler","Piso",(Integer)3,(Integer)1,"90","Pontevedra","calle carlos v,4,2 C",(double)80000);
         anuncioRepository.save(anun3);
-        Advertisement anun4 = new Advertisement("Casa","Casa",(Integer)2,(Integer)1,"56","Madrid","calle verde,3",(double)78990);
+        Advertisement anun4 = new Advertisement("Compra","Casa",(Integer)2,(Integer)1,"56","Madrid","calle verde,3",(double)78990);
         anuncioRepository.save(anun4);
-        Advertisement anun5 = new Advertisement("Local","Local",(Integer)1,(Integer)1,"78","Madrid","calle verde,3",(double)12000);
+        Advertisement anun5 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,"78","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun5);
 
         Search search1 = new Search((Integer)2,(Integer)1,60,"Madrid",(double)800);
