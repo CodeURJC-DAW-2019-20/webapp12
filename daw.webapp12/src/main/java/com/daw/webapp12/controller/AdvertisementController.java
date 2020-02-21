@@ -119,11 +119,32 @@ public class AdvertisementController {
 	 	model.addAttribute("Property", advertisementService.findById(id));
         return "properties-single";
 	}
+	private List<Advertisement> filters(List<Advertisement> result, int price, int squareMeters, int rooms,
+										int bathrooms, String searchType, String propertyType) {
+		List <Advertisement> search = new ArrayList<>();
+		for (Advertisement advertisement : result) {
+			if(advertisement.getbathrooms()>= bathrooms &&advertisement.getrooms()>=rooms
+				&&advertisement.gettype().equals(searchType)&&advertisement.getproperty().equals(propertyType)
+				&&advertisement.getsquareMeters() >= squareMeters&&advertisement.getprice() <= price)
+				search.add(advertisement);	
+		}
+		return search;	
+	
+	}
 	@RequestMapping(value = "/search")
 	public String searchAdvertisement(Model model , @RequestParam  String location , @RequestParam int price, @RequestParam(value="searchType")  String searchType,@RequestParam(value="propertyType") String propertyType,
 													@RequestParam  int squareMeters, @RequestParam(value="rooms")  int rooms, @RequestParam(value="bathrooms")  int bathrooms) {
-	 	model.addAttribute("Property", advertisementService.findByLocation(location));
+		List<Advertisement> result= advertisementService.findByLocation(location);
+		List<Advertisement> aux= result;
+		aux= filters(aux, price,squareMeters,rooms,bathrooms,searchType,propertyType);
+		if(aux.size()!=0){
+			model.addAttribute("Property",aux);
+		}else{
+			model.addAttribute("Error", "No hay resultados.");
+		}
         return "properties-search";
     }
+
+	
 	
 }
