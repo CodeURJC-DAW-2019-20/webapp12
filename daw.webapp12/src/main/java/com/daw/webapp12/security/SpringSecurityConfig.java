@@ -33,8 +33,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests().antMatchers("/MainPage").hasAnyRole("USER","ADMIN");
-        http.authorizeRequests().antMatchers("/").hasAnyRole("USER","ADMIN");
+        http.authorizeRequests().antMatchers("/MainPage").permitAll();
+        http.authorizeRequests().antMatchers("/").permitAll();
+
+        http.authorizeRequests().antMatchers("/property-upload").hasAnyRole("USER", "ADMIN");
 
         http.formLogin().loginPage("/login").permitAll();
         http.logout().permitAll();
