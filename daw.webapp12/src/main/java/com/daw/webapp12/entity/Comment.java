@@ -12,7 +12,7 @@ public class Comment {
 
     //@NotNull
     @OneToOne
-    private User author;
+    private Users author;
 
 
     private String message;
@@ -31,11 +31,11 @@ public class Comment {
         this.id = id;
     }
 
-    public User getAuthor() {
+    public Users getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(Users author) {
         this.author = author;
     }
 

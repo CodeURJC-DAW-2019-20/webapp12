@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AdvertisementController {
@@ -117,6 +118,33 @@ public class AdvertisementController {
     public String favAdvertisements(Model model, @PathVariable  long id) {
 	 	model.addAttribute("Property", advertisementService.findById(id));
         return "properties-single";
+	}
+	private List<Advertisement> filters(List<Advertisement> result, int price, int squareMeters, int rooms,
+										int bathrooms, String searchType, String propertyType) {
+		List <Advertisement> search = new ArrayList<>();
+		for (Advertisement advertisement : result) {
+			if(advertisement.getbathrooms()>= bathrooms &&advertisement.getrooms()>=rooms
+				&&advertisement.gettype().equals(searchType)&&advertisement.getproperty().equals(propertyType)
+				&&advertisement.getsquareMeters() >= squareMeters&&advertisement.getprice() <= price)
+				search.add(advertisement);	
+		}
+		return search;	
+	
+	}
+	@RequestMapping(value = "/search")
+	public String searchAdvertisement(Model model , @RequestParam  String location , @RequestParam int price, @RequestParam(value="searchType")  String searchType,@RequestParam(value="propertyType") String propertyType,
+													@RequestParam  int squareMeters, @RequestParam(value="rooms")  int rooms, @RequestParam(value="bathrooms")  int bathrooms) {
+		List<Advertisement> result= advertisementService.findByLocation(location);
+		List<Advertisement> aux= result;
+		aux= filters(aux, price,squareMeters,rooms,bathrooms,searchType,propertyType);
+		if(aux.size()!=0){
+			model.addAttribute("Property",aux);
+		}else{
+			model.addAttribute("Error", "No hay resultados.");
+		}
+        return "properties-search";
     }
+
+	
 	
 }

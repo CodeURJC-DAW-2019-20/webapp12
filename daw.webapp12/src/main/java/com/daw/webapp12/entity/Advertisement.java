@@ -26,7 +26,7 @@ public class Advertisement
 
     private Integer bathrooms;
 
-    private String  squareMeters;
+    private int  squareMeters;
 
     private String location;
 
@@ -40,7 +40,7 @@ public class Advertisement
 
     public Advertisement(){}
 
-    public Advertisement(String type, String property,  Integer rooms, Integer bathrooms, String squareMeters,  String location, String address, double price) {
+    public Advertisement(String type, String property,  Integer rooms, Integer bathrooms, int squareMeters,  String location, String address, double price) {
         this.type = type;
         this.property = property;
         this.rooms = rooms;
@@ -100,11 +100,11 @@ public class Advertisement
         this.bathrooms = bathrooms;
     }
 
-    public String getsquareMeters() {
+    public int getsquareMeters() {
         return squareMeters;
     }
 
-    public void setsquareMeters(String squareMeters) {
+    public void setsquareMeters(int squareMeters) {
         this.squareMeters = squareMeters;
     }
 

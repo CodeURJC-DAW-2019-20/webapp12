@@ -1,20 +1,20 @@
 package com.daw.webapp12.service;
 
-import com.daw.webapp12.entity.User;
+import com.daw.webapp12.entity.Users;
 
 import java.util.List;
 
 public interface UserInterface {
 
-    public List<User> findAll();
+    public List<Users> findAll();
 
-    public User addCliente (User user);
+    public Users addCliente (Users users);
 
-    public void deleteUsuario (User user);
+    public void deleteUsuario (Users users);
 
-    public User findById(Long id);
+    public Users findById(Long id);
 
-    public User findExample(String string);
+    public Users findExample(String string);
 
 
 }

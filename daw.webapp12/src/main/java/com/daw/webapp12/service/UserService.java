@@ -1,40 +1,41 @@
 package com.daw.webapp12.service;
 
-import com.daw.webapp12.entity.User;
+import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class UserService implements UserInterface {
 
     @Autowired
     private UserRepository userRepository;
     
     @Override
-    public List<User> findAll() {
+    public List<Users> findAll() {
         return  userRepository.findAll();
     }
 
     @Override
-    public User findExample(String string) {
+    public Users findExample(String string) {
         return userRepository.findByNombre(string);
     }
 
     @Override
-    public User addCliente(User user) {
-        return userRepository.save(user);
+    public Users addCliente(Users users) {
+        return userRepository.save(users);
     }
 
     @Override
-    public void deleteUsuario(User user) {
-        userRepository.delete(user);
+    public void deleteUsuario(Users users) {
+        userRepository.delete(users);
     }
 
     @Override
-    public User findById(Long id) {
+    public Users findById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
+
 }

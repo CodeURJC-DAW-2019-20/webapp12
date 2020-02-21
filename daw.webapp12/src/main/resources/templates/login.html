@@ -17,11 +17,12 @@
         <div id="formContent">
 
           <!-- Login Form -->
-          <form>
+          <form action="/login" method="post">
             <h3>Sign In</h3>
             
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email address or Username">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+            <input type="text" id="username" class="fadeIn second" name="username" placeholder="Email address or Username">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+              <input type="hidden" name="_csrf" value="{{token}}"/>
             <input type="submit" class="fadeIn fourth" value="Log In">
             
           </form>
