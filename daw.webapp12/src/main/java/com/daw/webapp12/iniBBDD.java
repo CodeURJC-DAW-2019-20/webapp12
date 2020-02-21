@@ -53,10 +53,18 @@ public class iniBBDD {
         anuncioRepository.save(anun2);
         Advertisement anun3 = new Advertisement("Piso","Piso",(Integer)3,(Integer)1,"90","Pontevedra","calle carlos v,4,2 C",(double)80000);
         anuncioRepository.save(anun3);
-        Advertisement anun4 = new Advertisement("Casa","Casa",(Integer)2,(Integer)1,"56","Madrid","calle verde,3",(double)78990);
+        Advertisement anun4 = new Advertisement("Casa","Casa",(Integer)2,(Integer)1,"56","Valencia","calle verde,3",(double)78990);
         anuncioRepository.save(anun4);
         Advertisement anun5 = new Advertisement("Local","Local",(Integer)1,(Integer)1,"78","Madrid","calle verde,3",(double)12000);
         anuncioRepository.save(anun5);
+        Advertisement anun6 = new Advertisement("Local","Local",(Integer)4,(Integer)2,"78","Mostoles","calle verde,3",(double)1400);
+        anuncioRepository.save(anun6);
+        Advertisement anun7 = new Advertisement("Local","Local",(Integer)3,(Integer)1,"78","Mostoles","calle verde,3",(double)1200);
+        anuncioRepository.save(anun7);
+        Advertisement anun8 = new Advertisement("Local","Local",(Integer)1,(Integer)1,"78","Mostoles","calle verde,3",(double)1000);
+        anuncioRepository.save(anun8);
+        Advertisement anun9 = new Advertisement("Local","Local",(Integer)3,(Integer)1,"78","Ciudad Real","calle verde,3",(double)650);
+        anuncioRepository.save(anun9);
 
         Search search1 = new Search((Integer)2,(Integer)1,60,"Madrid",(double)800);
         Search search2 = new Search((Integer)3,(Integer)2,80,"Mostoles",(double)1000);

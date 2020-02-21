@@ -1,4 +1,14 @@
 $(document).ready(function(){
+	
+	var strings = [];
+	var i;
+	
+	for (i=0;i<10;i++){
+		strings[i] = $("#invisible1")[0].children[i].id;
+	}
+	var dataPoints = [{ label: strings[0], y: parseInt(strings[1]) },{ label: strings[2], y: parseInt(strings[3]) },
+	{ label: strings[4], y: parseInt(strings[5]) },{ label: strings[6], y: parseInt(strings[7]) },
+	{ label: strings[8], y: parseInt(strings[9]) }];
   
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
@@ -12,26 +22,17 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		//indexLabel: "{y}", //Shows y value on all Data Points
 		indexLabelFontColor: "#5A5757",
 		indexLabelPlacement: "outside",
-		dataPoints: [
-			{ label: "Enero", y: 71 },
-			{ label: "Febrero", y: 55 },
-			{ label: "Marzo", y: 50 },
-			{ label: "Abril", y: 65 },
-			{ label: "Mayo", y: 92},
-			{ label: "Junio", y: 68 },
-			{ label: "Julio", y: 38 },
-			{ label: "Agosto", y: 71 },
-			{ label: "Septiembre", y: 54 },
-			{ label: "Octubre", y: 60 },
-			{ label: "Noviembre", y: 36 },
-			{ label: "Diciembre", y: 49 }
-		]
+		dataPoints: dataPoints
 	}]
 });
 chart.render();
-});
-    
 
-$("#submitAdvertisementButton").click(function(){
+
 
 });
+
+function updateGraph(){
+	
+}
+
+

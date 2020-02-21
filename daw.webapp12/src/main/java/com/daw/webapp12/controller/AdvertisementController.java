@@ -102,10 +102,10 @@ public class AdvertisementController {
 		 public int compare(Map.Entry<String, Integer> o1,  
 							Map.Entry<String, Integer> o2) 
 		 { 
-			 return (o1.getValue()).compareTo(o2.getValue());
+			 return (o2.getValue()).compareTo(o1.getValue());
 		 } 
 	 }); 
-	   for(int i = 3;i<list.size();i++){
+	   for(int i = 5;i<list.size();i++){
 		list.remove(i);
 	   }
 	   	model.addAttribute("graphValues", list);
