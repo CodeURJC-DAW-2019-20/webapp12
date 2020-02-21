@@ -12,7 +12,7 @@ public class Favorites {
 
     //@NotNull
     @OneToOne(cascade=CascadeType.ALL)
-    private User user;
+    private Users users;
     @OneToOne(cascade=CascadeType.ALL)
     private Advertisement advertisement;
     public Favorites() {}
@@ -25,12 +25,12 @@ public class Favorites {
          this.id = id;
      }
  
-     public User getUser() {
-         return user;
+     public Users getUsers() {
+         return users;
      }
  
-     public void setUser(User user) {
-         this.user = user;
+     public void setUsers(Users users) {
+         this.users = users;
      }
      public Advertisement getAdvertisement() {
          return advertisement;

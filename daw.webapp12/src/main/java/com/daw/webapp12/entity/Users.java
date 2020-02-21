@@ -3,12 +3,13 @@ package com.daw.webapp12.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "usuarios")
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,16 +21,16 @@ public class User {
     private String email;
 
     private String contraseña;
-    
+
     @OneToMany
     private List<Advertisement> myFavourites;
 
     @OneToMany(cascade=CascadeType.ALL)
     private List<Search> mySearches;
 
-    public User(){}
+    public Users(){}
 
-    public User(String nombre, String email,  String contraseña) {
+    public Users(String nombre, String email, String contraseña) {
         this.nombre = nombre;
         this.email = email;
         this.contraseña = contraseña;
