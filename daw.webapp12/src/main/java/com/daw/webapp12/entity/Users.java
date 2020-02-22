@@ -1,14 +1,16 @@
 package com.daw.webapp12.entity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
-@Table(name = "usuarios")
+@Table(name = "users")
 public class Users {
 
     @Id
@@ -16,11 +18,14 @@ public class Users {
     private long id;
 
     @NotNull
-    private String nombre;
+    private String name;
 
     private String email;
 
-    private String contraseña;
+    private String password;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
 
     @OneToMany
     private List<Advertisement> myFavourites;
@@ -30,10 +35,11 @@ public class Users {
 
     public Users(){}
 
-    public Users(String nombre, String email, String contraseña) {
-        this.nombre = nombre;
+    public Users(String name, String email, String password,String... roles) {
+        this.name = name;
         this.email = email;
-        this.contraseña = contraseña;
+        this.password = new BCryptPasswordEncoder().encode(password);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
         this.myFavourites = new ArrayList<Advertisement>();
         this.mySearches = new ArrayList<Search>();
     }
@@ -58,12 +64,12 @@ public class Users {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -74,12 +80,19 @@ public class Users {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Advertisement> getMyFavourites() {

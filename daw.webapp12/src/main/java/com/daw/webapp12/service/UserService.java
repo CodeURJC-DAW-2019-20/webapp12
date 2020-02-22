@@ -20,7 +20,7 @@ public class UserService implements UserInterface {
 
     @Override
     public Users findExample(String string) {
-        return userRepository.findByNombre(string);
+        return userRepository.findByName(string);
     }
 
     @Override
