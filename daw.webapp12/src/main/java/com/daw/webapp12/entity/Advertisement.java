@@ -26,13 +26,18 @@ public class Advertisement
 
     private Integer bathrooms;
 
-    private int  squareMeters;
+    private Integer  squareMeters;
 
     private String location;
 
     private String address;
 
     private double price;
+
+    /*
+    @ElementCollection
+    private List<String> images = new ArrayList<>(5);*/
+    private String images;
 
     @OneToMany
     private List<Comment> comments;
@@ -51,6 +56,19 @@ public class Advertisement
         this.price = price;
         this.comments = new ArrayList<Comment>();
     }
+
+     public Advertisement(String type, String property,  Integer rooms, Integer bathrooms, int squareMeters,  String location, String address, double price, String images) {
+         this.type = type;
+         this.property = property;
+         this.rooms = rooms;
+         this.bathrooms = bathrooms;
+         this.squareMeters = squareMeters;
+         this.location = location;
+         this.address = address;
+         this.price = price;
+         this.images = images;
+         this.comments = new ArrayList<Comment>();
+     }
 
     public long getId() {
         return id;
@@ -131,4 +149,8 @@ public class Advertisement
     public void setprice(double price) {
         this.price = price;
     }
+
+    public String getImages(){ return images;}
+
+    public void setImages(String images){this.images = images;}
 }

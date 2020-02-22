@@ -38,6 +38,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers("/property-upload").hasAnyRole("USER", "ADMIN");
 
+
         http.formLogin().loginPage("/login").permitAll();
         http.logout().permitAll();
 
