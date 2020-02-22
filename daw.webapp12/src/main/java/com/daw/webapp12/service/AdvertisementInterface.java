@@ -10,7 +10,7 @@ public interface AdvertisementInterface {
 
     public Advertisement addAdvertisement (Advertisement advertisement);
 
-    public void deleteAdvertisement (Advertisement advertisement);
+    public void deleteAdvertisement (Long id);
 
     public Advertisement findById(Long id);
 

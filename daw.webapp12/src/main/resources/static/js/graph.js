@@ -31,8 +31,4 @@ chart.render();
 
 });
 
-function updateGraph(){
-	
-}
-
 

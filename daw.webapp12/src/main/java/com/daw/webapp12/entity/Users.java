@@ -42,8 +42,12 @@ public class Users {
         this.myFavourites.add(advertisement);
     }
 
-    public void deleteFavourite(Advertisement advertisement){
-        this.myFavourites.remove(advertisement);
+    public void deleteFavourite(Long id){
+        for(int i=0;i<myFavourites.size();i++){
+            if(myFavourites.get(i).getId()==id){
+                myFavourites.remove(i);
+            }
+        }
     }
 
     public long getId() {

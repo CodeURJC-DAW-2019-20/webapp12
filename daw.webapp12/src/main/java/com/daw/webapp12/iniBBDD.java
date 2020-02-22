@@ -58,7 +58,7 @@ public class iniBBDD {
         anuncioRepository.save(anun6);
         Advertisement anun7 = new Advertisement("Local","Local",(Integer)3,(Integer)1,78,"Mostoles","calle verde,3",(double)1200);
         anuncioRepository.save(anun7);
-        Advertisement anun8 = new Advertisement("Local","Local",(Integer)1,(Integer)1,78,"Mostoles","calle verde,3",(double)1000);
+        Advertisement anun8 = new Advertisement("Local","Local",(Integer)1,(Integer)1,78,"Valencia","calle verde,3",(double)1000);
         anuncioRepository.save(anun8);
         Advertisement anun9 = new Advertisement("Local","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
         anuncioRepository.save(anun9);

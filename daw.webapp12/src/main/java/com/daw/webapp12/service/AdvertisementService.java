@@ -24,8 +24,8 @@ public class AdvertisementService implements AdvertisementInterface{
     }
 
     @Override
-    public void deleteAdvertisement(Advertisement advertisement) {
-        advertisementRepository.delete(advertisement);
+    public void deleteAdvertisement(Long id) {
+        advertisementRepository.deleteById(id);
     }
 
     @Override
@@ -36,5 +36,6 @@ public class AdvertisementService implements AdvertisementInterface{
     public List<Advertisement> findByLocation(String location) {
         return advertisementRepository.findByLocation(location);
     }
+
 
 }
