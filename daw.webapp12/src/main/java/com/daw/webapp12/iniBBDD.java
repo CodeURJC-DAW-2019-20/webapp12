@@ -27,11 +27,11 @@ public class iniBBDD {
     public void init(){
 
         
-        Users users2 = new Users("Edu", "edu@gmail.com","12345678");
+        Users users2 = new Users("Edu", "edu@gmail.com","12345678","ROLE_USER");
         userRepository.save(users2);
-        Users users3 = new Users("Karol","karol@gmail.com","12345678");
+        Users users3 = new Users("Karol","karol@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users3);
-        Users users4 = new Users("Sebastian","sebastian@gmail.com","12345678");
+        Users users4 = new Users("Sebastian","sebastian@gmail.com","12345678","ROLE_USER");
         userRepository.save(users4);
         //Users users5 = new Users("Maria","maria@gmail.com","12345678");
         //userRepository.save(users5);
@@ -39,7 +39,7 @@ public class iniBBDD {
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
         Advertisement anun1 = new Advertisement("Alquiler","Casa ",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000, "");
         Comment coment1= new Comment("Hola, me ha encantado");
-        Users users5 = new Users("Maria","maria@gmail.com","12345678");
+        Users users5 = new Users("Maria","maria@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users5);
         coment1.setAuthor(users5);
         commentRepository.save(coment1);
@@ -71,7 +71,7 @@ public class iniBBDD {
         Search search6 = new Search((Integer)2,(Integer)1,55,"Fuenlabrada",(double)700);
 
 
-        Users users1 = new Users("Angel","angel@gmail.com","12345678");
+        Users users1 = new Users("Angel","angel@gmail.com","12345678","ROLE_ADMIN");
         users1.getMyFavourites().add(anun1);
         users1.getMyFavourites().add(anun2);
         users1.getMyFavourites().add(anun3);

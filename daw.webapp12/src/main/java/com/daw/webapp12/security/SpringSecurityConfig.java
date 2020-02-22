@@ -3,6 +3,7 @@ package com.daw.webapp12.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,6 +22,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
     @Autowired
+    public UserRepositoryAuthenticationProvider authenticationProvider;
+    
+    
+
+    @Autowired
     public void configurerGlobal (AuthenticationManagerBuilder builder) throws Exception{
 
         PasswordEncoder encoder = passwordEncoder();
@@ -32,16 +38,28 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        //users 
         http.authorizeRequests().antMatchers("/MainPage").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET,"/login").permitAll();
 
+        //only admin & register users
         http.authorizeRequests().antMatchers("/property-upload").hasAnyRole("USER", "ADMIN");
-
+        
 
         http.formLogin().loginPage("/login").permitAll();
+        http.formLogin().usernameParameter("username");
+        http.formLogin().passwordParameter("password");
+        http.formLogin().defaultSuccessUrl("/MainPage");
+        http.formLogin().failureUrl("/loginError");
         http.logout().permitAll();
 
+    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+    throws Exception {
+        // Database authentication provider
+        auth.authenticationProvider(authenticationProvider);
     }
 }
 
