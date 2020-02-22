@@ -1,155 +1,164 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>property upload page</title>
-        <link rel="stylesheet" href="css/login.css">
-        <link rel="stylesheet" href="css/propertyUpload.css">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <!-- <link rel="stylesheet" href="css/style.css"> -->
-    </head>
-    <style>
-        body{
-            background-size: cover; 
-        }
-    </style>
-    <body class="myBody">
-      <div class="myContainer">
-              
-            <div class="col-md-8 mb-md-5 d-flex align-middle justify-content-center" id="content">
-                <h2 class="text-center witt" id="submitAdvertisementButton">PUBLICAR ANUNCIO <br></h2>
-                <br>
-                <form action="/action_page.php">
-                <h3 class="botonDesp1">Tipo de anuncio:</h3>
-                <select class="botonDesp" name="cars"> 
-                  <option value="venta">Venta</option>
-                  <option value="alquiler">Alquiler</option>
-                </select>
-                <h3 class="botonDesp1">Tipo de vivienda:</h3>
-                <select class="botonDesp" name="cars"> 
-                  <option value="piso">Piso</option>
-                  <option value="casa">Casa</option>
-                  <option value="local">Local</option>
-                </select>
-                <h3 class="botonDesp1">Nº de habitaciones:</h3>
-                <select class="botonDesp" name="cars"> 
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                </select>
-                <h3 class="botonDesp1">Nº de baños:</h3>
-                <select class="botonDesp" name="cars"> 
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                </select>
-                <h3 class="botonDesp1">Metros cuadrados:</h3>
-               
-                <input class="numberInput" type="number" min="15" max="800">
-             
-                  <h3 class="botonDesp1">Localización:</h3>
-                  <input class="botonDesp" list="browsers" name="browser">
-                  <datalist id="browsers">
-                    <option value="Madrid">
-                    <option value="Galicia">
-                    <option value="Asturias">
-                    <option value="Santander">
-                    <option value="País Vasco">
-                    <option value="Navarra">
-                    <option value="La Rioja">
-                    <option value="Huesca">
-                    <option value="Zaragoza">
-                    <option value="Teruel">
-                    <option value="Barcelona">
-                    <option value="Gerona">
-                    <option value="Lérida">
-                    <option value="Tarragona">
-                    <option value="Valencia">
-                    <option value="Castellón">
-                    <option value="Alicante">
-                    <option value="Murcia">
-                    <option value="Almeria">
-                    <option value="Granada">
-                    <option value="Jaén">
-                    <option value="Córdoba">
-                    <option value="Málaga">
-                    <option value="Sevilla">
-                    <option value="Cádiz">
-                    <option value="Huelva">
-                    <option value="Badajoz">
-                    <option value="Cáceres">
-                    <option value="Toledo">
-                    <option value="Ciudad Real">
-                    <option value="Albacete">
-                    <option value="Cuenca">
-                    <option value="Guadalajara">
-                    <option value="Segovia">
-                    <option value="Ávila">
-                    <option value="Soria">
-                    <option value="Burgos">
-                    <option value="Valladolid">
-                    <option value="Palencia">
-                    <option value="León">
-                    <option value="Valladolid">
-                    <option value="Salamanca">
-                    <option value="Mallorca">
-                    <option value="Menorca">
-                    <option value="Ibiza">
-                    <option value="Islas Canarias">
-                    <option value="Ceuta">
-                    <option value="Melilla">
-                    <option value="Móstoles">
-                    <option value="Fuenlabrada">
-                    <option value="Leganés">
-                    <option value="Alcorcón">
-                    <option value="Parla">
-                    <option value="El Escorial">
-                    <option value="Getafe">
-                    <option value="Griñón">
-                    <option value="Madrid Capital">
-                    <option value="Sierra de Madrid">
-                  </datalist>
-                  <h3 class="botonDesp1">Introduzca el precio del anuncio:</h3>
-                  <input class="numberInput" type="number" min="100" max="2000000">               
-                  <h3 class="botonDesp2">Introduzca la dirección:</h3><br><br><br>
-                  <input name="addreess" type="text">
-                  <br>                  
-                </form>
-              <form action="#" class="bg-light p-5 contact-form">              
-                  <br>
-                  <br>
-                  <br>
-                  <a class ="botonDesp0" href="https://www.coordenadas-gps.com/">Para saber las coordenadas de la ubicación haga click aquí </a>
-                  <h3 class="botonDesp2">Introduzca las coordenadas de longitud:</h3><br><br><br>
-                  <br>
-                  <input name="Precio" type="text">
-                  <h3 class="botonDesp2">Introduzca las coordenadas de latitud:</h3><br><br><br>
-                  <input name="latitud" type="text">                  
-                  <br>
-                  <br>                                                         
-                  <br>
-                  <br>
-                <div class="form-group">
-                  <input type="text" name="descripcion" id="" cols="30" rows="7" class="bigInput" placeholder="Descripción del anuncio"></textarea>
-                </div>
-                <br>
-                <div class="form-group">
-                  <input type="submit" value="Subir imagenes" class="btn btn-primary py-3 px-5">
-                  <input type="submit" value="Publicar anuncio" class="btn btn-primary py-3 px-5">
-                </div>
-                <a href="/properties-modificar"><input type="button" value="Volver a Mis anuncios"></a>
-                
-              </form>     
+<head>
+    <title>property upload page</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/propertyUpload.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+<style>
+    body {
+        background-size: cover;
+    }
+</style>
+<body class="myBody">
+<div class="myContainer">
+
+    <div class="col-md-8 mb-md-5 d-flex align-middle justify-content-center" id="content">
+        <h2 class="text-center witt" id="submitAdvertisementButton">PUBLICAR ANUNCIO <br></h2>
+        <br>
+        <form action="/properties-modificar" method="post">
+
+            <h3 class="botonDesp1">Tipo de anuncio:</h3>
+           <select class="botonDesp" name="type" id="type"  value="{{#advertisement.type}}{{advertisement.type}}{{/advertisement.type}}">
+                <option value="venta">Venta</option>
+                <option value="alquiler">Alquiler</option>
+            </select>
+            <h3 class="botonDesp1">Tipo de vivienda:</h3>
+            <select class="botonDesp" name="property" id="property"  value="{{#advertisement.property}}{{advertisement.property}}{{/advertisement.property}}">
+                <option value="piso">Piso</option>
+                <option value="casa">Casa</option>
+                <option value="local">Local</option>
+            </select>
+            <h3 class="botonDesp1">Nº de habitaciones:</h3>
+            <select class="botonDesp" name="rooms" id="rooms" value="{{#advertisement.rooms}}{{advertisement.rooms}}{{/advertisement.rooms}}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+            <h3 class="botonDesp1">Nº de baños:</h3>
+            <select class="botonDesp" name="bathrooms" id="bathrooms" value="{{#advertisement.bathrooms}}{{advertisement.bathrooms}}{{/advertisement.bathrooms}}"/>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <h3 class="botonDesp1">Metros cuadrados:</h3>
+
+            <input class="numberInput" type="number" min="15" max="800" id="squareMeters" value="{{#advertisement.squareMeters}}{{advertisement.squareMeters}}{{/advertisement.squareMeters}}"/>
+
+            <h3 class="botonDesp1">Localización:</h3>
+            <input class="botonDesp" list="browsers" name="location" id="location" value="{{#advertisement.location}}{{advertisement.location}}{{/advertisement.location}}"/>
+            <datalist id="browsers">
+                <option value="Madrid">
+                <option value="Galicia">
+                <option value="Asturias">
+                <option value="Santander">
+                <option value="País Vasco">
+                <option value="Navarra">
+                <option value="La Rioja">
+                <option value="Huesca">
+                <option value="Zaragoza">
+                <option value="Teruel">
+                <option value="Barcelona">
+                <option value="Gerona">
+                <option value="Lérida">
+                <option value="Tarragona">
+                <option value="Valencia">
+                <option value="Castellón">
+                <option value="Alicante">
+                <option value="Murcia">
+                <option value="Almeria">
+                <option value="Granada">
+                <option value="Jaén">
+                <option value="Córdoba">
+                <option value="Málaga">
+                <option value="Sevilla">
+                <option value="Cádiz">
+                <option value="Huelva">
+                <option value="Badajoz">
+                <option value="Cáceres">
+                <option value="Toledo">
+                <option value="Ciudad Real">
+                <option value="Albacete">
+                <option value="Cuenca">
+                <option value="Guadalajara">
+                <option value="Segovia">
+                <option value="Ávila">
+                <option value="Soria">
+                <option value="Burgos">
+                <option value="Valladolid">
+                <option value="Palencia">
+                <option value="León">
+                <option value="Valladolid">
+                <option value="Salamanca">
+                <option value="Mallorca">
+                <option value="Menorca">
+                <option value="Ibiza">
+                <option value="Islas Canarias">
+                <option value="Ceuta">
+                <option value="Melilla">
+                <option value="Móstoles">
+                <option value="Fuenlabrada">
+                <option value="Leganés">
+                <option value="Alcorcón">
+                <option value="Parla">
+                <option value="El Escorial">
+                <option value="Getafe">
+                <option value="Griñón">
+                <option value="Madrid Capital">
+                <option value="Sierra de Madrid">
+            </datalist>
+            <h3 class="botonDesp1">Introduzca el precio del anuncio:</h3>
+            <input class="numberInput" type="number" min="100" max="2000000" name="price" id = "price" value="{{#advertisement.price}}{{advertisement.price}}{{/advertisement.price}}">
+            <h3 class="botonDesp2">Introduzca la dirección:</h3><br><br><br>
+            <input name="address" type="text" id="address" value="{{#advertisement.address}}{{advertisement.address}}{{/advertisement.address}}">
+            <br>
+
+            <input type="submit" value="anuncio" class="btn btn-primary py-3 px-5">
+            <input type="hidden" name="_csrf" value="{{token}}"/>
+        </form>
+        <!--
+        <form action="#" class="bg-light p-5 contact-form">
+            <br>
+            <br>
+            <br>
+            <a class="botonDesp0" href="https://www.coordenadas-gps.com/">Para saber las coordenadas de la ubicación
+                haga click aquí </a>
+            <h3 class="botonDesp2">Introduzca las coordenadas de longitud:</h3><br><br><br>
+            <br>
+            <input name="Precio" type="text">
+            <h3 class="botonDesp2">Introduzca las coordenadas de latitud:</h3><br><br><br>
+            <input name="latitud" type="text">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="form-group">
+                <input type="text" name="descripcion" id="" cols="30" rows="7" class="bigInput"
+                       placeholder="Descripción del anuncio"></textarea>
             </div>
-          </div>
-    </body>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Subir imagenes" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="{{#misAnuncios}}anuncio{{/misAnuncios}}" class="btn btn-primary py-3 px-5">
+                <input type="hidden" name="_csrf" value="{{token}}"/>
+            </div>
+            <a href="/properties-modificar"><input type="button" value="Volver a Mis anuncios"></a>
+
+        </form>
+        -->
+    </div>
+</div>
+</body>
 </html>
