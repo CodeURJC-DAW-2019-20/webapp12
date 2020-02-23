@@ -42,9 +42,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/MainPage").permitAll();
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET,"/login").permitAll();
+        http.authorizeRequests().antMatchers("/signUp").permitAll();
+        http.authorizeRequests().antMatchers("/register").permitAll();
+
 
         //only admin & register users
         http.authorizeRequests().antMatchers("/property-upload").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/properties").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/property-modificar").hasAnyRole("USER", "ADMIN");
         
 
         http.formLogin().loginPage("/login").permitAll();

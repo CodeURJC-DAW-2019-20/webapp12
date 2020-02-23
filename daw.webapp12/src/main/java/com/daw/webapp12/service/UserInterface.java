@@ -8,9 +8,9 @@ public interface UserInterface {
 
     public List<Users> findAll();
 
-    public Users addCliente (Users users);
+    public Users addUser (Users users);
 
-    public void deleteUsuario (Users users);
+    public void deleteUser (Users users);
 
     public Users findById(Long id);
 

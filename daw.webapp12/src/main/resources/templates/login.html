@@ -24,32 +24,32 @@
             {{/Error}}
             
             <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
-            <input type="password" id="password" class="fadeIn second psswdInput" name="password" placeholder="Password" style="
-            background: #f6f6f6;
+            <input type="password" id="password" class="fadeIn third psswdInput" name="password" placeholder="Password" style="background: #f6f6f6;
             border: none;
             border-radius: 4px;
             width: 88%;
             height: 40px;
             font-size: unset;
-            text-align: center;">
-              <input type="hidden" name="_csrf" value="{{token}}"/>
+            text-align: center;
+        " >
+            <input type="hidden" name="_csrf" value="{{token}}"/>
             <input type="submit" class="fadeIn fourth" value="Log In">
             
           </form>
+
+
           <form action="/logout" method="post">
             <input type="submit" value="Sign Out" />
             <input type="hidden" name="_csrf" value="{{token}}"/>
           </form>
           <!-- Sign Up -->
           <div id="formFooter">
-            <a class="underlineHover" href="/signUp">Registrarse</a>
+            <a class="underlineHover" href="/register">Registrarse</a>
           </div>
           <a href="/MainPage"><input type="button" value="Home"></a>
       
         </div>
       </div>
-
-</div>
-
-</body>
+    </div>
+  </body>
 </html>

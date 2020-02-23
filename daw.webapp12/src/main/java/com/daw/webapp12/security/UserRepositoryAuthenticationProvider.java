@@ -25,7 +25,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
     private UserRepository userRep;
     @Autowired
     private UserComponent userComponent;
-    private Model model;
+
 
     @Override
      public Authentication authenticate(Authentication authentication)throws AuthenticationException {
@@ -50,12 +50,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
            return new UsernamePasswordAuthenticationToken(username,password,roles);
        }
     }
-
-
-
-
-
-
+    
     @Override
     public boolean supports(Class<?> aClass) {
         return true;

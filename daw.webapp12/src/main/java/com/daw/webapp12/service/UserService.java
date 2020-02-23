@@ -24,12 +24,12 @@ public class UserService implements UserInterface {
     }
 
     @Override
-    public Users addCliente(Users users) {
+    public Users addUser(Users users) {
         return userRepository.save(users);
     }
 
     @Override
-    public void deleteUsuario(Users users) {
+    public void deleteUser(Users users) {
         userRepository.delete(users);
     }
 
