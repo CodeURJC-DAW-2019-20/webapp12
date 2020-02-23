@@ -89,7 +89,7 @@ public class Search
         this.squareMeters = squareMeters;
     }
 
-    public String getlocalization() {
+    public String getlocation() {
         return location;
     }
 

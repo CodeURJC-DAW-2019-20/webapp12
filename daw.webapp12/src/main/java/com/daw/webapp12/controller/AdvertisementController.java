@@ -38,7 +38,7 @@ public class AdvertisementController {
 		int roomMean = 0;
 		int bathroomMean = 0;
 		int squareMetersMean = 0;
-		List<String> location = new ArrayList<String>();
+		List<String> locationsList = new ArrayList<String>();
 		double price = 0;
 		int score = 0;
 
@@ -47,43 +47,43 @@ public class AdvertisementController {
 			Search auxSearch = searches.get(i);
 			roomMean += auxSearch.getrooms();
 			bathroomMean += auxSearch.getbathrooms();
-			//squareMetersMean += auxSearch.getsquareMeters();
-			location.add(auxSearch.getlocalization());
+			squareMetersMean += auxSearch.getsquareMeters();
+			locationsList.add(auxSearch.getlocation());
 			price += auxSearch.getprice();
 		}
 
 		roomMean = roomMean / searches.size();
 		bathroomMean = bathroomMean / searches.size();
-		//squareMetersMean = squareMetersMean / searches.size();
-
-		//Something maybe to work on this
-		// location = location;
-		price = price / searches.size();
+		squareMetersMean = squareMetersMean / searches.size();
 
 		for(int i = 0;i<ads.size();i++){
 			Advertisement auxAd = ads.get(i);
 			score+= (auxAd.getrooms() - roomMean) *2;
 			score+= (auxAd.getbathrooms() - bathroomMean) *2;
-			//score+= ((auxAd.getsquareMeters() - squareMetersMean)/5) *2;
-			// if(auxAd.getlocalization() == ){
-			// 	score+=10;
-			// }
+			score+= ((auxAd.getsquareMeters() - squareMetersMean)/2) *2;
+			
+			if(locationsList.contains(auxAd.getlocation())){
+			 	score+=20;
+			}
 
-			//Para un alquiler
-			score+= ((auxAd.getprice() - roomMean)/50) *2;
-			//Para una compra
+			if(auxAd.gettype()=="Alquiler"){
+				if(price - auxAd.getprice()>0){
+					score+= ((price - auxAd.getprice())/50) *4;
+				}
+			}else if(auxAd.gettype()=="Compra"){
+				if(price - auxAd.getprice()>0){
+					score+= ((price - auxAd.getprice())/5000) *4;
+				}
+			}
 			
 			scores.put(score, i);
 			score = 0;
 		}
-			//Ordenar por puntuacion
 			List<Integer> mapKeys = new ArrayList<>(scores.keySet());
-			// List<String> mapValues = new ArrayList<>(scores.values());
-			// Collections.sort(mapValues);
 			Collections.sort(mapKeys);
-			recommendeds.add(ads.get(scores.get(mapKeys.get(0))));
-			recommendeds.add(ads.get(scores.get(mapKeys.get(1))));
-			recommendeds.add(ads.get(scores.get(mapKeys.get(2))));
+			recommendeds.add(ads.get(scores.get(mapKeys.get(mapKeys.size()-1))));
+			recommendeds.add(ads.get(scores.get(mapKeys.get(mapKeys.size()-2))));
+			recommendeds.add(ads.get(scores.get(mapKeys.get(mapKeys.size()-3))));
 		
 			HashMap<String, Integer> mostCommonLocations = new HashMap<String, Integer>();
 			for(int i = 0; i< ads.size();i++){
