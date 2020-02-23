@@ -33,6 +33,9 @@ public class Users {
     @OneToMany(cascade=CascadeType.ALL)
     private List<Search> mySearches;
 
+    @OneToMany(cascade=CascadeType.ALL)
+    private List<Advertisement> myAdvertisements;
+
     public Users(){}
 
     public Users(String name, String email, String password,String... roles) {
@@ -48,10 +51,23 @@ public class Users {
         this.myFavourites.add(advertisement);
     }
 
+    public void addMyAdvertisement(Advertisement advertisement){
+        this.myAdvertisements.add(advertisement);
+    }
+
     public void deleteFavourite(Long id){
         for(int i=0;i<myFavourites.size();i++){
             if(myFavourites.get(i).getId()==id){
                 myFavourites.remove(i);
+            }
+        }
+    }
+
+
+    public void deleteOneAdvertisement(Long id){
+        for(int i=0;i<myAdvertisements.size();i++){
+            if(myAdvertisements.get(i).getId()==id){
+                myAdvertisements.remove(i);
             }
         }
     }
@@ -101,6 +117,14 @@ public class Users {
 
     public void setMyFavourites(List<Advertisement> list) {
         this.myFavourites = list;
+    }
+
+    public List<Advertisement> getMyAdvertisements() {
+        return myAdvertisements;
+    }
+
+    public void setMyAdvertisements(List<Advertisement> list) {
+        this.myAdvertisements = list;
     }
 
     public List<Search> getMySearches() {

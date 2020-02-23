@@ -1,8 +1,10 @@
 package com.daw.webapp12.controller;
 
 import com.daw.webapp12.entity.Advertisement;
+import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.AdvertisementRepository;
 import com.daw.webapp12.security.UserComponent;
+import com.daw.webapp12.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +28,14 @@ public class MainController {
     @Autowired
     AdvertisementRepository  advertisementRepository;
 
+    @Autowired
+    UserService  userService;
+
     @RequestMapping("/properties-modificar")
-    public String misAnuncios(){
+    public String misAnuncios(Model model){
         if(userComponent.isLoggedUser()){
+            String userName = userComponent.getLoggedUser().getName();
+	 	    model.addAttribute("myAds", userService.findByName(userName).getMyAdvertisements());
             return "properties-modificar";
         }else{
             return "login";
@@ -37,7 +44,7 @@ public class MainController {
     }
 
     @PostMapping("/properties-modificar")
-    public String misAnuncios(Advertisement advertisement, Model model, @RequestParam ("file") MultipartFile multipartFile){
+    public String misAnuncios(Advertisement advertisement, Model model, @RequestParam ("file") MultipartFile multipartFile, @RequestParam String location){
 
         if (!multipartFile.isEmpty()) {
             //Path rootPath = Paths.get("src//main/resources//static//images").resolve(multipartFile.getOriginalFilename());
@@ -53,13 +60,18 @@ public class MainController {
                 Path rupacompleta = Paths.get(rootPath + "//" + multipartFile.getOriginalFilename());
                 Files.write(rupacompleta, bytes);
                 advertisement.setImages(multipartFile.getOriginalFilename()+advertisement.getId());
+               
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        model.addAttribute("misAnuncios", "SUBIR ANUNCIOS");
+        advertisement.setlocalization(location);
         advertisementRepository.save(advertisement);
-        return "properties-modificar";
+        Users thisUser = userService.findByName(userComponent.getLoggedUser().getName());
+        thisUser.getMyAdvertisements().add(advertisement);
+        userService.addUser(thisUser);
+        
+        return "redirect:/properties-modificar";
     }
 
     @RequestMapping(value = "/property-upload", method = RequestMethod.GET)

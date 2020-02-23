@@ -38,7 +38,6 @@ public class UserController {
     }
 
 	@RequestMapping("/deleteFromFavourites/{id}")
-	//User¿?
     public String deleteFromFavourite(Model model,@PathVariable long id){
 		String userName = userComponent.getLoggedUser().getName();
 		Users user = userService.findByName(userName);
@@ -48,11 +47,22 @@ public class UserController {
         return "redirect:/properties";
 	}
 
+	@RequestMapping("/deleteMyAdvertisement/{id}")
+    public String deleteFromMyAdvertisements(Model model,@PathVariable long id){
+		String userName = userComponent.getLoggedUser().getName();
+		Users user = userService.findByName(userName);
+		user.deleteOneAdvertisement(id);
+		userService.addUser(user);
+        model.addAttribute("myads", user.getMyAdvertisements());
+        return "redirect:/properties-modificar";
+	}
+
+
 	@GetMapping("/register")
 	public String register(Model model) {
 		return ("signUp");
 	}
-	
+
 	@PostMapping("/signUp")
 	public String signUp(Model model,@RequestParam String username, HttpServletRequest request, HttpServletResponse response,@RequestParam String email,@RequestParam String password) {
 		
@@ -67,5 +77,6 @@ public class UserController {
 	public Users getCurrentUser() {
 		return userComponent.getLoggedUser();
 	}
+
 
 }

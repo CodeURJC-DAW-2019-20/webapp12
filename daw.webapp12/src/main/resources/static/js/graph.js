@@ -15,7 +15,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	exportEnabled: true,
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Number of sales in 2019"
+		text: "Anuncios publicados por Localidad"
 	},
 	data: [{
 		type: "column", //change type to bar, line, area, pie, etc
