@@ -10,13 +10,16 @@ import java.util.Map;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Search;
+import com.daw.webapp12.repository.AdvertisementRepository;
 import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,7 +28,8 @@ public class AdvertisementController {
 
 	@Autowired
 	AdvertisementService advertisementService;
-
+	@Autowired
+    AdvertisementRepository  advertisementRepository;
 	@Autowired
 	UserService userService;
 
@@ -149,10 +153,20 @@ public class AdvertisementController {
 		}
         return "properties-search";
 	}
-	
+	@RequestMapping("/editProperties/{id}")
+    public String editProperties(Model model, @PathVariable  long id) {
+	 	//model.addAttribute("Property", advertisementService.findById(id));
+        return "properties-upload";
+	}
+	@PostMapping("/editProperties/{id}")
+    public String editProperties(Model model,Advertisement advertisement, @PathVariable  long id) {
+		model.addAttribute("Property", advertisementService.findById(id));
+		advertisementRepository.save(advertisement);
+        return "properties-modificar";
+	}
 
 	@RequestMapping("/deleteAdvertisement/{id}")
-    public String deleteAdvertisement(Model model,@PathVariable long id){
+    public String deleteAdvertisement(Model model, @PathVariable  long id){
         advertisementService.deleteAdvertisement(id);
         model.addAttribute("something",advertisementService.findAll());
 
