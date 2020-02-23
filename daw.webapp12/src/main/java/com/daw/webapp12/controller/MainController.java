@@ -65,7 +65,7 @@ public class MainController {
                 e.printStackTrace();
             }
         }
-        advertisement.setlocalization(location);
+        advertisement.setlocation(location);
         advertisementRepository.save(advertisement);
         Users thisUser = userService.findByName(userComponent.getLoggedUser().getName());
         thisUser.getMyAdvertisements().add(advertisement);
