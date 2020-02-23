@@ -126,11 +126,11 @@ public class Advertisement
         this.squareMeters = squareMeters;
     }
 
-    public String getlocalization() {
+    public String getlocation() {
         return location;
     }
 
-    public void setlocalization(String location) {
+    public void setlocation(String location) {
         this.location = location;
     }
 

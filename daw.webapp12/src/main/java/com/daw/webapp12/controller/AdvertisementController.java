@@ -87,7 +87,7 @@ public class AdvertisementController {
 		
 			HashMap<String, Integer> mostCommonLocations = new HashMap<String, Integer>();
 			for(int i = 0; i< ads.size();i++){
-				String auxLocation = ads.get(i).getlocalization();
+				String auxLocation = ads.get(i).getlocation();
 				if(mostCommonLocations.containsKey(auxLocation)){
 					int value = mostCommonLocations.get(auxLocation);
 					mostCommonLocations.replace(auxLocation,value+1);
