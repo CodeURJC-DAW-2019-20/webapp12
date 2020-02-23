@@ -5,9 +5,11 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.security.UserRepositoryAuthenticationProvider;
+import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,10 @@ public class UserController {
 	@Autowired
 	UserComponent userComponent;
 	@Autowired
-    public UserRepositoryAuthenticationProvider userAuthProvider;
+	public UserRepositoryAuthenticationProvider userAuthProvider;
+	
+	@Autowired
+	AdvertisementService advertisementService;
 	
 	@RequestMapping(value = "/properties")
     public String favAdvertisements(Model model) {
@@ -53,6 +58,7 @@ public class UserController {
 		Users user = userService.findByName(userName);
 		user.deleteOneAdvertisement(id);
 		userService.addUser(user);
+		advertisementService.deleteAdvertisement(id);
         model.addAttribute("myads", user.getMyAdvertisements());
         return "redirect:/properties-modificar";
 	}
