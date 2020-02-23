@@ -2,6 +2,8 @@ package com.daw.webapp12.controller;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.repository.AdvertisementRepository;
+import com.daw.webapp12.security.UserComponent;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +21,22 @@ import java.nio.file.Paths;
 public class MainController {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
-
+    @Autowired
+	UserComponent userComponent;
     @Autowired
     AdvertisementRepository  advertisementRepository;
 
-    @RequestMapping(value = "/signUp", method = RequestMethod.GET)
-    public String signup(){
-        return "signUp";
+    @RequestMapping("/properties-modificar")
+    public String misAnuncios(){
+        if(userComponent.isLoggedUser()){
+            return "properties-modificar";
+        }else{
+            return "login";
+        }
+       
     }
 
-    @RequestMapping(value = "/properties-modificar", method = RequestMethod.POST)
+    @PostMapping("/properties-modificar")
     public String misAnuncios(Advertisement advertisement, Model model, @RequestParam ("file") MultipartFile multipartFile){
 
         if (!multipartFile.isEmpty()) {
