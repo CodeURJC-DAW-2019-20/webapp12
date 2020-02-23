@@ -19,7 +19,7 @@
     <div class="col-md-8 mb-md-5 d-flex align-middle justify-content-center" id="content">
         <h2 class="text-center witt" id="submitAdvertisementButton">PUBLICAR ANUNCIO <br></h2>
         <br>
-        <form action="/properties-modificar" method="post" enctype="multipart/form-data">
+        <form action="/property-upload" method="post" enctype="multipart/form-data">
 
             <h3 class="botonDesp1">Tipo de anuncio:</h3>
             <select class="botonDesp" name="type" id="type"
@@ -145,11 +145,11 @@
                    value="{{#advertisement.address}}{{advertisement.address}}{{/advertisement.address}}">
             <br>
             <label for="file">Select image:</label>
-            <input type="file" id="file" name="file">
+            <input type="file" id="file" name="file" multiple>
             <input type="submit">
 
 
-            <input type="submit" value="anuncio" class="btn btn-primary py-3 px-5">
+            <input type="submit" value="subir anuncio" class="btn btn-primary py-3 px-5">
             <input type="hidden" name="_csrf" value="{{token}}"/>
         </form>
         <!--
