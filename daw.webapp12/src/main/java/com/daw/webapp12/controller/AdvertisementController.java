@@ -126,6 +126,7 @@ public class AdvertisementController {
 										int bathrooms, String searchType, String propertyType) {
 		List <Advertisement> search = new ArrayList<>();
 		for (Advertisement advertisement : result) {
+			System.out.print("Tipo de propiedad "+propertyType + advertisement.getproperty() );
 			if(advertisement.getbathrooms()>= bathrooms &&advertisement.getrooms()>=rooms
 				&&advertisement.gettype().equals(searchType)&&advertisement.getproperty().equals(propertyType)
 				&&advertisement.getsquareMeters() >= squareMeters&&advertisement.getprice() <= price)
@@ -134,7 +135,6 @@ public class AdvertisementController {
 		return search;	
 	
 	}
-
 
 	@RequestMapping(value = "/search")
 	public String searchAdvertisement(Model model , @RequestParam  String location , @RequestParam int price, @RequestParam(value="searchType")  String searchType,@RequestParam(value="propertyType") String propertyType,

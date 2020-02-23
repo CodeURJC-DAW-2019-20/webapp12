@@ -37,7 +37,7 @@ public class iniBBDD {
         //userRepository.save(users5);
 
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
-        Advertisement anun1 = new Advertisement("Alquiler","Casa ",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000, "");
+        Advertisement anun1 = new Advertisement("Alquiler","Casa",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000, "");
         Comment coment1= new Comment("Hola, me ha encantado");
         Users users5 = new Users("Maria","maria@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users5);
@@ -54,13 +54,13 @@ public class iniBBDD {
         anuncioRepository.save(anun4);
         Advertisement anun5 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,78,"Madrid","calle verde,3",(double)12000,"");
         anuncioRepository.save(anun5);
-        Advertisement anun6 = new Advertisement("Local","Local",(Integer)4,(Integer)2,78,"Mostoles","calle verde,3",(double)1400,"");
+        Advertisement anun6 = new Advertisement("Compra","Local",(Integer)4,(Integer)2,78,"Mostoles","calle verde,3",(double)1400,"");
         anuncioRepository.save(anun6);
-        Advertisement anun7 = new Advertisement("Local","Local",(Integer)3,(Integer)1,78,"Mostoles","calle verde,3",(double)1200,"");
+        Advertisement anun7 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Mostoles","calle verde,3",(double)1200,"");
         anuncioRepository.save(anun7);
         Advertisement anun8 = new Advertisement("Local","Local",(Integer)1,(Integer)1,78,"Valencia","calle verde,3",(double)1000);
         anuncioRepository.save(anun8);
-        Advertisement anun9 = new Advertisement("Local","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650,"");
+        Advertisement anun9 = new Advertisement("Compra","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650,"");
         anuncioRepository.save(anun9);
 
         Search search1 = new Search((Integer)2,(Integer)1,60,"Madrid",(double)800);

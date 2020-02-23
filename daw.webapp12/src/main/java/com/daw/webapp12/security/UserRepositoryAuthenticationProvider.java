@@ -1,5 +1,11 @@
 package com.daw.webapp12.security;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.daw.webapp12.entity.Users;
+import com.daw.webapp12.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -10,13 +16,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import com.daw.webapp12.entity.Users;
-import com.daw.webapp12.repository.UserRepository;
 
 @Component
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
