@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,7 +32,7 @@ public class AdvertisementController {
 	@RequestMapping(value = {"/MainPage", ""})
     public String recommendeds(Model model) {
 		List<Advertisement> ads = advertisementService.findAll();
-		List<Search> searches = userService.findExample("Angel").getMySearches();
+		List<Search> searches = userService.findByName("Angel").getMySearches();
 		HashMap<Integer,Integer> scores = new HashMap<Integer,Integer>();
 		List<Advertisement> recommendeds = new ArrayList<Advertisement>();
 		int roomMean = 0;
@@ -152,7 +151,7 @@ public class AdvertisementController {
 	}
 	
 
-	@PostMapping("/deleteAdvertisement/{id}")
+	@RequestMapping("/deleteAdvertisement/{id}")
     public String deleteAdvertisement(Model model,@PathVariable long id){
         advertisementService.deleteAdvertisement(id);
         model.addAttribute("something",advertisementService.findAll());
