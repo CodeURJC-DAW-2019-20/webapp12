@@ -104,10 +104,10 @@ Gráfica: Muestra número de ventas de distintos meses.
 
 ### Diagrama con las entidades de la base de datos
 
-![Diagrama1](uptown/screenshots/diagrama1.PNG)
+![diagrama1](uptown/images/diagrama1.PNG)
 
 ### Diagrama de clases y templates
 
-![Diagrama2](uptown/screenshots/diagrama2.PNG)
+![diagrama2](uptown/images/diagrama2.PNG)
 
 ### Participación de miembros
