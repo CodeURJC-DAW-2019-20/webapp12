@@ -65,10 +65,8 @@ public class iniBBDD {
 
         Search search1 = new Search("Alquiler",(Integer)2,(Integer)1,60,"Madrid",(double)800);
         Search search2 = new Search("Alquiler",(Integer)3,(Integer)2,80,"Mostoles",(double)1000);
-        Search search3 = new Search("Alquiler",(Integer)1,(Integer)1,40,"Mostoles",(double)750);
         Search search4 = new Search("Alquiler",(Integer)4,(Integer)3,100,"Mostoles",(double)1200);
         Search search5 = new Search("Alquiler",(Integer)2,(Integer)2,70,"Madrid",(double)900);
-        Search search6 = new Search("Alquiler",(Integer)2,(Integer)1,55,"Fuenlabrada",(double)700);
 
 
         Users users1 = new Users("Angel","angel@gmail.com","12345678","ROLE_ADMIN");
@@ -78,10 +76,8 @@ public class iniBBDD {
 
         users1.getMySearches().add(search1);
         users1.getMySearches().add(search2);
-        users1.getMySearches().add(search3);
         users1.getMySearches().add(search4);
         users1.getMySearches().add(search5);
-        users1.getMySearches().add(search6);
 
 
         userRepository.save(users1);

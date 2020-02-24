@@ -10,8 +10,11 @@ import java.util.Map;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Search;
+import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.AdvertisementRepository;
+import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.service.AdvertisementService;
+import com.daw.webapp12.service.SearchService;
 import com.daw.webapp12.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,10 @@ public class AdvertisementController {
     AdvertisementRepository  advertisementRepository;
 	@Autowired
 	UserService userService;
+	@Autowired
+	SearchService searchService;
+	@Autowired
+	UserComponent userComponent;
 
 	@RequestMapping(value = {"/MainPage", ""})
     public String recommendeds(Model model) {
@@ -41,17 +48,29 @@ public class AdvertisementController {
 			auxAdvertisements.add(ads.get(i));
 		}
 		List<Search> searches = userService.findByName("Angel").getMySearches();
-		HashMap<Integer,Integer> scores = new HashMap<Integer,Integer>();
+		HashMap<Double,Integer> scores = new HashMap<Double,Integer>();
 		List<Advertisement> recommendeds = new ArrayList<Advertisement>();
 		List<String> typeOfSearches = new ArrayList<String>();
 		int roomMean = 0;
 		int bathroomMean = 0;
 		int squareMetersMean = 0;
 		List<String> locationsList = new ArrayList<String>();
-		double price = 0;
-		int score = 0;
+		double sellPriceMean = 0;
+		int numSells = 0;
+		int numRents = 0;
+		double rentPriceMean = 0;
+		double score = 0;
 		String typeOfRecommendation;
+		String lastTwoSearches ="";
 
+		String firstSearch = searches.get(searches.size()-1).getType();
+		String secondSearch = searches.get(searches.size()-2).getType();
+
+		if(firstSearch.equals("Alquiler") && secondSearch.equals("Alquiler")){
+			lastTwoSearches = "Alquiler";
+		}else if(firstSearch.equals("Venta") && secondSearch.equals("Venta")){
+			lastTwoSearches = "Venta";
+		}
 		for(int i = 0;i<searches.size();i++){
 			
 			Search auxSearch = searches.get(i);
@@ -59,7 +78,14 @@ public class AdvertisementController {
 			bathroomMean += auxSearch.getbathrooms();
 			squareMetersMean += auxSearch.getsquareMeters();
 			locationsList.add(auxSearch.getlocation());
-			price += auxSearch.getprice();
+			if(auxSearch.getType().equals("Alquiler")){
+				rentPriceMean += auxSearch.getprice();
+				numRents = numRents+1;
+			}else{
+				sellPriceMean += auxSearch.getprice();
+				numSells = numSells+1;	
+			}
+			
 			if(searches.get(i).getType().equals("Alquiler") && !typeOfSearches.contains("Alquiler")){
 				typeOfSearches.add("Alquiler");
 			}else if(searches.get(i).getType().equals("Venta") && !typeOfSearches.contains("Venta")){
@@ -75,21 +101,24 @@ public class AdvertisementController {
 			typeOfRecommendation = "Venta";
 		}
 
+		if(!typeOfRecommendation.equals("Both")){
+			for(int i = 0;i<auxAdvertisements.size();i++){
+				Advertisement auxAd = auxAdvertisements.get(i);
+				if(typeOfRecommendation.equals("Alquiler") && auxAd.gettype().equals("Venta")){
+					auxAdvertisements.remove(i);
+					i= i-1;
+				}else if(typeOfRecommendation.equals("Venta") && auxAd.gettype().equals("Alquiler")){
+					auxAdvertisements.remove(i);
+					i= i-1;
+				}
+			}
+		}
+		
 		roomMean = roomMean / searches.size();
 		bathroomMean = bathroomMean / searches.size();
 		squareMetersMean = squareMetersMean / searches.size();
-		price = price / searches.size();
-
-		for(int i = 0;i<auxAdvertisements.size();i++){
-			Advertisement auxAd = auxAdvertisements.get(i);
-			if(typeOfRecommendation.equals("Alquiler") && auxAd.gettype().equals("Venta")){
-				auxAdvertisements.remove(i);
-				i= i-1;
-			}else if(typeOfRecommendation.equals("Venta") && auxAd.gettype().equals("Alquiler")){
-				auxAdvertisements.remove(i);
-				i= i-1;
-			}
-		}
+		rentPriceMean = rentPriceMean / numRents;
+		sellPriceMean = sellPriceMean / numSells;
 
 		for(int i = 0;i<auxAdvertisements.size();i++){
 			Advertisement auxAd = auxAdvertisements.get(i);
@@ -112,23 +141,30 @@ public class AdvertisementController {
 			}
 
 			if(locationsList.contains(auxAd.getlocation())){
-			 	score+=20;
+			 	score+=15;
 			}
 
 			if(auxAd.gettype().equals("Alquiler")){
-				if(price - auxAd.getprice()>0){
-					score+= ((price - auxAd.getprice())/50) *4;
+				if(rentPriceMean - auxAd.getprice()>0){
+					score+= ((rentPriceMean - auxAd.getprice())/50) *4;
+				}
+				if(lastTwoSearches.equals("Alquiler")){
+					score = score *2.5;
+				}else if(firstSearch.equals("Alquiler")){
+					score = score *1.5;
 				}
 			}else if(auxAd.gettype().equals("Venta")){
-				if(price - auxAd.getprice()>0){
-					score+= ((price - auxAd.getprice())/5000) *4;
-				}
+					score+= ((sellPriceMean - auxAd.getprice())/5000) *2;
+					if(lastTwoSearches.equals("Venta")){
+						score = score * 2.25;
+					}else if(firstSearch.equals("Venta")){
+						score = score *1.2;
+					}
 			}
-			
 			scores.put(score, i);
 			score = 0;
 		}
-			List<Integer> mapKeys = new ArrayList<>(scores.keySet());
+			List<Double> mapKeys = new ArrayList<>(scores.keySet());
 			Collections.sort(mapKeys);
 			recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-1))));
 			recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-2))));
@@ -195,6 +231,16 @@ public class AdvertisementController {
 			model.addAttribute("Property",aux);
 		}else{
 			model.addAttribute("Error", "No hay resultados.");
+		}
+
+		if(userComponent.getLoggedUser()!=null){
+			Search userSearch = new Search(searchType,rooms, bathrooms, squareMeters, location, price);
+			searchService.addSearch(userSearch);
+			String name = userComponent.getLoggedUser().getName();
+			Users user = userService.findByName(name);
+			user.getMySearches().remove(0);
+			user.getMySearches().add(userSearch);
+			userService.addUser(user);
 		}
         return "properties-search";
 	}

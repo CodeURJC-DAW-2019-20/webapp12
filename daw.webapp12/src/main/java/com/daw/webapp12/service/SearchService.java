@@ -18,4 +18,9 @@ public class SearchService implements SearchInterface {
         return searchRepository.findAll();
     }
 
+    @Override
+    public Search addSearch(Search search) {
+        return searchRepository.save(search);
+    }
+
 }
