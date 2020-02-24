@@ -198,14 +198,16 @@ public class AdvertisementController {
 		}
         return "properties-search";
 	}
+	
 	@RequestMapping("/editProperties/{id}")
     public String editProperties(Model model, @PathVariable  long id) {
-	 	//model.addAttribute("Property", advertisementService.findById(id));
-        return "properties-upload";
+		model.addAttribute("advertisement", advertisementService.findById(id));
+		//advertisementRepository.save(advertisement);
+        return "redirect:/property-edit";
 	}
 	@PostMapping("/editProperties/{id}")
-    public String editProperties(Model model,Advertisement advertisement, @PathVariable  long id) {
-		model.addAttribute("Property", advertisementService.findById(id));
+    public String editProperties(Model model, Advertisement advertisement,@PathVariable  long id) {
+		//model.addAttribute("advertisement", advertisementService.findById(id));
 		advertisementRepository.save(advertisement);
         return "properties-modificar";
 	}
