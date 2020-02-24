@@ -11,6 +11,7 @@ import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.security.UserRepositoryAuthenticationProvider;
 import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
+import com.daw.webapp12.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,6 +22,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
 
 @Controller
 public class UserController {
@@ -82,6 +88,22 @@ public class UserController {
 	@GetMapping("/currentUser")
 	public Users getCurrentUser() {
 		return userComponent.getLoggedUser();
+	}
+
+	@PostMapping("/register")
+	public String addNewUser(Model model, HttpServletRequest req, @RequestParam String name,
+							 @RequestParam String email, @RequestParam String password) throws Exception {
+		Users newUser = new Users(name, password, "ROLE_USER");
+		boolean exists = false;
+		if(this.userService.findByName(newUser.getName())!=null){
+			exists = true;
+			model.addAttribute("exists", exists);
+			return "/register";
+		}
+		newUser.setEmail(email);
+		userService.addUser(newUser);
+		userService.sendEmail(newUser);
+		return "/login";
 	}
 
 

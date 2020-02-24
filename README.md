@@ -90,3 +90,24 @@ Gráfica: Muestra número de ventas de distintos meses.
 ### Diagrama de Navegación
 
 ![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion.jpg)
+
+## FASE 2
+### Navegación
+
+
+
+
+
+
+### Instrucciones de desarrollo
+
+
+### Diagrama con las entidades de la base de datos
+
+![diagrama1](uptown/images/d1.PNG)
+
+### Diagrama de clases y templates
+
+![diagrama2](uptown/images/d2.PNG)
+
+### Participación de miembros
