@@ -238,7 +238,9 @@ public class AdvertisementController {
 			searchService.addSearch(userSearch);
 			String name = userComponent.getLoggedUser().getName();
 			Users user = userService.findByName(name);
-			user.getMySearches().remove(0);
+			if (user.getMySearches().size()!= 0){
+				user.getMySearches().remove(0);
+			}
 			user.getMySearches().add(userSearch);
 			userService.addUser(user);
 		}
