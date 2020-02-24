@@ -33,7 +33,8 @@ public class Search
 
     public Search(){}
 
-    public Search(Integer rooms, Integer bathrooms, int squareMeters,  String location, double price) {
+    public Search(String type, Integer rooms, Integer bathrooms, int squareMeters,  String location, double price) {
+        this.type = type;
         this.rooms = rooms;
         this.bathrooms = bathrooms;
         this.squareMeters = squareMeters;
@@ -49,11 +50,11 @@ public class Search
         this.id = id;
     }
 
-    public String gettype() {
+    public String getType() {
         return type;
     }
 
-    public void settype(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 

@@ -37,7 +37,7 @@ public class iniBBDD {
         //userRepository.save(users5);
 
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
-        Advertisement anun1 = new Advertisement("Alquiler","Casa",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000);
+        Advertisement anun1 = new Advertisement("Venta","Casa",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000);
         Comment coment1= new Comment("Hola, me ha encantado");
         Users users5 = new Users("Maria","maria@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users5);
@@ -46,29 +46,29 @@ public class iniBBDD {
 
         anun1.getComments().add(coment1);
         anuncioRepository.save(anun1);
-        Advertisement anun2 = new Advertisement("Compra","Local",(Integer)2,(Integer)1,50,"Madrid","calle verde,3",(double)12000);
+        Advertisement anun2 = new Advertisement("Venta","Local",(Integer)2,(Integer)1,50,"Madrid","calle verde,3",(double)120000);
         anuncioRepository.save(anun2);
-        Advertisement anun3 = new Advertisement("Alquiler","Piso",(Integer)3,(Integer)1,90,"Pontevedra","calle carlos v,4,2 C",(double)80000);
+        Advertisement anun3 = new Advertisement("Alquiler","Piso",(Integer)3,(Integer)1,90,"Pontevedra","calle carlos v,4,2 C",(double)1600);
         anuncioRepository.save(anun3);
-        Advertisement anun4 = new Advertisement("Compra","Casa",(Integer)2,(Integer)1,56,"Madrid","calle verde,3",(double)78990);
+        Advertisement anun4 = new Advertisement("Venta","Casa",(Integer)2,(Integer)1,56,"Madrid","calle verde,3",(double)78990);
         anuncioRepository.save(anun4);
-        Advertisement anun5 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,78,"Madrid","calle verde,3",(double)12000);
+        Advertisement anun5 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,78,"Madrid","calle verde,3",(double)1200);
         anuncioRepository.save(anun5);
-        Advertisement anun6 = new Advertisement("Compra","Local",(Integer)4,(Integer)2,78,"Mostoles","calle verde,3",(double)1400);
+        Advertisement anun6 = new Advertisement("Venta","Local",(Integer)4,(Integer)2,85,"Mostoles","calle verde,3",(double)140000);
         anuncioRepository.save(anun6);
         Advertisement anun7 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Mostoles","calle verde,3",(double)1200);
         anuncioRepository.save(anun7);
         Advertisement anun8 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,78,"Valencia","calle verde,3",(double)1000);
         anuncioRepository.save(anun8);
-        Advertisement anun9 = new Advertisement("Compra","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
+        Advertisement anun9 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
         anuncioRepository.save(anun9);
 
-        Search search1 = new Search((Integer)2,(Integer)1,60,"Madrid",(double)800);
-        Search search2 = new Search((Integer)3,(Integer)2,80,"Mostoles",(double)1000);
-        Search search3 = new Search((Integer)1,(Integer)1,40,"Mostoles",(double)750);
-        Search search4 = new Search((Integer)4,(Integer)3,100,"Mostoles",(double)1200);
-        Search search5 = new Search((Integer)2,(Integer)2,70,"Madrid",(double)900);
-        Search search6 = new Search((Integer)2,(Integer)1,55,"Fuenlabrada",(double)700);
+        Search search1 = new Search("Alquiler",(Integer)2,(Integer)1,60,"Madrid",(double)800);
+        Search search2 = new Search("Alquiler",(Integer)3,(Integer)2,80,"Mostoles",(double)1000);
+        Search search3 = new Search("Alquiler",(Integer)1,(Integer)1,40,"Mostoles",(double)750);
+        Search search4 = new Search("Alquiler",(Integer)4,(Integer)3,100,"Mostoles",(double)1200);
+        Search search5 = new Search("Alquiler",(Integer)2,(Integer)2,70,"Madrid",(double)900);
+        Search search6 = new Search("Alquiler",(Integer)2,(Integer)1,55,"Fuenlabrada",(double)700);
 
 
         Users users1 = new Users("Angel","angel@gmail.com","12345678","ROLE_ADMIN");

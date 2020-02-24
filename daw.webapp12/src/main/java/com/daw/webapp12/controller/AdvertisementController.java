@@ -36,15 +36,21 @@ public class AdvertisementController {
 	@RequestMapping(value = {"/MainPage", ""})
     public String recommendeds(Model model) {
 		List<Advertisement> ads = advertisementService.findAll();
+		List<Advertisement> auxAdvertisements = new ArrayList<Advertisement>();
+		for(int i = 0;i<ads.size();i++){
+			auxAdvertisements.add(ads.get(i));
+		}
 		List<Search> searches = userService.findByName("Angel").getMySearches();
 		HashMap<Integer,Integer> scores = new HashMap<Integer,Integer>();
 		List<Advertisement> recommendeds = new ArrayList<Advertisement>();
+		List<String> typeOfSearches = new ArrayList<String>();
 		int roomMean = 0;
 		int bathroomMean = 0;
 		int squareMetersMean = 0;
 		List<String> locationsList = new ArrayList<String>();
 		double price = 0;
 		int score = 0;
+		String typeOfRecommendation;
 
 		for(int i = 0;i<searches.size();i++){
 			
@@ -54,27 +60,66 @@ public class AdvertisementController {
 			squareMetersMean += auxSearch.getsquareMeters();
 			locationsList.add(auxSearch.getlocation());
 			price += auxSearch.getprice();
+			if(searches.get(i).getType().equals("Alquiler") && !typeOfSearches.contains("Alquiler")){
+				typeOfSearches.add("Alquiler");
+			}else if(searches.get(i).getType().equals("Venta") && !typeOfSearches.contains("Venta")){
+				typeOfSearches.add("Venta");
+			}
+		}
+
+		if(typeOfSearches.contains("Alquiler") && typeOfSearches.contains("Venta")){
+			typeOfRecommendation = "Both";
+		}else if(typeOfSearches.contains("Alquiler") && !typeOfSearches.contains("Venta")){
+			typeOfRecommendation = "Alquiler";
+		}else{
+			typeOfRecommendation = "Venta";
 		}
 
 		roomMean = roomMean / searches.size();
 		bathroomMean = bathroomMean / searches.size();
 		squareMetersMean = squareMetersMean / searches.size();
+		price = price / searches.size();
 
-		for(int i = 0;i<ads.size();i++){
-			Advertisement auxAd = ads.get(i);
-			score+= (auxAd.getrooms() - roomMean) *2;
-			score+= (auxAd.getbathrooms() - bathroomMean) *2;
-			score+= ((auxAd.getsquareMeters() - squareMetersMean)/2) *2;
+		for(int i = 0;i<auxAdvertisements.size();i++){
+			Advertisement auxAd = auxAdvertisements.get(i);
+			if(typeOfRecommendation.equals("Alquiler") && auxAd.gettype().equals("Venta")){
+				auxAdvertisements.remove(i);
+				i= i-1;
+			}else if(typeOfRecommendation.equals("Venta") && auxAd.gettype().equals("Alquiler")){
+				auxAdvertisements.remove(i);
+				i= i-1;
+			}
+		}
+
+		for(int i = 0;i<auxAdvertisements.size();i++){
+			Advertisement auxAd = auxAdvertisements.get(i);
+			if(auxAd.getrooms() - roomMean ==0){
+				score+= 2;
+			}else{
+				score+= (auxAd.getrooms() - roomMean) *2;
+			}
 			
+			if(auxAd.getbathrooms() - bathroomMean ==0){
+				score+= 2;
+			}else{
+				score+= (auxAd.getbathrooms() - bathroomMean) *2;
+			}
+			
+			if(auxAd.getsquareMeters() - squareMetersMean ==0){
+				score+= 2;
+			}else{
+				score+= ((auxAd.getsquareMeters() - squareMetersMean)/2) *2;
+			}
+
 			if(locationsList.contains(auxAd.getlocation())){
 			 	score+=20;
 			}
 
-			if(auxAd.gettype()=="Alquiler"){
+			if(auxAd.gettype().equals("Alquiler")){
 				if(price - auxAd.getprice()>0){
 					score+= ((price - auxAd.getprice())/50) *4;
 				}
-			}else if(auxAd.gettype()=="Compra"){
+			}else if(auxAd.gettype().equals("Venta")){
 				if(price - auxAd.getprice()>0){
 					score+= ((price - auxAd.getprice())/5000) *4;
 				}
@@ -85,9 +130,9 @@ public class AdvertisementController {
 		}
 			List<Integer> mapKeys = new ArrayList<>(scores.keySet());
 			Collections.sort(mapKeys);
-			recommendeds.add(ads.get(scores.get(mapKeys.get(mapKeys.size()-1))));
-			recommendeds.add(ads.get(scores.get(mapKeys.get(mapKeys.size()-2))));
-			recommendeds.add(ads.get(scores.get(mapKeys.get(mapKeys.size()-3))));
+			recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-1))));
+			recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-2))));
+			recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-3))));
 		
 			HashMap<String, Integer> mostCommonLocations = new HashMap<String, Integer>();
 			for(int i = 0; i< ads.size();i++){
