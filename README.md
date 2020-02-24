@@ -135,3 +135,28 @@ Eduardo Luna Sánchez:
    - property-upload.html
    - Advertisement.java
    - Comment.java
+
+Wu Li Lu: 
+* Tareas realizadas en la fase: 
+  - Creación del proyecto Spring. 
+  - Creación de BBDD.
+  - Creación de entidades. 
+  - Creación de páginas de error. 
+  - Implementar Spring Security.
+  - Realizar funcionalidades de anuncio. 
+  - Realizar subida de imágenes. 
+  - Implementación del correo como tecnología complementaria.
+  
+ * Listado de los 5 commits más significativos: 
+   - Mustache configuration 556efb4
+   - Add Spring Security 77fb39b
+   - Update property-upload 8815174 
+   - bug fixed 524db0d
+   - Update multiple image upload eec2db3 
+   
+ * Listado de los 5 ficheros que mas se haya participado: 
+   - MainController.java
+   - SpringSecurityConfig.java
+   - property-upload.html
+   - Advertisement.java
+   - LoginController.java
