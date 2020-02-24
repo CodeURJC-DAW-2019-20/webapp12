@@ -50,6 +50,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         //only admin & register users
         http.authorizeRequests().antMatchers("/property-upload").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers("/properties-edit").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/properties").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers("/property-modificar").hasAnyRole("USER", "ADMIN");
         

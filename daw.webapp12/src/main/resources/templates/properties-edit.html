@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>property upload page</title>
+    <title>property edit page</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/propertyUpload.css">
     <meta charset="utf-8">
@@ -20,23 +20,23 @@
         <h2 class="text-center witt" id="submitAdvertisementButton">PUBLICAR ANUNCIO <br></h2>
         <br>
         {{#advertisement}}
-        <form action="/editProperties" method="post" enctype="multipart/form-data">
+        <form action="/editProperties/{{id}}" method="post" enctype="multipart/form-data">
 
             <h3 class="botonDesp1">Tipo de anuncio:</h3>
-            <select class="botonDesp" name="type" id="type"
+            <select required class="botonDesp" name="type" id="type"
                     value="{{type}}">
                 <option value="venta">Venta</option>
                 <option value="alquiler">Alquiler</option>
             </select>
             <h3 class="botonDesp1">Tipo de vivienda:</h3>
-            <select class="botonDesp" name="property" id="property"
+            <select required class="botonDesp" name="property" id="property"
                     value="{{property}}">
                 <option value="Piso">Piso</option>
                 <option value="Casa">Casa</option>
                 <option value="Local">Local</option>
             </select>
             <h3 class="botonDesp1">Nº de habitaciones:</h3>
-            <select class="botonDesp" name="rooms" id="rooms"
+            <select required class="botonDesp" name="rooms" id="rooms"
                     value="{{rooms}}">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -49,7 +49,7 @@
                 <option value="9">9</option>
             </select>
             <h3 class="botonDesp1">Nº de baños:</h3>
-            <select class="botonDesp" name="bathrooms" id="bathrooms" value="{{bathrooms}}">
+            <select required class="botonDesp" name="bathrooms" id="bathrooms" value="{{bathrooms}}">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -59,27 +59,27 @@
             </select>
             <h3 class="botonDesp1">Metros cuadrados:</h3>
 
-            <input type="number" min="15" max="800" id="squareMeters" name="squareMeters"
+            <input required type="number" min="15" max="800" id="squareMeters" name="squareMeters"
                    value="{{squareMeters}}"/>
 
             <h3 class="botonDesp2">Introduzca la Localidad:</h3><br><br><br>
-            <input name="location" type="text" id="location"
-                   value="{{#location}}">
+            <input required name="location" type="text" id="location"
+                   value="{{location}}">
             <br>
         
             <h3 class="botonDesp1">Introduzca el precio del anuncio:</h3>
             <input class="numberInput" type="number" min="100" max="2000000" name="price" id="price"
-                   value="{{advertisement.price}}">
+                   value="{{price}}">
             <h3 class="botonDesp2">Introduzca la dirección:</h3><br><br><br>
-            <input name="address" type="text" id="address"
+            <input required name="address" type="text" id="address"
                    value="{{address}}">
             <br>
             <label for="file">Select image:</label>
-            <input type="file" id="file" name="file" multiple>
+            <input  required  value="{{images}}" type="file" id="file" name="file" multiple>
             <input type="submit">
 
-
-            <input type="submit" value="subir anuncio" class="btn btn-primary py-3 px-5">
+            {{/advertisement}}
+            <!-- <input type="submit" value="subir anuncio" class="btn btn-primary py-3 px-5"> -->
             <input type="hidden" name="_csrf" value="{{token}}"/>
             </form>
             </div>

@@ -9,6 +9,9 @@ import com.daw.webapp12.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 @Component
@@ -35,7 +38,7 @@ public class iniBBDD {
         userRepository.save(users4);
         //Users users5 = new Users("Maria","maria@gmail.com","12345678");
         //userRepository.save(users5);
-
+  
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
         Advertisement anun1 = new Advertisement("Venta","Casa",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000);
         Comment coment1= new Comment("Hola, me ha encantado");
@@ -43,24 +46,32 @@ public class iniBBDD {
         userRepository.save(users5);
         coment1.setAuthor(users5);
         commentRepository.save(coment1);
-
+        anun1.getImages().add("work-1.jpg");
         anun1.getComments().add(coment1);
         anuncioRepository.save(anun1);
         Advertisement anun2 = new Advertisement("Venta","Local",(Integer)2,(Integer)1,50,"Madrid","calle verde,3",(double)120000);
+        anun2.getImages().add("work-7.jpg");
         anuncioRepository.save(anun2);
         Advertisement anun3 = new Advertisement("Alquiler","Piso",(Integer)3,(Integer)1,90,"Pontevedra","calle carlos v,4,2 C",(double)1600);
+        anun3.getImages().add("work-3.jpg");
         anuncioRepository.save(anun3);
         Advertisement anun4 = new Advertisement("Venta","Casa",(Integer)2,(Integer)1,56,"Madrid","calle verde,3",(double)78990);
+        anun4.getImages().add("work-5.jpg");
         anuncioRepository.save(anun4);
         Advertisement anun5 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,78,"Madrid","calle verde,3",(double)1200);
+        anun5.getImages().add("work-4.jpg");
         anuncioRepository.save(anun5);
         Advertisement anun6 = new Advertisement("Venta","Local",(Integer)4,(Integer)2,85,"Mostoles","calle verde,3",(double)140000);
+        anun6.getImages().add("work-7.jpg");
         anuncioRepository.save(anun6);
         Advertisement anun7 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Mostoles","calle verde,3",(double)1200);
+        anun7.getImages().add("work-6.jpg");
         anuncioRepository.save(anun7);
         Advertisement anun8 = new Advertisement("Alquiler","Local",(Integer)1,(Integer)1,78,"Valencia","calle verde,3",(double)1000);
+        anun8.getImages().add("work-7.jpg");
         anuncioRepository.save(anun8);
         Advertisement anun9 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
+        anun9.getImages().add("work-2.jpg");
         anuncioRepository.save(anun9);
 
         Search search1 = new Search("Alquiler",(Integer)2,(Integer)1,60,"Madrid",(double)800);
@@ -73,6 +84,10 @@ public class iniBBDD {
         users1.getMyFavourites().add(anun1);
         users1.getMyFavourites().add(anun2);
         users1.getMyFavourites().add(anun3);
+
+        /*users1.getMyAdvertisements().add(anun4);
+        users1.getMyAdvertisements().add(anun5);
+        users1.getMyAdvertisements().add(anun6);*/
 
         users1.getMySearches().add(search1);
         users1.getMySearches().add(search2);
