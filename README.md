@@ -111,3 +111,27 @@ Gráfica: Muestra número de ventas de distintos meses.
 ![diagrama2](uptown/images/d2.PNG)
 
 ### Participación de miembros
+
+Eduardo Luna Sánchez: 
+* Tareas realizadas en la fase: 
+  - Implementación del correo como tecnología complementaria. 
+  - Creación de entidades. 
+  - Cambio en el formulario de subida del anuncio. 
+  - Realizar funcionalidades de anuncio. 
+  - Realizar diagrama de las entidades de la base de datos. 
+  - Realizar diagrama de clases y template. 
+  - Cambios en diversos htmls. 
+  
+ * Listado de los 5 commits más significativos: 
+   - New complementary technology 1954f33 
+   - Update html 52b568e 
+   - Update property-upload f9e0011
+   - New class diagram and template diagram 78e4cde
+   - Update entities 19f014d 
+  
+ * Listado de los 5 ficheros que mas se haya participado: 
+   - UserController.java
+   - UserService.java
+   - property-upload.html
+   - Advertisement.java
+   - Comment.java
