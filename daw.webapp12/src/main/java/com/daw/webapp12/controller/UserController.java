@@ -43,9 +43,19 @@ public class UserController {
 	
 	@RequestMapping(value = "/properties")
     public String favAdvertisements(Model model) {
-		String userName = userComponent.getLoggedUser().getName();
-	 	model.addAttribute("Favourites", userService.findByName(userName).getMyFavourites());
-        return "properties";
+		if(userComponent.isLoggedUser()){
+			String userName = userComponent.getLoggedUser().getName();
+			Users user = userService.findByName(userName);
+			if(user.getMyFavourites().size()>0){
+				model.addAttribute("Favourites", user.getMyFavourites());
+			}else{
+				model.addAttribute("Error", "No tienes anuncios favoritos.");
+			}
+			return "properties";
+		}else{
+			return "login";
+		}
+		
     }
 
 	@RequestMapping("/deleteFromFavourites/{id}")
@@ -54,7 +64,7 @@ public class UserController {
 		Users user = userService.findByName(userName);
 		user.deleteFavourite(id);
 		userService.addUser(user);
-        model.addAttribute("Favourites", user.getMyFavourites());
+        // model.addAttribute("Favourites", user.getMyFavourites());
         return "redirect:/properties";
 	}
 
@@ -65,7 +75,6 @@ public class UserController {
 		user.deleteOneAdvertisement(id);
 		userService.addUser(user);
 		advertisementService.deleteAdvertisement(id);
-        model.addAttribute("myads", user.getMyAdvertisements());
         return "redirect:/properties-modificar";
 	}
 

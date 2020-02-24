@@ -42,7 +42,13 @@ public class MainController {
     public String misAnuncios(Model model) {
         if (userComponent.isLoggedUser()) {
             String userName = userComponent.getLoggedUser().getName();
-            model.addAttribute("myAds", userService.findByName(userName).getMyAdvertisements());
+            Users user = userService.findByName(userName);
+            if(user.getMyAdvertisements().size()>0){
+                model.addAttribute("myAds", user.getMyAdvertisements());
+            }else{
+                model.addAttribute("Error", "No tienes ningun anuncio publicado.");
+            }
+            
             return "properties-modificar";
         } else {
             return "login";
