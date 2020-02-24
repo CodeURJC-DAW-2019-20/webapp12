@@ -160,3 +160,27 @@ Wu Li Lu:
    - property-upload.html
    - Advertisement.java
    - LoginController.java
+María Flores García: 
+
+* Tareas realizadas en la fase:  
+  - Creación de relaciones en BBDD.
+  - Creación de entidades. 
+  - Creación de header y footer. 
+  - Implementar Spring Security.
+  - Realizar funcionalidades de modificar anuncio. 
+  - Realizar funcionalidad de búsqueda. 
+  - Implementar añadir a favoritos.
+  
+ * Listado de los 5 commits más significativos: 
+   - Edit advertisement 6948d29ad70e4b4fc8b20c9bd453e1fff4dbfd35
+   - Add to my favourites e0f24dd04eaae69bc9feb52174f6f38686fc7c10
+   - SignUp added ce37fdb052ff4bfff548e15498c322164e07f095 
+   - Header and footer added 3da3b21bc3d9faafa70b2b849a2c44dc30a7b415
+   - Search implemented 81bdd8f5abbe16525f2090c49a6b8da345bf056d 
+   
+ * Listado de los 5 ficheros que mas se haya participado: 
+   - AdvertisementController.java
+   - SpringSecurityConfig.java
+   - UserRepositoryAuthenticationProvider.java
+   - UserController.java
+   - properties-search.html
