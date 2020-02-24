@@ -57,17 +57,18 @@ public class MainController {
             if (!multipartFile[i].isEmpty()) {
                 //Path rootPath = Paths.get("src//main/resources//static//images").resolve(multipartFile.getOriginalFilename());
                 //Path rootAbsolutePath = rootPath.toAbsolutePath();
-                Path directorioRecursos = Paths.get("src//main/resources//static//images");
+                Path directorioRecursos = Paths.get("daw.webapp12//src//main/resources//static//images");
                 String rootPath = directorioRecursos.toFile().getAbsolutePath();
                 log.info("rootPath: " + rootPath);
                 //log.info("rootAbsolutePath: " + rootAbsolutePath);
                 try {
                     //Files.copy(multipartFile.getInputStream(), rootAbsolutePath);
                     //advertisement.setImages(multipartFile.getOriginalFilename());
+                    //C:\Users\Maria\Documents\webapp12\daw.webapp12\src\main\resources\static\images
                     byte[] bytes = multipartFile[i].getBytes();
                     Path rupacompleta = Paths.get(rootPath + "//" + multipartFile[i].getOriginalFilename());
                     Files.write(rupacompleta, bytes);
-                    files.add(multipartFile[i].getOriginalFilename() + advertisement.getId());
+                    files.add(multipartFile[i].getOriginalFilename());
 
                 } catch (IOException e) {
                     e.printStackTrace();
