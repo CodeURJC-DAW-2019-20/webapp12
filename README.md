@@ -116,7 +116,7 @@ Gráfico: Nuevo gráfico actualizado.
 
 Diagrama de navegación: nuevo diagrama de navegación. 
 
-![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion.jpg)
+![Diagrama de Navegacion](uptown/images/DiagramaDeNavegacion.jpg)
 
 
 
