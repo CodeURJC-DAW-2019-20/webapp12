@@ -13,7 +13,8 @@ public class Blog {
 
     @NotNull
     private String title;
-
+    @Lob 
+    @Column(name="CONTENT", length=512)
     private String text;
 
     public Blog(){}

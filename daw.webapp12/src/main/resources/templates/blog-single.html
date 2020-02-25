@@ -19,26 +19,13 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 order-md-last ftco-animate">
-            <h2 class="mb-3">Increíbles viviendas madrileñas</h2>
-            <p>Madrid es el centro neurálgico de la cultura y las actividades de ocio: es la ciudad en la que se concentran muchísimas de las actividades y empresas que están en auge. Si estás pensando en mudarte a la capital madrileña, atento a estos seis pisos que os traemos hoy.</p>
+            {{#blog}}
+            <h2 class="mb-3">{{title}}</h2>
+            <p>{{text}}</p>
             <p>
               <img src="images/image_7.jpg" alt="" class="img-fluid">
             </p>
-            <p>Reformado a todo lujo
-              En el Paseo de Recoletos puedes disfrutar de este espectacular piso de lujo. Ha sido totalmente reformado sin escatimar en gastos, empleando productos de la mejor calidad como así demuestra el mármol italiano. Consta de cinco dormitorios, cinco cuartos de baño, un enorme salón con chimenea y cocina. Te encantará.</p>
-            <h2 class="mb-3 mt-5">Lo importante está en los detalles</h2>
-            <p>Nuevamente en Recoletos, presentamos esta exclusiva propiedad de algo más de 300 metros cuadrados. Ha sido rehabilitada de manera íntegra, pero respetando todos los detalles de su época de construcción. Además, ha sido decorada con un gusto increíble.</p>
-            <p>
-              <img src="images/image_8.jpg" alt="" class="img-fluid">
-            </p>
-            <p>Para los más exigentes
-              No muy lejos de Recoletos, en la Castellana, puedes encontrarte con esta espectacular vivienda. Tras pasar el recibidor, se encuentran dos salones y un gran comedor que da acceso a una amplia terraza. Le siguen seis grandes y luminosos dormitorios con vestidor y cinco cuartos de baño. ¡Te encantará!</p>
-            <p>Una casa en la ciudad
-              Si buscas una casa, y no un piso, este es el indicado. Se encuentra en la Ciudad Jardín, Chamartín. Consta de 402 metros cuadrados repartidos en cuatro niveles, y una parcela de 258.</p>
-            <p>Exterior y luminoso
-              Finalizamos en el barrio de Salamanca, donde se encuentra este precioso piso de casi 300 metros cuadrados repartidos en cuatro dormitorios y cinco cuartos de baño, cocina independiente equipada y un amplio salón comedor.</p>
-          </div>
-          
+            
           <!-- .col-md-8 -->
           <div class="col-md-4 sidebar ftco-animate">
             <div class="sidebar-box ftco-animate">
@@ -81,40 +68,5 @@
       </div>
     </section> <!-- .section -->
 
-    <footer class="ftco-footer ftco-section">
-      <div class="container">
-          <div class="col-md-12 text-center">
-	
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-      </div>
-    </footer>
-    
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-    
-  </body>
+    {{>footer}}
 </html>
