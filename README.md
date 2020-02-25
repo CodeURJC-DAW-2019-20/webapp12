@@ -112,7 +112,7 @@ Login: Nuevo login.
 
 Gráfico: Nuevo gráfico actualizado. 
 
-![grafico](uptown/screenshots/blog.jpg)
+![grafico](uptown/screenshots/Graph.png)
 
 Diagrama de navegación: nuevo diagrama de navegación. 
 
