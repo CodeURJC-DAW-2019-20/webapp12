@@ -64,6 +64,7 @@ public class MainController {
                 //Path rootPath = Paths.get("src//main/resources//static//images").resolve(multipartFile.getOriginalFilename());
                 //Path rootAbsolutePath = rootPath.toAbsolutePath();
                 Path directorioRecursos = Paths.get("daw.webapp12//src//main/resources//static//images");
+                //Path directorioRecursos = Paths.get("src//main/resources//static//images");
                 String rootPath = directorioRecursos.toFile().getAbsolutePath();
                 log.info("rootPath: " + rootPath);
                 //log.info("rootAbsolutePath: " + rootAbsolutePath);
