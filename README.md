@@ -191,6 +191,7 @@ Wu Li Lu:
    - property-upload.html
    - Advertisement.java
    - LoginController.java
+   
 María Flores García: 
 
 * Tareas realizadas en la fase:  
@@ -215,3 +216,30 @@ María Flores García:
    - UserRepositoryAuthenticationProvider.java
    - UserController.java
    - properties-search.html
+   
+   
+   Karol Lisowski: 
+
+* Tareas realizadas en la fase:  
+  - Edicion html
+  - Creación de entidades.
+  - Creacion e implementacion de controladores, servicios y repositorios
+  - Creación de gráfico dinámico. 
+  - Implementación de un algoritmo de recomendación basado en las búsquedas del usuario.
+  - Realizar funcionalidades de mostrar y eliminar anuncio, tanto de favoritos como de mis anuncios(del Usuario). 
+  - Complementar funcionalidad de búsqueda, guardando los valores para futuras recomendaciones. 
+  - Implementacion dl html que puede ver el usuario en función de su rol.
+  
+ * Listado de los 5 commits más significativos: 
+   - Worked on the implementation of what users can see based on their role 7da4c2fda660747985a4ee1ce0c8ab48ea0b1c5e
+   - Recommended advertisements algorithm fully working bbcf7580e7e1fcff67b880967827995da5bcf842
+   - Deleting a User favourite avertisements fully working 81db6cdfdd8494213152f5772602de157e30cfa7
+   - Fully working graph with real data d8a809015d312fab23075fd9a0085ca105252c27
+   - Web Controllers for Advertisement and Blog, small html changes and... be7f6bd0918d800c2cfcbbdf8108c86f0bf16bc6 
+   
+ * Listado de los 5 ficheros que mas se haya participado: 
+   - AdvertisementController.java
+   - UserController.java
+   - graph.js
+   - MainController.java
+   - index.html
