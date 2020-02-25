@@ -68,6 +68,24 @@ public class UserController {
         // model.addAttribute("Favourites", user.getMyFavourites());
         return "redirect:/properties";
 	}
+	@RequestMapping("/addFavourite/{id}")
+    public String addFavourite(Model model,@PathVariable long id){
+		if(userComponent.isLoggedUser()){
+			String userName = userComponent.getLoggedUser().getName();
+			Users user = userService.findByName(userName);
+			Advertisement adv = advertisementService.findById(id);
+			if(user.getMyFavourites().contains(adv)){
+				return "redirect:/properties";
+			}else{
+				user.addFavourite(adv);
+				userService.addUser(user);
+			}
+			return "redirect:/properties";
+		}else{
+			return "redirect:/login";
+		}
+        
+	}
 
 	@RequestMapping("/deleteMyAdvertisement/{id}")
     public String deleteFromMyAdvertisements(Model model,@PathVariable long id){

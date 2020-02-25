@@ -1,5 +1,9 @@
 package com.daw.webapp12.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,6 +30,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class AdvertisementController{
@@ -243,7 +248,9 @@ public class AdvertisementController{
 			searchService.addSearch(userSearch);
 			String name = userComponent.getLoggedUser().getName();
 			Users user = userService.findByName(name);
-			user.getMySearches().remove(0);
+			if (user.getMySearches().size()!= 0){
+				user.getMySearches().remove(0);
+			}
 			user.getMySearches().add(userSearch);
 			userService.addUser(user);
 		}
@@ -254,13 +261,29 @@ public class AdvertisementController{
     public String editProperties(Model model, @PathVariable  long id) {
 		model.addAttribute("advertisement", advertisementService.findById(id));
 		//advertisementRepository.save(advertisement);
-        return "redirect:/property-edit";
+        return "properties-edit";
 	}
 	@PostMapping("/editProperties/{id}")
-    public String editProperties(Model model, Advertisement advertisement,@PathVariable  long id) {
-		//model.addAttribute("advertisement", advertisementService.findById(id));
+    public String editProperties(Model model, Advertisement advertisement,@PathVariable  long id,@RequestParam("file") MultipartFile[] multipartFile, @RequestParam String location) {
+		List<String> files = new ArrayList<>(5);
+        for (int i = 0; i < multipartFile.length; i++) {
+            if (!multipartFile[i].isEmpty()) {
+                Path directorioRecursos = Paths.get("daw.webapp12//src//main/resources//static//images");
+                String rootPath = directorioRecursos.toFile().getAbsolutePath();
+                try {
+                    byte[] bytes = multipartFile[i].getBytes();
+                    Path rupacompleta = Paths.get(rootPath + "//" + multipartFile[i].getOriginalFilename());
+                    Files.write(rupacompleta, bytes);
+                    files.add(multipartFile[i].getOriginalFilename());
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        advertisement.setImages(files);
 		advertisementRepository.save(advertisement);
-        return "properties-modificar";
+        return "redirect:/properties-modificar";
 	}
 
 	@RequestMapping("/deleteAdvertisement/{id}")

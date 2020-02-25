@@ -44,6 +44,7 @@ public class Users {
         this.password = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
         this.myFavourites = new ArrayList<Advertisement>();
+        this.myAdvertisements = new ArrayList<Advertisement>();
         this.mySearches = new ArrayList<Search>();
     }
 

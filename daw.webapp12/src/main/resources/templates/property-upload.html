@@ -22,20 +22,20 @@
         <form action="/property-upload" method="post" enctype="multipart/form-data">
 
             <h3 class="botonDesp1">Tipo de anuncio:</h3>
-            <select class="botonDesp" name="type" id="type"
+            <select required class="botonDesp" name="type" id="type"
                     value="{{#advertisement.type}}{{advertisement.type}}{{/advertisement.type}}">
                 <option value="Venta">Venta</option>
                 <option value="Alquiler">Alquiler</option>
             </select>
             <h3 class="botonDesp1">Tipo de vivienda:</h3>
-            <select class="botonDesp" name="property" id="property"
+            <select required class="botonDesp" name="property" id="property"
                     value="{{#advertisement.property}}{{advertisement.property}}{{/advertisement.property}}">
                 <option value="Piso">Piso</option>
                 <option value="Casa">Casa</option>
                 <option value="Local">Local</option>
             </select>
             <h3 class="botonDesp1">Nº de habitaciones:</h3>
-            <select class="botonDesp" name="rooms" id="rooms"
+            <select required class="botonDesp" name="rooms" id="rooms"
                     value="{{#advertisement.rooms}}{{advertisement.rooms}}{{/advertisement.rooms}}">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -48,7 +48,7 @@
                 <option value="9">9</option>
             </select>
             <h3 class="botonDesp1">Nº de baños:</h3>
-            <select class="botonDesp" name="bathrooms" id="bathrooms"
+            <select required class="botonDesp" name="bathrooms" id="bathrooms"
                     value="{{#advertisement.bathrooms}}{{advertisement.bathrooms}}{{/advertisement.bathrooms}}"/>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -59,130 +59,30 @@
             </select>
             <h3 class="botonDesp1">Metros cuadrados:</h3>
 
-            <input type="number" min="15" max="800" id="squareMeters" name="squareMeters"
+            <input type="number" required max="800" id="squareMeters" name="squareMeters"
                    value="{{#advertisement.squareMeters}}{{advertisement.squareMeters}}{{/advertisement.squareMeters}}"/>
 
             <!--<h3 class="botonDesp1">Localización:</h3>-->
             <h3 class="botonDesp2">Introduzca la Localidad:</h3><br><br><br>
-            <input name="location" type="text" id="location"
+            <input required name="location" type="text" id="location"
                    value="{{#advertisement.location}}{{advertisement.location}}{{/advertisement.location}}">
             <br>
-            <!--<input class="botonDesp"  name="location" id="location" value="{{#advertisement.location}}{{advertisement.location}}{{/advertisement.location}}"/>
-            -->
-            <!--<input name="location" type="text" id="location"
-                   value="{{#advertisement.location}}{{advertisement.location}}{{/advertisement.location}}">-->
-            <!--<datalist id="browsers">-->
-            <!--<select class="botonDesp" name="location" id="location"
-                    value="{{#advertisement.location}}{{advertisement.location}}{{/advertisement.location}}">
-                <option value="venta">Venta</option>
-                <option value="alquiler">Alquiler</option>
-            </select>--><!--
-            list="browsers"
-            <option value="Madrid">
-            <option value="Galicia">
-            <option value="Asturias">
-            <option value="Santander">
-            <option value="País Vasco">
-            <option value="Navarra">
-            <option value="La Rioja">
-            <option value="Huesca">
-            <option value="Zaragoza">
-            <option value="Teruel">
-            <option value="Barcelona">
-            <option value="Gerona">
-            <option value="Lérida">
-            <option value="Tarragona">
-            <option value="Valencia">
-            <option value="Castellón">
-            <option value="Alicante">
-            <option value="Murcia">
-            <option value="Almeria">
-            <option value="Granada">
-            <option value="Jaén">
-            <option value="Córdoba">
-            <option value="Málaga">
-            <option value="Sevilla">
-            <option value="Cádiz">
-            <option value="Huelva">
-            <option value="Badajoz">
-            <option value="Cáceres">
-            <option value="Toledo">
-            <option value="Ciudad Real">
-            <option value="Albacete">
-            <option value="Cuenca">
-            <option value="Guadalajara">
-            <option value="Segovia">
-            <option value="Ávila">
-            <option value="Soria">
-            <option value="Burgos">
-            <option value="Valladolid">
-            <option value="Palencia">
-            <option value="León">
-            <option value="Valladolid">
-            <option value="Salamanca">
-            <option value="Mallorca">
-            <option value="Menorca">
-            <option value="Ibiza">
-            <option value="Islas Canarias">
-            <option value="Ceuta">
-            <option value="Melilla">
-            <option value="Móstoles">
-            <option value="Fuenlabrada">
-            <option value="Leganés">
-            <option value="Alcorcón">
-            <option value="Parla">
-            <option value="El Escorial">
-            <option value="Getafe">
-            <option value="Griñón">
-            <option value="Madrid Capital">
-            <option value="Sierra de Madrid">
-                </datalist>-->
             <h3 class="botonDesp1">Introduzca el precio del anuncio:</h3>
-            <input class="numberInput" type="number" min="100" max="2000000" name="price" id="price"
+            <input  required class="numberInput" type="number" max="2000000" name="price" id="price"
                    value="{{#advertisement.price}}{{advertisement.price}}{{/advertisement.price}}">
             <h3 class="botonDesp2">Introduzca la dirección:</h3><br><br><br>
             <input name="address" type="text" id="address"
                    value="{{#advertisement.address}}{{advertisement.address}}{{/advertisement.address}}">
             <br>
             <label for="file">Select image:</label>
-            <input type="file" id="file" name="file" multiple>
+            <input required type="file" id="file" name="file" multiple>
             <input type="submit">
 
 
-            <input type="submit" value="subir anuncio" class="btn btn-primary py-3 px-5">
+            <!-- <input type="submit" value="subir anuncio" class="btn btn-primary py-3 px-5"> -->
             <input type="hidden" name="_csrf" value="{{token}}"/>
         </form>
-        <!--
-        <form action="#" class="bg-light p-5 contact-form">
-            <br>
-            <br>
-            <br>
-            <a class="botonDesp0" href="https://www.coordenadas-gps.com/">Para saber las coordenadas de la ubicación
-                haga click aquí </a>
-            <h3 class="botonDesp2">Introduzca las coordenadas de longitud:</h3><br><br><br>
-            <br>
-            <input name="Precio" type="text">
-            <h3 class="botonDesp2">Introduzca las coordenadas de latitud:</h3><br><br><br>
-            <input name="latitud" type="text">
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="form-group">
-                <input type="text" name="descripcion" id="" cols="30" rows="7" class="bigInput"
-                       placeholder="Descripción del anuncio"></textarea>
-            </div>
-            <br>
-            <div class="form-group">
-                <input type="submit" value="Subir imagenes" class="btn btn-primary py-3 px-5">
-                <input type="submit" value="{{#misAnuncios}}anuncio{{/misAnuncios}}" class="btn btn-primary py-3 px-5">
-                <input type="hidden" name="_csrf" value="{{token}}"/>
-            </div>
-            <a href="/properties-modificar"><input type="button" value="Volver a Mis anuncios"></a>
-
-        </form>
-        -->
-            </div>
-        </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
