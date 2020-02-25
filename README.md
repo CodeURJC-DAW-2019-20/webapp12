@@ -36,7 +36,7 @@ Aplicación de anuncio de casas, locales, pisos. Para alquiler, venta etc..
 * Gráficos: 
      - Se genera un gráfico con las ventas generales de la aplicación, se pueden filtrar por distintos campos.
 * Tecnología complementaria:
-     - Uso de mapas de GoogleMaps para localizar la posición de esas propiedad.
+     - Enviar un email cuando el usuario registra la cuenta.
 
 * Algoritmo o consulta avanzada: 
      - Un algoritmo que crea recomendaciones con el historial de búsqueda, y se ordenan por valoración.
@@ -100,7 +100,38 @@ Gráfica: Muestra número de ventas de distintos meses.
 
 
 ### Instrucciones de desarrollo
+#### Repositorio de Código
+[Código fuente](https://github.com/CodeURJC-DAW-2019-20/webapp12).
 
+#### Herramienta de desarrollo
+* IntelliJ
+* Spring Initializr
+* MySQL Server 8.0
+* MySQL WorkBench 8.0
+
+#### Dependencias
+* MSQL Server 8.0
+* Spring framework
+* Springboot starter security
+* Mustache
+* Springboot starter mail
+
+#### Gestionar el proyecto Spring con IntelliJ
+1. Abrir IntelliJ y seleccionar Create New Proyect.
+2. Elegir Spring Initializr (Project SDK 1.8 por defecto) y dar a next.
+3. Configurar el proyecto (el nombre del proyecto, tipo del proyecto (Maven), lenguaje del proyecto (Java), etc.) y dar a next.
+4. Elegir la versión del Spring Boot y seleccionar las dependencias necesarias, next.
+5. Elegir la ruta del proyecto y finish.
+6. Añadir dependencias necesarias en pom.xml y configuración en application.properties.
+7. Para compilar se da al botón Build Project (Ctrl+F9) y para ejecutar Run 'Application'(Ctrl+F10).
+
+#### Conectar y crear esquema en MySQL
+1. Descargar e instalar MySQL Server y MySQL WorkBench
+2. Abrir MySQL WorkBench
+3. Añadir una conexión con el usuario y la contraseña puesto en application.properties.
+4. * Introducir en el comando y ejecutar: create database daw_webapp12; para crear un nuevo base de datos llamado daw_webapp12. 
+   * Introducir en el comando y ejecutar: drop database daw_webapp12; cuando añadimos nuevas entidades, hay que eliminar el base de datos anterior para luego crear una nueva con entidades completas.
+5. Hacer consultas con SQL.
 
 ### Diagrama con las entidades de la base de datos
 
