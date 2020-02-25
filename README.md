@@ -89,7 +89,7 @@ Gráfica: Muestra número de ventas de distintos meses.
 
 ### Diagrama de Navegación
 
-![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion.jpg)
+![Diagrama de Navegacion](uptown/images/DiagramN.jpg)
 
 ## FASE 2
 ### Navegación
@@ -112,11 +112,11 @@ Login: Nuevo login.
 
 Gráfico: Nuevo gráfico actualizado. 
 
-![grafico](uptown/screenshots/Graph.png)
+![grafico](uptown/screenshots/graph.PNG)
 
 Diagrama de navegación: nuevo diagrama de navegación. 
 
-![Diagrama de Navegacion](uptown/images/DiagramaDeNavegacion.jpg)
+![Diagrama de Navegacion](uptown/images/DiagramaDeNavegacion.png)
 
 
 
