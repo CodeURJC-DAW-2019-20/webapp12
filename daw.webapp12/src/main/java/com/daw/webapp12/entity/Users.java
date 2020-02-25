@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Cascade;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -36,7 +37,11 @@ public class Users {
     @OneToMany(cascade=CascadeType.ALL)
     private List<Advertisement> myAdvertisements;
 
-    public Users(){}
+    public Users(){
+        this.myFavourites = new ArrayList<Advertisement>();
+        this.myAdvertisements = new ArrayList<Advertisement>();
+        this.mySearches = new ArrayList<Search>();
+    }
 
     public Users(String name, String email, String password,String... roles) {
         this.name = name;
