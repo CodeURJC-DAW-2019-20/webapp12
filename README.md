@@ -94,6 +94,29 @@ Gráfica: Muestra número de ventas de distintos meses.
 ## FASE 2
 ### Navegación
 
+Subida de anuncios: Nuevo formulario de subida de anuncio.
+
+![Anuncio](uptown/images/ponerAnuncio.png)
+
+Home: Nuevo Home y filtros para las búsqueda.
+
+![NewHome](uptown/images/newSearch.png)
+
+Admin: Html para admins. 
+
+![Admin](uptown/images/admin.jpg)
+
+Login: Nuevo login. 
+
+![Login](uptown/images/newLogin.png)
+
+Gráfico: Nuevo gráfico actualizado. 
+
+![grafico](uptown/screenshots/blog.jpg)
+
+Diagrama de navegación: nuevo diagrama de navegación. 
+
+![Diagrama de Navegacion](uptown/images/Diagrama%20de%20Navegacion.jpg)
 
 
 
