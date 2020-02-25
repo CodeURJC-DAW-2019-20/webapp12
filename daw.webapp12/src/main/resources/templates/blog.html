@@ -17,27 +17,27 @@
     </section>
 
 		<section class="ftco-section">
+      {{#blogs}}
+     
       <div class="container">
-        {{#blogs}}
         <div class="row d-flex">
           <div class="col-md-3 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
               <div class="text">
                 <h3 class="heading"><a href="#">{{title}}</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Diana</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a >July. 24, 2019</a></div>
+                  <div><a>Diana</a></div>
                 </div>
-                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');"></a>
+                <a href="blog/{{id}}" class="block-20 img" style="background-image: url('images/image_1.jpg');"></a>
                 <p>{{text}}</p>
               </div>
             </div>
           </div>
         </div>
-        {{/blogs}}
       </div>
     </section>
+    {{/blogs}}
 
     <footer class="ftco-footer ftco-section">
       <div class="container">
