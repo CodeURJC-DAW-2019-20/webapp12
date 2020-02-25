@@ -9979,6 +9979,15 @@ textarea.form-control {
   stroke-linecap: round; }
 
 
+  [config="hide"]{
+    display: none;
+    visibility: hidden;
+  }
+
+  [config="show"]{
+    visibility: visible;
+  }
+
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);

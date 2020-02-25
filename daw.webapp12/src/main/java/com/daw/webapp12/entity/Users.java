@@ -27,7 +27,7 @@ public class Users {
     @ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<Advertisement> myFavourites;
 
     @OneToMany(cascade=CascadeType.ALL)

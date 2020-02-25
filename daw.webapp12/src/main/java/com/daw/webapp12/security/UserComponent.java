@@ -18,6 +18,10 @@ public class UserComponent {
 		return user;
 	}
 
+	public String getUserRole(){
+		return getLoggedUser().getRoles().get(0);
+	}
+
 	public void setLoggedUser(Users user) {
 		this.user = user;
 	}

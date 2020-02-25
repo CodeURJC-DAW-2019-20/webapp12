@@ -21,13 +21,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class AdvertisementController {
+public class AdvertisementController{
 
 	@Autowired
 	AdvertisementService advertisementService;
@@ -195,7 +196,11 @@ public class AdvertisementController {
 		list.remove(i);
 	   }
 	   	model.addAttribute("graphValues", list);
-	 	model.addAttribute("recommendedAds", recommendeds);
+		model.addAttribute("recommendedAds", recommendeds);
+		//  if(userComponent.isLoggedUser()){
+		// 	model.addAttribute("role", userComponent.getLoggedUser().getRoles().get(0));
+		//  }
+		 
         return "index";
 	}
 
@@ -261,12 +266,33 @@ public class AdvertisementController {
 	@RequestMapping("/deleteAdvertisement/{id}")
     public String deleteAdvertisement(Model model, @PathVariable  long id){
         advertisementService.deleteAdvertisement(id);
-        model.addAttribute("something",advertisementService.findAll());
-
-		//For now return index
-        return "index";
+        model.addAttribute("allProperties",advertisementService.findAll());
+        return "properties-all";
     }
 
+	@ModelAttribute
+    public void addUserToModel(Model model){
+        boolean logged = userComponent.getLoggedUser() != null;
+        model.addAttribute("logged", logged);
+        if(logged){
+            model.addAttribute("admin",userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
+            model.addAttribute("user",userComponent.getLoggedUser().getRoles().contains("ROLE_USER"));
+           //model.addAttribute("logged", logged);
+        }
+	}
 	
+	@RequestMapping(value = "/AllProperties")
+    public String allProperties(Model model) {
+		if(userComponent.isLoggedUser() && userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN")){
+			if(advertisementService.findAll().size()>0){
+				model.addAttribute("allProperties", advertisementService.findAll());
+			}else{
+				model.addAttribute("Error", "No hay anuncios .");
+			}
+			return "properties-all";
+		}else{
+			return "login";
+		}	
+    }
 	
 }

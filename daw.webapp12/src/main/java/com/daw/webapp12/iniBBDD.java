@@ -29,6 +29,8 @@ public class iniBBDD {
         
         Users users2 = new Users("Edu", "edu@gmail.com","12345678","ROLE_USER");
         userRepository.save(users2);
+        Users admin = new Users("admin", "admin@gmail.com","admin","ROLE_ADMIN");
+        userRepository.save(admin);
         Users users3 = new Users("Karol","karol@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users3);
         Users users4 = new Users("Sebastian","sebastian@gmail.com","12345678","ROLE_USER");
@@ -69,7 +71,7 @@ public class iniBBDD {
         Search search5 = new Search("Alquiler",(Integer)2,(Integer)2,70,"Madrid",(double)900);
 
 
-        Users users1 = new Users("Angel","angel@gmail.com","12345678","ROLE_ADMIN");
+        Users users1 = new Users("Angel","angel@gmail.com","12345678","ROLE_USER");
         users1.getMyFavourites().add(anun1);
         users1.getMyFavourites().add(anun2);
         users1.getMyFavourites().add(anun3);

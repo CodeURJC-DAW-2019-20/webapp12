@@ -116,4 +116,23 @@ public class MainController {
         return "property-upload";
     }
 
+    @ModelAttribute
+    public void addUserToModel(Model model){
+        boolean logged = userComponent.getLoggedUser() != null;
+        model.addAttribute("logged", logged);
+        if(logged){
+            model.addAttribute("admin",userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
+            model.addAttribute("user",userComponent.getLoggedUser().getRoles().contains("ROLE_USER"));
+           //model.addAttribute("logged", logged);
+        }
+    }
+
+    // @RequestMapping(value = "/GetRole", method = RequestMethod.GET)
+    // public void getRole(Model model) {
+    //     if(userComponent.isLoggedUser()){
+    //         model.addAttribute("role", userComponent.getLoggedUser().getRoles().get(0));
+    //     }
+        
+    // }
+
 }
