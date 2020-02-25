@@ -20,8 +20,8 @@ public class BlogController {
 	}
 	@RequestMapping(value = "/blog/{id}")
     public String blogSingle(Model model, @PathVariable Long id) {
-	 	model.addAttribute("blog", blogService.findById(id));
-        return "blog";
+	 	model.addAttribute("Blog", blogService.findById(id));
+        return "blog-single";
     }
 
 }
