@@ -227,11 +227,11 @@ María Flores García:
   - Implementar añadir a favoritos.
   
  * Listado de los 5 commits más significativos: 
-   - Edit advertisement 6948d29ad70e4b4fc8b20c9bd453e1fff4dbfd35
-   - Add to my favourites e0f24dd04eaae69bc9feb52174f6f38686fc7c10
-   - SignUp added ce37fdb052ff4bfff548e15498c322164e07f095 
-   - Header and footer added 3da3b21bc3d9faafa70b2b849a2c44dc30a7b415
-   - Search implemented 81bdd8f5abbe16525f2090c49a6b8da345bf056d 
+   - Edit advertisement https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/6948d29ad70e4b4fc8b20c9bd453e1fff4dbfd35
+   - Add to my favourites https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/e0f24dd04eaae69bc9feb52174f6f38686fc7c10
+   - SignUp added https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/ce37fdb052ff4bfff548e15498c322164e07f095 
+   - Header and footer added https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/3da3b21bc3d9faafa70b2b849a2c44dc30a7b415
+   - Search implemented https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/81bdd8f5abbe16525f2090c49a6b8da345bf056d 
    
  * Listado de los 5 ficheros que mas se haya participado: 
    - AdvertisementController.java
@@ -254,11 +254,11 @@ María Flores García:
   - Implementacion dl html que puede ver el usuario en función de su rol.
   
  * Listado de los 5 commits más significativos: 
-   - Worked on the implementation of what users can see based on their role 7da4c2fda660747985a4ee1ce0c8ab48ea0b1c5e
-   - Recommended advertisements algorithm fully working bbcf7580e7e1fcff67b880967827995da5bcf842
-   - Deleting a User favourite avertisements fully working 81db6cdfdd8494213152f5772602de157e30cfa7
-   - Fully working graph with real data d8a809015d312fab23075fd9a0085ca105252c27
-   - Web Controllers for Advertisement and Blog, small html changes and... be7f6bd0918d800c2cfcbbdf8108c86f0bf16bc6 
+   - Worked on the implementation of what users can see based on their role https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/7da4c2fda660747985a4ee1ce0c8ab48ea0b1c5e
+   - Recommended advertisements algorithm fully working https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/bbcf7580e7e1fcff67b880967827995da5bcf842
+   - Deleting a User favourite avertisements fully working https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/81db6cdfdd8494213152f5772602de157e30cfa7
+   - Fully working graph with real data https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/d8a809015d312fab23075fd9a0085ca105252c27
+   - Web Controllers for Advertisement and Blog, small html changes and... https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/be7f6bd0918d800c2cfcbbdf8108c86f0bf16bc6 
    
  * Listado de los 5 ficheros que mas se haya participado: 
    - AdvertisementController.java
