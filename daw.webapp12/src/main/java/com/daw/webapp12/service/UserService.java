@@ -44,15 +44,15 @@ public class UserService implements UserInterface {
         return userRepository.findById(id).orElse(null);
     }
 
-    public void sendEmail(Users userInfo) throws Exception{
-        String email = "Acabas de registrarte como: " + "\nUsuario --> " + userInfo.getName() +
+    public void sendEmail(Users userInfo, String pass) throws Exception{
+        String email = "Acabas de registrarte como: " + "\nUsuario: " + userInfo.getName() + "\nContraseña: " + pass +
                 "\n" + "\nTodos tus facturas serán enviadas al siguiente correo electrónico: " + userInfo.getEmail() +
                 "\n" + "\nCualquier duda que tengas no dudes en contactarnos a través de nuestro correo electrónico.";
 
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
-        ClassPathResource file = new ClassPathResource("/static/img/tick.png");
-        helper.addAttachment("/static/img/tick.png", file);
+       // ClassPathResource file = new ClassPathResource("/static/img/tick.png");
+        //helper.addAttachment("/static/img/tick.png", file);
         helper.setTo(userInfo.getEmail());
         helper.setText(email);
         helper.setSubject("¡Bienvenid@ a Ruvik! ");

@@ -104,12 +104,13 @@ public class UserController {
 	}
 
 	@PostMapping("/signUp")
-	public String signUp(Model model,@RequestParam String username, HttpServletRequest request, HttpServletResponse response,@RequestParam String email,@RequestParam String password) {
-		
+	public String signUp(Model model,@RequestParam String username, HttpServletRequest request, HttpServletResponse response,@RequestParam String email,@RequestParam String password) throws Exception{
+		String pass = password;
 		Users u1= userService.findByName(username);
+		Users user = new Users(username, email, password, "ROLE_USER");
 		if (u1== null){
-			Users user = new Users(username, email, password, "ROLE_USER");    
 			userService.addUser(user);
+			userService.sendEmail(user, pass);
 		}
 		return "index";
 	}
@@ -118,7 +119,7 @@ public class UserController {
 		return userComponent.getLoggedUser();
 	}
 
-	@PostMapping("/register")
+	/*@PostMapping("/register")
 	public String addNewUser(Model model, HttpServletRequest req, @RequestParam String name,
 							 @RequestParam String email, @RequestParam String password) throws Exception {
 		Users newUser = new Users(name, password, "ROLE_USER");
@@ -132,7 +133,7 @@ public class UserController {
 		userService.addUser(newUser);
 		userService.sendEmail(newUser);
 		return "/login";
-	}
+	}*/
 
 	@ModelAttribute
     public void addUserToModel(Model model){
