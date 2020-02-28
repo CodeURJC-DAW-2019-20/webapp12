@@ -83,26 +83,6 @@ public class MainController {
             }
         }
         advertisement.setImages(files);
-        /*
-        if (!multipartFile.isEmpty()) {
-            //Path rootPath = Paths.get("src//main/resources//static//images").resolve(multipartFile.getOriginalFilename());
-            //Path rootAbsolutePath = rootPath.toAbsolutePath();
-            Path directorioRecursos = Paths.get("src//main/resources//static//images");
-            String rootPath = directorioRecursos.toFile().getAbsolutePath();
-            log.info("rootPath: " + rootPath);
-            //log.info("rootAbsolutePath: " + rootAbsolutePath);
-            try {
-                //Files.copy(multipartFile.getInputStream(), rootAbsolutePath);
-                //advertisement.setImages(multipartFile.getOriginalFilename());
-                byte[] bytes = multipartFile.getBytes();
-                Path rupacompleta = Paths.get(rootPath + "//" + multipartFile.getOriginalFilename());
-                Files.write(rupacompleta, bytes);
-                advertisement.setImages(multipartFile.getOriginalFilename()+advertisement.getId());
-               
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
         advertisement.setlocation(location);
         advertisementRepository.save(advertisement);
         Users thisUser = userService.findByName(userComponent.getLoggedUser().getName());
@@ -127,13 +107,5 @@ public class MainController {
            //model.addAttribute("logged", logged);
         }
     }
-
-    // @RequestMapping(value = "/GetRole", method = RequestMethod.GET)
-    // public void getRole(Model model) {
-    //     if(userComponent.isLoggedUser()){
-    //         model.addAttribute("role", userComponent.getLoggedUser().getRoles().get(0));
-    //     }
-        
-    // }
 
 }
