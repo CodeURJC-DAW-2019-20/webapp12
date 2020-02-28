@@ -13,7 +13,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("static/images/**")
                 .addResourceLocations(resourcePath);
 
-    }*/
+    }
 /*
     @Override
     public void addViewControllers(ViewControllerRegistry registry){
