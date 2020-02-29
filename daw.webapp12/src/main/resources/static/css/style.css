@@ -9988,6 +9988,15 @@ textarea.form-control {
     visibility: visible;
   }
 
+  #blogMethods #deleteMethod{
+    float: left;
+  }
+
+  #blogMethods #updateMethod{
+    float: left;
+    margin: 6.85px;
+  }
+
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);

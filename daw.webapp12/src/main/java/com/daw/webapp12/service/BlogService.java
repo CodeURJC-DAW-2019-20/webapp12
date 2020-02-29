@@ -21,4 +21,12 @@ public class BlogService {
     public Optional<Blog> findById(Long id) {
         return blogRepository.findById(id);
     }
+
+    public Blog addBlog(Blog blog){
+        return blogRepository.save(blog);
+    }
+
+    public void deleteBlog(Long id){
+        blogRepository.deleteById(id);
+    }
 }

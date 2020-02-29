@@ -1,5 +1,8 @@
 package com.daw.webapp12.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -17,6 +20,9 @@ public class Blog {
     @Column(name="CONTENT", length=512)
     private String text;
 
+    @ElementCollection
+    private List<String> images = new ArrayList<>(5);
+    
     public Blog(){}
 
     public Blog(String title, String text) {
@@ -46,6 +52,12 @@ public class Blog {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public List<String> getImages(){ return images;}
+
+    public void setImages(List<String> images){
+        this.images = images;
     }
 }
 

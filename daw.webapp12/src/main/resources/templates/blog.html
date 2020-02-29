@@ -31,6 +31,15 @@
                 </div>
                 <a href="blog/{{id}}" class="block-20 img" style="background-image: url('images/image_1.jpg');"></a>
                 <p>{{text}}</p>
+                <div id="blogMethods">
+                  <a class="btn d-flex align-items-center btn-custom-edit" id="deleteMethod" style="float:left;" href="deleteBlog/{{id}}">
+                    <span class="icon-trash"></span>
+                  </a>
+                  <a class="d-flex align-items-center btn-custom-edit2" id="updateMethod" href="/editBlog/{{id}}">
+                    <span class="icon-edit" style="top: 5px;"></span>
+                  </a>
+                </div>
+                
               </div>
             </div>
           </div>
