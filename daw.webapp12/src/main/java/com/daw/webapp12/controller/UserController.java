@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Users;
+import com.daw.webapp12.repository.AdvertisementRepository;
 import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.security.UserRepositoryAuthenticationProvider;
 import com.daw.webapp12.service.AdvertisementService;
@@ -15,6 +16,8 @@ import com.daw.webapp12.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,9 +44,16 @@ public class UserController {
 	
 	@Autowired
 	AdvertisementService advertisementService;
-	
+	@Autowired
+	AdvertisementRepository advertisementRepository;
+
 	@RequestMapping(value = "/properties")
-    public String favAdvertisements(Model model) {
+    public String favAdvertisements(Model model, Pageable page) {
+
+		Page<Advertisement> pages =advertisementRepository.findAll(page);
+
+
+
 		if(userComponent.isLoggedUser()){
 			String userName = userComponent.getLoggedUser().getName();
 			Users user = userService.findByName(userName);

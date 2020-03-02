@@ -5,21 +5,21 @@ var appendProperty13 = '</span>{{bathrooms}}</li><li><span class="flaticon-floor
 var appendProperty14 = '<h3><a>{{property}} en {{location}}</a></h3><span class="location">{{location}}</span><a class="d-flex align-items-center justify-content-center btn-custom" '
 var appendProperty15 = 'id ="deleteFavouriteButton" href="deleteFromFavourites/{{id}}"><span class="icon-star-o"></span></a></div></div></div>'
 var appendProperty16 = '</div></div></section>'
-$(function(){
+var loadBtn = document.getElementById("LoadMore");
+loadBtn.onclick = function(){
+            console.log("loadMyFavourites");
     $.ajax({
         method:"GET",
-        url:"/" + currentPage,
+        url:'https://localhost:8443/properties',
         data:{
             page: 1,
-            pageLimit: 6
+            pageLimit: 3
         },
         success: function(data){
             console.log(data);
             if (data.success) {
-                var dataArr = data.success.data;
-                var html = "";
-                for ( var i =0; i<dataArr.lenght; i++){
-                    html += appendProperty + appendProperty1 + appendProperty12 + appendProperty13 + appendProperty14 + appendProperty15 + appendProperty16;
+                data.
+                    // usar el data o data array para pintar el html
                 }
                 $("#result").html(html);
             }
