@@ -34,7 +34,7 @@ public class BlogRestController {
     @Autowired
 	private BlogService blogService;
 
-    @RequestMapping(value = "/blog/{{id}}", method = RequestMethod.GET)
+    @RequestMapping(value = "/blog/{id}", method = RequestMethod.GET)
     public ResponseEntity<Blog> getBlog(@PathVariable long id){
         Blog blog = blogService.findById(id);
         if(blog != null){
@@ -52,7 +52,7 @@ public class BlogRestController {
 
     @RequestMapping(value = "/blog-upload", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Blog blogUpload( @RequestParam("file") MultipartFile[] multipartFile, @RequestParam String title, @RequestParam String description){
+    public Blog blogUpload( @RequestBody MultipartFile[] multipartFile,  @RequestBody String title,  @RequestBody String description){
         List<String> files = new ArrayList<String>(5);
         for (int i = 0; i < multipartFile.length; i++) {
             if (!multipartFile[i].isEmpty()) {
