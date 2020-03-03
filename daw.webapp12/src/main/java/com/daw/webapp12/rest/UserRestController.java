@@ -1,4 +1,4 @@
-package com.daw.webapp12.restController;
+package com.daw.webapp12.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

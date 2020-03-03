@@ -1,10 +1,8 @@
-package com.daw.webapp12.restController;
-
+package com.daw.webapp12.rest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping
-public class BlogRestController {
-
+public class LoginRestController {
 }

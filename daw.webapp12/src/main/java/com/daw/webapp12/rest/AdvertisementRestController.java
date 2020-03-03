@@ -1,4 +1,4 @@
-package com.daw.webapp12.restController;
+package com.daw.webapp12.rest;
 
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.daw.webapp12.restController;
+package com.daw.webapp12.rest;
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.service.AdvertisementService;
