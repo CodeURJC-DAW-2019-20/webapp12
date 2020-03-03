@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.daw.webapp12.entity.Advertisement;
+import com.daw.webapp12.entity.Comment;
 import com.daw.webapp12.entity.Search;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.AdvertisementRepository;
@@ -210,12 +211,19 @@ public class AdvertisementController{
 		 
         return "index";
 	}
-
+	@PostMapping(value = "/properties/{id}")
+	public String comments(Advertisement advertisement,Model model,@RequestParam Comment comment){
+		advertisement.setComment(comment);
+		advertisementRepository.save(advertisement);
+		return "redirect:/properties-single";
+	}
 
 	@RequestMapping(value = "/properties/{id}")
     public String favAdvertisements(Model model, @PathVariable  long id) {
-
-
+		for (int i=0;i<advertisementService.findById(id).getComments().size()-1;i++){
+			Comment advertisement= advertisementService.findById(id).getComments().get(i);
+			model.addAttribute("Comment",advertisement);
+		}
 	 	model.addAttribute("Property", advertisementService.findById(id));
         return "properties-single";
 	}

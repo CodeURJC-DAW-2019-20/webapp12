@@ -44,12 +44,15 @@ public class iniBBDD {
         //Advertisement(String tipo, String vivienda, Integer habitaciones, Integer baños, String metros2, String localizacion, String direccion, double precio)
         Advertisement anun1 = new Advertisement("Venta","Casa",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000);
         Comment coment1= new Comment("Hola, me ha encantado");
+        Comment comment2= new Comment("Igual");
         Users users5 = new Users("Maria","maria@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users5);
         coment1.setAuthor(users5);
         commentRepository.save(coment1);
+        commentRepository.save(comment2);
         anun1.getImages().add("work-1.jpg");
         anun1.getComments().add(coment1);
+        anun1.getComments().add(comment2);
         anuncioRepository.save(anun1);
         Advertisement anun2 = new Advertisement("Venta","Local",(Integer)2,(Integer)1,50,"Madrid","calle verde,3",(double)120000);
         anun2.getImages().add("work-7.jpg");
@@ -98,6 +101,8 @@ public class iniBBDD {
 
 
         userRepository.save(users1);
+
+
            
 
         Blog blog1 = new Blog("CALIDEZ Y CARÁCTER SE ENCUENTRAN FRENTE A FRENTE EN ESTA CASA", "Los propietarios de esta casa unifamiliar en una población cercana a Barcelona —una pareja con hijos adolescentes— querían reformarla para adaptarla a los tiempos modernos. Solo querían un lavado de cara y que les ayudáramos a escoger mobiliario y textiles para modernizar la vivienda.");

@@ -37,11 +37,39 @@
         			</div>
         		</div>
 			</div>
+			<div id="result"></div>
 			{{/Favourites}}
+			{{#Adverstiments}}
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href= "/properties/{{id}}" class="img" style="background-image: url(images/{{images.0}});"></a>
+					<div class="text">
+						<p class="price"><span class="old-price">{{price}}</span><span class="orig-price">{{price}}<small>/mo</small></span></p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>{{rooms}}</li>
+							<li><span class="flaticon-bathtub"></span>{{bathrooms}}</li>
+							<li><span class="flaticon-floor-plan"></span>{{squareMeters}}</li>
+						</ul>
+						<h3><a href="#">{{property}} en {{location}}</a></h3>
+						<span class="location">{{type}}</span>
+						<a href="/addFavourite/{{id}}" class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="icon-star-o"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			{{/Adverstiments}}
 			<form>
 				<button id="LoadMore" type="button" title="LoadMore"><i class="material-icons">add_circle_outline</i> </button>
 				<input type="hidden" name="_csrf" value="{{token}}">
 			</form>
+			{{#showPrev}}
+			<a href="/properties/?page={{prevPage}}">prev</a>
+			{{/showPrev}}
+			{{#showNext}}
+			<a href="/properties/?page={{nextPage}}">next</a>
+			{{/showNext}}
 
 			{{#Error}}
 				<h2>{{.}}</h2>

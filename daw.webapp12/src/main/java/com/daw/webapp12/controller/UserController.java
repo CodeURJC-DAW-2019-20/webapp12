@@ -17,6 +17,7 @@ import com.daw.webapp12.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,8 +50,9 @@ public class UserController {
 
 	@RequestMapping(value = "/properties")
     public String favAdvertisements(Model model, Pageable page) {
+		Pageable firstPageWithThreeElements = PageRequest.of(0,3);
 
-		Page<Advertisement> pages =advertisementRepository.findAll(page);
+		Page<Advertisement> pages =advertisementRepository.findAll(firstPageWithThreeElements);
 
 
 
@@ -58,7 +60,12 @@ public class UserController {
 			String userName = userComponent.getLoggedUser().getName();
 			Users user = userService.findByName(userName);
 			if(user.getMyFavourites().size()>0){
-				model.addAttribute("Favourites", user.getMyFavourites());
+				model.addAttribute("Favourites", pages);
+				model.addAttribute("showNext",!pages.isLast());
+				model.addAttribute("showPrev",!pages.isFirst());
+				model.addAttribute("nextPage", pages.getNumber()+1);
+				model.addAttribute("prevPage", pages.getNumber()-1);
+				//model.addAttribute("Favourites", user.getMyFavourites());
 			}else{
 				model.addAttribute("Error", "No tienes anuncios favoritos.");
 			}
