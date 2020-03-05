@@ -34,6 +34,8 @@ public class Advertisement
 
     private double price;
 
+    private String picture;
+
     /*
     @ElementCollection
     private List<String> images = new ArrayList<>(5);*/
@@ -57,6 +59,19 @@ public class Advertisement
         this.price = price;
         this.comments = new ArrayList<Comment>();
     }
+
+     public Advertisement(String type, String property,  Integer rooms, Integer bathrooms, int squareMeters,  String location, String address, double price, String picture) {
+         this.type = type;
+         this.property = property;
+         this.rooms = rooms;
+         this.bathrooms = bathrooms;
+         this.squareMeters = squareMeters;
+         this.location = location;
+         this.address = address;
+         this.price = price;
+         this.comments = new ArrayList<Comment>();
+         this.picture = picture;
+     }
 
      public Advertisement(String type, String property,  Integer rooms, Integer bathrooms, int squareMeters,  String location, String address, double price, List<String> images) {
          this.type = type;
@@ -154,4 +169,8 @@ public class Advertisement
     public List<String> getImages(){ return images;}
 
     public void setImages(List<String> images){this.images = images;}
+
+     public String getPicture(){ return picture;}
+
+     public void setPicture(String picture){this.picture = picture;}
 }
