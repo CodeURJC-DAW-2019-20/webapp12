@@ -23,6 +23,8 @@ public class Comment {
         //this.advertisement = advertisement;
     }
 
+    public Comment() {}
+
     public long getId() {
         return id;
     }

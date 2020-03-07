@@ -135,13 +135,13 @@ public class MainRestController {
         }
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
-
+/*
     @GetMapping("/properties-modificar")
     public ResponseEntity<?> misAnuncios(){
         Users users = userService.findByName(userComponent.getLoggedUser().getName());
         return new ResponseEntity<>(users.getMyAdvertisements(),HttpStatus.ACCEPTED);
 
-    }
+    }*/
 
 
 }

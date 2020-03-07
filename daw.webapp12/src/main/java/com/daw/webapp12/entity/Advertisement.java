@@ -42,6 +42,7 @@ public class Advertisement
     @ElementCollection
     private List<String> images = new ArrayList<>(5);
 
+
     @OneToMany
     private List<Comment> comments;
 
@@ -86,7 +87,21 @@ public class Advertisement
          this.comments = new ArrayList<Comment>();
      }
 
-    public long getId() {
+     public Advertisement(@NotNull String type, String property, Integer rooms, Integer bathrooms, Integer squareMeters, String location, String address, double price, String picture, List<String> images, List<Comment> comments) {
+         this.type = type;
+         this.property = property;
+         this.rooms = rooms;
+         this.bathrooms = bathrooms;
+         this.squareMeters = squareMeters;
+         this.location = location;
+         this.address = address;
+         this.price = price;
+         this.picture = picture;
+         this.images = images;
+         this.comments = comments;
+     }
+
+     public long getId() {
         return id;
     }
 
