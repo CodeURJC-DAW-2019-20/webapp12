@@ -24,6 +24,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -42,9 +43,9 @@ public class MainController {
     public String misAnuncios(Model model) {
         if (userComponent.isLoggedUser()) {
             String userName = userComponent.getLoggedUser().getName();
-            Users user = userService.findByName(userName);
-            if(user.getMyAdvertisements().size()>0){
-                model.addAttribute("myAds", user.getMyAdvertisements());
+            Optional<Users> user = userService.findByName(userName);
+            if(user.get().getMyAdvertisements().size()>0){
+                model.addAttribute("myAds", user.get().getMyAdvertisements());
             }else{
                 model.addAttribute("Error", "No tienes ningun anuncio publicado.");
             }
@@ -85,9 +86,9 @@ public class MainController {
         advertisement.setImages(files);
         advertisement.setlocation(location);
         advertisementRepository.save(advertisement);
-        Users thisUser = userService.findByName(userComponent.getLoggedUser().getName());
-        thisUser.getMyAdvertisements().add(advertisement);
-        userService.addUser(thisUser);
+        Optional<Users> thisUser = userService.findByName(userComponent.getLoggedUser().getName());
+        thisUser.get().getMyAdvertisements().add(advertisement);
+        userService.addUser(thisUser.get());
 
         return "redirect:/MainPage";
     }

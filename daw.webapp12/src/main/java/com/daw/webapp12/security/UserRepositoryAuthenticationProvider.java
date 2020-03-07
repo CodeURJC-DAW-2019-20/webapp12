@@ -2,6 +2,7 @@ package com.daw.webapp12.security;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.UserRepository;
@@ -31,19 +32,19 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
        String username=authentication.getName();
        String password=(String)authentication.getCredentials();
 
-       Users user = userRep.findByName(username);
+        Optional<Users> user = userRep.findByName(username);
 
        if(user==null){
            System.out.println("No autenticado");
            throw new BadCredentialsException("User dont exist");
        }
 
-       if (!new BCryptPasswordEncoder().matches(password,user.getPassword())){
+       if (!new BCryptPasswordEncoder().matches(password,user.get().getPassword())){
            throw new BadCredentialsException("Fail password");
        }else{
-           userComponent.setLoggedUser(user);
+           userComponent.setLoggedUser(user.get());
            List<GrantedAuthority> roles=new ArrayList<>();
-           for(String role:user.getRoles()){
+           for(String role:user.get().getRoles()){
                roles.add(new SimpleGrantedAuthority(role));
            }
            return new UsernamePasswordAuthenticationToken(username,password,roles);

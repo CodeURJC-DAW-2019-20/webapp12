@@ -4,13 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Search;
@@ -53,7 +47,7 @@ public class AdvertisementController{
 		for(int i = 0;i<ads.size();i++){
 			auxAdvertisements.add(ads.get(i));
 		}
-		List<Search> searches = userService.findByName("Angel").getMySearches();
+		List<Search> searches = userService.findByName("Angel").get().getMySearches();
 		HashMap<Double,Integer> scores = new HashMap<Double,Integer>();
 		List<Advertisement> recommendeds = new ArrayList<Advertisement>();
 		List<String> typeOfSearches = new ArrayList<String>();
@@ -247,12 +241,12 @@ public class AdvertisementController{
 			Search userSearch = new Search(searchType,rooms, bathrooms, squareMeters, location, price);
 			searchService.addSearch(userSearch);
 			String name = userComponent.getLoggedUser().getName();
-			Users user = userService.findByName(name);
-			if (user.getMySearches().size()!= 0){
-				user.getMySearches().remove(0);
+			Optional<Users> user = userService.findByName(name);
+			if (user.get().getMySearches().size()!= 0){
+				user.get().getMySearches().remove(0);
 			}
-			user.getMySearches().add(userSearch);
-			userService.addUser(user);
+			user.get().getMySearches().add(userSearch);
+			userService.addUser(user.get());
 		}
         return "properties-search";
 	}
