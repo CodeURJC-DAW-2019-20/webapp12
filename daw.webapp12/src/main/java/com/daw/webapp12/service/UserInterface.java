@@ -3,6 +3,7 @@ package com.daw.webapp12.service;
 import com.daw.webapp12.entity.Users;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserInterface {
 
@@ -14,7 +15,7 @@ public interface UserInterface {
 
     public Users findById(Long id);
 
-    public Users findByName(String string);
+    public Optional<Users> findByName(String string);
 
 
 }

@@ -2,21 +2,20 @@ package com.daw.webapp12.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
+import java.util.List;
+import java.util.Optional;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/users")
 public class UserRestController {
 
     @Autowired
@@ -28,22 +27,56 @@ public class UserRestController {
     @Autowired
     AdvertisementService advertisementService;
 
-    @PutMapping("/addFavorite/{id}")
+    @PutMapping("/addFavourite/{id}")
     public ResponseEntity<Users> addFavorite(@PathVariable long id) {
 
         if (userComponent.isLoggedUser()) {
             String userName = userComponent.getLoggedUser().getName();
-            Users user = userService.findByName(userName);
+            Optional<Users> user = userService.findByName(userName);
             Advertisement adv = advertisementService.findById(id);
-            if (user.getMyFavourites().contains(adv)) {
+            if (user.get().getMyFavourites().contains(adv)) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             } else {
-                user.addFavourite(adv);
-                userService.addUser(user);
-                return new ResponseEntity<>(user, HttpStatus.OK);
+                user.get().addFavourite(adv);
+                userService.addUser(user.get());
+                return new ResponseEntity<>(user.get(), HttpStatus.OK);
             }
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping("/deleteFromFavourite/{id}")
+    public ResponseEntity<Users> deleteFromFavourite(@PathVariable long id) {
+
+        String userName = userComponent.getLoggedUser().getName();
+        Optional<Users> user = userService.findByName(userName);
+        if (!user.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        user.get().deleteFavourite(id);
+        userService.addUser(user.get());
+        return new ResponseEntity<>(user.get(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteMyAdvertisement/{id}")
+    public ResponseEntity<Users> deleteMyAdvertisement(@PathVariable long id) {
+
+        String userName = userComponent.getLoggedUser().getName();
+        Optional<Users> user = userService.findByName(userName);
+        if (!user.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        user.get().deleteOneAdvertisement(id);
+        userService.addUser(user.get());
+        advertisementService.deleteAdvertisement(id);
+        return new ResponseEntity<>(user.get(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/properties/{id}")
+    public ResponseEntity<List<Advertisement>> favAdvertisements(@PathVariable long id) {
+        Optional<Users> user = Optional.ofNullable(userService.findById(id));
+        if (!user.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(user.get().getMyFavourites(), HttpStatus.OK);
     }
 }
 
