@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="304cf99b-97a5-4277-96eb-ad96ced6510d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webapp12.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webapp12.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/rest/LoginRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/rest/LoginRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/controller/AdvertisementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/controller/AdvertisementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/iniBBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/iniBBDD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/restController/MainRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/restController/MainRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/service/UserService.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,90 +47,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/rest/LoginRestController.java" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="727" />
-    <option name="y" value="402" />
-    <option name="width" value="1032" />
-    <option name="height" value="605" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="daw.webapp12" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="daw.webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="daw.webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="daw.webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="daw.webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="daw.webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp12" type="462c0819:PsiDirectoryNode" />
-              <item name="rest" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectId" id="1YcC6Y6xAyE0I6Uw58XCdbaNuaa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583487600067" />
@@ -134,17 +62,8 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -157,47 +76,22 @@
       <option name="presentableId" value="Default" />
       <updated>1580918954644</updated>
       <workItem from="1580918956329" duration="10000" />
+      <workItem from="1583232322019" duration="364000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10000" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2521322" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="simpleUML" order="7" />
-      <window_info id="Learn" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="SonarLint" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.32995737" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout>
+  <component name="WindowStateProjectService">
+    <state x="96" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583232414106">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="96" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720/169.-1024.1280.1024@0.0.1280.720" timestamp="1583232414105" />
+    <state x="492" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583232372034">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="492" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.720/169.-1024.1280.1024@0.0.1280.720" timestamp="1583232372034" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/daw.webapp12/src/main/java/com/daw/webapp12/security/UserComponent.java">
