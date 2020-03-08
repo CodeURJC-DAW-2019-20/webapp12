@@ -3,7 +3,6 @@ package com.daw.webapp12.service;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
