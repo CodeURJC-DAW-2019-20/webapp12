@@ -25,6 +25,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+<<<<<<< HEAD
+=======
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+>>>>>>> master
 
 @Controller
 public class MainController {
@@ -42,9 +57,9 @@ public class MainController {
     public String misAnuncios(Model model) {
         if (userComponent.isLoggedUser()) {
             String userName = userComponent.getLoggedUser().getName();
-            Users user = userService.findByName(userName);
-            if(user.getMyAdvertisements().size()>0){
-                model.addAttribute("myAds", user.getMyAdvertisements());
+            Optional<Users> user = userService.findByName(userName);
+            if(user.get().getMyAdvertisements().size()>0){
+                model.addAttribute("myAds", user.get().getMyAdvertisements());
             }else{
                 model.addAttribute("Error", "No tienes ningun anuncio publicado.");
             }
@@ -85,9 +100,9 @@ public class MainController {
         advertisement.setImages(files);
         advertisement.setlocation(location);
         advertisementRepository.save(advertisement);
-        Users thisUser = userService.findByName(userComponent.getLoggedUser().getName());
-        thisUser.getMyAdvertisements().add(advertisement);
-        userService.addUser(thisUser);
+        Optional<Users> thisUser = userService.findByName(userComponent.getLoggedUser().getName());
+        thisUser.get().getMyAdvertisements().add(advertisement);
+        userService.addUser(thisUser.get());
 
         return "redirect:/MainPage";
     }

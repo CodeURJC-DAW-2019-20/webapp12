@@ -1,5 +1,11 @@
 package com.daw.webapp12.controller;
 
+<<<<<<< HEAD
+=======
+import java.util.Arrays;
+import java.util.Optional;
+
+>>>>>>> master
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,9 +46,9 @@ public class UserController {
     public String favAdvertisements(Model model) {
 		if(userComponent.isLoggedUser()){
 			String userName = userComponent.getLoggedUser().getName();
-			Users user = userService.findByName(userName);
-			if(user.getMyFavourites().size()>0){
-				model.addAttribute("Favourites", user.getMyFavourites());
+			Optional<Users> user = userService.findByName(userName);
+			if(user.get().getMyFavourites().size()>0){
+				model.addAttribute("Favourites", user.get().getMyFavourites());
 			}else{
 				model.addAttribute("Error", "No tienes anuncios favoritos.");
 			}
@@ -56,9 +62,9 @@ public class UserController {
 	@RequestMapping("/deleteFromFavourites/{id}")
     public String deleteFromFavourite(Model model,@PathVariable long id){
 		String userName = userComponent.getLoggedUser().getName();
-		Users user = userService.findByName(userName);
-		user.deleteFavourite(id);
-		userService.addUser(user);
+		Optional<Users> user = userService.findByName(userName);
+		user.get().deleteFavourite(id);
+		userService.addUser(user.get());
         // model.addAttribute("Favourites", user.getMyFavourites());
         return "redirect:/properties";
 	}
@@ -66,13 +72,13 @@ public class UserController {
     public String addFavourite(Model model,@PathVariable long id){
 		if(userComponent.isLoggedUser()){
 			String userName = userComponent.getLoggedUser().getName();
-			Users user = userService.findByName(userName);
+			Optional<Users> user = userService.findByName(userName);
 			Advertisement adv = advertisementService.findById(id);
-			if(user.getMyFavourites().contains(adv)){
+			if(user.get().getMyFavourites().contains(adv)){
 				return "redirect:/properties";
 			}else{
-				user.addFavourite(adv);
-				userService.addUser(user);
+				user.get().addFavourite(adv);
+				userService.addUser(user.get());
 			}
 			return "redirect:/properties";
 		}else{
@@ -84,9 +90,9 @@ public class UserController {
 	@RequestMapping("/deleteMyAdvertisement/{id}")
     public String deleteFromMyAdvertisements(Model model,@PathVariable long id){
 		String userName = userComponent.getLoggedUser().getName();
-		Users user = userService.findByName(userName);
-		user.deleteOneAdvertisement(id);
-		userService.addUser(user);
+		Optional<Users> user = userService.findByName(userName);
+		user.get().deleteOneAdvertisement(id);
+		userService.addUser(user.get());
 		advertisementService.deleteAdvertisement(id);
         return "redirect:/properties-modificar";
 	}
@@ -100,7 +106,7 @@ public class UserController {
 	@PostMapping("/signUp")
 	public String signUp(Model model,@RequestParam String username, HttpServletRequest request, HttpServletResponse response,@RequestParam String email,@RequestParam String password) throws Exception{
 		String pass = password;
-		Users u1= userService.findByName(username);
+		Optional<Users> u1= userService.findByName(username);
 		Users user = new Users(username, email, password, "ROLE_USER");
 		if (u1== null){
 			userService.addUser(user);

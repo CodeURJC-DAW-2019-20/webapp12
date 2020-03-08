@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 
 import javax.mail.internet.MimeMessage;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements UserInterface {
@@ -24,7 +25,7 @@ public class UserService implements UserInterface {
     }
 
     @Override
-    public Users findByName(String string) {
+    public Optional<Users> findByName(String string) {
         return userRepository.findByName(string);
     }
 
