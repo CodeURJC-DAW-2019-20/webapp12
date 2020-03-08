@@ -27,13 +27,13 @@ public class Users {
     @ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Advertisement> myFavourites;
 
     @OneToMany(cascade=CascadeType.ALL)
     private List<Search> mySearches;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.REMOVE, orphanRemoval = true)
     private List<Advertisement> myAdvertisements;
 
     public Users(){
