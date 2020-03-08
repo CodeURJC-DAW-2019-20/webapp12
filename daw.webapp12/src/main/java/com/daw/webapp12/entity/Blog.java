@@ -28,13 +28,14 @@ public class Blog {
     public Blog(String title, String text) {
         this.title = title;
         this.text = text;
+        this.images =new ArrayList<>(5);
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

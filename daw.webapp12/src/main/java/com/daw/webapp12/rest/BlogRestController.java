@@ -16,7 +16,9 @@ import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.P
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,32 +29,36 @@ import org.springframework.web.multipart.MultipartFile;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/blog")
 public class BlogRestController {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     @Autowired
 	private BlogService blogService;
 
-    @RequestMapping(value = "/blog/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Blog> getBlog(@PathVariable long id){
         Blog blog = blogService.findById(id);
         if(blog != null){
             return new ResponseEntity<>(blog, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }  
+        }
     }
 
-    @RequestMapping(value = "/blog", method = RequestMethod.GET)
-    public List<Blog> getBlogs(@PageableDefault(value =5) Pageable pageable){
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<List<Blog>> getBlogs(@PageableDefault(value =5) Pageable pageable){
         List<Blog> blogs = blogService.findAll();
-        return blogs;
+        if(blogs.size()>0){
+            return new ResponseEntity<>(blogs, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
-    @RequestMapping(value = "/blog-upload", method = RequestMethod.POST)
+    @PostMapping(value = "/upload")
     @ResponseStatus(HttpStatus.CREATED)
-    public Blog blogUpload( @RequestBody MultipartFile[] multipartFile,  @RequestBody String title,  @RequestBody String description){
+    public Blog blogUpload( @RequestParam MultipartFile[] multipartFile,  @RequestParam String title,  @RequestParam String description){
         List<String> files = new ArrayList<String>(5);
         for (int i = 0; i < multipartFile.length; i++) {
             if (!multipartFile[i].isEmpty()) {
@@ -76,5 +82,35 @@ public class BlogRestController {
 
         return blog;
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Blog> deleteBlog(@PathVariable long id){
+        Blog blog = blogService.findById(id);
+        if(blog != null){
+            List<String> auxImages = new ArrayList<String>();
+            if(!blog.getImages().isEmpty()){
+                auxImages = blog.getImages();      
+            }
+            blogService.deleteBlog(id);
+            blog.setImages(auxImages);
+
+            return new ResponseEntity<>(blog, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @RequestMapping(value="/update/{id}",method=RequestMethod.PUT)
+    public ResponseEntity<Blog> blogUpdate(@PathVariable long id, @RequestBody Blog newBlog){
+        Blog blog =  blogService.findById(id);
+        if(blog != null){
+            newBlog.setId(id);
+            blogService.addBlog(newBlog);
+            return new ResponseEntity<>(newBlog, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+	}
 
 }
