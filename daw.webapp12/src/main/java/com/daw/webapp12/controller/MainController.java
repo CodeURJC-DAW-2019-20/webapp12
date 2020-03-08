@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-<<<<<<< HEAD
-=======
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,7 +37,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
->>>>>>> master
 
 @Controller
 public class MainController {

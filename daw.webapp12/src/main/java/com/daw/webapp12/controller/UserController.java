@@ -1,11 +1,8 @@
 package com.daw.webapp12.controller;
 
-<<<<<<< HEAD
-=======
 import java.util.Arrays;
 import java.util.Optional;
 
->>>>>>> master
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
