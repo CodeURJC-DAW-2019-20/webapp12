@@ -35,6 +35,17 @@ public class LoginRestController {
         }
     }
 
+    //@GetMapping(value="/login")
+    //public ResponseEntity<Users> logIn() {
+        //if (!userComponent.isLoggedUser()) {
+            //return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+       // } else {
+            //Users loggedUser = userComponent.getLoggedUser();
+            //return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+       // }
+  //  }
+
+
 
     @RequestMapping("/api/logout")
     public ResponseEntity<Boolean>logout(HttpSession session){
@@ -47,6 +58,16 @@ public class LoginRestController {
             return new ResponseEntity<>(true,HttpStatus.OK);
         }
     }
+
+    // @GetMapping(value="/logOut")
+    //public ResponseEntity<Boolean> logOut(HttpSession session) {
+        //if (!userComponent.isLoggedUser()) {
+            //return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        //} else {
+        //    session.invalidate();
+           // return new ResponseEntity<>(true, HttpStatus.OK);
+        //}
+    //}
 
     @PostMapping("/api/register")
     @ResponseStatus(HttpStatus.CREATED)
