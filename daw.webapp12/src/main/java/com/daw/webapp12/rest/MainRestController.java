@@ -84,13 +84,9 @@ public class MainRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 */
-/*
-    @GetMapping("/images/{fileName:.+}")
-    public ResponseEntity<Resource> seeImages(@PathVariable String fileName, HttpServletResponse res){
 
-
-    }*/
     @GetMapping("/images/{fileName:.+}")
+    @ResponseBody
     public ResponseEntity<Resource> seeImages(@PathVariable String fileName) {
         Path filePath = Paths.get("src//main//resources//static//images").resolve(fileName).toAbsolutePath();
         log.info(filePath.toString());
@@ -106,12 +102,12 @@ public class MainRestController {
         }
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=\"" + resource.getFilename() + "\"");
+        headers.add(HttpHeaders.CONTENT_TYPE, MediaType.IMAGE_JPEG_VALUE);
         return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
     }
 
     //PRUEBA SUBIDA UNA IMAGEN
     @PostMapping(value = "/images")
-    @JsonView(Advertisement.class)
     public ResponseEntity<?> uploadsImage(@RequestParam("id") long id, @RequestParam("file") MultipartFile file){
         Map<String, Object> response = new HashMap<>();
         Advertisement advertisement = advertisementService.findById(id);

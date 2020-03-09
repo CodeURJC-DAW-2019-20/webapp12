@@ -36,8 +36,8 @@ public class AdvertisementRestController {
     }
 
     @PutMapping("/")
-    public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long idAdver) {
-        Users users = userService.findById(idAdver);
+    public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long id) {
+        Users users = userService.findById(id);
         List<Advertisement> myAds = users.getMyAdvertisements();
         advertisementRepository.save(anuncios);
         myAds.add(anuncios);
