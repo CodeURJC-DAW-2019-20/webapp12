@@ -29,9 +29,19 @@ public class AdvertisementRestController {
     UserComponent userComponent;
 
     @GetMapping("/")
-    @JsonView(Advertisement.class)
-    public List<Advertisement> allAdvertisement(){
-        return advertisementService.findAll();
+    public List<Advertisement> allAdvertisement(@RequestParam("id") long idAdver){
+        Users users = userService.findById(idAdver);
+        List<Advertisement> myAds = users.getMyAdvertisements();
+        return myAds;
+    }
+
+    @PutMapping ("/")
+    public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long idAdver){
+        Users users = userService.findById(idAdver);
+        List<Advertisement> myAds = users.getMyAdvertisements();
+        advertisementRepository.save(anuncios);
+        myAds.add(anuncios);
+        return myAds;
     }
 
     @DeleteMapping("/deleteMyFavorites/{id}")
@@ -66,9 +76,17 @@ public class AdvertisementRestController {
     public ResponseEntity<?> deleteAdvertisement(@PathVariable Long id){
         Map<String, Object> response = new HashMap<>();
         Optional<Users> user = userService.findByName(userComponent.getLoggedUser().getName());
-        List<Advertisement> userAdvertisement = user.get().getMyFavourites();
+        List<Advertisement>  userFavoriteAds  = user.get().getMyFavourites();
+        List<Advertisement> userAdvertisement = user.get().getMyAdvertisements();
         Advertisement advertisement = this.advertisementService.findById(id);
         try {
+
+            for(int i = 0; i < userFavoriteAds.size(); i++){
+                if(userFavoriteAds.get(i) == advertisement){
+                    userFavoriteAds.remove(i);
+                    //advertisementService.deleteAdvertisement(advertisement.getId());
+                }
+            }
             for(int i = 0; i < userAdvertisement.size(); i++){
                 if(userAdvertisement.get(i) == advertisement){
                     userAdvertisement.remove(i);
