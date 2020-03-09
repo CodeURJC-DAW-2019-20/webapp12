@@ -29,7 +29,7 @@ public class UserRestController {
     @Autowired
     AdvertisementService advertisementService;
 
-    @PutMapping("/addFavourite/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Users> addFavorite(@PathVariable long id) {
 
         if (userComponent.isLoggedUser()) {
@@ -47,7 +47,7 @@ public class UserRestController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/deleteFromFavourite/{id}")
+    @DeleteMapping("/favourites/{id}")
     public ResponseEntity<Users> deleteFromFavourite(@PathVariable long id) {
 
         String userName = userComponent.getLoggedUser().getName();
@@ -60,9 +60,9 @@ public class UserRestController {
         return new ResponseEntity<>(user.get(), HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteMyAdvertisement/{id}")
-    public ResponseEntity<?> deleteMyAdvertisement(@PathVariable long id) {
-        Map<String, Object> response = new HashMap<>();
+    @DeleteMapping("/advertisements/{id}")
+    public ResponseEntity<Users> deleteMyAdvertisement(@PathVariable long id) {
+
         String userName = userComponent.getLoggedUser().getName();
         Optional<Users> user = userService.findByName(userName);
         if (!user.isPresent()) {
@@ -71,11 +71,10 @@ public class UserRestController {
         user.get().deleteOneAdvertisement(id);
         userService.addUser(user.get());
         advertisementService.deleteAdvertisement(id);
-        response.put("mensaje", "has eliminado con exito");
-        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+        return new ResponseEntity<>(user.get(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/properties/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<List<Advertisement>> favAdvertisements(@PathVariable long id) {
         Optional<Users> user = Optional.ofNullable(userService.findById(id));
         if (!user.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
