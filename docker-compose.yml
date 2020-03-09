@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql:
-    image: mysql/mysql-server:latest
+    image: mysql # mysql/mysql-server:latest
     container_name: c_mysql
     ports:
       - 3306:3306

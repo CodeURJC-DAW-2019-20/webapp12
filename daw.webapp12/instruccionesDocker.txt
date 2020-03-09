@@ -1,14 +1,4 @@
-1.Crear el .jar en powershell en la direccion donde este el pom.xml
-    se crea en en la carpeta target cambiamos el nombre a webapp12.jar
-    y la movemos a la carpeta principal(webapp12)
-
-    COMANDO: mvn package
-2.Caontruimos la imagen con docker file boton derecho build image
-    COMANDO: docker build --rm -f "Dockerfile" -t webapp12:latest "."
-3.Para correr el docker:
-
-COMANDO: docker run webapp12
-         docker run -p 8443:8443 --name webapp12 webapp12
-
-4.compilar la aplicacion completa:
-    COMANDO:docker-compose -f "docker-compose.yml" up -d --build
+1.Ejecutar el script create_image.ps1
+2.Parar el servidor mysql local
+3.compilar la aplicacion completa:
+  COMANDO:docker-compose -f "docker-compose.yml" up -d --build
