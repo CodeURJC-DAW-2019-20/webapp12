@@ -104,6 +104,9 @@ public class UserController {
 	public String signUp(Model model,@RequestParam String username, HttpServletRequest request, HttpServletResponse response,@RequestParam String email,@RequestParam String password) throws Exception{
 		String pass = password;
 		Optional<Users> u1= userService.findByName(username);
+		if (username.equals("")||pass.equals("")||email.equals("")){
+			return "loginError";
+		}
 		Users user = new Users(username, email, password, "ROLE_USER");
 		if (u1== null){
 			userService.addUser(user);
