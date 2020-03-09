@@ -21,23 +21,22 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
         http.antMatcher("/api/**");
 
         // here urls need authentication
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/{name}");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/login").authenticated();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/login");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{name}");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/");
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/login").authenticated();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/login");
 
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blog").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blog/{id}").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/blog").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/blog/{id}").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/blog/{id}").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs/{id}").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/blogs").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/blogs/{id}").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/blogs/{id}").hasAnyRole("ADMIN");
 
 
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/main/images").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/main/images/{fileName:.+}").permitAll();
-
-        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/advertisement/{id}").permitAll(); //hasAnyRole("USER");
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/advertisement").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/advertisements").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/advertisements").hasAnyRole("USER", "ADMIN");
 
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/advertisements/{id}").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/favourites/{id}").hasAnyRole("USER", "ADMIN");
