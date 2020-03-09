@@ -266,7 +266,8 @@ María Flores García:
    - graph.js
    - MainController.java
    - index.html
-
+   
+## FASE 3
 ### Docker:
 
 Instruciones de ejecución:
@@ -280,4 +281,24 @@ Instruciones de ejecución:
  Preparación del entorno de desarrollo: 
  - Descargar docker para windows, siguiendo los pasos que se indican.puedes ejecutar este comando : "docker --version" para comprobar que todo se ha instalado correctamente.Despues sigues los pasos que se especifican en la parte instrucciones de ejecución.
 
+### Participación de miembros
 
+María Flores García: 
+
+* Tareas realizadas en la fase:  
+    - dockerizar la aplicación
+    - crear el script create image
+  
+ * Listado de los 5 commits más significativos: 
+   - [Create image fixed]( https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/cd7bf4734602914f7ae5073d58823d2ec3d08142)
+   - [add create_image.ps1](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/0bc656116ac66b85a778fa30f82ca275418b5e76)
+   - [Docker new features app](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/608d0977b3ab11daec6a0926370dad1729ca172d) 
+   - [docker added](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/7b0644aa1bd626ee684d9647149fed9bea2ccf7d)
+   - [Update readme](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/2cce8c9586d5f5d7fc673ce83ffd09507be125b6) 
+   
+ * Listado de los  ficheros que mas se haya participado: 
+   - Dockerfile
+   - docker-compose.yml
+   - create-image.ps1
+   
+   
