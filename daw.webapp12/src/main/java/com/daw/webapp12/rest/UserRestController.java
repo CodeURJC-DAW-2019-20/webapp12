@@ -74,12 +74,23 @@ public class UserRestController {
         return new ResponseEntity<>(user.get(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<Advertisement>> favAdvertisements(@PathVariable long id) {
-        Optional<Users> user = Optional.ofNullable(userService.findById(id));
-        if (!user.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(user.get().getMyFavourites(), HttpStatus.OK);
-    }
+    // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    // public ResponseEntity<List<Advertisement>> favAdvertisements(@PathVariable long id) {
+    //     Optional<Users> user = Optional.ofNullable(userService.findById(id));
+    //     if (!user.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    //     return new ResponseEntity<>(user.get().getMyFavourites(), HttpStatus.OK);
+    // }
+
+    @RequestMapping(value = "/favourites", method = RequestMethod.GET)
+    public ResponseEntity<List<Advertisement>> favAdvertisements(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
+         Users user = userService.findByName(userComponent.getLoggedUser().getName()).get();
+         List<Advertisement> myFavs = user.getMyFavourites(page,number);
+         if(myFavs != null){
+             return new ResponseEntity<>(myFavs, HttpStatus.OK);
+         }else{
+             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+         }
+     }
 }
 
 

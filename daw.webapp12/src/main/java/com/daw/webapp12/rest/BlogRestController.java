@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,8 +48,9 @@ public class BlogRestController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<List<Blog>> getBlogs(@PageableDefault(value =5) Pageable pageable){
-        List<Blog> blogs = blogService.findAll();
+    public ResponseEntity<List<Blog>> getBlogs(@RequestParam(value="page") int page,@RequestParam(value="number") int number){
+        List<Blog> blogs = blogService.findAll(page,number);
+        //List<Blog> blogs =  blogService.findAll();
         if(blogs.size()>0){
             return new ResponseEntity<>(blogs, HttpStatus.OK);
         }else{
