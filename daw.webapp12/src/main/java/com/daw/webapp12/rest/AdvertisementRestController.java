@@ -44,4 +44,19 @@ public class AdvertisementRestController {
         return myAds;
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Advertisement> editAdvertisement(@PathVariable long id, @RequestBody Advertisement newAdvertisement){
+        Advertisement advertisement= advertisementService.findById(id);
+        if (advertisement!= null){
+            newAdvertisement.setId((int)id);
+            advertisementService.addAdvertisement(newAdvertisement);
+            return new ResponseEntity<>(newAdvertisement,HttpStatus.OK);
+
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
 }
