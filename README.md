@@ -270,11 +270,14 @@ María Flores García:
 ### Docker:
 
 Instruciones de ejecución:
- -Ejecutar el script create_image.ps1, crea una nueva versión del jar y la mueve al sitio donde se especifica en la imagen.
- -Si usas visual studio code, puedes hacer click derecho en el docker-compose.yml, compose up
- -Por linea de comando: docker-compose -f "docker-compose.yml" up -d --build
+
+  -Ejecutar el script create_image.ps1, crea una nueva versión del jar y la mueve al sitio donde se especifica en la imagen.
+  
+  -Si usas visual studio code, puedes hacer click derecho en el docker-compose.yml, compose up
+  
+  -Por linea de comando: docker-compose -f "docker-compose.yml" up -d --build
  
-Preparación del entorno de desarrollo: 
+ Preparación del entorno de desarrollo: 
  - Descargar docker para windows, siguiendo los pasos que se indican.puedes ejecutar este comando : "docker --version" para comprobar que todo se ha instalado correctamente.Despues sigues los pasos que se especifican en la parte instrucciones de ejecución.
 
 
