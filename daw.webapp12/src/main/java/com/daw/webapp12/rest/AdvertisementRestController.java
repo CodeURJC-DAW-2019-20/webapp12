@@ -29,11 +29,23 @@ public class AdvertisementRestController {
     UserComponent userComponent;
 
     @GetMapping("/")
-    public List<Advertisement> allAdvertisement(@RequestParam("id") long id) {
-        Users users = userService.findById(id);
-        List<Advertisement> myAds = users.getMyAdvertisements();
-        return myAds;
+    public ResponseEntity<List<Advertisement>> allAdvertisement(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
+    //    Users users = userService.findById(idAdver);
+    //     List<Advertisement> myAds = users.getMyAdvertisements();
+    //     return myAds;
+        Users user = userService.findByName(userComponent.getLoggedUser().getName()).get();
+        List<Advertisement> myAds = user.getMyAdvertisements(page,number);
+        if(myAds != null){
+            return new ResponseEntity<>(myAds, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
+    // public List<Advertisement> allAdvertisement(@RequestParam("id") long id) {
+    //     Users users = userService.findById(id);
+    //     List<Advertisement> myAds = users.getMyAdvertisements();
+    //     return myAds;
+    // }
 
     @PutMapping("/")
     public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long id) {

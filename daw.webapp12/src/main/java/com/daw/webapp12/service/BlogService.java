@@ -5,6 +5,9 @@ import java.util.List;
 import com.daw.webapp12.entity.Blog;
 import com.daw.webapp12.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,4 +31,9 @@ public class BlogService {
     public void deleteBlog(Long id){
         blogRepository.deleteById(id);
     }
+
+    public List<Blog> findAll (int page,int number){
+        Page<Blog> blogs = blogRepository.findAll(PageRequest.of(page,number));
+        return blogs.getContent();
+}
 }

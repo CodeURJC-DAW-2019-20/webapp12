@@ -120,12 +120,45 @@ public class Users {
         return myFavourites;
     }
 
+    public List<Advertisement> getMyFavourites(int page, int number) {
+        List<Advertisement> pagedList = new ArrayList<>();
+        int start = page * number;
+        int end = start + number;
+        if((myFavourites.size() > 0) && (end - myFavourites.size()) < number){
+            for(int i = start;i< end;i++){
+                if(i+1 > myFavourites.size()){
+                    break;
+                }
+                pagedList.add(myFavourites.get(i));
+            }
+            return pagedList;
+        }else{
+            return null;
+        }
+    }
+
     public void setMyFavourites(List<Advertisement> list) {
         this.myFavourites = list;
     }
 
     public List<Advertisement> getMyAdvertisements() {
         return myAdvertisements;
+    }
+    public List<Advertisement> getMyAdvertisements(int page, int number) {
+        List<Advertisement> pagedList = new ArrayList<>();
+        int start = page * number;
+        int end = start + number;
+        if((myAdvertisements.size() > 0) && (end - myAdvertisements.size()) < number){
+            for(int i = start;i< end;i++){
+                if(i+1 > myAdvertisements.size()){
+                    break;
+                }
+                pagedList.add(myAdvertisements.get(i));
+            }
+            return pagedList;
+        }else{
+            return null;
+        }
     }
 
     public void setMyAdvertisements(List<Advertisement> list) {

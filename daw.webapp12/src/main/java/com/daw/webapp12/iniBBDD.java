@@ -73,7 +73,7 @@ public class iniBBDD {
         anun9.getImages().add("work-2.jpg");
         anuncioRepository.save(anun9);
 
-        Advertisement anun10 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650, "work-2.jpg");
+        Advertisement anun10 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
         anun10.getImages().add("work-2.jpg");
         anuncioRepository.save(anun10);
 
@@ -106,5 +106,26 @@ public class iniBBDD {
 
         Blog blog2 = new Blog("TENDENCIAS EN COCINAS QUE TE VOLVERÁN CRAZY ESTE 2020", "VERDE NATURAL La preocupación por la sostenibilidad ha hecho que los tonos verdes más naturales se cuelen en nuestras cocinas durante este 2020. ACENTOS TURQUESA Los tonos turquesa no solo aportan luminosidad a la cocina, sino también mucha frescura. Además, resaltan un montón con otros colores de base como el blanco, y siempre se ven muy limpios. Ideales para armarios y azulejos.");        
         blogRepository.save(blog2);
+
+        Blog blog3 = new Blog("3", "3");        
+        blogRepository.save(blog3);
+
+        Blog blog4 = new Blog("4", "4");        
+        blogRepository.save(blog4);
+
+        Blog blog5 = new Blog("5", "5");        
+        blogRepository.save(blog5);
+
+        Blog blog6 = new Blog("6", "6");        
+        blogRepository.save(blog6);
+
+        Blog blog7 = new Blog("7", "7");        
+        blogRepository.save(blog7);
+
+        Blog blog8 = new Blog("8", "8");        
+        blogRepository.save(blog8);
+
+        Blog blog9= new Blog("9", "9");        
+        blogRepository.save(blog9);
     }
 }
