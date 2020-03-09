@@ -74,7 +74,7 @@ public class iniBBDD {
         anuncioRepository.save(anun9);
 
         Advertisement anun10 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650, "work-2.jpg");
-        anun9.getImages().add("work-2.jpg");
+        anun10.getImages().add("work-2.jpg");
         anuncioRepository.save(anun10);
 
         Search search1 = new Search("Alquiler",(Integer)2,(Integer)1,60,"Madrid",(double)800);
