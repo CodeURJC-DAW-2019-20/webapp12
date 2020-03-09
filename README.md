@@ -301,4 +301,23 @@ María Flores García:
    - docker-compose.yml
    - create-image.ps1
    
-   
+Wu Li Lu:
+
+* Tareas realizadas en la fase: 
+    - Subida y descarga de imagenes con API REST.
+    - Subida de anuncio con API REST.
+    - Obtener anuncios del usuario con API REST.
+    - Acutalizar Seuridad en API REST.
+* Listado de los 5 commits más significativos: 
+    - [Bug fixed](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/e59a4d6fcfb207a187ca30c7a13c88a5dd395dde)
+    - [Update UserRestController.java](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/f26024dda584578bb46677da59253bb9076fd4e9)
+    - [Update AdvertisementRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/ae1f0d0973583abb8bfc7f44104ae0063e533c08)
+    - [Add RestControllers](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/13ae49c00e89243353d72f436c0cfdd7b600bb34)
+    - [Update AdvertisementRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/cfd35ed52bc3e63d22f59126c9f7519dcd85543c)
+    
+* Listado de los 5 ficheros que mas se haya participado: 
+    - SecurityApiRest.java
+    - AdvertisementRestController.java
+    - MainRestController.java
+    - Advertisement.java
+    - Users.java
