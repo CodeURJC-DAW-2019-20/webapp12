@@ -19,6 +19,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -43,7 +45,7 @@ public class MainRestController {
 
     @Autowired
     UserService userService;
-
+/*
     @PostMapping(value = "/upload-images", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> misAnuncios(@RequestParam("id") long id, @RequestParam("file") MultipartFile[] multipartFile) throws URISyntaxException {
         List<String> files = new ArrayList<>(5);
@@ -81,8 +83,14 @@ public class MainRestController {
         response.put("mensaje", "Has Subido correctamente las imagenes");
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
+*/
+/*
+    @GetMapping("/images/{fileName:.+}")
+    public ResponseEntity<Resource> seeImages(@PathVariable String fileName, HttpServletResponse res){
 
-    @GetMapping("/upload-images/img/{fileName:.+}")
+
+    }*/
+    @GetMapping("/images/{fileName:.+}")
     public ResponseEntity<Resource> seeImages(@PathVariable String fileName) {
         Path filePath = Paths.get("src//main//resources//static//images").resolve(fileName).toAbsolutePath();
         log.info(filePath.toString());
@@ -102,7 +110,7 @@ public class MainRestController {
     }
 
     //PRUEBA SUBIDA UNA IMAGEN
-    @PostMapping(value = "/upload/images")
+    @PostMapping(value = "/images")
     @JsonView(Advertisement.class)
     public ResponseEntity<?> uploadsImage(@RequestParam("id") long id, @RequestParam("file") MultipartFile file){
         Map<String, Object> response = new HashMap<>();

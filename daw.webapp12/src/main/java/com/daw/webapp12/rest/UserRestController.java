@@ -10,7 +10,9 @@ import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -27,7 +29,7 @@ public class UserRestController {
     @Autowired
     AdvertisementService advertisementService;
 
-    @PutMapping("/addFavourite/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Users> addFavorite(@PathVariable long id) {
 
         if (userComponent.isLoggedUser()) {
@@ -45,7 +47,7 @@ public class UserRestController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/deleteFromFavourite/{id}")
+    @DeleteMapping("/favourites/{id}")
     public ResponseEntity<Users> deleteFromFavourite(@PathVariable long id) {
 
         String userName = userComponent.getLoggedUser().getName();
@@ -58,7 +60,7 @@ public class UserRestController {
         return new ResponseEntity<>(user.get(), HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteMyAdvertisement/{id}")
+    @DeleteMapping("/advertisements/{id}")
     public ResponseEntity<Users> deleteMyAdvertisement(@PathVariable long id) {
 
         String userName = userComponent.getLoggedUser().getName();
@@ -72,7 +74,7 @@ public class UserRestController {
         return new ResponseEntity<>(user.get(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/properties/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<List<Advertisement>> favAdvertisements(@PathVariable long id) {
         Optional<Users> user = Optional.ofNullable(userService.findById(id));
         if (!user.isPresent()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);

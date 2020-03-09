@@ -26,12 +26,25 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/login").authenticated();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/login");
 
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blog").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blog/{id}").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/blog").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/blog/{id}").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/blog/{id}").hasAnyRole("ADMIN");
 
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/main/upload/images").permitAll();
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/main/upload-images/img/{fileName:.+}").permitAll();
+
+        http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/main/images").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/main/images/{fileName:.+}").permitAll();
 
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/advertisement/{id}").permitAll(); //hasAnyRole("USER");
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/advertisement").hasAnyRole("USER", "ADMIN");
+
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/advertisements/{id}").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/favourites/{id}").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
+
+
         // urls not need authentication
         http.authorizeRequests().anyRequest().permitAll();
 
