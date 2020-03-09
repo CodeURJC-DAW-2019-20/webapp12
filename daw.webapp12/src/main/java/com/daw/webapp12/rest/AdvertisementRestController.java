@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("api/advertisement")
+@RequestMapping("api/advertisements")
 public class AdvertisementRestController {
 
     @Autowired
@@ -40,11 +40,16 @@ public class AdvertisementRestController {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
+
+    // public List<Advertisement> allAdvertisement(@RequestParam("id") long id) {
+    //     Users users = userService.findById(id);
+    //     List<Advertisement> myAds = users.getMyAdvertisements();
+    //     return myAds;
+    // }
 
     @PutMapping("/")
-    public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long idAdver) {
-        Users users = userService.findById(idAdver);
+    public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long id) {
+        Users users = userService.findById(id);
         List<Advertisement> myAds = users.getMyAdvertisements();
         advertisementRepository.save(anuncios);
         myAds.add(anuncios);

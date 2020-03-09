@@ -301,4 +301,47 @@ María Flores García:
    - docker-compose.yml
    - create-image.ps1
    
+Wu Li Lu:
+
+* Tareas realizadas en la fase: 
+    - Subida y descarga de imagenes con API REST.
+    - Subida de anuncio con API REST.
+    - Obtener anuncios del usuario con API REST.
+    - Acutalizar Seguridad en API REST.
+* Listado de los 5 commits más significativos: 
+    - [Bug fixed](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/e59a4d6fcfb207a187ca30c7a13c88a5dd395dde)
+    - [Update UserRestController.java](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/f26024dda584578bb46677da59253bb9076fd4e9)
+    - [Update AdvertisementRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/ae1f0d0973583abb8bfc7f44104ae0063e533c08)
+    - [Add RestControllers](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/13ae49c00e89243353d72f436c0cfdd7b600bb34)
+    - [Update AdvertisementRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/cfd35ed52bc3e63d22f59126c9f7519dcd85543c)
+    
+* Listado de los 5 ficheros que mas se haya participado: 
+    - SecurityApiRest.java
+    - AdvertisementRestController.java
+    - MainRestController.java
+    - Advertisement.java
+    - Users.java
+    
+    Eduardo Luna Sánchez:
+
+* Tareas realizadas en la fase: 
+    - Añadir anuncio a favoritos con API REST.
+    - Eliminar anuncio de favoritos con API REST.
+    - Eliminar anuncio del usuario con API REST.
+    - Devolver lista de los anuncios que tiene un usuario en favoritos con API REST.
+    - Acutalizar la Seguridad en API REST.
+    - Hacer el login  de un usuario con API REST. 
+    . Hacer el logout de un usuario con API REST. 
+    - Hacer el registro de un usuario con API REST. 
+* Listado de los 5 commits más significativos: 
+    - [Update LoginRestController and UserRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/330d8730a565993b9a37c231da591e99b0661d62)
+    - [Update SecurityApiRest and UserRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/eecdd5ff0fccf1806dbfae05e034e2630fb7e54e)
+    - [LoginRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/1df81f441d37e1365f3d04171a22aa44960b9a4f)
+    - [Delete methods of AdvertisementRestController](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/a06c2dc9adb6e293ae5b26eab80965f09b00d1cd)
+    - [Update AddFavourite with API REST](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/2fabf9ee32727c76bd9fdbfa9fd746991cfdf209)
+    
+* Listado de los 5 ficheros que mas se haya participado: 
+    - SecurityApiRest.java
+    - UserRestController.java
+    - LoginRestController.java
    
