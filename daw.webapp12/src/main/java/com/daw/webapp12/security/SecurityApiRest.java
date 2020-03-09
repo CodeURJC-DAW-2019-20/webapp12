@@ -26,6 +26,12 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/login").authenticated();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/user/login");
 
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blog").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blog/{id}").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/blog").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/blog/{id}").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/blog/{id}").hasAnyRole("ADMIN");
+
 
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/main/upload/images").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/main/upload-images/img/{fileName:.+}").permitAll();

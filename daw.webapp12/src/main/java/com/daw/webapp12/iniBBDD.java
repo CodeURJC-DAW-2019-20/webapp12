@@ -73,7 +73,7 @@ public class iniBBDD {
         anun9.getImages().add("work-2.jpg");
         anuncioRepository.save(anun9);
 
-        Advertisement anun10 = new Advertisement("ernesto","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650, "work-2.jpg");
+        Advertisement anun10 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650, "work-2.jpg");
         anun9.getImages().add("work-2.jpg");
         anuncioRepository.save(anun10);
 

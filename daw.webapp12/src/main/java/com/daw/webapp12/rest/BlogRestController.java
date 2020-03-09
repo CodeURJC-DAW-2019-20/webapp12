@@ -29,7 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("/api/blog")
+@RequestMapping("/api/blogs")
 public class BlogRestController {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
@@ -56,7 +56,7 @@ public class BlogRestController {
         }
     }
 
-    @PostMapping(value = "/upload")
+    @PostMapping(value = "")
     @ResponseStatus(HttpStatus.CREATED)
     public Blog blogUpload( @RequestParam MultipartFile[] multipartFile,  @RequestParam String title,  @RequestParam String description){
         List<String> files = new ArrayList<String>(5);
@@ -83,7 +83,7 @@ public class BlogRestController {
         return blog;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Blog> deleteBlog(@PathVariable long id){
         Blog blog = blogService.findById(id);
         if(blog != null){
@@ -101,7 +101,7 @@ public class BlogRestController {
 
     }
 
-    @RequestMapping(value="/update/{id}",method=RequestMethod.PUT)
+    @RequestMapping(value="/{id}",method=RequestMethod.PUT)
     public ResponseEntity<Blog> blogUpdate(@PathVariable long id, @RequestBody Blog newBlog){
         Blog blog =  blogService.findById(id);
         if(blog != null){
