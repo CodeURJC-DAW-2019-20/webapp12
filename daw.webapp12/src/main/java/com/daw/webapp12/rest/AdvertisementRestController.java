@@ -40,7 +40,7 @@ public class AdvertisementRestController {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
+    }
     // public List<Advertisement> allAdvertisement(@RequestParam("id") long id) {
     //     Users users = userService.findById(id);
     //     List<Advertisement> myAds = users.getMyAdvertisements();
