@@ -10,7 +10,9 @@ import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -59,8 +61,8 @@ public class UserRestController {
     }
 
     @DeleteMapping("/deleteMyAdvertisement/{id}")
-    public ResponseEntity<Users> deleteMyAdvertisement(@PathVariable long id) {
-
+    public ResponseEntity<?> deleteMyAdvertisement(@PathVariable long id) {
+        Map<String, Object> response = new HashMap<>();
         String userName = userComponent.getLoggedUser().getName();
         Optional<Users> user = userService.findByName(userName);
         if (!user.isPresent()) {
@@ -69,7 +71,8 @@ public class UserRestController {
         user.get().deleteOneAdvertisement(id);
         userService.addUser(user.get());
         advertisementService.deleteAdvertisement(id);
-        return new ResponseEntity<>(user.get(), HttpStatus.OK);
+        response.put("mensaje", "has eliminado con exito");
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/properties/{id}")
