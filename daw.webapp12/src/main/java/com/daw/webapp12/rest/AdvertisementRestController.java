@@ -273,7 +273,7 @@ public class AdvertisementRestController {
     public ResponseEntity<Comment> deleteComment(@PathVariable long id, @PathVariable long idComment){
         Comment comment = commentRepository.findById(idComment).get();
         if(comment != null){
-            if(comment.getAuthor() == userComponent.getLoggedUser().getName()){
+            if(comment.getAuthor().equals(userComponent.getLoggedUser().getName())){
                 Advertisement advert = advertisementService.findById(id);
                 advert.deleteComment(idComment);
                 advertisementService.addAdvertisement(advert);

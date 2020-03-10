@@ -879,6 +879,7 @@
 			"response": []
 		},
 		{
+			"name": "Uploading a comment to an advertisement",
 			"name": "https://localhost:8443/api/users/31",
 			"request": {
 				"auth": {
@@ -886,6 +887,7 @@
 					"basic": [
 						{
 							"key": "username",
+							"value": "Angel",
 							"value": "Edu",
 							"type": "string"
 						},
@@ -896,6 +898,26 @@
 						}
 					]
 				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"message\": \"hola caracola\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/advertisements/7/comments",
 				"method": "PUT",
 				"header": [],
 				"url": {
@@ -913,6 +935,7 @@
 				}
 			},
 			"response": []
+		}
 		},
 		{
 			"name": "https://localhost:8443/api/users/favourites/31",
@@ -1095,12 +1118,12 @@
 						},
 						{
 							"key": "rooms",
-							"value": "2",
+							"value": "5",
 							"type": "text"
 						},
 						{
 							"key": "bathrooms",
-							"value": "2",
+							"value": "3",
 							"type": "text"
 						},
 						{
@@ -1147,6 +1170,8 @@
 					"path": [
 						"api",
 						"advertisements",
+						"7",
+						"comments",
 						""
 					]
 				}
@@ -1154,6 +1179,7 @@
 			"response": []
 		},
 		{
+			"name": "Deleting a comment",
 			"name": "https://localhost:8443/api/users/favourites?page=0&number=1",
 			"request": {
 				"auth": {
@@ -1161,6 +1187,7 @@
 					"basic": [
 						{
 							"key": "username",
+							"value": "Maria",
 							"value": "Edu",
 							"type": "string"
 						},
@@ -1171,6 +1198,7 @@
 						}
 					]
 				},
+				"method": "DELETE",
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -1227,6 +1255,8 @@
 					}
 				],
 				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"message\": \"hola caracola\"\r\n    }",
 					"mode": "formdata",
 					"formdata": [
 						{
@@ -1253,6 +1283,7 @@
 					}
 				},
 				"url": {
+					"raw": "https://localhost:8443/api/advertisements/7/comments/6",
 					"raw": "https://localhost:8443/api/main/images",
 					"protocol": "https",
 					"host": [
@@ -1301,6 +1332,10 @@
 					"port": "8443",
 					"path": [
 						"api",
+						"advertisements",
+						"7",
+						"comments",
+						"6",
 						"users",
 						"advertisements",
 						"34"
@@ -1309,6 +1344,8 @@
 			},
 			"response": []
 		}
+
+
 	],
 	"protocolProfileBehavior": {}
 }
