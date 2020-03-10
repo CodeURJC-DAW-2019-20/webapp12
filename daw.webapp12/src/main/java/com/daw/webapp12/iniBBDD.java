@@ -87,6 +87,9 @@ public class iniBBDD {
         users1.getMyFavourites().add(anun1);
         users1.getMyFavourites().add(anun2);
         users1.getMyFavourites().add(anun3);
+        users1.getMyAdvertisements().add(anun4);
+        users1.getMyAdvertisements().add(anun6);
+        users1.getMyAdvertisements().add(anun7);
 
         /*users1.getMyAdvertisements().add(anun4);
         users1.getMyAdvertisements().add(anun5);
@@ -107,25 +110,25 @@ public class iniBBDD {
         Blog blog2 = new Blog("TENDENCIAS EN COCINAS QUE TE VOLVERÁN CRAZY ESTE 2020", "VERDE NATURAL La preocupación por la sostenibilidad ha hecho que los tonos verdes más naturales se cuelen en nuestras cocinas durante este 2020. ACENTOS TURQUESA Los tonos turquesa no solo aportan luminosidad a la cocina, sino también mucha frescura. Además, resaltan un montón con otros colores de base como el blanco, y siempre se ven muy limpios. Ideales para armarios y azulejos.");        
         blogRepository.save(blog2);
 
-        Blog blog3 = new Blog("3", "3");        
+        Blog blog3 = new Blog("Piscinas en tu propia casa", "Acercate y prueba");        
         blogRepository.save(blog3);
 
-        Blog blog4 = new Blog("4", "4");        
+        Blog blog4 = new Blog("¿Madrid es caro?", "No si alquilas con estas inmobiliarias");        
         blogRepository.save(blog4);
 
-        Blog blog5 = new Blog("5", "5");        
+        Blog blog5 = new Blog("Trucos para conseguir el mejor alquiler", "Aprende ya");        
         blogRepository.save(blog5);
 
-        Blog blog6 = new Blog("6", "6");        
+        Blog blog6 = new Blog("Alquilar o comprar", "Cual es la mejor decision para ti");        
         blogRepository.save(blog6);
 
-        Blog blog7 = new Blog("7", "7");        
+        Blog blog7 = new Blog("Descubre ya tu apartamento ideal", "Primera linea de playa");        
         blogRepository.save(blog7);
 
-        Blog blog8 = new Blog("8", "8");        
+        Blog blog8 = new Blog("Casas de hasta tres plantas", "Por solo 1000 euros al mes");        
         blogRepository.save(blog8);
 
-        Blog blog9= new Blog("9", "9");        
+        Blog blog9= new Blog("La revolucion de los alquileres  ha llegado", "Entérate");        
         blogRepository.save(blog9);
     }
 }
