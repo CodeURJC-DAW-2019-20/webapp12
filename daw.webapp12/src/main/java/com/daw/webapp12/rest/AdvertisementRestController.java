@@ -54,7 +54,7 @@ public class AdvertisementRestController {
     //     return myAds;
     // }
 
-    @PutMapping("/")
+    @PostMapping("/")
     public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long id) {
         Users users = userService.findById(id);
         List<Advertisement> myAds = users.getMyAdvertisements();
