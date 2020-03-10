@@ -346,3 +346,23 @@ Wu Li Lu:
     - UserRestController.java
     - LoginRestController.java
    
+Karol Lisowski:
+
+* Tareas realizadas en la fase: 
+    - Todos los métodos API REST para la entidad Blog.
+    - Metodos API REST para la entidad Comment.
+    - Metodos GET para recibir los anuncios y los anuncios favoritos de un User.
+    - Paginacion de elementos en peticiones Get.
+    - Actualizar la Seguridad en API REST.
+
+* Listado de los 5 commits más significativos: 
+    - 
+    - 
+    - 
+    - 
+    - 
+    
+* Listado de los 5 ficheros que mas se haya participado: 
+    - SecurityApiRest.java
+    - 
+    - 
