@@ -672,6 +672,101 @@ Create blog
     "path": "/api/users/favourites?page=0&number=1"
   }
 ```
+## Comments
+
+#### Add a comment
+
+* ##### URL:
+
+	< /advertisements/{id}/comments >
+
+* ##### Method:
+
+	`POST`
+* ##### Data Params
+
+```
+    {
+        "message": "hola caracola"
+     }
+```
+* ##### Success Response:
+  
+```
+{
+    "id": 31,
+    "author": "Angel",
+    "message": "hola caracola"
+}
+```
+* #### Error Response:
+```
+  {
+    "timestamp": "2020-03-10T08:37:35.663+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/api/advertisements/7/comments"
+  }
+```
+#### Get comments
+
+* ##### URL:
+
+	< /advertisements/{id}/comments?page=0&number=2 >
+
+* ##### Method:
+
+	`GET`
+
+* ##### Success Response:
+  
+```
+[
+    {
+        "id": 6,
+        "author": "Maria",
+        "message": "Hola, me ha encantado"
+    },
+    {
+        "id": 31,
+        "author": "Angel",
+        "message": "hola caracola"
+    }
+]
+```
+
+#### Add a comment
+
+* ##### URL:
+
+	< advertisement/{id}/comments/{idComment} >
+
+* ##### Method:
+
+	`DELETE`
+
+
+* ##### Success Response:
+  
+```
+{
+    "id": 6,
+    "author": "Maria",
+    "message": "Hola, me ha encantado"
+}
+```
+* #### Error Response:
+```
+  {
+    "timestamp": "2020-03-10T08:37:35.663+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/api/advertisements/7/comments/6"
+  }
+```
+
 
 
 
