@@ -718,6 +718,165 @@
 				}
 			},
 			"response": []
+		},
+        		{
+			"name": "https://localhost:8443/api/login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Angel",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 31,\r\n    \"type\": \"Venta\",\r\n    \"property\": \"Piso\",\r\n    \"rooms\": 3,\r\n    \"bathrooms\": 1,\r\n    \"squareMeters\": 222,\r\n    \"location\": \"drssdf\",\r\n    \"address\": \"fdgdfgd\",\r\n    \"price\": 222.0,\r\n    \"picture\": null,\r\n    \"images\": [\r\n        \"uml viejo.PNG\"\r\n    ],\r\n    \"comments\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Angel",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 31,\r\n    \"type\": \"Venta\",\r\n    \"property\": \"Piso\",\r\n    \"rooms\": 3,\r\n    \"bathrooms\": 1,\r\n    \"squareMeters\": 222,\r\n    \"location\": \"drssdf\",\r\n    \"address\": \"fdgdfgd\",\r\n    \"price\": 222.0,\r\n    \"picture\": null,\r\n    \"images\": [\r\n        \"uml viejo.PNG\"\r\n    ],\r\n    \"comments\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:8443/api/register",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Angel",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pedro2\",\r\n    \"email\": \"pedro@gmail.com\",\r\n    \"password\": \"555\",\r\n    \"roles\": [\r\n        \"ROLE_USER\"\r\n    ],\r\n    \"myFavourites\": [\r\n\r\n    ],\r\n    \"comments\": [\r\n \r\n    ],\r\n    \"mySearches\": [\r\n        \r\n    ],\r\n    \"myAdvertisements\": [\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
