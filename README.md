@@ -280,6 +280,9 @@ Instruciones de ejecución:
  
  Preparación del entorno de desarrollo: 
  - Descargar docker para windows, siguiendo los pasos que se indican.puedes ejecutar este comando : "docker --version" para comprobar que todo se ha instalado correctamente.Despues sigues los pasos que se especifican en la parte instrucciones de ejecución.
+ 
+### Diagrama de clases y templates actualizado con PI REST
+- ![diagrama1](uptown/images/d3.png)
 ### API:
 - [Documentacion API](https://github.com/CodeURJC-DAW-2019-20/webapp12/blob/master/daw.webapp12/API.md)
 ### Participación de miembros
