@@ -5,6 +5,7 @@ import com.daw.webapp12.entity.Comment;
 import com.daw.webapp12.entity.Search;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.AdvertisementRepository;
+import com.daw.webapp12.repository.CommentRepository;
 import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
@@ -30,6 +31,9 @@ public class AdvertisementRestController {
     UserService userService;
     @Autowired
     UserComponent userComponent;
+
+    @Autowired
+    CommentRepository commentRepository;
 
     @GetMapping("/")
     public ResponseEntity<List<Advertisement>> allAdvertisement(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
@@ -255,8 +259,32 @@ public class AdvertisementRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public Comment blogUpload(@PathVariable long id, @RequestBody Comment comment){
         Advertisement advert = advertisementService.findById(id);
+        if(userComponent.getLoggedUser()!=null){
+            Users user = userService.findByName(userComponent.getLoggedUser().getName()).get();
+            comment.setAuthor(user.getName());
+        } 
+        commentRepository.save(comment);
         advert.getComments().add(comment);
         advertisementService.addAdvertisement(advert);
         return comment;
+    }
+
+    @DeleteMapping("/{id}/comments/{idComment}")
+    public ResponseEntity<Comment> deleteComment(@PathVariable long id, @PathVariable long idComment){
+        Comment comment = commentRepository.findById(idComment).get();
+        if(comment != null){
+            if(comment.getAuthor() == userComponent.getLoggedUser().getName()){
+                Advertisement advert = advertisementService.findById(id);
+                advert.deleteComment(idComment);
+                advertisementService.addAdvertisement(advert);
+                commentRepository.deleteById(idComment);
+                return new ResponseEntity<>(comment, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 }

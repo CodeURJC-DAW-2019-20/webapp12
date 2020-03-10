@@ -128,6 +128,13 @@ public class Advertisement
         return comments;
     }
 
+    public void deleteComment(Long id){
+        for(int i=0;i<comments.size();i++){
+            if(comments.get(i).getId()==id){
+                comments.remove(i);
+            }
+        }
+    }
 
     public List<Comment> getComments(int page, int number) {
         List<Comment> pagedList = new ArrayList<>();

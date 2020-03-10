@@ -43,7 +43,7 @@ public class iniBBDD {
         Comment coment1= new Comment("Hola, me ha encantado");
         Users users5 = new Users("Maria","maria@gmail.com","12345678","ROLE_ADMIN");
         userRepository.save(users5);
-        coment1.setAuthor(users5);
+        coment1.setAuthor(users5.getName());
         commentRepository.save(coment1);
         anun1.getImages().add("work-1.jpg");
         anun1.getComments().add(coment1);

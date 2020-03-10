@@ -11,8 +11,7 @@ public class Comment {
 
 
     //@NotNull
-    @OneToOne
-    private Users author;
+    private String author;
 
 
     private String message;
@@ -33,11 +32,11 @@ public class Comment {
         this.id = id;
     }
 
-    public Users getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Users author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
