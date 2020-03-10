@@ -357,6 +357,7 @@ Karol Lisowski:
     - Metodos GET para recibir los anuncios y los anuncios favoritos de un User.
     - Paginacion de elementos en peticiones Get.
     - Actualizar la Seguridad en API REST.
+    - Métodos y permisos para que un admin pudiese crear, eliminar y editar blogs, arreglo de anterior fase
 
 * Listado de los 5 commits más significativos: 
     - 
