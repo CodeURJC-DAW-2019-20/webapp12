@@ -129,6 +129,23 @@ public class Advertisement
     }
 
 
+    public List<Comment> getComments(int page, int number) {
+        List<Comment> pagedList = new ArrayList<>();
+        int start = page * number;
+        int end = start + number;
+        if((comments.size() > 0) && (end - comments.size()) < number){
+            for(int i = start;i< end;i++){
+                if(i+1 > comments.size()){
+                    break;
+                }
+                pagedList.add(comments.get(i));
+            }
+            return pagedList;
+        }else{
+            return null;
+        }
+    }
+
     public void setproperty(String property) {
         this.property = property;
     }
