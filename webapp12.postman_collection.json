@@ -1095,12 +1095,12 @@
 						},
 						{
 							"key": "rooms",
-							"value": "2",
+							"value": "5",
 							"type": "text"
 						},
 						{
 							"key": "bathrooms",
-							"value": "2",
+							"value": "3",
 							"type": "text"
 						},
 						{
