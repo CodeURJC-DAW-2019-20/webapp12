@@ -360,13 +360,15 @@ Karol Lisowski:
     - Métodos y permisos para que un admin pudiese crear, eliminar y editar blogs, arreglo de anterior fase
 
 * Listado de los 5 commits más significativos: 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - [Added API REST methods for Comment entity](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/86a902da3128a2bf9cb9477a4474889822149a7d#diff-a065ba022c0482f1b936ea28bff4afc7)
+    - [Added pagination to get requests for Blog and user adverts and favour...] (https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/767779dadb4680b3fc7a58be9b2e5775564f2375)
+    - [Updated BlogRestController with Delete and Update, also updated the u…] (https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/f950e00e3e14a5ac8b4def3a03e13349d6904129)
+    - [Added recommended advertisements in api rest, also implementing metho…] (https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/897515f45b55d1f64be5584442644b9a900bd526)
+    - [Updated BlogRestController urls and added permissions for every blog …] (https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/6aaa6ee7bdb2998e89a3bbb86109ceb142dfac3c)
     
 * Listado de los 5 ficheros que mas se haya participado: 
+    - BlogRestController
+    - AdvertisementRestController
+    - UserRestController
+    - BlogService.java
     - SecurityApiRest.java
-    - 
-    - 
