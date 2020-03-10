@@ -280,6 +280,9 @@ Instruciones de ejecución:
  
  Preparación del entorno de desarrollo: 
  - Descargar docker para windows, siguiendo los pasos que se indican.puedes ejecutar este comando : "docker --version" para comprobar que todo se ha instalado correctamente.Despues sigues los pasos que se especifican en la parte instrucciones de ejecución.
+ 
+### Diagrama de clases y templates actualizado con PI REST
+- ![diagrama1](uptown/images/d3.png)
 ### API:
 - [Documentacion API](https://github.com/CodeURJC-DAW-2019-20/webapp12/blob/master/daw.webapp12/API.md)
 ### Participación de miembros
@@ -346,3 +349,23 @@ Wu Li Lu:
     - UserRestController.java
     - LoginRestController.java
    
+Karol Lisowski:
+
+* Tareas realizadas en la fase: 
+    - Todos los métodos API REST para la entidad Blog.
+    - Metodos API REST para la entidad Comment.
+    - Metodos GET para recibir los anuncios y los anuncios favoritos de un User.
+    - Paginacion de elementos en peticiones Get.
+    - Actualizar la Seguridad en API REST.
+
+* Listado de los 5 commits más significativos: 
+    - 
+    - 
+    - 
+    - 
+    - 
+    
+* Listado de los 5 ficheros que mas se haya participado: 
+    - SecurityApiRest.java
+    - 
+    - 

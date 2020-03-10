@@ -195,7 +195,7 @@ Create blog
       "images": []
   }
 ```
-* ####Error Response:
+* #### Error Response:
 ```
   {
     "timestamp": "2020-03-10T08:37:35.663+0000",
@@ -451,6 +451,227 @@ Create blog
 }
 ```
 
+
+#### Add advertisement
+
+
+* ##### URL:
+
+	< /users/{id} >
+
+* ##### Method:
+
+	`PUT`
+	
+
+* ##### Success Response:
+```
+{
+    "id": 1,
+    "name": "Edu",
+    "email": "edu@gmail.com",
+    "password": "$2a$10$jLSau3KtJpkfVuswocQL0.IiuIzWNicXG.bP3JWay9XIapi853rdy",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "myFavourites": [
+        {
+            "id": 31,
+            "type": "Venta",
+            "property": "Piso",
+            "rooms": 1,
+            "bathrooms": 1,
+            "squareMeters": 233,
+            "location": "Madrid",
+            "address": "C/Duero nº1",
+            "price": 233.0,
+            "picture": null,
+            "images": [
+                "AD01712.jpg"
+            ],
+            "comments": []
+        }
+    ],
+    "mySearches": [],
+    "myAdvertisements": [
+        {
+            "id": 31,
+            "type": "Venta",
+            "property": "Piso",
+            "rooms": 1,
+            "bathrooms": 1,
+            "squareMeters": 233,
+            "location": "Madrid",
+            "address": "C/Duero nº1",
+            "price": 233.0,
+            "picture": null,
+            "images": [
+                "AD01712.jpg"
+            ],
+            "comments": []
+        }
+    ]
+}
+```
+* #### Error Response:
+```
+  {
+    "timestamp": "2020-03-10T08:37:35.663+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/api/users/31"
+  }
+```
+
+#### Delete Favourites
+
+
+* ##### URL:
+
+	< /users/favourites/{id} >
+
+* ##### Method:
+
+	`DELETE`
+	
+* ##### Success Response:
+```
+{
+    "id": 1,
+    "name": "Edu",
+    "email": "edu@gmail.com",
+    "password": "$2a$10$jLSau3KtJpkfVuswocQL0.IiuIzWNicXG.bP3JWay9XIapi853rdy",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "myFavourites": [],
+    "mySearches": [],
+    "myAdvertisements": [
+        {
+            "id": 31,
+            "type": "Venta",
+            "property": "Piso",
+            "rooms": 1,
+            "bathrooms": 1,
+            "squareMeters": 233,
+            "location": "Madrid",
+            "address": "C/Duero nº1",
+            "price": 233.0,
+            "picture": null,
+            "images": [
+                "AD01712.jpg"
+            ],
+            "comments": []
+        }
+    ]
+}
+```
+* #### Error Response:
+```
+  {
+    "timestamp": "2020-03-10T08:37:35.663+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/api/users/favourites/31"
+  }
+```
+#### Delete Advertisements
+
+
+* ##### URL:
+
+	< /users/advertisements/{id} >
+
+* ##### Method:
+
+	`DELETE`
+
+* ##### Success Response:
+```
+{
+    "id": 1,
+    "name": "Edu",
+    "email": "edu@gmail.com",
+    "password": "$2a$10$jLSau3KtJpkfVuswocQL0.IiuIzWNicXG.bP3JWay9XIapi853rdy",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "myFavourites": [
+        {
+            "id": 31,
+            "type": "Venta",
+            "property": "Piso",
+            "rooms": 1,
+            "bathrooms": 1,
+            "squareMeters": 233,
+            "location": "Madrid",
+            "address": "C/Duero nº1",
+            "price": 233.0,
+            "picture": null,
+            "images": [
+                "AD01712.jpg"
+            ],
+            "comments": []
+        }
+    ],
+    "mySearches": [],
+    "myAdvertisements": []
+}
+```
+* #### Error Response:
+```
+  {
+    "timestamp": "2020-03-10T08:37:35.663+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/api/users/advertisements/31"
+  }
+```
+#### Get Favourites
+
+
+* ##### URL:
+
+	< /users/favourites?page=0&number=1 >
+
+* ##### Method:
+
+	`GET`
+
+* ##### Success Response:
+```
+[
+    {
+        "id": 31,
+        "type": "Venta",
+        "property": "Piso",
+        "rooms": 1,
+        "bathrooms": 1,
+        "squareMeters": 233,
+        "location": "Madrid",
+        "address": "C/Duero nº1",
+        "price": 233.0,
+        "picture": null,
+        "images": [
+            "AD01712.jpg"
+        ],
+        "comments": []
+    }
+]
+```
+* #### Error Response:
+```
+  {
+    "timestamp": "2020-03-10T08:37:35.663+0000",
+    "status": 403,
+    "error": "Forbidden",
+    "message": "Forbidden",
+    "path": "/api/users/favourites?page=0&number=1"
+  }
+```
 
 
 
