@@ -205,6 +205,157 @@ Create blog
     "path": "/api/blogs"
   }
 ```
+
+## Main
+#### Get Image
+
+
+* ##### URL:
+
+	< /main/images/{fileName:.+} >
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Example of query:
+	api/main/images/bg_2.jpg
+	
+
+* ##### Success Response:
+
+![Image](../uptown/images/bg_2.jpg)
+
+#### Upload Image
+
+* ##### URL:
+
+	< main/images >
+
+* ##### Method:
+
+	`POST`
+	
+* ##### URL Params:
+	empty
+	
+* ##### Data Params:	
+	"id": "9"
+	
+	file[]: image file format (*.jpg, *.jpeg, *.png)	
+
+* ##### Success Response:
+
+```
+{
+    "advertisement": {
+        "id": 9,
+        "type": "Alquiler",
+        "property": "Piso",
+        "rooms": 3,
+        "bathrooms": 1,
+        "squareMeters": 90,
+        "location": "Pontevedra",
+        "address": "calle carlos v,4,2 C",
+        "price": 1600.0,
+        "picture": "4991e20c-9169-4c2b-a4f6-7e03957cda1c_AD70010.jpg",
+        "images": [
+            "work-3.jpg"
+        ],
+        "comments": []
+    },
+    "mensaje": "Has subido correctamente la imagen: 4991e20c-9169-4c2b-a4f6-7e03957cda1c_AD70010.jpg"
+}
+```
+
+## Advertisement
+#### Get Advertisement
+
+
+* ##### URL:
+
+	< /advertisements/ >
+
+* ##### Method:
+
+	`GET`
+
+* ##### Data Params:
+
+	page=[int]
+	number=[int]
+
+* ##### Example of query:	
+
+	/api/advertisements/?page=0&number=1
+	
+* ##### Success Response:
+```
+[
+    {
+        "id": 31,
+        "type": "Venta",
+        "property": "Piso",
+        "rooms": 1,
+        "bathrooms": 1,
+        "squareMeters": 233,
+        "location": "Madrid",
+        "address": "C/Duero nº1",
+        "price": 233.0,
+        "picture": null,
+        "images": [
+            "AD01712.jpg"
+        ],
+        "comments": []
+    }
+]
+```
+
+#### Get Advertisement
+
+
+* ##### URL:
+
+	< /advertisements/ >
+
+* ##### Method:
+
+	`POST`
+
+* ##### Data Params:
+
+	id=[long]
+	type=[String]
+	property=[String]
+	rooms=[int]
+	bathrooms=[int]
+	squareMeters=[int]
+	location=[String]
+	adrress=[String]
+	price=[double]
+
+	
+* ##### Success Response:
+```
+[
+    {
+        "id": 1,
+        "type": "Venta",
+        "property": "Local",
+        "rooms": 2,
+        "bathrooms": 2,
+        "squareMeters": 200,
+        "location": "Madrid",
+        "address": "Madrid",
+        "price": 200.0,
+        "picture": null,
+        "images": [],
+        "comments": null
+    }
+]
+```
+
+
 ## Authorithation
 
 #### Login
