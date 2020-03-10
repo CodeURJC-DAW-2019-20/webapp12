@@ -935,6 +935,7 @@
 				}
 			},
 			"response": []
+		}
 		},
 		{
 			"name": "https://localhost:8443/api/users/favourites/31",
