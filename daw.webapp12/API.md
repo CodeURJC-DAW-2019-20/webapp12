@@ -175,7 +175,16 @@ Create blog
 * ##### Method:
 
 	`POST`
+* ##### Data Params
 
+```
+{
+
+    "title": "Nuevo blog",
+    "text": "Los propietarios de esta casa unifamiliar en una población cercana a Barcelona —una pareja con hijos adolescentes— querían reformarla para adaptarla a los tiempos modernos. Solo querían un lavado de cara y que les ayudáramos a escoger mobiliario y textiles para modernizar la vivienda.",
+    "images": []
+}
+```
 * ##### Success Response:
   
 ```
@@ -196,6 +205,256 @@ Create blog
     "path": "/api/blogs"
   }
 ```
+## Authorithation
+
+#### Login
+
+
+* ##### URL:
+
+	< /login >
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+```
+{
+    "id": 17,
+    "name": "Angel",
+    "email": "angel@gmail.com",
+    "password": "$2a$10$JJbC1FpqBreLseg3QEh0QeDYu.p1t.q/miJncAU77uTNgRbbwBRtK",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "myFavourites": [
+        {
+            "id": 7,
+            "type": "Venta",
+            "property": "Casa",
+            "rooms": 4,
+            "bathrooms": 2,
+            "squareMeters": 120,
+            "location": "Madrid",
+            "address": "calle azul,2",
+            "price": 200000.0,
+            "picture": null,
+            "images": [
+                "work-1.jpg"
+            ],
+            "comments": [
+                {
+                    "id": 6,
+                    "author": {
+                        "id": 5,
+                        "name": "Maria",
+                        "email": "maria@gmail.com",
+                        "password": "$2a$10$0fNV/XpQ2xh0cu8D.VnrHu4OF9L1.8Ir6PylJtHbdw4I/rmkP2bhe",
+                        "roles": [
+                            "ROLE_ADMIN"
+                        ],
+                        "myFavourites": [],
+                        "mySearches": [],
+                        "myAdvertisements": []
+                    },
+                    "message": "Hola, me ha encantado"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "type": "Venta",
+            "property": "Local",
+            "rooms": 2,
+            "bathrooms": 1,
+            "squareMeters": 50,
+            "location": "Madrid",
+            "address": "calle verde,3",
+            "price": 120000.0,
+            "picture": null,
+            "images": [
+                "work-7.jpg"
+            ],
+            "comments": []
+        },
+        {
+            "id": 9,
+            "type": "Alquiler",
+            "property": "Piso",
+            "rooms": 3,
+            "bathrooms": 1,
+            "squareMeters": 90,
+            "location": "Pontevedra",
+            "address": "calle carlos v,4,2 C",
+            "price": 1600.0,
+            "picture": null,
+            "images": [
+                "work-3.jpg"
+            ],
+            "comments": []
+        }
+    ],
+    "mySearches": [
+        {
+            "id": 18,
+            "type": "Alquiler",
+            "property": null,
+            "rooms": 2,
+            "bathrooms": 1,
+            "squareMeters": 60,
+            "location": "Madrid",
+            "address": null,
+            "price": 800.0
+        },
+        {
+            "id": 19,
+            "type": "Alquiler",
+            "property": null,
+            "rooms": 3,
+            "bathrooms": 2,
+            "squareMeters": 80,
+            "location": "Mostoles",
+            "address": null,
+            "price": 1000.0
+        },
+        {
+            "id": 20,
+            "type": "Alquiler",
+            "property": null,
+            "rooms": 4,
+            "bathrooms": 3,
+            "squareMeters": 100,
+            "location": "Mostoles",
+            "address": null,
+            "price": 1200.0
+        },
+        {
+            "id": 21,
+            "type": "Alquiler",
+            "property": null,
+            "rooms": 2,
+            "bathrooms": 2,
+            "squareMeters": 70,
+            "location": "Madrid",
+            "address": null,
+            "price": 900.0
+        }
+    ],
+    "myAdvertisements": [
+        {
+            "id": 10,
+            "type": "Venta",
+            "property": "Casa",
+            "rooms": 2,
+            "bathrooms": 1,
+            "squareMeters": 56,
+            "location": "Madrid",
+            "address": "calle verde,3",
+            "price": 78990.0,
+            "picture": null,
+            "images": [
+                "work-5.jpg"
+            ],
+            "comments": []
+        },
+        {
+            "id": 12,
+            "type": "Venta",
+            "property": "Local",
+            "rooms": 4,
+            "bathrooms": 2,
+            "squareMeters": 85,
+            "location": "Mostoles",
+            "address": "calle verde,3",
+            "price": 140000.0,
+            "picture": null,
+            "images": [
+                "work-7.jpg"
+            ],
+            "comments": []
+        },
+        {
+            "id": 13,
+            "type": "Alquiler",
+            "property": "Local",
+            "rooms": 3,
+            "bathrooms": 1,
+            "squareMeters": 78,
+            "location": "Mostoles",
+            "address": "calle verde,3",
+            "price": 1200.0,
+            "picture": null,
+            "images": [
+                "work-6.jpg"
+            ],
+            "comments": []
+        }
+    ]
+}
+```
+
+#### Logout
+
+
+* ##### URL:
+
+	< /logout >
+
+* ##### Method:
+
+	`GET`
+	
+* ##### Success Response:
+```true```
+
+#### Register
+
+
+* ##### URL:
+
+	< /register >
+
+* ##### Method:
+
+	`POST`
+	
+* ##### Data Params
+
+```
+{
+    "name": "David",
+    "email": "david@gmail.com",
+    "password": "$2a$10$JJbC1FpqBreLseg3QEh0QeDYu.p1t.q/miJncAU77uTNgRbbwBRtK",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "myFavourites": [],
+    "comments": [],
+    "mySearches": [],
+    "myAdvertisements": []
+}
+```
+* ##### Success Response:
+```
+{
+    "id": 31,
+    "name": "David",
+    "email": "david@gmail.com",
+    "password": "$2a$10$jOzrveyw3nvnvIR3VR1OsOzmlAitSvtHITXiCZ99l72oJZshxvisW",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "myFavourites": [],
+    "mySearches": [],
+    "myAdvertisements": []
+}
+```
+
+
+
+
+
 
 
 
