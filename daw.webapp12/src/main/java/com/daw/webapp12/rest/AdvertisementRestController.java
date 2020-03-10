@@ -58,16 +58,28 @@ public class AdvertisementRestController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Advertisement> editAdvertisement(@PathVariable long id, @RequestBody Advertisement newAdvertisement){
-        Advertisement advertisement= advertisementService.findById(id);
-        if (advertisement!= null){
-            newAdvertisement.setId((int)id);
-            advertisementService.addAdvertisement(newAdvertisement);
-            return new ResponseEntity<>(newAdvertisement,HttpStatus.OK);
+        Users user = userService.findByName(userComponent.getLoggedUser().getName()).get();
+        if(user.getMyAdvertisements().contains(advertisementService.findById(id))) {
+            Advertisement advertisement = advertisementService.findById(id);
+            if (advertisement != null) {
+                newAdvertisement.setId((int) id);
+                advertisementService.addAdvertisement(newAdvertisement);
+                return new ResponseEntity<>(newAdvertisement, HttpStatus.OK);
 
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
     }
+    @GetMapping("/{id}")
+    public Advertisement getAdvertisement(@PathVariable long id) {
+
+
+             Advertisement myAds = advertisementService.findById(id);
+             return myAds;
+         }
 
 }
