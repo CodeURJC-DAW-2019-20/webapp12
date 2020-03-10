@@ -2,6 +2,7 @@ package com.daw.webapp12.rest;
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.UserRepository;
 import com.daw.webapp12.security.UserComponent;
+import com.daw.webapp12.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +20,19 @@ public class LoginRestController {
 
     @Autowired
     private UserComponent userComponent;
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping("/api/login")
+    @RequestMapping(value = "/api/login", method=RequestMethod.GET)
     public ResponseEntity<Users>login(){
         if (!userComponent.isLoggedUser()){
             log.info("usuario no registrado");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }else {
-            Users loggedUser=userComponent.getLoggedUser();
+            Users loggedUser=userService.findByName(userComponent.getLoggedUser().getName()).get();
             log.info("Entra");
             return new ResponseEntity<>(loggedUser,HttpStatus.OK);
         }
@@ -47,7 +50,7 @@ public class LoginRestController {
 
 
 
-    @RequestMapping("/api/logout")
+    @RequestMapping(value= "/api/logout", method= RequestMethod.GET)
     public ResponseEntity<Boolean>logout(HttpSession session){
         if (!userComponent.isLoggedUser()){
             log.info("Usuario no registrado");
