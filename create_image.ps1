@@ -7,4 +7,4 @@ docker stop mysql
 Copy-Item './target/daw.webapp12-0.0.1-SNAPSHOT.jar' '../webapp12.jar'
 cd ..
 
-#Write-Output 'Compilacion completa
+#Write-Output 'Compilacion completa'
