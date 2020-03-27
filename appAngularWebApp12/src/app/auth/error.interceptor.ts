@@ -3,6 +3,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { LoginService } from './login.service';
+import { kMaxLength } from 'buffer';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
