@@ -73,10 +73,12 @@ import { BlogService } from './service/blog.service';
 import { AdvertisementService } from './service/advertisement.service';
 import { SearchService } from './service/search.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,
