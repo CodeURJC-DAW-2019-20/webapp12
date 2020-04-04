@@ -1,0 +1,67 @@
+import { Injectable } from '@angular/core';
+import {catchError, map, switchAll} from "rxjs/operators";
+import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders, HttpEvent, HttpRequest} from "@angular/common/http";
+import { environment } from "../../environments/environment";
+import { Advertisement } from '../entity/advertisement';
+
+
+const BASE_URL= environment.baseUrl;
+
+const GET_ADVERTISEMENT = BASE_URL + "/advertisement/";
+const DELETE_ADVERTISEMENT = BASE_URL + "/concept/";
+const CREATE_ADVERTISEMENT = BASE_URL + "/concept/";
+
+
+@Injectable()
+export class AdvertisementService{
+    private urlEndPoint: string = 'https://localhost:8443/api/advertisement';
+
+    constructor(private http: HttpClient) {}
+
+    private handleError(error: any) {
+        console.error(error);
+        return Observable.throw('Server error (' + error.status + '): ' + error.text());
+    }
+
+    uploadFile(file:File, id): Observable<HttpEvent<{}>>{
+        let formData = new FormData();
+        formData.append("file", file);
+        formData.append("id", id);
+
+        const req = new HttpRequest('POST', `${this.urlEndPoint}/images`, formData, {
+        reportProgress: true
+        });
+        
+        return this.http.request(req);
+    }
+
+    getAdvertisement(id: number | string) {
+        return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })
+            .pipe(
+                map(response => response),
+                catchError(error => this.handleError(error))
+            );
+    }
+
+    addAdvertisement(advertisement: Advertisement, id:number):Observable<Advertisement> {
+        const body = JSON.stringify(advertisement);
+
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+        return this.http.post<Advertisement>(CREATE_ADVERTISEMENT + id, body, {headers})
+            .pipe(
+                map(response => response),
+                catchError(error => this.handleError(error))
+            );
+
+    }
+
+    deleteAdvertisement(id:number){
+        return this.http.delete<Advertisement>(DELETE_ADVERTISEMENT +  id)
+            .pipe(
+                catchError(err => this.handleError(err))
+            );
+    }
+}
