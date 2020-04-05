@@ -64,7 +64,7 @@ import { CovalentToolboxEchartsModule } from '@covalent/echarts/toolbox';
 //import { ErrorInterceptor } from './auth/error.interceptor';
 //import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -87,6 +87,7 @@ import { AdvertisementComponent } from './advertisement/advertisement.component'
     RouterModule.forRoot([]),
     HttpClientModule,
     JsonpModule,
+    CommonModule,
     /** Material Modules */
     MatButtonModule,
     MatListModule,

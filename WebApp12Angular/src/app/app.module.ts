@@ -55,6 +55,8 @@ import { ErrorInterceptor } from './auth/error.interceptor';
 import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BookService } from './service/book.service';
+import { AdvertisementComponent } from './advertisement/advertisement.component';
+
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { LoginComponent } from './login/login.component';
@@ -114,7 +116,7 @@ import { SearchService } from './service/search.service';
         //NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, AdvertisementComponent , BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
     providers: [BookService, LoginService,BlogService, UserService, AdvertisementService,SearchService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

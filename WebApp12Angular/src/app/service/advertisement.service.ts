@@ -3,7 +3,6 @@ import {catchError, map, switchAll} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpEvent, HttpRequest} from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import { Advertisement } from '../entity/advertisement';
 
 
 const BASE_URL= environment.baseUrl;
@@ -12,10 +11,26 @@ const GET_ADVERTISEMENT = BASE_URL + "/advertisement/";
 const DELETE_ADVERTISEMENT = BASE_URL + "/concept/";
 const CREATE_ADVERTISEMENT = BASE_URL + "/concept/";
 
+export interface Advertisement{
+
+    id?: number;
+    type: string;
+    property:string;
+    rooms:number;
+    bathrooms:number;
+    squareMeters:number;
+    location:string;
+    address:string;
+    price:number;
+    picture:string;
+    images : Array<string>;
+    comments: Comment[];
+}
+const URL = '/api/recommended/';
 
 @Injectable()
 export class AdvertisementService{
-    private urlEndPoint: string = 'https://localhost:8443/api/advertisement';
+    private urlEndPoint: string = 'https://localhost:8443/api/recommended';
 
     constructor(private http: HttpClient) {}
 
@@ -35,7 +50,9 @@ export class AdvertisementService{
         
         return this.http.request(req);
     }
-
+    getAdvertisements(): Observable<Advertisement[]> {
+        return this.http.get<Advertisement[]>(URL, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+    }
     getAdvertisement(id: number | string) {
         return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })
             .pipe(
