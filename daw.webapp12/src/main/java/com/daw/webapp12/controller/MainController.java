@@ -120,4 +120,9 @@ public class MainController {
         }
     }
 
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String returnAngular(Model model){
+        return "../public/new/index";
+    }
+
 }

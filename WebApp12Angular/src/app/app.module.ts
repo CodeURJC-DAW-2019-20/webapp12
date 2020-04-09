@@ -65,6 +65,8 @@ import { BlogService } from './service/blog.service';
 import { UserService } from './service/user.service';
 import { AdvertisementService } from './service/advertisement.service';
 import { SearchService } from './service/search.service';
+import { HeaderComponent } from './header.component';
+import { blogListComponent } from './blog-list.component';
 
 @NgModule({
     imports: [
@@ -116,7 +118,8 @@ import { SearchService } from './service/search.service';
         //NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, AdvertisementComponent , BookFormComponent, LoginComponent],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, AdvertisementComponent , BookFormComponent, LoginComponent, HeaderComponent, 
+        blogListComponent],
     bootstrap: [AppComponent],
     providers: [BookService, LoginService,BlogService, UserService, AdvertisementService,SearchService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

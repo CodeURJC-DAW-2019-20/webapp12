@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrls: ['./app.component.css', '../styles/animate.css'],
     animations: [tdRotateAnimation],
 })
 export class AppComponent implements AfterViewInit {
