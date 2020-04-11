@@ -5,6 +5,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 import { blogListComponent } from './blog-list.component';
 import { blogSingleComponent } from './blog-single.component';
+import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 
 
 const appRoutes = [
@@ -14,7 +15,8 @@ const appRoutes = [
   { path: 'book/edit/:id', component: BookFormComponent },
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },
-  { path: 'blog/:id', component: blogSingleComponent}
+  { path: 'blog/:id', component: blogSingleComponent},
+  { path: 'propertyUpload', component: PropertyUploadComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
