@@ -67,6 +67,7 @@ import { AdvertisementService } from './service/advertisement.service';
 import { SearchService } from './service/search.service';
 import { HeaderComponent } from './header.component';
 import { blogListComponent } from './blog-list.component';
+import { blogSingleComponent } from './blog-single.component';
 
 @NgModule({
     imports: [
@@ -119,7 +120,7 @@ import { blogListComponent } from './blog-list.component';
         routing,
     ],
     declarations: [AppComponent, BookDetailComponent, BookListComponent, AdvertisementComponent , BookFormComponent, LoginComponent, HeaderComponent, 
-        blogListComponent],
+        blogListComponent, blogSingleComponent],
     bootstrap: [AppComponent],
     providers: [BookService, LoginService,BlogService, UserService, AdvertisementService,SearchService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

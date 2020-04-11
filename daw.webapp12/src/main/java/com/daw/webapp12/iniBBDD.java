@@ -72,15 +72,66 @@ public class iniBBDD {
         Advertisement anun9 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
         anun9.getImages().add("work-2.jpg");
         anuncioRepository.save(anun9);
-
         Advertisement anun10 = new Advertisement("Alquiler","Local",(Integer)3,(Integer)1,78,"Ciudad Real","calle verde,3",(double)650);
         anun10.getImages().add("work-2.jpg");
         anuncioRepository.save(anun10);
+        Advertisement anun11 = new Advertisement("Alquiler","Piso",(Integer)3,(Integer)1,95,"Madrid","calle tulipan,5",(double)650);
+        anun11.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun11);
+        Advertisement anun12 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,64,"Mostoles","calle caqui,4",(double)600);
+        anun12.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun12);
+        Advertisement anun13 = new Advertisement("Alquiler","Piso",(Integer)3,(Integer)1,78,"Mostoles","calle verde,4",(double)900);
+        anun13.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun13);
+        Advertisement anun14 = new Advertisement("Venta","Casa",(Integer)3,(Integer)1,92,"Mostoles","calle Empecinado,9",(double)750);
+        anun14.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun14);
+        Advertisement anun15 = new Advertisement("Venta","Casa",(Integer)1,(Integer)1,65,"Madrid","calle verde,3",(double)550);
+        anun15.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun15);
+        Advertisement anun16 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,78,"Madrid","calle verde,3",(double)700);
+        anun16.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun16);
+        Advertisement anun17 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,62,"Madrid","calle verde,3",(double)650);
+        anun17.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun17);
+        Advertisement anun18 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,75,"Madrid","calle verde,3",(double)600);
+        anun18.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun18);
+        Advertisement anun19 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,90,"Madrid","calle verde,3",(double)580);
+        anun19.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun19);
+        Advertisement anun20 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,72,"Madrid","calle verde,3",(double)60);
+        anun20.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun20);
+        Advertisement anun21 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,67,"Madrid","calle verde,3",(double)620);
+        anun21.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun21);
+        Advertisement anun22 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,78,"Mostoles","calle verde,3",(double)700);
+        anun22.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun22);
+        Advertisement anun23 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,62,"Mostoles","calle verde,3",(double)650);
+        anun23.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun23);
+        Advertisement anun24 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,75,"Mostoles","calle verde,3",(double)600);
+        anun24.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun24);
+        Advertisement anun25 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,90,"Mostoles","calle verde,3",(double)580);
+        anun25.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun25);
+        Advertisement anun26 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,72,"Mostoles","calle verde,3",(double)60);
+        anun26.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun26);
+        Advertisement anun27 = new Advertisement("Alquiler","Piso",(Integer)2,(Integer)1,67,"Mostoles","calle verde,3",(double)620);
+        anun27.getImages().add("work-2.jpg");
+        anuncioRepository.save(anun27);
 
-        Search search1 = new Search("Alquiler",(Integer)2,(Integer)1,60,"Madrid",(double)800);
-        Search search2 = new Search("Alquiler",(Integer)3,(Integer)2,80,"Mostoles",(double)1000);
-        Search search4 = new Search("Alquiler",(Integer)4,(Integer)3,100,"Mostoles",(double)1200);
-        Search search5 = new Search("Alquiler",(Integer)2,(Integer)2,70,"Madrid",(double)900);
+
+        Search search1 = new Search("Alquiler",(Integer)2,(Integer)1,40,"Madrid",(double)1200);
+        Search search2 = new Search("Venta",(Integer)2,(Integer)2,50,"Mostoles",(double)120000);
+        Search search4 = new Search("Venta",(Integer)3,(Integer)3,65,"Mostoles",(double)120000);
+        Search search5 = new Search("Venta",(Integer)2,(Integer)2,70,"Madrid",(double)120000);
 
 
         Users users1 = new Users("Angel","angel@gmail.com","12345678","ROLE_USER");
@@ -105,30 +156,39 @@ public class iniBBDD {
            
 
         Blog blog1 = new Blog("CALIDEZ Y CARÁCTER SE ENCUENTRAN FRENTE A FRENTE EN ESTA CASA", "Los propietarios de esta casa unifamiliar en una población cercana a Barcelona —una pareja con hijos adolescentes— querían reformarla para adaptarla a los tiempos modernos. Solo querían un lavado de cara y que les ayudáramos a escoger mobiliario y textiles para modernizar la vivienda.");
+        blog1.getImages().add("image_2.jpg");
         blogRepository.save(blog1);
 
         Blog blog2 = new Blog("TENDENCIAS EN COCINAS QUE TE VOLVERÁN CRAZY ESTE 2020", "VERDE NATURAL La preocupación por la sostenibilidad ha hecho que los tonos verdes más naturales se cuelen en nuestras cocinas durante este 2020. ACENTOS TURQUESA Los tonos turquesa no solo aportan luminosidad a la cocina, sino también mucha frescura. Además, resaltan un montón con otros colores de base como el blanco, y siempre se ven muy limpios. Ideales para armarios y azulejos.");        
+        blog2.getImages().add("image_3.jpg");
         blogRepository.save(blog2);
 
-        Blog blog3 = new Blog("Piscinas en tu propia casa", "Acercate y prueba");        
+        Blog blog3 = new Blog("Piscinas en tu propia casa", "Acercate y prueba");
+        blog3.getImages().add("image_4.jpg");        
         blogRepository.save(blog3);
 
-        Blog blog4 = new Blog("¿Madrid es caro?", "No si alquilas con estas inmobiliarias");        
+        Blog blog4 = new Blog("¿Madrid es caro?", "No si alquilas con estas inmobiliarias");
+        blog4.getImages().add("image_5.jpg");       
         blogRepository.save(blog4);
 
-        Blog blog5 = new Blog("Trucos para conseguir el mejor alquiler", "Aprende ya");        
+        Blog blog5 = new Blog("Trucos para conseguir el mejor alquiler", "Aprende ya");
+        blog5.getImages().add("image_3.jpg");        
         blogRepository.save(blog5);
 
-        Blog blog6 = new Blog("Alquilar o comprar", "Cual es la mejor decision para ti");        
+        Blog blog6 = new Blog("Alquilar o comprar", "Cual es la mejor decision para ti");
+        blog6.getImages().add("image_5.jpg");       
         blogRepository.save(blog6);
 
-        Blog blog7 = new Blog("Descubre ya tu apartamento ideal", "Primera linea de playa");        
+        Blog blog7 = new Blog("Descubre ya tu apartamento ideal", "Primera linea de playa");
+        blog7.getImages().add("image_6.jpg");        
         blogRepository.save(blog7);
 
-        Blog blog8 = new Blog("Casas de hasta tres plantas", "Por solo 1000 euros al mes");        
+        Blog blog8 = new Blog("Casas de hasta tres plantas", "Por solo 1000 euros al mes");
+        blog8.getImages().add("image_2.jpg");       
         blogRepository.save(blog8);
 
-        Blog blog9= new Blog("La revolucion de los alquileres  ha llegado", "Entérate");        
+        Blog blog9= new Blog("La revolucion de los alquileres  ha llegado", "Entérate"); 
+        blog9.getImages().add("image_4.jpg");       
         blogRepository.save(blog9);
     }
 }
