@@ -26,11 +26,12 @@ export interface Advertisement{
     images : Array<string>;
     comments: Comment[];
 }
-const URL = '/api/recommended/';
+//const URL = '/api/recommended/';
+const URL = 'https://localhost:8443/api/advertisements/';
 
 @Injectable()
 export class AdvertisementService{
-    private urlEndPoint: string = 'https://localhost:8443/api/recommended';
+    private urlEndPoint: string = 'https://localhost:8443/api/advertisements/';
 
     constructor(private http: HttpClient) {}
 
@@ -51,7 +52,7 @@ export class AdvertisementService{
         return this.http.request(req);
     }
     getAdvertisements(): Observable<Advertisement[]> {
-        return this.http.get<Advertisement[]>(URL, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+        return this.http.get<Advertisement[]>(URL + 'list').pipe(catchError((error) => this.handleError(error)));
     }
     getAdvertisement(id: number | string) {
         return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })

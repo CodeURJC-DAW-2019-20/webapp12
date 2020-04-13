@@ -28,8 +28,8 @@ export class BlogService{
 
     
 
-    getBlog(id: number | string): Observable<Blog> {
-        return this.http.get<Blog>(GET_BLOG + id , { withCredentials: true })
+    getBlog(id: number | string) {
+        return this.http.get(GET_BLOG + id , { withCredentials: true })
             .pipe(
                 map(response => response),
                 catchError(error => this.handleError(error))

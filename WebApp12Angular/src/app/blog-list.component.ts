@@ -15,10 +15,14 @@ export class blogListComponent {
     }
 
     ngOnInit(){
+        console.log("give me some");
         this.blogService.getBlogs(0,5).subscribe(
           blogs=>this.blogs=blogs,
           error=>console.log(error)
         );
+        // this.blogService.getBlogsNumber().subscribe(
+        //     blogs=>this.total=blogs,
+        //     error=>console.log(error));
     }
 
     getBlogs(page: number, quantity: number){
