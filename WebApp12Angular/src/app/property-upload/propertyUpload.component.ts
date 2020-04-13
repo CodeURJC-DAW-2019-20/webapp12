@@ -80,12 +80,14 @@ uploadPicture(){
 addAdvertisement() {
     this.advertisementService.addAdvertisement(this.advertisement, this.id).subscribe(
         (res: any) => {
-            this.listAdvertisements = res;
-            this.listAdvertisements = (this.listAdvertisements);
-            console.log(this.advertisement);
+          this.router.navigate(['/home']);
+            //this.listAdvertisements = res;
+            //this.listAdvertisements = (this.listAdvertisements);
+            //console.log(this.advertisement);
         },
+        (error: Error) => console.error('error creating new advertisement: ' + error));
         //error1 => console.log(error1)
-    );
+    
     //this.dialogRefConcept.close();
 }
 }

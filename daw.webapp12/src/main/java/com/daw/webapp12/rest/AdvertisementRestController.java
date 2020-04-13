@@ -64,6 +64,7 @@ public class AdvertisementRestController {
     @PostMapping("/")
     public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long id) {
         Users users = userService.findById(id);
+        //Users users = userComponent.getLoggedUser();
         List<Advertisement> myAds = users.getMyAdvertisements();
         advertisementRepository.save(anuncios);
         myAds.add(anuncios);

@@ -34,12 +34,12 @@ export class AdvertisementService{
     private urlEndPoint: string = 'https://localhost:8443/api/advertisements/';
 
     constructor(private http: HttpClient) {}
-/*
+
     private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());
     }
-*/
+
     uploadFile(file:File, id): Observable<HttpEvent<{}>>{
         let formData = new FormData();
         formData.append("file", file);
@@ -67,13 +67,11 @@ export class AdvertisementService{
     addAdvertisement(advertisement: Advertisement, id:number):Observable<Advertisement> {
         const body = JSON.stringify(advertisement);
 
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-        });
+        const headers = new HttpHeaders({'Content-Type': 'application/json',});
         return this.http.post<Advertisement>(CREATE_ADVERTISEMENT, body, {headers})
             .pipe(
-                map(response => response),
-                //catchError(error => this.handleError(error))
+                //map(response => response),
+                catchError(error => this.handleError(error))
             );
 
     }
