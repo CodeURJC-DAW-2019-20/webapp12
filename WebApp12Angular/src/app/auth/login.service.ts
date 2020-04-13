@@ -20,30 +20,47 @@ export class LoginService {
     auth: string;
 
     constructor(private http: HttpClient) {
-        let user = JSON.parse(localStorage.getItem('currentUser'));
-        if (user) {
-            console.log('Logged user');
-            this.setCurrentUser(user);
+        if ( localStorage.getItem('currentUser') == null || localStorage.getItem('currentUser') == undefined || localStorage.getItem('currentUser').length <= 0 ) {
+
+        } else {
+            let user = JSON.parse(localStorage.getItem('currentUser'));
+            if (user) {
+                console.log('Logged user');
+                this.setCurrentUser(user);
+            }
         }
+        
     }
 
     logIn(user: string, pass: string) {
 
         let auth = window.btoa(user + ':' + pass);
-
+        console.log('auth', auth );
+        
         const headers = new HttpHeaders({
             Authorization: 'Basic ' + auth,
             'X-Requested-With': 'XMLHttpRequest',
         });
-
-        return this.http.get<User>('/api/logIn', { headers })
+        console.log('headers', headers);
+        console.log('user:', user, 'passw :', pass);
+        
+        //return this.http.get(this.url +'login?email=' + user.name + '&password=' + user.password );
+        return this.http.get<User>('/api/users/loginTres?email=' + user+ '&password=' + pass, { headers })
             .pipe(map(user => {
-
-                if (user) {
-                    this.setCurrentUser(user);
-                    user.authdata = auth;
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log('respuesta user', user);
+                
+                try {
+                    if (user) {
+                        this.setCurrentUser(user);
+                        user.authdata = auth;
+                        localStorage.setItem('currentUser', JSON.stringify(user));
+                    }
+                } catch (error) {
+                    console.log('Error en la respuesta', error );
+                    
                 }
+
+               
 
                 return user;
             }));

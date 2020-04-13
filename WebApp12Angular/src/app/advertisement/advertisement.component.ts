@@ -16,7 +16,9 @@
   
     advertisements: Advertisement[];
   
-    constructor(private router: Router, private service: AdvertisementService,
+    constructor(
+      private router: Router, 
+      private service: AdvertisementService,
       public loginService: LoginService) { }
   
     ngOnInit() {
