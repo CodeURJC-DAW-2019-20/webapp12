@@ -21,10 +21,13 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
         http.antMatcher("/api/**");
 
         // here urls need authentication
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{name}");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/");
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/login").authenticated();
-        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/login");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/loginTres").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/loginDos").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{id}").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/list").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/").permitAll();
+        //http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/login").authenticated();
+        http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/login").permitAll();;
 
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/blogs/{id}").permitAll();
@@ -32,6 +35,7 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/blogs/{id}").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/blogs/{id}").hasAnyRole("ADMIN");
 
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/advertisements/list").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/advertisements").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/advertisements/{id}/comments").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/advertisements/{id}/comments").hasAnyRole("USER");
@@ -45,8 +49,8 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/advertisements/{id}").hasAnyRole("USER", "ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/users/favourites/{id}").hasAnyRole("USER", "ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
+       // http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
+        //http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
 
 
         // urls not need authentication
