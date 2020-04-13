@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { blogSingleComponent } from './blog-single.component';
+import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 //import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 
 
@@ -26,8 +27,9 @@ const appRoutes = [
   { path: 'blog', component: blogListComponent },
   { path: 'blog/:id', component: blogSingleComponent},
   { path: '', pathMatch:'full' ,redirectTo: 'home'},
+
   //{ path: 'blog/:id', component: blogSingleComponent},
-  //{ path: 'propertyUpload', component: PropertyUploadComponent}
+  { path: 'propertyUpload', component: PropertyUploadComponent}
  
 ];
 

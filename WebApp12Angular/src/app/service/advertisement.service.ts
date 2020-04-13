@@ -7,9 +7,9 @@ import { environment } from "../../environments/environment";
 
 const BASE_URL= environment.baseUrl;
 
-const GET_ADVERTISEMENT = BASE_URL + "/advertisement/";
-const DELETE_ADVERTISEMENT = BASE_URL + "/advertisement/";
-const CREATE_ADVERTISEMENT = BASE_URL + "/advertisement/";
+const GET_ADVERTISEMENT = BASE_URL + "/advertisements/";
+const DELETE_ADVERTISEMENT = BASE_URL + "/advertisements/";
+const CREATE_ADVERTISEMENT = "https://localhost:8443" + BASE_URL + "/advertisements/";
 
 export interface Advertisement{
 
@@ -34,12 +34,12 @@ export class AdvertisementService{
     private urlEndPoint: string = 'https://localhost:8443/api/advertisements/';
 
     constructor(private http: HttpClient) {}
-
+/*
     private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());
     }
-
+*/
     uploadFile(file:File, id): Observable<HttpEvent<{}>>{
         let formData = new FormData();
         formData.append("file", file);
@@ -52,13 +52,15 @@ export class AdvertisementService{
         return this.http.request(req);
     }
     getAdvertisements(): Observable<Advertisement[]> {
-        return this.http.get<Advertisement[]>(URL + 'list').pipe(catchError((error) => this.handleError(error)));
+        return this.http.get<Advertisement[]>(URL + 'list').pipe(
+            /*catchError((error) => this.handleError(error))
+            */);
     }
     getAdvertisement(id: number | string) {
         return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })
             .pipe(
                 map(response => response),
-                catchError(error => this.handleError(error))
+               // catchError(error => this.handleError(error))
             );
     }
 
@@ -68,10 +70,10 @@ export class AdvertisementService{
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
-        return this.http.post<Advertisement>(CREATE_ADVERTISEMENT + id, body, {headers})
+        return this.http.post<Advertisement>(CREATE_ADVERTISEMENT, body, {headers})
             .pipe(
                 map(response => response),
-                catchError(error => this.handleError(error))
+                //catchError(error => this.handleError(error))
             );
 
     }
@@ -79,7 +81,7 @@ export class AdvertisementService{
     deleteAdvertisement(id:number){
         return this.http.delete<Advertisement>(DELETE_ADVERTISEMENT +  id)
             .pipe(
-                catchError(err => this.handleError(err))
+                //catchError(err => this.handleError(err))
             );
     }
 }
