@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
@@ -72,7 +73,7 @@ import { RecomendacionesComponent } from './components/recomendaciones/recomenda
 import { RegisterComponent } from './pages/register/register.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { blogSingleComponent } from './blog-single.component';
-
+import { PropertyUploadComponent} from './property-upload/propertyUpload.component'
 @NgModule({
   imports: [
     BrowserModule,
@@ -82,6 +83,7 @@ import { blogSingleComponent } from './blog-single.component';
     RouterModule.forRoot([]),
     HttpClientModule,
     /** Material Modules */
+    MatFormFieldModule,
     MatButtonModule,
     MatListModule,
     MatIconModule,
@@ -137,7 +139,8 @@ import { blogSingleComponent } from './blog-single.component';
     HomeComponent,
     RecomendacionesComponent,
     RegisterComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    PropertyUploadComponent
   ],
   bootstrap: [AppComponent],
   providers: [

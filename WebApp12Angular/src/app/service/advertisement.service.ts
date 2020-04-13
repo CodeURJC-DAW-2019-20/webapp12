@@ -8,8 +8,8 @@ import { environment } from "../../environments/environment";
 const BASE_URL= environment.baseUrl;
 
 const GET_ADVERTISEMENT = BASE_URL + "/advertisement/";
-const DELETE_ADVERTISEMENT = BASE_URL + "/concept/";
-const CREATE_ADVERTISEMENT = BASE_URL + "/concept/";
+const DELETE_ADVERTISEMENT = BASE_URL + "/advertisement/";
+const CREATE_ADVERTISEMENT = BASE_URL + "/advertisement/";
 
 export interface Advertisement{
 
