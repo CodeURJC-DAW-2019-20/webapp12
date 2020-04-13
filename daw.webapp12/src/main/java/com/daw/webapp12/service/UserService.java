@@ -2,8 +2,11 @@ package com.daw.webapp12.service;
 
 import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.UserRepository;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
@@ -59,5 +62,18 @@ public class UserService implements UserInterface {
 
         sender.send(message);
     }
-
+   
+    @Override
+    @Transactional
+	public Optional<Users> findByEmailAddress(String email,String password) {
+		
+		return userRepository.findByNameOrEmailAndPassword(email, email, password);
+	}
+    
+    @Override
+    @Transactional
+   	public Users findByEmail(String email, String password) {
+   		System.out.println("password: " + password );
+   		return  userRepository.findByEmail(email, password);
+   	}
 }

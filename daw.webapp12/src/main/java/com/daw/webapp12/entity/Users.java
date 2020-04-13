@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Users {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @NotNull
@@ -27,13 +27,13 @@ public class Users {
     @ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @ManyToMany(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
     private List<Advertisement> myFavourites;
 
     @OneToMany(cascade=CascadeType.ALL)
     private List<Search> mySearches;
 
-    @OneToMany(cascade=CascadeType.REMOVE, orphanRemoval = true)
+    @ManyToMany(cascade=CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Advertisement> myAdvertisements;
 
     public Users(){
@@ -113,7 +113,7 @@ public class Users {
 		this.roles = roles;
 	}
     public void setPassword(String password) {
-        this.password = password;
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     public List<Advertisement> getMyFavourites() {
@@ -145,11 +145,13 @@ public class Users {
         return myAdvertisements;
     }
     public List<Advertisement> getMyAdvertisements(int page, int number) {
-        List<Advertisement> pagedList = new ArrayList<>();
+        List<Advertisement> pagedList = new ArrayList<Advertisement>();
         int start = page * number;
         int end = start + number;
-        if((myAdvertisements.size() > 0) && (end - myAdvertisements.size()) < number){
+        return getMyAdvertisements();
+       /* if((myAdvertisements.size() > 0) && (end - myAdvertisements.size()) < number){
             for(int i = start;i< end;i++){
+            	Advertisement advertisement = new Advertisement();
                 if(i+1 > myAdvertisements.size()){
                     break;
                 }
@@ -158,7 +160,7 @@ public class Users {
             return pagedList;
         }else{
             return null;
-        }
+        }*/
     }
 
     public void setMyAdvertisements(List<Advertisement> list) {

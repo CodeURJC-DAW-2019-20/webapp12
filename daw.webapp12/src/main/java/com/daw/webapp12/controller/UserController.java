@@ -13,7 +13,9 @@ import com.daw.webapp12.security.UserRepositoryAuthenticationProvider;
 import com.daw.webapp12.service.AdvertisementService;
 import com.daw.webapp12.service.UserService;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 
@@ -99,7 +103,7 @@ public class UserController {
 	public String register(Model model) {
 		return ("signUp");
 	}
-
+/*
 	@PostMapping("/signUp")
 	public String signUp(Model model,@RequestParam String username, HttpServletRequest request, HttpServletResponse response,@RequestParam String email,@RequestParam String password) throws Exception{
 		String pass = password;
@@ -108,6 +112,21 @@ public class UserController {
 			return "loginError";
 		}
 		Users user = new Users(username, email, password, "ROLE_USER");
+		if (u1== null){
+			userService.addUser(user);
+			userService.sendEmail(user, pass);
+		}
+		return "index";
+	}
+	*/
+	@PostMapping("/signUp")
+	public String signUp(@RequestParam String username,@RequestParam String password) throws Exception{
+		String pass = password;
+		Optional<Users> u1= userService.findByName(username);
+		if (username.equals("")||pass.equals("")){
+			return "loginError";
+		}
+		Users user = new Users(username, "" , password, "ROLE_USER");
 		if (u1== null){
 			userService.addUser(user);
 			userService.sendEmail(user, pass);
@@ -145,5 +164,5 @@ public class UserController {
            //model.addAttribute("logged", logged);
         }
     }
-
+	
 }

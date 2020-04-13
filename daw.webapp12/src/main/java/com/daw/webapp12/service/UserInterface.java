@@ -2,6 +2,7 @@ package com.daw.webapp12.service;
 
 import com.daw.webapp12.entity.Users;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,5 +18,9 @@ public interface UserInterface {
 
     public Optional<Users> findByName(String string);
 
+    public Optional<Users> findByEmailAddress(String email, String name);
 
+	Users findByEmail(String email, String password);
+    
+    
 }
