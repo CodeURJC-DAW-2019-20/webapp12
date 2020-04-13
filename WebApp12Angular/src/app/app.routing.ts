@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
+import { blogSingleComponent } from './blog-single.component';
 //import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 
 
@@ -23,6 +24,7 @@ const appRoutes = [
   { path: 'book/edit/:id', component: BookFormComponent },
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },
+  { path: 'blog/:id', component: blogSingleComponent},
   { path: '', pathMatch:'full' ,redirectTo: 'home'},
   //{ path: 'blog/:id', component: blogSingleComponent},
   //{ path: 'propertyUpload', component: PropertyUploadComponent}
