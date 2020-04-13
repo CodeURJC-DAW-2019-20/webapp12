@@ -1,5 +1,5 @@
 
-
+<!--
 <ng-container *ngIf="!loginService.isLogged">
 	<span>
 		<button mat-button (click)='openLoginDialog()'>
@@ -57,4 +57,39 @@
 		</mat-dialog-actions>
 	</div>
 
-</ng-template>
+</ng-template> -->
+
+<div class="alquiles-login">
+  <div class="container" style="margin-top: 100px;">
+    <div class="wrapper fadeInDown">
+          <div id="formContent">
+  
+            <!-- Login Form -->
+            <div *ngIf="!logueado">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <h3>Sign In</h3>
+             
+              <input type="text" id="username" class="fadeIn second" name="username" formControlName="name" placeholder="Username">
+              <input type="password" id="password" class="fadeIn third psswdInput password-alquileres" name="password" formControlName="password" placeholder="Password" >
+
+           <input type="submit" class="fadeIn fourth" value="Log In">
+           
+            </form>
+            </div>
+  
+            <div *ngIf="logueado">
+              <input type="button" value="Sign Out"  (click)="logOut()">
+              
+            </div> 
+            <!-- Sign Up -->
+            <div id="formFooter">
+              
+              <a class="underlineHover" [routerLink]="['/register']">Registrarse</a>
+            </div>
+              
+            <a [routerLink]="['/home']"><input type="button" value="Home"></a>
+        
+          </div>
+        </div>
+  </div>
+</div>
