@@ -11,8 +11,10 @@ import java.util.Map.Entry;
 
 import com.daw.webapp12.entity.Advertisement;
 import com.daw.webapp12.entity.Search;
+import com.daw.webapp12.entity.Users;
 import com.daw.webapp12.repository.AdvertisementRepository;
 
+import com.daw.webapp12.security.UserComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +26,9 @@ public class AdvertisementService implements AdvertisementInterface{
 
     @Autowired
     private UserService userService;
+
+	@Autowired
+	private UserComponent userComponent;
 
     public List<Advertisement> findAll(){
         return advertisementRepository.findAll();
