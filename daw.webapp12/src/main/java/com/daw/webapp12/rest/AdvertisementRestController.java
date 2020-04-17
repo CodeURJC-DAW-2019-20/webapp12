@@ -1,9 +1,6 @@
 package com.daw.webapp12.rest;
 
-import com.daw.webapp12.entity.Advertisement;
-import com.daw.webapp12.entity.Comment;
-import com.daw.webapp12.entity.Search;
-import com.daw.webapp12.entity.Users;
+import com.daw.webapp12.entity.*;
 import com.daw.webapp12.repository.AdvertisementRepository;
 import com.daw.webapp12.repository.CommentRepository;
 import com.daw.webapp12.security.UserComponent;
@@ -62,13 +59,25 @@ public class AdvertisementRestController {
     // }
 
     @PostMapping("/")
-    public List<Advertisement> uploadsAdvertisement(Advertisement anuncios, @RequestParam("id") long id) {
-        Users users = userService.findById(id);
-        //Users users = userComponent.getLoggedUser();
+    @ResponseStatus(HttpStatus.CREATED)
+    public Advertisement uploadsAdvertisement(@RequestParam String type,@RequestParam String property, @RequestParam Integer rooms,
+                                                    @RequestParam Integer bathrooms, @RequestParam Integer squareMeters,@RequestParam String location,
+                                                    @RequestParam String address, @RequestParam double price) {
+        Advertisement ads = new Advertisement(type, property, rooms, bathrooms,squareMeters, location, address, price);
+        String userName = userComponent.getLoggedUser().getName();
+        Optional<Users> user = userService.findByName(userName);
+        user.get().addMyAdvertisement(ads);
+        ads.setImages(new ArrayList<String>());
+        advertisementService.addAdvertisement(ads);
+        userService.addUser(user.get());
+
+        return ads;
+        //Users users = userService.findById(id);
+        /*Users users = userComponent.getLoggedUser();
         List<Advertisement> myAds = users.getMyAdvertisements();
         advertisementRepository.save(anuncios);
         myAds.add(anuncios);
-        return myAds;
+        return myAds;*/
     }
 
     @PutMapping("/{id}")
