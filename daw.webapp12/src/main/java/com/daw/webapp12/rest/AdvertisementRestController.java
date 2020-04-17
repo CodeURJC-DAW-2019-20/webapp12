@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("api/advertisements")
 public class AdvertisementRestController {
@@ -33,13 +33,13 @@ public class AdvertisementRestController {
     CommentRepository commentRepository;
 
     @GetMapping("/list")
-    public List<Advertisement> list() {
+    public List<Advertisement> allAdvertisements() {
 		List<Advertisement> ads = advertisementService.findAll();
 		return ads;
 		}
     
     @GetMapping("/")
-    public List<Advertisement> allAdvertisement(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
+    public List<Advertisement> myAdvertisements(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
     //    Users users = userService.findById(idAdver);
     //     List<Advertisement> myAds = users.getMyAdvertisements();
     //     return myAds;
@@ -58,12 +58,12 @@ public class AdvertisementRestController {
     //     return myAds;
     // }
 
-    @PostMapping("/")
+    @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Advertisement uploadsAdvertisement(@RequestParam String type,@RequestParam String property, @RequestParam Integer rooms,
+    public Advertisement uploadsAdvertisement(Advertisement ads/*@RequestParam String type,@RequestParam String property, @RequestParam Integer rooms,
                                                     @RequestParam Integer bathrooms, @RequestParam Integer squareMeters,@RequestParam String location,
-                                                    @RequestParam String address, @RequestParam double price) {
-        Advertisement ads = new Advertisement(type, property, rooms, bathrooms,squareMeters, location, address, price);
+                                                    @RequestParam String address, @RequestParam double price*/) {
+        //Advertisement ads = new Advertisement(type, property, rooms, bathrooms,squareMeters, location, address, price);
         String userName = userComponent.getLoggedUser().getName();
         Optional<Users> user = userService.findByName(userName);
         user.get().addMyAdvertisement(ads);
