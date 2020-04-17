@@ -34,8 +34,38 @@ public class AdvertisementService implements AdvertisementInterface{
         return advertisementRepository.findAll();
     }
 
-    public List<Entry<String, Integer>> recommendeds(List<Advertisement> recommendeds) {
-        List<Advertisement> allAdvertisements = this.findAll();
+	public List<Entry<String, Integer>> graphValues() {
+		List<Advertisement> allAdvertisements = this.findAll();
+
+		HashMap<String, Integer> mostCommonLocations = new HashMap<String, Integer>();
+			for(int i = 0; i< allAdvertisements.size();i++){
+				String auxLocation = allAdvertisements.get(i).getlocation();
+				if(mostCommonLocations.containsKey(auxLocation)){
+					int value = mostCommonLocations.get(auxLocation);
+					mostCommonLocations.replace(auxLocation,value+1);
+				}else{
+					mostCommonLocations.put(auxLocation, 1);
+				}
+			}
+
+			List<Map.Entry<String, Integer> > list = 
+			new LinkedList<Map.Entry<String, Integer> >(mostCommonLocations.entrySet()); 
+
+	 Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() { 
+		 public int compare(Map.Entry<String, Integer> o1,  
+							Map.Entry<String, Integer> o2) 
+		 { 
+			 return (o2.getValue()).compareTo(o1.getValue());
+		 } 
+	 }); 
+	   for(int i = 5;i<list.size();i++){
+		list.remove(i);
+       }
+       return list;
+    }
+
+    public void recommendeds(List<Advertisement> recommendeds) {
+        
 		List<Advertisement> auxAdvertisements = new ArrayList<Advertisement>();
 		List<Advertisement> ads = new ArrayList<Advertisement>();
 		List<Advertisement> ads2 = new ArrayList<Advertisement>();
@@ -201,33 +231,6 @@ public class AdvertisementService implements AdvertisementInterface{
 				recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-2))));
 				recommendeds.add(auxAdvertisements.get(scores.get(mapKeys.get(mapKeys.size()-3))));
 			}
-			
-		
-			HashMap<String, Integer> mostCommonLocations = new HashMap<String, Integer>();
-			for(int i = 0; i< allAdvertisements.size();i++){
-				String auxLocation = allAdvertisements.get(i).getlocation();
-				if(mostCommonLocations.containsKey(auxLocation)){
-					int value = mostCommonLocations.get(auxLocation);
-					mostCommonLocations.replace(auxLocation,value+1);
-				}else{
-					mostCommonLocations.put(auxLocation, 1);
-				}
-			}
-
-			List<Map.Entry<String, Integer> > list = 
-			new LinkedList<Map.Entry<String, Integer> >(mostCommonLocations.entrySet()); 
-
-	 Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() { 
-		 public int compare(Map.Entry<String, Integer> o1,  
-							Map.Entry<String, Integer> o2) 
-		 { 
-			 return (o2.getValue()).compareTo(o1.getValue());
-		 } 
-	 }); 
-	   for(int i = 5;i<list.size();i++){
-		list.remove(i);
-       }
-       return list;
     }
 
     @Override

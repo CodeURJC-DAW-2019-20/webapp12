@@ -42,8 +42,8 @@ public class AdvertisementController{
 	@RequestMapping(value = {"/MainPage", ""})
     public String recommendeds(Model model) {
 		List<Advertisement> recommendeds = new ArrayList<Advertisement>();
-		List list = advertisementService.recommendeds(recommendeds);
-
+		advertisementService.recommendeds(recommendeds);
+		List list = advertisementService.graphValues();
 	   	model.addAttribute("graphValues", list);
 		model.addAttribute("recommendedAds", recommendeds);
 		//  if(userComponent.isLoggedUser()){

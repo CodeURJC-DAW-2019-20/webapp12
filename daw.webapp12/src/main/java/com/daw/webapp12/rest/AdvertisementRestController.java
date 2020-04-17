@@ -107,9 +107,19 @@ public class AdvertisementRestController {
     @GetMapping("/recommended")
     public ResponseEntity<List<Advertisement>> recommendeds() {
 		List<Advertisement> recommendeds = new ArrayList<Advertisement>();
-		List list = advertisementService.recommendeds(recommendeds);
+		advertisementService.recommendeds(recommendeds);
 		if(recommendeds.size()>0){
             return new ResponseEntity<>(recommendeds, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/graph")
+    public ResponseEntity<List<Advertisement>> graphValues() {
+		List list = advertisementService.graphValues();
+		if(list.size()>0){
+            return new ResponseEntity<>(list, HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
