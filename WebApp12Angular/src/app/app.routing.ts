@@ -12,13 +12,12 @@ import { blogSingleComponent } from './blog-single.component';
 import { AuthUserService } from './service/auth/auth.user.service';
 import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 import { blogUploadComponent } from './blog-upload.component';
-//import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 
 
 
 const appRoutes = [
   { path: 'home', component: HomeComponent},
-  { path: 'advertisement', component: AdvertisementComponent},
+  { path: 'advertisements', component: AdvertisementComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'favoritos/:id', component: FavoritosComponent , canActivate: [AuthUserService]},

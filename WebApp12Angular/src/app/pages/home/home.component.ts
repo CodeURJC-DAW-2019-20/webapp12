@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisementService } from 'src/app/service/advertisement.service';
+import { Advertisement } from 'src/app/entity/advertisement';
 /* import { RecomendacionesService } from 'src/app/services/recomendaciones.service'; */
 
 
@@ -25,10 +26,11 @@ export class HomeComponent implements OnInit {
   public showRecommend: boolean = false;
 
   public items: any[] = [];
+  advertisement: Advertisement;
 
   constructor(
     //private recomendacionesService: RecomendacionesService
-    private service: AdvertisementService,
+    private advertisementService: AdvertisementService,
   ) { }
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class HomeComponent implements OnInit {
       this.items = resp;
     }) */
     this.showRecommend = false;
-    this.service.getAdvertisements().toPromise()
+    this.advertisementService.getAdvertisements().toPromise()
     .then(  advertisements => {
       // console.log('advertisements', advertisements);
       
@@ -51,6 +53,13 @@ export class HomeComponent implements OnInit {
     })
     .catch( error => console.log('error') );
     
+    this.advertisementService.getAdvertisement(this.id).subscribe(
+      (res: any) => {
+          console.log(res);
+          this.advertisement = res;
+      },
+      error1 => console.log(error1)
+  );
   }
 
 
