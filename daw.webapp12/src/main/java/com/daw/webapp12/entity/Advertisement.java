@@ -17,7 +17,7 @@ public class Advertisement
     private long id;
 
 
-    @NotNull
+    //@NotNull
     private String type;
 
     private String property;
