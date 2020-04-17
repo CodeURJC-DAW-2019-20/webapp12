@@ -7,10 +7,9 @@ export class Blog{
     images : File;
 
 
-    constructor(title:string, text:string, images:File){
+    constructor(title:string, text:string){
         this.title = title;
         this.text = text;
-        this.images = images;
     }
 
     getId() {

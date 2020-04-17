@@ -11,6 +11,7 @@ const GET_BLOG = BASE_URL + "/blogs/";
 const GET_BLOGS = BASE_URL + "/blogs";
 const DELETE_BLOG = BASE_URL + "/blogs/";
 const CREATE_BLOG = BASE_URL + "/blogs";
+const UPDATE_BLOG = BASE_URL + "/blogs/";
 
 
 
@@ -45,7 +46,6 @@ export class BlogService{
 
     addBlog(blog: Blog):Observable<HttpEvent<{}>> {
         const body = JSON.stringify(blog);
-        console.log(blog);
         let formData = new FormData();
         formData.append("multipartFile", blog.getImages());
         formData.append("title", blog.getTitle());
@@ -60,6 +60,19 @@ export class BlogService{
                 
                 return this.http.request(req);
 
+    }
+
+
+    editBlog(blog: Blog,id:number): Observable<Blog> {
+
+        const body = JSON.stringify(blog);
+        
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+            return this.http
+                .put<Blog>(UPDATE_BLOG + id, body, { headers })
+                .pipe(catchError((error) => this.handleError(error)));
     }
 
     deleteBlog(id:number){
