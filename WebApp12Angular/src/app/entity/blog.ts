@@ -4,10 +4,10 @@ export class Blog{
     id?: number;
     title: string;
     text: string;
-    images : string;
+    images : File;
 
 
-    constructor(title:string, text:string, images:string){
+    constructor(title:string, text:string, images:File){
         this.title = title;
         this.text = text;
         this.images = images;
@@ -41,7 +41,7 @@ export class Blog{
         return this.images;
     }
 
-    setImages(images:string){
+    setImages(images:File){
         this.images = images;
     }
 }

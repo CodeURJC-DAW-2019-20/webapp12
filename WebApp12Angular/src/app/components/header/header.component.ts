@@ -76,10 +76,10 @@ export class HeaderComponent implements OnInit{
       menuAdmin() {
         this.itemsMenu = [ 
           {label: 'Home' , ruta: 'home'},
-          {label: 'Blog' , ruta: 'blog'},
-          {label: this.email || 'Logout' , ruta: 'login'},
+          {label: 'Blog' , ruta: 'blog'},        
           {label: 'Listado de anuncios' , ruta: 'blog'},
-          {label: 'Nuevo Blog' , ruta: 'blog'},
+          {label: 'Nuevo Blog' , ruta: 'new-blog'},
+          {label: this.email || 'Logout' , ruta: 'login'}
         ];
         console.log('menu,admin',  this.itemsMenu);
       }

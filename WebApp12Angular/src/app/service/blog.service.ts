@@ -10,7 +10,7 @@ const BASE_URL= "https://localhost:8443/api";
 const GET_BLOG = BASE_URL + "/blogs/";
 const GET_BLOGS = BASE_URL + "/blogs";
 const DELETE_BLOG = BASE_URL + "/blogs/";
-const CREATE_BLOG = BASE_URL + "/concept/";
+const CREATE_BLOG = BASE_URL + "/blogs";
 
 
 
@@ -43,17 +43,22 @@ export class BlogService{
         catchError((error) => this.handleError(error)));
     }
 
-    addBlog(blog: Blog, id:number):Observable<Blog> {
+    addBlog(blog: Blog):Observable<HttpEvent<{}>> {
         const body = JSON.stringify(blog);
+        console.log(blog);
+        let formData = new FormData();
+        formData.append("multipartFile", blog.getImages());
+        formData.append("title", blog.getTitle());
+        formData.append("description", blog.getText());
+        // const headers = new HttpHeaders({
+        //     'Content-Type': 'application/json',
+        // });
 
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-        });
-        return this.http.post<Blog>(CREATE_BLOG + id, body, {headers})
-            .pipe(
-                map(response => response),
-                catchError(error => this.handleError(error))
-            );
+            const req = new HttpRequest('POST', CREATE_BLOG, formData, {
+                reportProgress: true
+                });
+                
+                return this.http.request(req);
 
     }
 
@@ -63,4 +68,16 @@ export class BlogService{
                 catchError(err => this.handleError(err))
             );
     }
+
+    uploadFile(file:File): Observable<HttpEvent<{}>>{
+        let formData = new FormData();
+        formData.append("file", file);
+
+        const req = new HttpRequest('POST', BASE_URL+"/main/new-image", formData, {
+        reportProgress: true
+        });
+        
+        return this.http.request(req);
+    }
+    
 }

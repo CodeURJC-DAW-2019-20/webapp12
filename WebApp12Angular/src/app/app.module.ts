@@ -74,6 +74,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { blogSingleComponent } from './blog-single.component';
 import { PropertyUploadComponent} from './property-upload/propertyUpload.component'
+import { blogUploadComponent } from './blog-upload.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -136,6 +137,7 @@ import { PropertyUploadComponent} from './property-upload/propertyUpload.compone
     HeaderComponent,
     blogListComponent,
     blogSingleComponent,
+    blogUploadComponent,
     HomeComponent,
     RecomendacionesComponent,
     RegisterComponent,

@@ -139,6 +139,25 @@ public class MainRestController {
         }
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
+
+    @PostMapping(value = "/new-image")
+    public ResponseEntity<?> uploadsImage(@RequestParam("file") MultipartFile file){
+        Map<String, Object> response = new HashMap<>();
+        if(!file.isEmpty()){
+            String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+            Path filePath = Paths.get("src//main//resources//static//images").resolve(fileName).toAbsolutePath();
+            log.info(filePath.toString());
+            try {
+                Files.copy(file.getInputStream(), filePath);
+            } catch (IOException e) {
+                response.put("mensaje", "Error al subir la imagen: " + fileName);
+                response.put("error", e.getMessage().concat(": ").concat(e.getCause().getMessage()));
+                return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            response.put("mensaje", "Has subido correctamente la imagen: " + fileName);
+        }
+        return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+    }
 /*
     @GetMapping("/properties-modificar")
     public ResponseEntity<?> misAnuncios(){
