@@ -57,11 +57,12 @@ export class HomeComponent implements OnInit {
     })
     .then( () => {
       this.showRecommend = true;
-      this.mostrarGrafica();
+      // this.mostrarGrafica();
     })
     .catch( error => console.log('error') );
       }
-  } 
+    }
+    this.mostrarGrafica();
   }
   search(location:string, price:number,rooms:number,propertyType:string,searchType:string,squareMeters:number,bathrooms:number ) {
     console.log('location: ', location );
