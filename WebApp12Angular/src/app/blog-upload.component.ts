@@ -60,9 +60,13 @@ export class blogUploadComponent {
 
     createObjectFromForm(){
         this.blogService.uploadFile(this.images);
-        this.title = this.titleInput.nativeElement.value;
+        if(this.isNew){
+            var blog = new Blog(this.title, this.description);
+        }else{
+            this.title = this.titleInput.nativeElement.value;
         this.description = this.descriptionInput.nativeElement.value;
         var blog = new Blog(this.title, this.description);
+        }
         return blog;
     }
 }

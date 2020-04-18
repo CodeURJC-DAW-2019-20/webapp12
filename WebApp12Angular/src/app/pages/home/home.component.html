@@ -113,18 +113,14 @@
 
 <!-- <recommendeds></recommendeds> -->
 
-<div class="container" *ngIf="showRecommend" style="padding-top: 50px;"> 
+<div class="container" *ngIf="isUser" style="padding-top: 50px;"> 
   <!-- <canvas id="myChart" width="800" height="600"></canvas> -->
-
-
-<div>
-<app-recomendaciones
-[items]="items"
-[showDelete] = "showDelete"
-[showFavo] = "showFavo"
->
-</app-recomendaciones>
-</div>
+  <app-recomendaciones
+    [items]="items"
+    [showDelete] = "showDelete"
+    [showFavo] = "showFavo"
+  >
+  </app-recomendaciones>
 </div>
 
 <div id="chartContainer" style="width: 90%; height: 400px;margin: 0 auto; margin-top: 50px;"></div>
