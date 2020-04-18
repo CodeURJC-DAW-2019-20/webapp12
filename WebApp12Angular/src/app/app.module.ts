@@ -75,6 +75,7 @@ import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { blogSingleComponent } from './blog-single.component';
 import { PropertyUploadComponent} from './property-upload/propertyUpload.component'
 import { blogUploadComponent } from './blog-upload.component';
+import { RecommendedComponent } from './recommended.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -142,6 +143,7 @@ import { blogUploadComponent } from './blog-upload.component';
     RecomendacionesComponent,
     RegisterComponent,
     FavoritosComponent,
+    RecommendedComponent,
     PropertyUploadComponent
   ],
   bootstrap: [AppComponent],

@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   public showRecommend: boolean = false;
 
   public items: any[] = [];
+  isUser:  boolean = false; 
 
   constructor(
     //private recomendacionesService: RecomendacionesService
@@ -39,7 +40,10 @@ export class HomeComponent implements OnInit {
       this.items = resp;
     }) */
     this.showRecommend = false;
-    this.service.getAdvertisements().toPromise()
+    if ( localStorage.getItem('role') != null ) {
+      if (localStorage.getItem('role').localeCompare('ROLE_USER') == 0 && localStorage.getItem('role').localeCompare('ROLE_ADMIN') != 0) {
+        this.isUser = true;
+        this.service.getRecommendeds().toPromise()
     .then(  advertisements => {
       // console.log('advertisements', advertisements);
       
@@ -50,7 +54,8 @@ export class HomeComponent implements OnInit {
       this.showRecommend = true;
     })
     .catch( error => console.log('error') );
-    
+      }
+  } 
   }
 
 

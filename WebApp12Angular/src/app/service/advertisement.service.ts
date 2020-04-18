@@ -59,10 +59,10 @@ export class AdvertisementService{
     }
 
     getRecommendeds(): Observable<Advertisement[]> {
-        return this.http.get<Advertisement[]>(URL + 'list').pipe(
-            /*catchError((error) => this.handleError(error))
-            */);
+        return this.http.get<Advertisement[]>(URL + 'recommended').pipe(
+            catchError(err => this.handleError(err)));
     }
+
     getAdvertisement(id: number | string) {
         return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })
             .pipe(
