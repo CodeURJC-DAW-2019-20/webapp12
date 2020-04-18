@@ -4,7 +4,7 @@
   import { MatDialog } from '@angular/material/dialog';
   import { LoginService } from '../auth/login.service';
   import { AdvertisementService } from '../service/advertisement.service';
-  import { Advertisement } from '../entity/advertisement';
+  import { Advertisements } from '../entity/advertisement';
 
   
   
@@ -15,7 +15,7 @@
   })
   export class AdvertisementComponent implements OnInit {
   
-    advertisements: Advertisement[];
+    advertisements: Advertisements[];
   
     constructor(
       private router: Router, 

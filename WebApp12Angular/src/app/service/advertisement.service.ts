@@ -3,6 +3,7 @@ import {catchError, map, switchAll} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpEvent, HttpRequest} from "@angular/common/http";
 import { environment } from "../../environments/environment";
+import { Advertisements } from '../entity/advertisement';
 
 
 const BASE_URL= environment.baseUrl;
@@ -70,10 +71,12 @@ export class AdvertisementService{
     }
 
     getAdvertisement(id: number | string) {
-        return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })
+        return this.http.get<Advertisements>(GET_ADVERTISEMENT + id , { withCredentials: true })
             .pipe(
+                
                 map(response => response),
-               // catchError(error => this.handleError(error))
+                catchError(error => this.handleError(error))
+            
             );
     }
 
