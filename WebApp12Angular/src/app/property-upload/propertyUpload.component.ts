@@ -3,11 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginService } from '../auth/login.service';
-import { AdvertisementService } from '../service/advertisement.service';
-import { Advertisement } from '../entity/advertisement';
+import { Advertisement, AdvertisementService } from '../service/advertisement.service';
 import { HttpEventType } from '@angular/common/http';
 import { TdDialogService } from '@covalent/core/dialogs';
-import { catchError } from 'rxjs/operators';
 
 
 
@@ -80,10 +78,8 @@ uploadPicture(){
 }
 
 addAdvertisement() {
-    this.advertisementService.addAdvertisement(this.advertisement).subscribe(
-        _ => {this.router.navigate(['/home']);}, 
-        (error: Error) => console.log ('error creating new advertisement: '+error));
-        /*(res: any) => {
+    this.advertisementService.addAdvertisement(this.advertisement, this.id).subscribe(
+        (res: any) => {
           this.router.navigate(['/home']);
             //this.listAdvertisements = res;
             //this.listAdvertisements = (this.listAdvertisements);
@@ -91,9 +87,8 @@ addAdvertisement() {
         },
         (error: Error) => console.error('error creating new advertisement: ' + error));
         //error1 => console.log(error1)
-        //catchError(err => ''))
     
-    //this.dialogRefConcept.close();*/
+    //this.dialogRefConcept.close();
 }
 }
 
