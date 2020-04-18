@@ -24,3 +24,5 @@ hs_err_pid*
 
 daw.webapp12/src/main/resources/application.properties
 daw.webapp12/src/main/resources/application.properties
+
+daw.webapp12/src/main/resources/public/new/

@@ -78,7 +78,7 @@ uploadPicture(){
 }
 
 addAdvertisement() {
-    this.advertisementService.addAdvertisement(this.advertisement, this.id).subscribe(
+    this.advertisementService.addAdvertisement(this.advertisement).subscribe(
         (res: any) => {
           this.router.navigate(['/home']);
             //this.listAdvertisements = res;
