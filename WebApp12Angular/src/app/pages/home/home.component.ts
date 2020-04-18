@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisementService } from 'src/app/service/advertisement.service';
-import { Advertisement } from 'src/app/entity/advertisement';
 /* import { RecomendacionesService } from 'src/app/services/recomendaciones.service'; */
+import * as CanvasJS from 'src/assets/static/js/canvasjs.min.js';
 
 
 @Component({
@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
   public showRecommend: boolean = false;
 
   public items: any[] = [];
-  advertisement: Advertisement;
+  public listaCiuades: any[] = [];
 
   constructor(
     //private recomendacionesService: RecomendacionesService
-    private advertisementService: AdvertisementService,
+    private service: AdvertisementService,
   ) { }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       this.items = resp;
     }) */
     this.showRecommend = false;
-    this.advertisementService.getAdvertisements().toPromise()
+    this.service.getAdvertisements().toPromise()
     .then(  advertisements => {
       // console.log('advertisements', advertisements);
       
@@ -50,18 +50,55 @@ export class HomeComponent implements OnInit {
     })
     .then( () => {
       this.showRecommend = true;
+      this.mostrarGrafica();
     })
     .catch( error => console.log('error') );
     
-    this.advertisementService.getAdvertisement(this.id).subscribe(
-      (res: any) => {
-          console.log(res);
-          this.advertisement = res;
-      },
-      error1 => console.log(error1)
-  );
   }
 
 
+
+  mostrarGrafica() {
+    
+    this.service.countCities().toPromise()
+    .then( (resp: any) => {
+      /* console.log('respuesta ciudades', resp); */
+     
+
+       for (let index = 0; index < resp.length; index++) {
+        const element:any =  resp[index] 
+        for (const key in element) {
+          /* console.log('key', key);
+          console.log('value', element[key]); */
+          this.listaCiuades.push({ y: element[key], label: key });
+        }
+        
+        
+      }  
+    }).then( () => {
+      //console.log('Lista ciudades', this.listaCiuades);
+      
+      let chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        exportEnabled: true,
+        title: {
+          text: "Anuncios publicados por ciudad"
+        },
+        data: [{
+          type: "column",
+          dataPoints: 
+            this.listaCiuades
+          
+        }]
+      });
+      chart.render();
+    })
+    .catch( error => {
+      console.log('error en ciudades', error);
+      
+    });
+
+
+  }
 
 }
