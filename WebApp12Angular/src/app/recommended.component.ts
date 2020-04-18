@@ -6,6 +6,7 @@ import { Advertisement } from './entity/advertisement';
 import { AdvertisementService } from './service/advertisement.service';
 
 @Component({
+    selector: 'recommendeds',
     templateUrl:
     './recommended.component.html',
 })
@@ -21,6 +22,7 @@ export class RecommendedComponent {
         if ( localStorage.getItem('role') != null ) {
             if (localStorage.getItem('role').localeCompare('ROLE_USER') == 0) {
               this.isUser = true;
+              this.getRecommendeds();
             }
         }
         this.advertisementService.getRecommendeds().subscribe(
@@ -28,3 +30,11 @@ export class RecommendedComponent {
             error => console.log(error)
         );
     }
+
+    getRecommendeds(){
+        this.advertisementService.getRecommendeds().subscribe(
+            ads => this.advertisements = ads,
+            error => console.log(error)
+        );
+    }
+}

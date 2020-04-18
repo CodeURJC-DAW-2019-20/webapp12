@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   public showRecommend: boolean = false;
 
   public items: any[] = [];
+  isUser:  boolean = false; 
   public listaCiuades: any[] = [];
 
   constructor(
@@ -44,7 +45,10 @@ export class HomeComponent implements OnInit {
       this.items = resp;
     }) */
     this.showRecommend = false;
-    this.service.getAdvertisements().toPromise()
+    if ( localStorage.getItem('role') != null ) {
+      if (localStorage.getItem('role').localeCompare('ROLE_USER') == 0 && localStorage.getItem('role').localeCompare('ROLE_ADMIN') != 0) {
+        this.isUser = true;
+        this.service.getRecommendeds().toPromise()
     .then(  advertisements => {
       // console.log('advertisements', advertisements);
       
@@ -56,7 +60,8 @@ export class HomeComponent implements OnInit {
       this.mostrarGrafica();
     })
     .catch( error => console.log('error') );
-    
+      }
+  } 
   }
   search(location:string, price:number,rooms:number,propertyType:string,searchType:string,squareMeters:number,bathrooms:number ) {
     console.log('location: ', location );
