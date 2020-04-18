@@ -1,32 +1,31 @@
 import { Injectable } from '@angular/core';
 import {catchError, map, switchAll} from "rxjs/operators";
-import {Observable, throwError} from "rxjs";
+import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpEvent, HttpRequest} from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import { Advertisement } from '../entity/advertisement';
 
 
 const BASE_URL= environment.baseUrl;
 
 const GET_ADVERTISEMENT = BASE_URL + "/advertisements/";
 const DELETE_ADVERTISEMENT = BASE_URL + "/advertisements/";
-const CREATE_ADVERTISEMENT = BASE_URL + "/advertisements/";
+const CREATE_ADVERTISEMENT = "https://localhost:8443" + BASE_URL + "/advertisements/";
 
-// export interface Advertisement{
+export interface Advertisement{
 
-//     id?: number;
-//     type: string;
-//     property:string;
-//     rooms:number;
-//     bathrooms:number;
-//     squareMeters:number;
-//     location:string;
-//     address:string;
-//     price:number;
-//     picture:string;
-//     images : Array<string>;
-//     comments: Comment[];
-// }
+    id?: number;
+    type: string;
+    property:string;
+    rooms:number;
+    bathrooms:number;
+    squareMeters:number;
+    location:string;
+    address:string;
+    price:number;
+    picture:string;
+    images : Array<string>;
+    comments: Comment[];
+}
 //const URL = '/api/recommended/';
 const URL = 'https://localhost:8443/api/advertisements/';
 
@@ -37,8 +36,8 @@ export class AdvertisementService{
     constructor(private http: HttpClient) {}
 
     private handleError(error: any) {
-        //console.error(error);
-        return Observable.throw('Server error (' + error.status + '): ' + error);
+        console.error(error);
+        return Observable.throw('Server error (' + error.status + '): ' + error.text());
     }
 
     uploadFile(file:File, id): Observable<HttpEvent<{}>>{
@@ -52,14 +51,14 @@ export class AdvertisementService{
         
         return this.http.request(req);
     }
-    getAllAdvertisements(): Observable<Advertisement[]> {
-        console.log("devuelve todos los anuncios");
-        return this.http.get<Advertisement[]>(URL + 'list').pipe(
+
+
+    countCities(): Observable<Advertisement[]> {
+        return this.http.get<any[]>(URL + 'graph').pipe(
             /*catchError((error) => this.handleError(error))
             */);
     }
-
-    getRecommendeds(): Observable<Advertisement[]> {
+    getAdvertisements(): Observable<Advertisement[]> {
         return this.http.get<Advertisement[]>(URL + 'list').pipe(
             /*catchError((error) => this.handleError(error))
             */);
@@ -72,14 +71,14 @@ export class AdvertisementService{
             );
     }
 
-    addAdvertisement(advertisement: Advertisement):Observable<Advertisement> {
+    addAdvertisement(advertisement: Advertisement, id:number):Observable<Advertisement> {
         const body = JSON.stringify(advertisement);
 
         const headers = new HttpHeaders({'Content-Type': 'application/json',});
-        return this.http.post<Advertisement>(this.urlEndPoint, body, {headers})
+        return this.http.post<Advertisement>(CREATE_ADVERTISEMENT, body, {headers})
             .pipe(
                 //map(response => response),
-                catchError((error) => this.handleError(error))
+                catchError(error => this.handleError(error))
             );
 
     }
