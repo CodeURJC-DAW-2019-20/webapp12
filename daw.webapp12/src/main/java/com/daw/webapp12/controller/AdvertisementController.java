@@ -109,32 +109,7 @@ public class AdvertisementController{
 
 	@RequestMapping("/deleteAdvertisement/{id}")
     public String deleteAdvertisement(Model model, @PathVariable  long id){
-		List<Users> users = userService.findAll();
-		for(Users user : users){
-			if(user.getMyFavourites() != null){
-				List<Advertisement> adverts = user.getMyFavourites();
-				if(adverts.size()!=0){
-					for(Advertisement ad : adverts){
-						if(ad.getId()==id){
-							user.deleteFavourite(id);
-							break;				
-						}
-					}
-				}	
-			}
-			if(user.getMyAdvertisements() != null){
-				List<Advertisement> adverts = user.getMyAdvertisements();
-				if(adverts.size()!=0){
-					for(Advertisement ad : adverts){
-						if(ad.getId()==id){
-							user.deleteOneAdvertisement(id);
-							break;
-						}
-					}
-				}	
-			}	
-		}
-        advertisementService.deleteAdvertisement(id);
+		advertisementService.deleteAdvertisementByAdmin(id);
         model.addAttribute("allProperties",advertisementService.findAll());
         return "redirect:/AllProperties";
     }

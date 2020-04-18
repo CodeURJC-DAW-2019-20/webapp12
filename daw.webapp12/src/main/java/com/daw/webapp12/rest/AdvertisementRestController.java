@@ -170,6 +170,21 @@ public class AdvertisementRestController {
         return comment;
     }
 
+    @DeleteMapping("/byAdmin/{id}")
+    public ResponseEntity<Advertisement> deleteAdvertisement(@PathVariable  long id){
+        Advertisement advertisement = advertisementService.findById(id);
+        if(advertisement != null){
+            List<String> list = new ArrayList<>();
+            List<Comment> listComms = new ArrayList<>();
+            advertisement.setImages(list);
+            advertisement.setComments(listComms);
+            advertisementService.deleteAdvertisementByAdmin(id);
+            return new ResponseEntity<>(advertisement, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @DeleteMapping("/{id}/comments/{idComment}")
     public ResponseEntity<Comment> deleteComment(@PathVariable long id, @PathVariable long idComment){
         Comment comment = commentRepository.findById(idComment).get();

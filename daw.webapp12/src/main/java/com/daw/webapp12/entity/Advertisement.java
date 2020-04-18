@@ -128,6 +128,10 @@ public class Advertisement
         return comments;
     }
 
+    public void setComments(List<Comment> comms) {
+        this.comments = comms;
+    }
+
     public void deleteComment(Long id){
         for(int i=0;i<comments.size();i++){
             if(comments.get(i).getId()==id){
