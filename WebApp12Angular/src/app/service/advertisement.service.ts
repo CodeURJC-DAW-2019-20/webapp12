@@ -3,7 +3,8 @@ import {catchError, map, switchAll} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpEvent, HttpRequest} from "@angular/common/http";
 import { environment } from "../../environments/environment";
-
+import { Advertisements } from 'src/app/entity/advertisement';
+import { BehaviorSubject } from 'rxjs';
 
 const BASE_URL= environment.baseUrl;
 
@@ -34,11 +35,18 @@ export class AdvertisementService{
     private urlEndPoint: string = 'https://localhost:8443/api/advertisements/';
     public url = URL ;
 
+    private messageSource = new BehaviorSubject('default message');
+  currentMessage = this.messageSource.asObservable();
+
     constructor(private http: HttpClient) {}
 
     private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text());
+    }
+
+    changeMessage(message: string) {
+        this.messageSource.next(message);
     }
 
     uploadFile(file:File, id): Observable<HttpEvent<{}>>{
@@ -100,7 +108,7 @@ export class AdvertisementService{
    //search?location=Madrid&price=150000&rooms=2&
    //propertyType=Local&searchType=Venta&squareMeters=40&bathrooms=1
    searchAdvertisement(location:string,price:number,rooms:number,propertyType:string,searchType:string,squareMeters:number,bathrooms:number){
-    return this.http.get(this.url + 'search?location='+location+'&price='+price+'&rooms='+rooms+'&propertyType='+propertyType+'&searchType='+searchType+'&squareMeters='+squareMeters+'&bathrooms='+bathrooms)
+    return this.http.get<Advertisements[]>(this.url + 'search?location='+location+'&price='+price+'&rooms='+rooms+'&propertyType='+propertyType+'&searchType='+searchType+'&squareMeters='+squareMeters+'&bathrooms='+bathrooms)
         .pipe(
             catchError(error => this.handleError(error))
         );

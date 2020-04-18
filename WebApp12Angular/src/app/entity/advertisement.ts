@@ -1,7 +1,7 @@
 
 import {Comment} from './comment';
 
-export interface Advertisement{
+export class Advertisements{
 
     id?: number;
     type: string;

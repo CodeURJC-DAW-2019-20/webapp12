@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdvertisementService } from 'src/app/service/advertisement.service';
+import { AdvertisementService} from 'src/app/service/advertisement.service';
 /* import { RecomendacionesService } from 'src/app/services/recomendaciones.service'; */
 import * as CanvasJS from 'src/assets/static/js/canvasjs.min.js';
+import { Advertisements } from 'src/app/entity/advertisement';
 
 
 @Component({
@@ -11,17 +12,7 @@ import * as CanvasJS from 'src/assets/static/js/canvasjs.min.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
-  public price:any = '';
-  public rooms:any = '';
-  public bathrooms:any = '';
-  public squareMeters:any = '';
-  public searchType:any = '';
-  public location:any = '';
-  public propertyType:any = '';
-  public id:any = '';
-  public key:any = '';
-  public value:any = '';
+
   public showDelete: boolean = false;
   public showFavo: boolean = true;
   public showRecommend: boolean = false;
@@ -29,6 +20,8 @@ export class HomeComponent implements OnInit {
   public items: any[] = [];
   isUser:  boolean = false; 
   public listaCiuades: any[] = [];
+
+
 
   constructor(
     //private recomendacionesService: RecomendacionesService
@@ -64,21 +57,7 @@ export class HomeComponent implements OnInit {
     }
     this.mostrarGrafica();
   }
-  search(location:string, price:number,rooms:number,propertyType:string,searchType:string,squareMeters:number,bathrooms:number ) {
-    console.log('location: ', location );
-    let id_user = localStorage.getItem('id');
-    let adv = this.service.searchAdvertisement(location,price,rooms,propertyType,searchType,squareMeters,bathrooms).toPromise()
-    this.router.navigate(['/advertisement'])
-    
-    .then( resp => {
-      advertisements=>adv;
-    })
-    .catch( error => {
-      console.log('error: ', error);
-      
-    }); 
-    
-  }
+  
 
 
 

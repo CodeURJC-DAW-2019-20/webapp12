@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BlogService } from './service/blog.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Advertisement } from './entity/advertisement';
+import { Advertisements } from './entity/advertisement';
 import { AdvertisementService } from './service/advertisement.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { AdvertisementService } from './service/advertisement.service';
 })
 
 export class RecommendedComponent {
-    advertisements: Advertisement[];
+    advertisements: Advertisements[];
     isUser: boolean = false;
     constructor(private advertisementService: AdvertisementService,private router: Router) {
         this.advertisements = [];

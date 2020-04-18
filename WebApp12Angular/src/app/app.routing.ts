@@ -12,20 +12,21 @@ import { blogSingleComponent } from './blog-single.component';
 import { AuthUserService } from './service/auth/auth.user.service';
 import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 import { blogUploadComponent } from './blog-upload.component';
+import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
 //import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 
 
 
 const appRoutes = [
   { path: 'home', component: HomeComponent},
-  { path: 'advertisement', component: AdvertisementComponent},
+  { path: 'advertisement', component: AdvertisementListComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'favoritos/:id', component: FavoritosComponent , canActivate: [AuthUserService]},
   { path: 'book/new', component: BookFormComponent },
   { path: 'book/:id', component: BookDetailComponent },
   { path: 'book/edit/:id', component: BookFormComponent },
-  { path: 'advertisement', component: AdvertisementComponent },
+  // { path: 'advertisementSearch', component: AdvertisementListComponent },
 
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },

@@ -76,6 +76,7 @@ import { blogSingleComponent } from './blog-single.component';
 import { PropertyUploadComponent} from './property-upload/propertyUpload.component'
 import { blogUploadComponent } from './blog-upload.component';
 import { RecommendedComponent } from './recommended.component';
+import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -141,6 +142,7 @@ import { RecommendedComponent } from './recommended.component';
     blogUploadComponent,
     HomeComponent,
     RecomendacionesComponent,
+    AdvertisementListComponent,
     RegisterComponent,
     FavoritosComponent,
     RecommendedComponent,
