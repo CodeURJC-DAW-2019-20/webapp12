@@ -5,6 +5,7 @@ import com.daw.webapp12.repository.AdvertisementRepository;
 import com.daw.webapp12.repository.CommentRepository;
 import com.daw.webapp12.security.UserComponent;
 import com.daw.webapp12.service.AdvertisementService;
+import com.daw.webapp12.service.SearchService;
 import com.daw.webapp12.service.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class AdvertisementRestController {
     AdvertisementRepository advertisementRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    SearchService searchService;
     @Autowired
     UserComponent userComponent;
 
@@ -125,6 +128,23 @@ public class AdvertisementRestController {
         }
     }
     
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Advertisement>> searchAdvertisements(@RequestParam String location,
+                                                                    @RequestParam(value="price") int price,
+                                                                    @RequestParam(value="rooms") int rooms,
+                                                                    @RequestParam(value= "propertyType") String propertyType,
+                                                                    @RequestParam(value= "searchType") String searchType,
+                                                                    @RequestParam(value= "squareMeters") int squareMeters,
+                                                                    @RequestParam(value="bathrooms") int bathrooms) {
+		List<Advertisement> result = new ArrayList<Advertisement>();
+        result = advertisementService.searchAdvertisement(location, price, searchType, propertyType, squareMeters, rooms, bathrooms);
+		if(result.size()>0){
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
     @GetMapping("/{id}/comments")
     public ResponseEntity<List<Comment>> advertisementComments(@PathVariable long id, @RequestParam(value="page") int page,@RequestParam(value="number") int number) {
         Advertisement advert = advertisementService.findById(id);

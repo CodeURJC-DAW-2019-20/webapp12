@@ -1,22 +1,64 @@
 <mat-card>
-    <mat-card-title>
-        <div layout="row" layout-align="start center">
-            <span flex>Advertisements</span>
-        </div>
-    </mat-card-title>
     <mat-divider></mat-divider>
     <mat-card-content>
+        <mat-card-title>
+            <div layout="row" layout-align="start center">
+                <span flex>Advertisements</span>
+            </div>
+        </mat-card-title>
         <div>
             <mat-nav-list *ngIf="loginService.isLogged">
+                <mat-list-advertisement [ngStyle]="{ cursor: 'auto' }" *ngFor="let advertisement of advertisements">
                 <a *ngFor="let advertisement of advertisements" mat-list-item [routerLink]="['/AllProperties', advertisement.id]">
-                    {{ advertisement.type }}
+                    <a href="/properties/16" class="img posicion-imagen" [ngStyle]="{background: 'url(assets/static/images/' + advertisement.images[0] +')'}" ></a>
+                    <div class="text" style="padding-bottom: 50px;">
+                      <p class="price"><span class="old-price">{{advertisement.price}}</span><span class="orig-price">{{advertisement.price}}<small>/mo</small></span></p>
+                      <ul class="property_list">
+                        <li><span class="flaticon-bed"></span>{{advertisement.rooms}}</li>
+                        <li><span class="flaticon-bathtub"></span>{{advertisement.bathrooms}}</li>
+                        <li><span class="flaticon-floor-plan"></span>{{advertisement.squareMeters}}</li>
+                      </ul>
+                      <h3><a href="#">Local en {{advertisement.location}}</a></h3>
+                      <span class="location">{{advertisement.type}}</span>
+                      
+                      <span class="icon-trash"></span>
+                    
+                      <button type="button"class="d-flex align-advertisements-center justify-content-center btn-custom">
+                        <span class="icon-star-o"></span>
+            
+                      </button>
+                     <!--  <a href="/addFavourite/16" class="d-flex align-advertisements-center justify-content-center btn-custom">
+                        <span class="icon-star-o"></span>
+                      </a> -->
+                    </div>
                 </a>
             </mat-nav-list>
 
             <mat-nav-list *ngIf="!loginService.isLogged">
-                <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let advertisement of advertisements">
-                    {{ advertisement.type }}
-                </mat-list-item>
+                    <a *ngFor="let advertisement of advertisements" mat-list-item [routerLink]="['/AllProperties', advertisement.id]">
+                        <a href="/properties/16" class="img posicion-imagen" [ngStyle]="{background: 'url(assets/static/images/' + advertisement.images[0] +')'}" ></a>
+                        <div class="text" style="padding-bottom: 50px;">
+                          <p class="price"><span class="old-price">{{advertisement.price}}</span><span class="orig-price">{{advertisement.price}}<small>/mo</small></span></p>
+                          <ul class="property_list">
+                            <li><span class="flaticon-bed"></span>{{advertisement.rooms}}</li>
+                            <li><span class="flaticon-bathtub"></span>{{advertisement.bathrooms}}</li>
+                            <li><span class="flaticon-floor-plan"></span>{{advertisement.squareMeters}}</li>
+                          </ul>
+                          <h3><a href="#">Local en {{advertisement.location}}</a></h3>
+                          <span class="location">{{advertisement.type}}</span>
+                          
+                          <span class="icon-trash"></span>
+                        
+                          <button type="button"class="d-flex align-advertisements-center justify-content-center btn-custom">
+                            <span class="icon-star-o"></span>
+                
+                          </button>
+                         <!--  <a href="/addFavourite/16" class="d-flex align-advertisements-center justify-content-center btn-custom">
+                            <span class="icon-star-o"></span>
+                          </a> -->
+                        </div>
+                    </a>
+                </mat-list-advertisement>
             </mat-nav-list>
         </div>
 

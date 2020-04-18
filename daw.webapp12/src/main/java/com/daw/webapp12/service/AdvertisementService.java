@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Map.Entry;
 
 import com.daw.webapp12.entity.Advertisement;
@@ -25,8 +26,11 @@ public class AdvertisementService implements AdvertisementInterface{
     private AdvertisementRepository advertisementRepository;
 
     @Autowired
-    private UserService userService;
+	private UserService userService;
 
+    @Autowired
+	private SearchService searchService;
+	
 	@Autowired
 	private UserComponent userComponent;
 
@@ -250,7 +254,39 @@ public class AdvertisementService implements AdvertisementInterface{
     @Override
     public List<Advertisement> findByLocation(String location) {
         return advertisementRepository.findByLocation(location);
-    }
+	}
+	private List<Advertisement> filters(List<Advertisement> result, int price, int squareMeters, int rooms,
+										int bathrooms, String searchType, String propertyType) {
+		List <Advertisement> search = new ArrayList<>();
+		for (Advertisement advertisement : result) {
+			if(advertisement.getbathrooms()>= bathrooms &&advertisement.getrooms()>=rooms
+				&&advertisement.gettype().equals(searchType)&&advertisement.getproperty().equals(propertyType)
+				&&advertisement.getsquareMeters() >= squareMeters&&advertisement.getprice() <= price)
+				search.add(advertisement);	
+		}
+		return search;	
+	
+	}
+	public List<Advertisement> searchAdvertisement( String location , int price,String searchType, String propertyType,
+													 int squareMeters, int rooms,  int bathrooms) {
+		List<Advertisement> result= advertisementRepository.findByLocation(location);
+		List<Advertisement> aux= result;
+		aux= filters(aux, price,squareMeters,rooms,bathrooms,searchType,propertyType);
+		if(userComponent.getLoggedUser()!=null){
+			Search userSearch = new Search(searchType,rooms, bathrooms, squareMeters, location, price);
+			
+			searchService.addSearch(userSearch);
+			String name = userComponent.getLoggedUser().getName();
+			Optional<Users> user = userService.findByName(name);
+			if (user.get().getMySearches().size()!= 0){
+				user.get().getMySearches().remove(0);
+			}
+			user.get().getMySearches().add(userSearch);
+			userService.addUser(user.get());
+		}
+        return aux;
+	}
+	
 
 
 }

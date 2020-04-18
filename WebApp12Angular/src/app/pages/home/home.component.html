@@ -13,40 +13,40 @@
               <div class="form-field">
               <div class="row">
               <a class="filter">Busqueda de:</a>
-                <select name= "searchType" class="selectInput"> 
-                  <option value="Alquiler">Alquiler</option>
-                  <option value="Venta">Venta</option>
-                </select>
-                <a class="filter">Tipo de propiedad:</a>
-                <select name= "propertyType" class="selectInput"> 
-                  <option value="Casa">Casa</option>
-                  <option value="Piso">Piso</option>
-                  <option value="Local">Local</option>
-                </select>
-                <label class="filter">Metros Cuadrados:</label>
-                <input name= "squareMeters" value="25" class="numberInput" type="number" min="10" max="250">
-              </div>
-                <div class="row">
-                <a class="filter"> Número de habitaciones:</a>
-                <select name = "rooms" class="selectInput" > 
-                  <option value="1">1 o Más</option>
-                  <option value="2">2 o Más</option>
-                  <option value="3">3 o Más</option>
-                </select>
-                <a class="filter"> Número de baÃ±os:</a>
+              <select [(ngModel)]="searchType" name= "searchType" class="selectInput"> 
+                <option value="Alquiler">Alquiler</option>
+                <option value="Venta">Venta</option>
+              </select>
+              <a class="filter">Tipo de propiedad:</a>
+              <select [(ngModel)]="propertyType" name= "propertyType" class="selectInput"> 
+                <option value="Casa">Casa</option>
+                <option value="Piso">Piso</option>
+                <option value="Local">Local</option>
+              </select>
+              <label class="filter">Metros Cuadrados:</label>
+              <input [(ngModel)]="squareMeters" name= "squareMeters" value="25" class="numberInput" type="number" min="10" max="250">
+            </div>
+            <div class="row">
+              <a class="filter"> Número de habitaciones:</a>
+              <select  [(ngModel)]="rooms" name = "rooms" class="selectInput" > 
+                <option value="1">1 o Más</option>
+                <option value="2">2 o Más</option>
+                <option value="3">3 o Más</option>
+              </select>
+              <a class="filter"> Número de baÃ±os:</a>
 
-                <select name="bathrooms" class="selectInput"> 
-                  <option value="1">1 o Más</option>
-                  <option value="2">2 o Más</option>
-                  <option value="3">3 o Más</option>
-                </select>
+              <select [(ngModel)]="bathrooms" name="bathrooms" class="selectInput"> 
+                <option value="1">1 o Más</option>
+                <option value="2">2 o Más</option>
+                <option value="3">3 o Más</option>
+              </select>
+            
+              <label class="filter" >Precio:</label>
+              <input [(ngModel)]="price" class="numberInput" value="1000"  name= "price" type="number" max="5000000">
               
-                <label class="filter" >Precio:</label>
-                <input class="numberInput" value="1000"  name= "price" type="number" max="5000000">
-                
               </div>
-                <input type="text" name = "location" class="form-control search" placeholder="Introduce una zona">
-                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <input type="text" [(ngModel)]="location" name = "location" class="form-control search" placeholder="Introduce una zona">
+                <button type="submit" (click)="search(location,price,rooms,propertyType,searchType,squareMeters,bathrooms)" ><i class="fa fa-search" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>
@@ -67,40 +67,40 @@
                 <div class="form-field">
                 <div class="row">
                 <a class="filter">Busqueda de:</a>
-                  <select name= "searchType" class="selectInput"> 
-                    <option value="Alquiler">Alquiler</option>
-                    <option value="Venta">Venta</option>
-                  </select>
-                  <a class="filter">Tipo de propiedad:</a>
-                  <select name= "propertyType" class="selectInput"> 
-                    <option value="Casa">Casa</option>
-                    <option value="Piso">Piso</option>
-                    <option value="Local">Local</option>
-                  </select>
-                  <label class="filter">Metros Cuadrados:</label>
-                  <input name= "squareMeters" value="25" class="numberInput" type="number" min="10" max="250">
-                </div>
-                  <div class="row">
-                  <a class="filter"> Número de habitaciones:</a>
-                  <select name = "rooms" class="selectInput" > 
-                    <option value="1">1 o Más</option>
-                    <option value="2">2 o Más</option>
-                    <option value="3">3 o Más</option>
-                  </select>
-                  <a class="filter"> Número de baÃ±os:</a>
+                <select [(ngModel)]="searchType" name= "searchType" class="selectInput"> 
+                  <option value="Alquiler">Alquiler</option>
+                  <option value="Venta">Venta</option>
+                </select>
+                <a class="filter">Tipo de propiedad:</a>
+                <select [(ngModel)]="propertyType" name= "propertyType" class="selectInput"> 
+                  <option value="Casa">Casa</option>
+                  <option value="Piso">Piso</option>
+                  <option value="Local">Local</option>
+                </select>
+                <label class="filter">Metros Cuadrados:</label>
+                <input [(ngModel)]="squareMeters" name= "squareMeters" value="25" class="numberInput" type="number" min="10" max="250">
+              </div>
+              <div class="row">
+                <a class="filter"> Número de habitaciones:</a>
+                <select  [(ngModel)]="rooms" name = "rooms" class="selectInput" > 
+                  <option value="1">1 o Más</option>
+                  <option value="2">2 o Más</option>
+                  <option value="3">3 o Más</option>
+                </select>
+                <a class="filter"> Número de baÃ±os:</a>
 
-                  <select name="bathrooms" class="selectInput"> 
-                    <option value="1">1 o Más</option>
-                    <option value="2">2 o Más</option>
-                    <option value="3">3 o Más</option>
-                  </select>
+                <select [(ngModel)]="bathrooms" name="bathrooms" class="selectInput"> 
+                  <option value="1">1 o Más</option>
+                  <option value="2">2 o Más</option>
+                  <option value="3">3 o Más</option>
+                </select>
+              
+                <label class="filter" >Precio:</label>
+                <input [(ngModel)]="price" class="numberInput" value="1000"  name= "price" type="number" max="5000000">
                 
-                  <label class="filter" >Precio:</label>
-                  <input class="numberInput" value="1000"  name= "price" type="number" max="5000000">
-                  
                 </div>
-                  <input type="text" name = "location" class="form-control search" placeholder="Introduce una zona">
-                  <button type="submit"><span class="ion-ios-search"></span></button>
+                  <input type="text" [(ngModel)]="location" name = "location" class="form-control search" placeholder="Introduce una zona">
+                  <button type="submit" (click)="search(location,price,rooms,propertyType,searchType,squareMeters,bathrooms)" ><span class="ion-ios-search"></span></button>
                 </div>
               </div>
             </div>

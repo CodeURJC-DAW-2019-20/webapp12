@@ -92,5 +92,9 @@ export class BlogService{
         
         return this.http.request(req);
     }
-    
+    updateBlog(blog: Blog) {
+		return this.http.put(GET_BLOG + blog.id, blog).pipe(			
+			catchError(error => this.handleError(error))
+		);
+	}
 }

@@ -37,7 +37,7 @@ export class PropertyUploadComponent implements OnInit {
     public alert: MatDialog,
     private _dialogService: TdDialogService,
     public loginService: LoginService) { 
-      this.advertisement = {type:'',property:'',rooms:0,bathrooms:0,squareMeters:0,location:'',address:'',price:0,picture:'',images:[],comments:[]}
+      this.advertisement = {type:'',property:'',rooms:0,bathrooms:0,squareMeters:0,location:'',address:'',price:0,picture:'',images:[]}
     }
 
   ngOnInit() {

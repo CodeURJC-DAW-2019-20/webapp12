@@ -14,5 +14,5 @@ export class Advertisement{
     price:number;
     picture:string;
     images : Array<string>;
-    comments: Comment[];
+    //comments: Comment[];
 }

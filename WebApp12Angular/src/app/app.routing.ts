@@ -24,6 +24,8 @@ const appRoutes = [
   { path: 'book/new', component: BookFormComponent },
   { path: 'book/:id', component: BookDetailComponent },
   { path: 'book/edit/:id', component: BookFormComponent },
+  { path: 'advertisement', component: AdvertisementComponent },
+
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },
   { path: 'blog/:id', component: blogSingleComponent},

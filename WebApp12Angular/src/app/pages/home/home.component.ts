@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdvertisementService } from 'src/app/service/advertisement.service';
 /* import { RecomendacionesService } from 'src/app/services/recomendaciones.service'; */
 import * as CanvasJS from 'src/assets/static/js/canvasjs.min.js';
@@ -10,14 +11,14 @@ import * as CanvasJS from 'src/assets/static/js/canvasjs.min.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  
   public price:any = '';
   public rooms:any = '';
   public bathrooms:any = '';
   public squareMeters:any = '';
-  public property:any = '';
+  public searchType:any = '';
   public location:any = '';
-  public type:any = '';
+  public propertyType:any = '';
   public id:any = '';
   public key:any = '';
   public value:any = '';
@@ -31,6 +32,8 @@ export class HomeComponent implements OnInit {
   constructor(
     //private recomendacionesService: RecomendacionesService
     private service: AdvertisementService,
+    private router: Router, 
+
   ) { }
 
   ngOnInit() {
@@ -53,6 +56,21 @@ export class HomeComponent implements OnInit {
       this.mostrarGrafica();
     })
     .catch( error => console.log('error') );
+    
+  }
+  search(location:string, price:number,rooms:number,propertyType:string,searchType:string,squareMeters:number,bathrooms:number ) {
+    console.log('location: ', location );
+    let id_user = localStorage.getItem('id');
+    let adv = this.service.searchAdvertisement(location,price,rooms,propertyType,searchType,squareMeters,bathrooms).toPromise()
+    this.router.navigate(['/advertisement'])
+    
+    .then( resp => {
+      advertisements=>adv;
+    })
+    .catch( error => {
+      console.log('error: ', error);
+      
+    }); 
     
   }
 

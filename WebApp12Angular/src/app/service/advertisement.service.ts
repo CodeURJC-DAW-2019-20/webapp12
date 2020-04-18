@@ -24,7 +24,7 @@ export interface Advertisement{
     price:number;
     picture:string;
     images : Array<string>;
-    comments: Comment[];
+    //comments: Comment[];
 }
 //const URL = '/api/recommended/';
 const URL = 'https://localhost:8443/api/advertisements/';
@@ -32,6 +32,7 @@ const URL = 'https://localhost:8443/api/advertisements/';
 @Injectable()
 export class AdvertisementService{
     private urlEndPoint: string = 'https://localhost:8443/api/advertisements/';
+    public url = URL ;
 
     constructor(private http: HttpClient) {}
 
@@ -51,13 +52,12 @@ export class AdvertisementService{
         
         return this.http.request(req);
     }
-
-
     countCities(): Observable<Advertisement[]> {
         return this.http.get<any[]>(URL + 'graph').pipe(
             /*catchError((error) => this.handleError(error))
             */);
     }
+    
     getAdvertisements(): Observable<Advertisement[]> {
         return this.http.get<Advertisement[]>(URL + 'list').pipe(
             /*catchError((error) => this.handleError(error))
@@ -71,7 +71,7 @@ export class AdvertisementService{
             );
     }
 
-    addAdvertisement(advertisement: Advertisement, id:number):Observable<Advertisement> {
+    addAdvertisement(advertisement: Advertisement):Observable<Advertisement> {
         const body = JSON.stringify(advertisement);
 
         const headers = new HttpHeaders({'Content-Type': 'application/json',});
@@ -88,5 +88,15 @@ export class AdvertisementService{
             .pipe(
                 //catchError(err => this.handleError(err))
             );
+    }
+
+   // https://localhost:8443/api/advertisements/
+   //search?location=Madrid&price=150000&rooms=2&
+   //propertyType=Local&searchType=Venta&squareMeters=40&bathrooms=1
+   searchAdvertisement(location:string,price:number,rooms:number,propertyType:string,searchType:string,squareMeters:number,bathrooms:number){
+    return this.http.get(this.url + 'search?location='+location+'&price='+price+'&rooms='+rooms+'&propertyType='+propertyType+'&searchType='+searchType+'&squareMeters='+squareMeters+'&bathrooms='+bathrooms)
+        .pipe(
+            catchError(error => this.handleError(error))
+        );
     }
 }

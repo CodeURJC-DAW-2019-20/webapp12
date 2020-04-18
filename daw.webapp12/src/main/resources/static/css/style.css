@@ -9255,7 +9255,9 @@ textarea.form-control {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  position: relative; }
+  position: absolute;
+  margin-left: 500px;
+ }
   .heading-section .subheading:after {
     position: absolute;
     top: 50%;

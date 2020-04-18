@@ -61,42 +61,19 @@ public class AdvertisementController{
 	}
 
 
-	private List<Advertisement> filters(List<Advertisement> result, int price, int squareMeters, int rooms,
-										int bathrooms, String searchType, String propertyType) {
-		List <Advertisement> search = new ArrayList<>();
-		for (Advertisement advertisement : result) {
-			if(advertisement.getbathrooms()>= bathrooms &&advertisement.getrooms()>=rooms
-				&&advertisement.gettype().equals(searchType)&&advertisement.getproperty().equals(propertyType)
-				&&advertisement.getsquareMeters() >= squareMeters&&advertisement.getprice() <= price)
-				search.add(advertisement);	
-		}
-		return search;	
 	
-	}
 
 
 	@RequestMapping(value = "/search")
 	public String searchAdvertisement(Model model , @RequestParam  String location , @RequestParam int price, @RequestParam(value="searchType")  String searchType,@RequestParam(value="propertyType") String propertyType,
 													@RequestParam  int squareMeters, @RequestParam(value="rooms")  int rooms, @RequestParam(value="bathrooms")  int bathrooms) {
-		List<Advertisement> result= advertisementService.findByLocation(location);
-		List<Advertisement> aux= result;
-		aux= filters(aux, price,squareMeters,rooms,bathrooms,searchType,propertyType);
+		
+		List <Advertisement> aux = new ArrayList<>();
+		aux = advertisementService.searchAdvertisement(location, price, searchType, propertyType, squareMeters, rooms, bathrooms);
 		if(aux.size()!=0){
 			model.addAttribute("Property",aux);
 		}else{
 			model.addAttribute("Error", "No hay resultados.");
-		}
-
-		if(userComponent.getLoggedUser()!=null){
-			Search userSearch = new Search(searchType,rooms, bathrooms, squareMeters, location, price);
-			searchService.addSearch(userSearch);
-			String name = userComponent.getLoggedUser().getName();
-			Optional<Users> user = userService.findByName(name);
-			if (user.get().getMySearches().size()!= 0){
-				user.get().getMySearches().remove(0);
-			}
-			user.get().getMySearches().add(userSearch);
-			userService.addUser(user.get());
 		}
         return "properties-search";
 	}

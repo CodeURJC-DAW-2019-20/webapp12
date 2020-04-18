@@ -3,7 +3,8 @@
   import { CommonModule } from '@angular/common';
   import { MatDialog } from '@angular/material/dialog';
   import { LoginService } from '../auth/login.service';
-  import { Advertisement, AdvertisementService } from '../service/advertisement.service';
+  import { AdvertisementService } from '../service/advertisement.service';
+  import { Advertisement } from '../entity/advertisement';
 
   
   
