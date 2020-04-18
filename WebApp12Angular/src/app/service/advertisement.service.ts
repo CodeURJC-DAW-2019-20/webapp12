@@ -3,7 +3,6 @@ import {catchError, map, switchAll} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpEvent, HttpRequest} from "@angular/common/http";
 import { environment } from "../../environments/environment";
-import { Advertisement } from '../entity/advertisement';
 
 
 const BASE_URL= environment.baseUrl;
@@ -12,21 +11,21 @@ const GET_ADVERTISEMENT = BASE_URL + "/advertisements/";
 const DELETE_ADVERTISEMENT = BASE_URL + "/advertisements/";
 const CREATE_ADVERTISEMENT = "https://localhost:8443" + BASE_URL + "/advertisements/";
 
-// export interface Advertisement{
+export interface Advertisement{
 
-//     id?: number;
-//     type: string;
-//     property:string;
-//     rooms:number;
-//     bathrooms:number;
-//     squareMeters:number;
-//     location:string;
-//     address:string;
-//     price:number;
-//     picture:string;
-//     images : Array<string>;
-//     comments: Comment[];
-// }
+    id?: number;
+    type: string;
+    property:string;
+    rooms:number;
+    bathrooms:number;
+    squareMeters:number;
+    location:string;
+    address:string;
+    price:number;
+    picture:string;
+    images : Array<string>;
+    comments: Comment[];
+}
 //const URL = '/api/recommended/';
 const URL = 'https://localhost:8443/api/advertisements/';
 
@@ -52,15 +51,23 @@ export class AdvertisementService{
         
         return this.http.request(req);
     }
-    getAdvertisements(): Observable<Advertisement[]> {
-        return this.http.get<Advertisement[]>(URL + 'list').pipe(
+
+
+    countCities(): Observable<Advertisement[]> {
+        return this.http.get<any[]>(URL + 'graph').pipe(
             /*catchError((error) => this.handleError(error))
             */);
     }
 
     getRecommendeds(): Observable<Advertisement[]> {
         return this.http.get<Advertisement[]>(URL + 'recommended').pipe(
-            catchError(err => this.handleError(err)));
+            catchError(err => this.handleError(err)))
+    }
+    
+    getAdvertisements(): Observable<Advertisement[]> {
+        return this.http.get<Advertisement[]>(URL + 'list').pipe(
+            /*catchError((error) => this.handleError(error))
+            */);
     }
 
     getAdvertisement(id: number | string) {
