@@ -6,6 +6,7 @@ import { environment } from "../../environments/environment";
 import { Advertisements } from 'src/app/entity/advertisement';
 import { BehaviorSubject } from 'rxjs';
 
+
 const BASE_URL= environment.baseUrl;
 
 const GET_ADVERTISEMENT = BASE_URL + "/advertisements/";
@@ -78,10 +79,12 @@ export class AdvertisementService{
     }
 
     getAdvertisement(id: number | string) {
-        return this.http.get(GET_ADVERTISEMENT + id , { withCredentials: true })
+        return this.http.get<Advertisements>(GET_ADVERTISEMENT + id , { withCredentials: true })
             .pipe(
+                
                 map(response => response),
-               // catchError(error => this.handleError(error))
+                catchError(error => this.handleError(error))
+            
             );
     }
 

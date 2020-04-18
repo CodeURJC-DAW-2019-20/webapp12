@@ -13,6 +13,7 @@ import { AuthUserService } from './service/auth/auth.user.service';
 import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 import { blogUploadComponent } from './blog-upload.component';
 import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
+import { AdvertisementSingleComponent } from './advertisement/advertisement-single.component';
 //import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
 
 
@@ -31,6 +32,7 @@ const appRoutes = [
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },
   { path: 'blog/:id', component: blogSingleComponent},
+  { path: 'advertisement/:id', component: AdvertisementSingleComponent },
   { path: 'new-blog', component: blogUploadComponent},
   { path: 'new-blog/:id', component: blogUploadComponent},
   { path: '', pathMatch:'full' ,redirectTo: 'home'},
