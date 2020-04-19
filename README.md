@@ -384,6 +384,9 @@ Karol Lisowski:
 
 También esta disponible con docker donde lo que hay que hacer es ejecitar el script create_image y despues docker compose up, al igual que en la fase anterior.
 
+### Diagrama de clases y templates actualizado con angular
+- ![diagrama4](uptown/images/D4.png)
+
 ### Participación de miembros
 
 María Flores García: 
