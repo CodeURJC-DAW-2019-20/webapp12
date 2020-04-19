@@ -77,7 +77,7 @@ export class HeaderComponent implements OnInit{
         this.itemsMenu = [ 
           {label: 'Home' , ruta: 'home'},
           {label: 'Blog' , ruta: 'blog'},        
-          {label: 'Listado de anuncios' , ruta: 'blog'},
+          {label: 'Listado de anuncios' , ruta: 'listAllAdvertisements'},
           {label: 'Nuevo Blog' , ruta: 'new-blog'},
           {label: this.email || 'Logout' , ruta: 'login'}
         ];
@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit{
           {label: 'Home' , ruta: 'home'},
           {label: 'Poner anuncio' , ruta: 'propertyUpload'},
           {label: 'Mis favoritos' , ruta: 'favoritos/' + id},
-          {label: 'Mis anuncios' , ruta: 'Mis anuncios'},
+          {label: 'Mis anuncios' , ruta: 'myAdvertisements'},
           {label: 'Blog' , ruta: 'blog'},
           {label: this.email || 'Logout' , ruta: 'login'
         },

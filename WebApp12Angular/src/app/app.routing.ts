@@ -14,7 +14,8 @@ import { PropertyUploadComponent } from './property-upload/propertyUpload.compon
 import { blogUploadComponent } from './blog-upload.component';
 import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
 import { AdvertisementSingleComponent } from './advertisement/advertisement-single.component';
-//import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
+import { ListAdvertisementsComponent } from './advertisement/listAllAdvertisements.component';
+import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.component';
 
 
 
@@ -38,7 +39,10 @@ const appRoutes = [
   { path: '', pathMatch:'full' ,redirectTo: 'home'},
 
   //{ path: 'blog/:id', component: blogSingleComponent},
-  { path: 'propertyUpload', component: PropertyUploadComponent}
+  { path: 'propertyUpload', component: PropertyUploadComponent},
+  { path: 'listAllAdvertisements', component: ListAdvertisementsComponent},
+  { path: 'myAdvertisements', component: MyAdvertisementsComponent}
+
  
 ];
 

@@ -77,6 +77,8 @@ import { PropertyUploadComponent} from './property-upload/propertyUpload.compone
 import { blogUploadComponent } from './blog-upload.component';
 import { RecommendedComponent } from './recommended.component';
 import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
+import { ListAdvertisementsComponent } from './advertisement/listAllAdvertisements.component';
+import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -146,7 +148,9 @@ import { AdvertisementListComponent } from './advertisement/advertisement-list.c
     RegisterComponent,
     FavoritosComponent,
     RecommendedComponent,
-    PropertyUploadComponent
+    PropertyUploadComponent,
+    ListAdvertisementsComponent,
+    MyAdvertisementsComponent
   ],
   bootstrap: [AppComponent],
   providers: [
