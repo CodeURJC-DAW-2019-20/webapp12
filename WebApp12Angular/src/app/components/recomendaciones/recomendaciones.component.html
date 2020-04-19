@@ -2,9 +2,12 @@
   <div class="row justify-content-center">
     <div class="col-md-12 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
       <span class="subheading">Recomendaciones</span>
+     
     </div>
+    <div class="col-md-12 heading-section text-center ftco-animate mb-5 fadeInUp ftco-animated">
+     
       <h2 class="mb-2">Viviendas seleccionadas para ti</h2>
-    
+    </div>
   </div>
   <div class="row" >
     
@@ -12,7 +15,7 @@
      <!--  {{item| json}} -->
 
       <div class="property-wrap ftco-animate fadeInUp ftco-animated" style="background-color:#e4dfdf9e;">
-      <a [routerLink]="['/advertisement',item.id]" class="img posicion-imagen" [ngStyle]="{background: 'url(assets/static/images/' + item.images[0] +')'}" ></a>
+      <a href="/properties/16" class="img posicion-imagen" [ngStyle]="{background: 'url(assets/static/images/' + item.images[0] +')'}" ></a>
         <div class="text" style="padding-bottom: 50px;">
           <p class="price"><span class="old-price">{{item.price}}</span><span class="orig-price">{{item.price}}<small>/mo</small></span></p>
           <ul class="property_list">
