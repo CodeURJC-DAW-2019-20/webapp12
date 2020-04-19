@@ -1,7 +1,4 @@
 import { RouterModule } from '@angular/router';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookFormComponent } from './book-form/book-form.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
 import { AdvertisementComponent } from './advertisement/advertisement.component';
 import { blogListComponent } from './blog-list.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -27,15 +24,13 @@ const appRoutes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'favoritos/:id', component: FavoritosComponent , canActivate: [AuthUserService]},
-  { path: 'book/new', component: BookFormComponent },
-  { path: 'book/:id', component: BookDetailComponent },
-  { path: 'book/edit/:id', component: BookFormComponent },
+  // { path: 'advertisementSearch', component: AdvertisementListComponent },
 
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },
   { path: 'blog/:id', component: blogSingleComponent},
   { path: 'advertisement/:id', component: AdvertisementSingleComponent },
-  { path: 'advertisement/:id/comments', component: commentComponent },
+  // { path: 'advertisement/:id/comments', component: commentComponent },
   { path: 'new-blog', component: blogUploadComponent , canActivate: [AuthAdminService]},
   { path: 'new-blog/:id', component: blogUploadComponent , canActivate: [AuthAdminService]},
   { path: '', pathMatch:'full' ,redirectTo: 'home'},
