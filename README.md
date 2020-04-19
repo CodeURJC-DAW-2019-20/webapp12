@@ -404,7 +404,7 @@ María Flores García:
    - [Security url updated , delete advertisement by admin](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/3bbdfdac3654a1ee203c38cdd77f1831d3271769)
    - [Visual changes](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/42c2b3c06fed06fba10fe2c36d1488f1b9a2c488) 
    
- * Listado de los  ficheros que mas se haya participado: 
+ * Listado de los 5 ficheros que mas se haya participado: 
    - advertisement.component.ts
    - advertisement.service.ts
    - advertisement-single.component.ts
@@ -428,7 +428,7 @@ María Flores García:
     - [Update GET advertisement method](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/8be09babc564f512cff792d980a2000eb769e9a5)
     - [Adapt teacher's project](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/66321fa30ed625c3e3f35d1204b7c392504fdb87)
     
- * Listado de los  ficheros que mas se haya participado: 
+ * Listado de los 5 ficheros que mas se haya participado: 
    - AdvertisementRestController
    - advertisement.service.ts
    - listAllAdvertisements.ts
@@ -448,13 +448,37 @@ María Flores García:
  * Listado de los 5 commits más significativos: 
    - [Graph]( https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/bd1b9f0da5f4d8661933fe89cc1aeaf4d320b131)
    - [changes in angular login, register and blog](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/24caf56f7896bcfce27901c2d691b6fafe3aba6d)
-   - [add login and register]https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/8de7be184a28aa7353b5fe6790ed20c2ad7b2d2a) 
+   - [add login and register](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/8de7be184a28aa7353b5fe6790ed20c2ad7b2d2a) 
    - [spring-boot changes](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/3fa439cc68e8386f98dee179000afb4e617490f5)
    - [Fixed anguar fav error](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/72db259badc811fabc3aeefecefee698cbfb62bf) 
    
- * Listado de los  ficheros que mas se haya participado: 
+ * Listado de los 5 ficheros que mas se haya participado: 
    - login.component.ts
    - login.service.ts
    - advertisement.service.ts
    - login.component.ts.html
    - register.component.ts
+   
+   Karol Lisowski: 
+
+* Tareas realizadas en la fase:  
+    - Componentes Blog ,blogService y métodos Blog. 
+    - Deploy de la parte angular en localhost:8443/new . 
+    - Algoritmo en angular mas modificacion mediante querysql e introducirlo como servicio.  
+    - Ligero fix en las recomendaciones. 
+    - Componente y metodos para el funcionamiento de search, separado del componente home. 
+    - Creacion de metodo Rest para el gráfico y separado del método del algoritmo.
+  
+ * Listado de los 5 commits más significativos: 
+   - [Delete, create and update components and methods created for blog and…]( https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/c516f6846eb96015fc2a4c9a9d82980dd3effee6)
+   - [Added individual blog component, added sql query for the algorithm an…](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/05032b35d987c8225343e64e67b951e7bab6e309)
+   - [Search component working, separated functionality from homecomponent](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/a342a22ee6b4f910c5e590846716181f5188ebee) 
+   - [Created a rest request for the graph and separated it from the algorithm](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/10bc44c44319874923ae3dd8ab26dcfe687bd07f)
+   - [Added blog files and blog methods in blogService, imported previous t…](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/196d27cac94660debdafff92d157d68c433bf790) 
+   
+ * Listado de los 5 ficheros que mas se haya participado: 
+   - blog-upload.component.ts
+   - blog-single.component.ts
+   - blog-list.component.ts
+   - advertisement-list.component.ts
+   - advertisement-list.component.ts
