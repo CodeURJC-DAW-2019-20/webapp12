@@ -407,3 +407,27 @@ María Flores García:
    - advertisement-single.component.ts
    - advertisement-single.component.html
    - create-image.ps1
+   
+ Wu Li Lu:
+ 
+ * Tareas realizadas en la fase:  
+    - Crear página del listado de todos los anuncios (para administrador).
+    - Crear la página de "Mis anuncios".
+    - Borrar anuncio por parte del usuario.
+    - Crear la página de "Subir anuncio".
+    - Crear el proyecto angular e instalar algunas librerías necesarias.
+    - Arreglar algunos métodos de API REST.
+    
+* Listado de los 5 commits más significativos: 
+    - [Add DeleteMyAdvertisement](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/e3ccf0a2ebfe1c79cf5902cba62d5c71477e04b6)
+    - [Add All Advertisements Function](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/1557d524ef4a0c2234dccceffcc0433f27fce117)
+    - [Add My Advertisement Function](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/1fad8f296c6fec02ce4361b0e7f4bfa2685c4b7b)
+    - [Update GET advertisement method](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/8be09babc564f512cff792d980a2000eb769e9a5)
+    - [Adapt teacher's project](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/66321fa30ed625c3e3f35d1204b7c392504fdb87)
+    
+ * Listado de los  ficheros que mas se haya participado: 
+   - AdvertisementRestController
+   - advertisement.service.ts
+   - listAllAdvertisements.ts
+   - propertyUpload.component.ts
+   - listAllAdvertisements.html
