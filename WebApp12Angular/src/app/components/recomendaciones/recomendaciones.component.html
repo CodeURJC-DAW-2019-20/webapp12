@@ -15,7 +15,7 @@
      <!--  {{item| json}} -->
 
       <div class="property-wrap ftco-animate fadeInUp ftco-animated" style="background-color:#e4dfdf9e;">
-      <a href="/properties/16" class="img posicion-imagen" [ngStyle]="{background: 'url(assets/static/images/' + item.images[0] +')'}" ></a>
+      <a [routerLink]="['/advertisement',item.id]" class="img posicion-imagen" [ngStyle]="{background: 'url(assets/static/images/' + item.images[0] +')'}" ></a>
         <div class="text" style="padding-bottom: 50px;">
           <p class="price"><span class="old-price">{{item.price}}</span><span class="orig-price">{{item.price}}<small>/mo</small></span></p>
           <ul class="property_list">
