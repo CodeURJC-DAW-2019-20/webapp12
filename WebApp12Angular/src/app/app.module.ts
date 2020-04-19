@@ -78,6 +78,8 @@ import { blogUploadComponent } from './blog-upload.component';
 import { RecommendedComponent } from './recommended.component';
 import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
 import { commentComponent } from './comment.component';
+import { ListAdvertisementsComponent } from './advertisement/listAllAdvertisements.component';
+import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -148,7 +150,9 @@ import { commentComponent } from './comment.component';
     FavoritosComponent,
     RecommendedComponent,
     PropertyUploadComponent,
-    commentComponent
+    commentComponent,
+    ListAdvertisementsComponent,
+    MyAdvertisementsComponent
   ],
   bootstrap: [AppComponent],
   providers: [

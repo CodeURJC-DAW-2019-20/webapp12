@@ -1,0 +1,42 @@
+<section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url(assets/bg_1.jpg); height: 781px; background-position: 50% 179.75px;" data-stellar-background-ratio="0.5">
+
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" style="height: 781px; z-index: -1">
+        <div class="col-md-9 ftco-animate pb-5 text-center fadeInUp ftco-animated">
+            <h1 class="mb-3 bread">Mis Anuncios</h1>
+        </div>
+    </div>
+    
+
+        <div class="container">
+                <div class= "row">
+                    <div *ngFor= "let advertisement of advertisements" class = "col-md-6 col-lg-4" id = "advertisements">
+                        <div class ="col-md-4">
+                            <div class="property-wrap ftco-animate fadeInUp ftco-animated" style="width: 345px">
+                                <a [routerLink]="['/advertisement', advertisement.id]"class="img" style="background-image: url('assets/{{advertisement.images[0]}}');"></a>
+                                <div class="text">
+                                    <p class="price"><span class="orig-price">{{advertisement.price}}<small>$</small></span></p>
+                                    <ul class="property_list">
+                                        <li><span class="flaticon-bed">{{advertisement.rooms}}</span></li>
+                                        <li><span class="flaticon-bathtub"></span>{{advertisement.bathrooms}}</li>
+                                        <li><span class="flaticon-floor-plan"></span>{{advertisement.squareMeters}}</li>
+                                    </ul>
+                                    <h3><a [routerLink]="['/advertisement', advertisement.id]">{{advertisement.property}} en {{advertisement.location}}</a></h3>
+                                    <span class="location">{{advertisement.location}}</span>
+                                    <button class="d-flex align-items-center justify-content-center btn-custom-edit" (click)="deleteMyAdvertisement(advertisement.id)">
+                                        <span class="icon-trash"></span>
+                                    </button>
+                                    <button class="d-flex align-items-center justify-content-center btn-custom-edit2"><a href="editProperties/48">
+                                        <span class="icon-edit"></span>
+                                    </a></button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        
+        </div>
+  
+
+</section>

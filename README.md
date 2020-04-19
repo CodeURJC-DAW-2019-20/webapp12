@@ -372,3 +372,38 @@ Karol Lisowski:
     - UserRestController
     - BlogService.java
     - SecurityApiRest.java
+    
+ ## FASE 4
+### Preparación del entorno de desarrollo:
+
+* 1.Instalar node.js .
+* 2.Descargar el proyecto y ejecutar el comando npm install.
+* 3.Para compilar el proyecto angular se incluye un script dentro de este que realiza el comando ng build y mueve los ficheros para poder utilizarla conjuntamente con spring.
+* 4.Correr el proyecto e ir a https://localhost:8443/new .
+
+
+También esta disponible con docker donde lo que hay que hacer es ejecitar el script create_image y despues docker compose up, al igual que en la fase anterior.
+
+### Participación de miembros
+
+María Flores García: 
+
+* Tareas realizadas en la fase:  
+    - dockerizar la aplicación
+    - Paginación de blogs y resultado de búsquedas.
+    - Crear la pagina de anuncio singular
+    - Borrar anuncios por administrador
+  
+ * Listado de los 5 commits más significativos: 
+   - [Pagination blogs and search]( https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/5d9ec1bc57d1e3805753f8a5b5f36892336eb0da)
+   - [Added single advertisement component](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/06cc0fc32c050e542650b0b837ee6494f020ac86)
+   - [Updated create_image](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/4c2c0ade826a5bbf9b825cd42eff05e76ca3902e) 
+   - [Security url updated , delete advertisement by admin](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/3bbdfdac3654a1ee203c38cdd77f1831d3271769)
+   - [Visual changes](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/42c2b3c06fed06fba10fe2c36d1488f1b9a2c488) 
+   
+ * Listado de los  ficheros que mas se haya participado: 
+   - advertisement.component.ts
+   - advertisement.service.ts
+   - advertisement-single.component.ts
+   - advertisement-single.component.html
+   - create-image.ps1

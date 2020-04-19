@@ -14,7 +14,9 @@ import { PropertyUploadComponent } from './property-upload/propertyUpload.compon
 import { blogUploadComponent } from './blog-upload.component';
 import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
 import { AdvertisementSingleComponent } from './advertisement/advertisement-single.component';
-//import { PropertyUploadComponent } from './property-upload/propertyUpload.component';
+import { ListAdvertisementsComponent } from './advertisement/listAllAdvertisements.component';
+import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.component';
+import { AuthAdminService } from './service/auth/auth.admin.service';
 
 
 
@@ -33,12 +35,15 @@ const appRoutes = [
   { path: 'blog', component: blogListComponent },
   { path: 'blog/:id', component: blogSingleComponent},
   { path: 'advertisement/:id', component: AdvertisementSingleComponent },
-  { path: 'new-blog', component: blogUploadComponent},
-  { path: 'new-blog/:id', component: blogUploadComponent},
+  { path: 'new-blog', component: blogUploadComponent , canActivate: [AuthAdminService]},
+  { path: 'new-blog/:id', component: blogUploadComponent , canActivate: [AuthAdminService]},
   { path: '', pathMatch:'full' ,redirectTo: 'home'},
 
   //{ path: 'blog/:id', component: blogSingleComponent},
-  { path: 'propertyUpload', component: PropertyUploadComponent}
+  { path: 'propertyUpload', component: PropertyUploadComponent,canActivate: [AuthUserService]},
+  { path: 'listAllAdvertisements', component: ListAdvertisementsComponent, canActivate: [AuthAdminService]},
+  { path: 'myAdvertisements', component: MyAdvertisementsComponent ,canActivate: [AuthUserService]}
+
  
 ];
 
