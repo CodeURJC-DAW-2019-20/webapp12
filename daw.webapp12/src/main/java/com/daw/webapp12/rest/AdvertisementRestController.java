@@ -36,13 +36,13 @@ public class AdvertisementRestController {
     CommentRepository commentRepository;
 
     @GetMapping("/list")
-    public List<Advertisement> allAdvertisements() {
+    public List<Advertisement> list() {
 		List<Advertisement> ads = advertisementService.findAll();
 		return ads;
 		}
     
     @GetMapping("/")
-    public List<Advertisement> myAdvertisements(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
+    public List<Advertisement> allAdvertisement(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
     //    Users users = userService.findById(idAdver);
     //     List<Advertisement> myAds = users.getMyAdvertisements();
     //     return myAds;
@@ -63,10 +63,10 @@ public class AdvertisementRestController {
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Advertisement uploadsAdvertisement(Advertisement ads/*@RequestParam String type,@RequestParam String property, @RequestParam Integer rooms,
+    public Advertisement uploadsAdvertisement(@RequestParam String type,@RequestParam String property, @RequestParam Integer rooms,
                                                     @RequestParam Integer bathrooms, @RequestParam Integer squareMeters,@RequestParam String location,
-                                                    @RequestParam String address, @RequestParam double price*/) {
-        //Advertisement ads = new Advertisement(type, property, rooms, bathrooms,squareMeters, location, address, price);
+                                                    @RequestParam String address, @RequestParam double price) {
+        Advertisement ads = new Advertisement(type, property, rooms, bathrooms,squareMeters, location, address, price);
         String userName = userComponent.getLoggedUser().getName();
         Optional<Users> user = userService.findByName(userName);
         user.get().addMyAdvertisement(ads);
@@ -127,7 +127,6 @@ public class AdvertisementRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    
 
     @GetMapping("/search")
     public ResponseEntity<List<Advertisement>> searchAdvertisements(@RequestParam String location,
@@ -145,6 +144,7 @@ public class AdvertisementRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
     @GetMapping("/{id}/comments")
     public ResponseEntity<List<Comment>> advertisementComments(@PathVariable long id, @RequestParam(value="page") int page,@RequestParam(value="number") int number) {
         Advertisement advert = advertisementService.findById(id);
