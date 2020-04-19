@@ -12,8 +12,13 @@ import { Router } from '@angular/router';
 export class blogListComponent {
     blogs: Blog[];
     canDelete: boolean = false;
+    startPage : number;
+    paginationLimit:number; 
+
     constructor(private blogService: BlogService,private router: Router) {
         this.blogs = [];
+        this.startPage = 0;
+        this.paginationLimit = 4;
     }
 
     ngOnInit() {
@@ -22,7 +27,7 @@ export class blogListComponent {
               this.canDelete = true;
             }
         }
-        this.blogService.getBlogs(0, 4).subscribe(
+        this.blogService.getBlogs(0, 50).subscribe(
             blogs => this.blogs = blogs,
             error => console.log(error)
         );
@@ -40,5 +45,11 @@ export class blogListComponent {
             () => window.location.reload(),
             error => console.log(error)
         );
+    }
+    showMoreItems(){
+        this.paginationLimit = Number(this.paginationLimit) + 4;        
+    }
+    showLessItems(){
+        this.paginationLimit = Number(this.paginationLimit) - 4;
     }
 }

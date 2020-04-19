@@ -24,11 +24,16 @@ export class AdvertisementListComponent implements OnInit {
   id:any = '';
   key:any = '';
   value:any = '';
+  startPage : number;
+  paginationLimit:number;
   
   constructor(
     private router: Router, 
     private service: AdvertisementService,
-    public loginService: LoginService) { }
+    public loginService: LoginService) { 
+      this.startPage = 0;
+      this.paginationLimit = 3;
+    }
 
   ngOnInit() {
     this.service.currentMessage.subscribe(message => this.message = message);
@@ -52,7 +57,14 @@ export class AdvertisementListComponent implements OnInit {
   );;
     console.log("cmon"); 
   }
+  showMoreItems(){
+    this.paginationLimit = Number(this.paginationLimit) + 3;        
+  }
+  showLessItems(){
+      this.paginationLimit = Number(this.paginationLimit) - 3;
+  }
 }
+
 
 
 

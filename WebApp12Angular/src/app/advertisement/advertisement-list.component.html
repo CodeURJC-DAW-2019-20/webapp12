@@ -16,7 +16,7 @@
 <section class="ftco-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-4" *ngFor="let advertisement of searchAdvertisements">
+      <div class="col-md-4" *ngFor="let advertisement of searchAdvertisements  | slice : startPage:paginationLimit">
         <div class="property-wrap">
           <a class="img"[routerLink]="['/advertisement',advertisement.id]" [ngStyle]="{background: 'url(assets/static/images/' + advertisement.images[0] +')'}" ></a>
           <div class="text">
@@ -35,5 +35,7 @@
         </div>
       </div>
     </div>
+    <input type="button" *ngIf ="paginationLimit < searchAdvertisements.length" (click)="showMoreItems()" value= "Show more"/>
+    <input type="button" *ngIf ="paginationLimit > 3" (click)="showLessItems()" value= "Show less"/>
   </div>
 </section>
