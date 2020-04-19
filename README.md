@@ -376,10 +376,12 @@ Karol Lisowski:
  ## FASE 4
 ### Preparación del entorno de desarrollo:
 
-* 1.Instalar node.js
-* 2.Descargar el proyecto y ejecutar el comando npm install
-* 3. Para compilar el proyecto angular se incluye un script dentro de este que realiza el comando ng build y mueve los ficheros para poder utilizarla conjuntamente con spring.
-* 4. Correr el proyecto e ir a https://localhost:8443/new
+* 1.Instalar node.js .
+* 2.Descargar el proyecto y ejecutar el comando npm install.
+* 3.Para compilar el proyecto angular se incluye un script dentro de este que realiza el comando ng build y mueve los ficheros para poder utilizarla conjuntamente con spring.
+* 4.Correr el proyecto e ir a https://localhost:8443/new .
+
+
 También esta disponible con docker donde lo que hay que hacer es ejecitar el script create_image y despues docker compose up, al igual que en la fase anterior.
 
 ### Participación de miembros
