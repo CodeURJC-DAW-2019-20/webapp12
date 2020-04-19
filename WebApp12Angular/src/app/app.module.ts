@@ -72,9 +72,11 @@ import { PropertyUploadComponent} from './property-upload/propertyUpload.compone
 import { blogUploadComponent } from './blog-upload.component';
 import { RecommendedComponent } from './recommended.component';
 import { AdvertisementListComponent } from './advertisement/advertisement-list.component';
-import { commentComponent } from './comment.component';
 import { ListAdvertisementsComponent } from './advertisement/listAllAdvertisements.component';
 import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.component';
+import { commentComponent } from './comment.component';
+import { AdvertisementSingleComponent } from './advertisement/advertisement-single.component';
+import { CommentService } from './service/comment.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -142,9 +144,10 @@ import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.comp
     FavoritosComponent,
     RecommendedComponent,
     PropertyUploadComponent,
-    commentComponent,
     ListAdvertisementsComponent,
-    MyAdvertisementsComponent
+    commentComponent,
+    MyAdvertisementsComponent,
+    AdvertisementSingleComponent
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -153,6 +156,7 @@ import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.comp
     UserService,
     AdvertisementService,
     SearchService,
+    CommentService,
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
