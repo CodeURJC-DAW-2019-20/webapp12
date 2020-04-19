@@ -434,3 +434,27 @@ María Flores García:
    - listAllAdvertisements.ts
    - propertyUpload.component.ts
    - listAllAdvertisements.html
+   
+   Eduardo Luna Sánchez: 
+
+* Tareas realizadas en la fase:  
+    - Login y register. 
+    - Añadir y eliminar favoritos. 
+    - Devolver lista de favoritos.  
+    - Anuncios recomendados. 
+    - Realizacion de index, home y headers. 
+    - Crear gráfico en el index. 
+  
+ * Listado de los 5 commits más significativos: 
+   - [Graph]( https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/bd1b9f0da5f4d8661933fe89cc1aeaf4d320b131)
+   - [changes in angular login, register and blog](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/24caf56f7896bcfce27901c2d691b6fafe3aba6d)
+   - [add login and register]https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/8de7be184a28aa7353b5fe6790ed20c2ad7b2d2a) 
+   - [spring-boot changes](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/3fa439cc68e8386f98dee179000afb4e617490f5)
+   - [Fixed anguar fav error](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/72db259badc811fabc3aeefecefee698cbfb62bf) 
+   
+ * Listado de los  ficheros que mas se haya participado: 
+   - login.component.ts
+   - login.service.ts
+   - advertisement.service.ts
+   - login.component.ts.html
+   - register.component.ts
