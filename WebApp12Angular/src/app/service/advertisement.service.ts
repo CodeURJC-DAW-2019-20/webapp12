@@ -113,6 +113,13 @@ export class AdvertisementService{
             );
     }
 
+    deleteAdvertisementAdmin(id:number){
+        return this.http.delete<Advertisement>(DELETE_ADVERTISEMENT +  "byAdmin/"+id)
+            .pipe(
+                //catchError(err => this.handleError(err))
+            );
+    }
+
    // https://localhost:8443/api/advertisements/
    //search?location=Madrid&price=150000&rooms=2&
    //propertyType=Local&searchType=Venta&squareMeters=40&bathrooms=1

@@ -17,10 +17,11 @@ export class ListAdvertisementsComponent implements OnInit {
 
   advertisements: Advertisements[];
 
+
   constructor(
     private router: Router, 
     private advertisementService: AdvertisementService,
-    public loginService: LoginService) { }
+    public loginService: LoginService) {}
 
   ngOnInit() {
     this.getAllAdvertisement();
@@ -32,6 +33,12 @@ export class ListAdvertisementsComponent implements OnInit {
       advertisements => this.advertisements = advertisements,
       error => console.log(error)
     );
+  }
+  deleteAdvertisement(id:number){
+    this.advertisementService.deleteAdvertisementAdmin(id).subscribe(
+      () => window.location.reload(),
+      error => console.log(error)
+  );
   }
 }
 

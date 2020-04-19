@@ -31,8 +31,8 @@ export class AdvertisementListComponent implements OnInit {
     private router: Router, 
     private service: AdvertisementService,
     public loginService: LoginService) { 
-      this.startPage = 0;
-      this.paginationLimit = 3;
+    this.startPage = 0;
+    this.paginationLimit = 3;
     }
 
   ngOnInit() {

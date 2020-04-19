@@ -24,7 +24,7 @@ export class AuthUserService implements CanActivate{
         if ( localStorage.getItem('role') ){ 
             try {
               let role: string = localStorage.getItem('role');
-              if ( role.localeCompare('ROLE_USER') == 0 || role.localeCompare('ROLE_ADMIN') == 0 ) {
+              if ( role.localeCompare('ROLE_USER') == 0 ) {
                   return true;
               } else {
                   return false;
