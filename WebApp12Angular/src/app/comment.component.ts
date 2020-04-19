@@ -11,7 +11,7 @@ import {Comment} from './entity/comment';
 })
 export class commentComponent {
 
-
+    comment: Comment;
     comments : Comment[] = [];
     message= "";
     postComment=[];
