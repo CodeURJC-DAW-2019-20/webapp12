@@ -16,12 +16,20 @@ import { Advertisements } from '../entity/advertisement';
 export class AdvertisementSingleComponent{
 
   advertisement: Advertisements;
+  isLogged: boolean = false;
 
   constructor(
     private router: Router, 
-    private service: AdvertisementService, activatedRoute: ActivatedRoute) { 
+    private service: AdvertisementService, activatedRoute: ActivatedRoute) {
+      if ( localStorage.getItem('role') != null ) {
+        if (localStorage.getItem('role').localeCompare('ROLE_ADMIN') == 0 || localStorage.getItem('role').localeCompare('ROLE_USER') == 0) {
+          this.isLogged = true;
+        }
+    }
         let id = activatedRoute.snapshot.params['id'];
+        console.log(this.isLogged);
         this.getAdvertisement(id);
+        console.log(this.advertisement);
     }
 
 //   ngOnInit() {
@@ -30,7 +38,7 @@ export class AdvertisementSingleComponent{
 //       error => console.log(error)
 //     );
 //   }
-  
+
   getAdvertisement(id: number) {
     this.service.getAdvertisement(id).subscribe(
         advertisement => this.advertisement = advertisement,
@@ -38,4 +46,3 @@ export class AdvertisementSingleComponent{
     );
 }
 }
-

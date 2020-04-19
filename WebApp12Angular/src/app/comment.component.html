@@ -1,11 +1,13 @@
-
 <div >
-    <textarea [(ngModel)]="comment"></textarea>
+    <textarea [(ngModel)]="message"></textarea>
     <br>
     <br>
-    <button (click)="post()">Comment</button>
-    <div *ngFor= "let comments of postComment">
-        <p>{{comment}}</p>
-
+    <button (click)="uploadComment(comment.id)">Comment</button>
+    <div *ngFor= "let comment of comments">
+        <p>{{comment.author}}</p>
+        <p>{{comment.message}}</p>
+        <a class="btn d-flex align-items-center btn-custom-edit" id="deleteMethod" style="float:left;" (click)="deleteComment(comment.id)">
+            <span class="icon-trash" ></span>
+          </a>
     </div>
 </div>

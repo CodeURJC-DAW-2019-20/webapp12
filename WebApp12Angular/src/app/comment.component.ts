@@ -11,14 +11,17 @@ import {Comment} from './entity/comment';
 })
 export class commentComponent {
 
-    
-    comment : Comment;
+
+    comments : Comment[] = [];
     message= "";
     postComment=[];
     isLogged : boolean= false;
+    id: number;
+    activatedRoute: ActivatedRoute
 
     constructor(private router: Router, activatedRoute: ActivatedRoute, private commentService: CommentService) {
         let id = activatedRoute.snapshot.params['id'];
+        this.id =id;
         this.getComments(id);
     }
 
@@ -36,12 +39,29 @@ export class commentComponent {
     }
 
     getComments(id: number){
-        this.commentService.getComment(id).subscribe(
-            comment => this.comment = comment,
-            error => console.log(error)  
+        this.commentService.getComments(id,0,50).subscribe(
+            comment => this.comments = comment,
+            error => console.log(error)
         );
 
     }
 
+    uploadComment(id: number){
+        let author= localStorage.getItem('name');
+        console.log("message= "+ this.message);
+        console.log("postcomment="+ this.postComment);
+        let comment = new Comment(author, this.message)
+        console.log(comment);
+        this.commentService.uploadComment(this.id, comment).subscribe(
+            () =>  this.router.navigate(['/advertisement',this.id]),
+            error => console.log(error)
+        );
+    }
 
+    deleteComment(idComment: number) {
+        this.commentService.deleteComment(this.id,idComment).subscribe(
+            () => window.location.reload(),
+            error => console.log(error)
+        );
+    }
 }
