@@ -18,19 +18,17 @@
     <div class="row justify-content-center">
       <div class="col-md-12">
         <div class="property-details">
-          <div class="row">
-            <div class="img" class="img posicion-imagen" style="background-image: url('assets/image_1.jpg');"></div>
-            <div class="img" class="img posicion-imagen" style="background-image: url('assets/image_3.jpg');"></div>
-            
-            <div class="img" class="img posicion-imagen" style="background-image: url('assets/image_2.jpg');"></div>
+        <div class="row" >
+            <div class="img posicion-imagen" style="background-image: url('assets/{{advertisement.images[0]}}');"></div>            
           </div>
         </div>
         <div class="text text-center">
 
           <h2>{{advertisement.property}} en {{advertisement.location}}</h2>
-          <span class="subheading">{{advertisement.type}} </span>
+          
 
         </div>
+        <span class="subheading" style="margin-left: 583px;">{{advertisement.type}} </span>
       </div>
     </div>
   <div class="row">

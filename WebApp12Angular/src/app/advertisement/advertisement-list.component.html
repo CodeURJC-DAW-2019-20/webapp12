@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-md-4" *ngFor="let advertisement of searchAdvertisements  | slice : startPage:paginationLimit">
         <div class="property-wrap">
-          <a class="img"[routerLink]="['/advertisement',advertisement.id]" [ngStyle]="{background: 'url(assets/static/images/' + advertisement.images[0] +')'}" ></a>
+          <a class="img" [routerLink]="['/advertisement',advertisement.id]" [ngStyle]="{background: 'url(assets/static/images/' + advertisement.images[0] +')'}" ></a>
           <div class="text">
             <p class="price"><span class="orig-price">{{advertisement.price}}<small>$</small></span></p>
             <ul class="property_list">
@@ -29,7 +29,7 @@
             <h3><a>{{advertisement.property}} en {{advertisement.location}}</a></h3>
             <span class="location">{{advertisement.location}}</span>
             <a class="d-flex align-items-center justify-content-center btn-custom">
-              <span class="icon-trash"></span>
+              <span class="icon-star-o"></span>
             </a>
           </div>
         </div>

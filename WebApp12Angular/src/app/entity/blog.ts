@@ -4,7 +4,7 @@ export class Blog{
     id?: number;
     title: string;
     text: string;
-    images : File;
+    images : string;
 
 
     constructor(title:string, text:string){
@@ -40,7 +40,7 @@ export class Blog{
         return this.images;
     }
 
-    setImages(images:File){
+    setImages(images:string){
         this.images = images;
     }
 }
