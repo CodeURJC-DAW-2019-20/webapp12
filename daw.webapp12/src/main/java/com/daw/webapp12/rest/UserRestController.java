@@ -116,12 +116,12 @@ public class UserRestController {
 		Users user1 = userService.findById(id);
 		Advertisement advert = advertisementService.findById(id_advfo);
       //Advertisement anun2 = new Advertisement("Venta","Casa",(Integer)4,(Integer)2,120,"Madrid","calle azul,2",(double)200000);
-		if (user1.getMyAdvertisements().contains(advert) ) {
+		if (user1.getMyFavourites().contains(advert) ) {
 			return null;
 		}
-		List<Advertisement> listAdv = user1.getMyAdvertisements();
+		List<Advertisement> listAdv = user1.getMyFavourites();
 		listAdv.add(advert);
-		user1.setMyAdvertisements(listAdv);
+		user1.setMyFavourites(listAdv);
 		return userService.addUser(user1);
 	}
 	
@@ -134,8 +134,8 @@ public class UserRestController {
 		System.out.println("user1 " + user1.getName() );
 
 		System.out.println("advertisementService.findById(id_advfo) " + advertisementService.findById(id_advfo).getaddress() );
-		if (user1.getMyAdvertisements().contains(advert) ) {
-			user1.getMyAdvertisements().remove(advert);
+		if (user1.getMyFavourites().contains(advert) ) {
+			user1.getMyFavourites().remove(advert);
 			return userService.addUser(user1);
 			
 			 
@@ -198,7 +198,7 @@ public class UserRestController {
 
     @RequestMapping(value = "/favourites", method = RequestMethod.GET)
     public ResponseEntity<List<Advertisement>> favAdvertisements(/*@RequestParam("id") long idAdver, */@RequestParam(value="page") int page,@RequestParam(value="number") int number) {
-    System.out.println("userComponent.getLoggedUser().getName(): " + userComponent.getLoggedUser().getName());        
+    //System.out.println("userComponent.getLoggedUser().getName(): " + userComponent.getLoggedUser().getName());        
     return null;
    /* Users user = userService.findByName(userComponent.getLoggedUser().getName()).get();
          List<Advertisement> myFavs = user.getMyFavourites(page,number);
