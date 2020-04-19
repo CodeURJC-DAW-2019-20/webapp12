@@ -17,6 +17,7 @@ import { AdvertisementSingleComponent } from './advertisement/advertisement-sing
 import { ListAdvertisementsComponent } from './advertisement/listAllAdvertisements.component';
 import { MyAdvertisementsComponent } from './advertisement/myAdvertisements.component';
 import { AuthAdminService } from './service/auth/auth.admin.service';
+import { commentComponent } from './comment.component';
 
 
 
@@ -29,12 +30,12 @@ const appRoutes = [
   { path: 'book/new', component: BookFormComponent },
   { path: 'book/:id', component: BookDetailComponent },
   { path: 'book/edit/:id', component: BookFormComponent },
-  // { path: 'advertisementSearch', component: AdvertisementListComponent },
 
   // { path: '', redirectTo: 'advertisement', pathMatch: 'full' },
   { path: 'blog', component: blogListComponent },
   { path: 'blog/:id', component: blogSingleComponent},
   { path: 'advertisement/:id', component: AdvertisementSingleComponent },
+  { path: 'advertisement/:id/comments', component: commentComponent },
   { path: 'new-blog', component: blogUploadComponent , canActivate: [AuthAdminService]},
   { path: 'new-blog/:id', component: blogUploadComponent , canActivate: [AuthAdminService]},
   { path: '', pathMatch:'full' ,redirectTo: 'home'},

@@ -16,10 +16,16 @@ import { Advertisements } from '../entity/advertisement';
 export class AdvertisementSingleComponent{
 
   advertisement: Advertisements;
+  isLogged: boolean = false;
 
   constructor(
     private router: Router, 
-    private service: AdvertisementService, activatedRoute: ActivatedRoute) { 
+    private service: AdvertisementService, activatedRoute: ActivatedRoute) {
+      if ( localStorage.getItem('role') != null ) {
+        if (localStorage.getItem('role').localeCompare('ROLE_ADMIN') == 0) {
+          this.isLogged = true;
+        }
+    }
         let id = activatedRoute.snapshot.params['id'];
         this.getAdvertisement(id);
     }
