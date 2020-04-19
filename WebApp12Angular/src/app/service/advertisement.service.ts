@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 const BASE_URL= environment.baseUrl;
 
 const GET_ADVERTISEMENT = BASE_URL + "/advertisements/";
-const DELETE_ADVERTISEMENT = BASE_URL + "/advertisements/";
+const DELETE_ADVERTISEMENT = BASE_URL + "/users/advertisements/";
 const CREATE_ADVERTISEMENT = "https://localhost:8443" + BASE_URL + "/advertisements/";
 
 export interface Advertisement{

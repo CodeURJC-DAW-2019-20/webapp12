@@ -28,4 +28,11 @@ export class MyAdvertisementsComponent implements OnInit {
       error => console.log(error)
     );
   }
+
+  deleteMyAdvertisement(id: number) {
+    this.advertisementService.deleteAdvertisement(id).subscribe(
+        () => window.location.reload(),
+        error => console.log(error)
+    );
+}
 }

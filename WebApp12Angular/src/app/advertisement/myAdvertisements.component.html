@@ -20,11 +20,15 @@
                                         <li><span class="flaticon-bathtub"></span>{{advertisement.bathrooms}}</li>
                                         <li><span class="flaticon-floor-plan"></span>{{advertisement.squareMeters}}</li>
                                     </ul>
-                                    <h3><a [routerLink]="['/advertisement', advertisement.id]">Casa en {{advertisement.location}}</a></h3>
+                                    <h3><a [routerLink]="['/advertisement', advertisement.id]">{{advertisement.property}} en {{advertisement.location}}</a></h3>
                                     <span class="location">{{advertisement.location}}</span>
-                                    <a class="d-flex align-items-center justify-content-center btn-custom">
+                                    <button class="d-flex align-items-center justify-content-center btn-custom-edit" (click)="deleteMyAdvertisement(advertisement.id)">
                                         <span class="icon-trash"></span>
-                                    </a>
+                                    </button>
+                                    <button class="d-flex align-items-center justify-content-center btn-custom-edit2"><a href="editProperties/48">
+                                        <span class="icon-edit"></span>
+                                    </a></button>
+
                                 </div>
                             </div>
 
