@@ -34,7 +34,7 @@
       public loginService: LoginService) { }
   
     ngOnInit() {
-      this.service.getAdvertisements().subscribe(
+      this.service.getAllAdvertisements().subscribe(
         advertisements => this.advertisements = advertisements,
         error => console.log(error)
       );

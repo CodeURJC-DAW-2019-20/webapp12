@@ -72,12 +72,18 @@ export class AdvertisementService{
             catchError(err => this.handleError(err)))
     }
     
-    getAdvertisements(): Observable<Advertisement[]> {
+    getAllAdvertisements(): Observable<Advertisement[]> {
         return this.http.get<Advertisement[]>(URL + 'list').pipe(
             /*catchError((error) => this.handleError(error))
             */);
     }
 
+    getMyAdvertisements(): Observable<Advertisement[]> {
+        console.log("devuelve todos mis anuncios")
+        return this.http.get<Advertisement[]>(URL + '?page=0&number=20').pipe(
+            /*catchError((error) => this.handleError(error))
+            */);
+    }
     getAdvertisement(id: number | string) {
         return this.http.get<Advertisements>(GET_ADVERTISEMENT + id , { withCredentials: true })
             .pipe(
