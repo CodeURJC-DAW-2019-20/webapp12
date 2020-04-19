@@ -1,0 +1,11 @@
+
+<div >
+    <textarea [(ngModel)]="comment"></textarea>
+    <br>
+    <br>
+    <button (click)="post()">Comment</button>
+    <div *ngFor= "let comments of postComment">
+        <p>{{comment}}</p>
+
+    </div>
+</div>
