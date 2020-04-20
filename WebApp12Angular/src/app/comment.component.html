@@ -2,14 +2,15 @@
     <textarea class="form-control" rows="5" [(ngModel)]="message"></textarea>
     <br>
     <br>
-    <button  class ="btn btn-succes btn-md pull-right"(click)="uploadComment(comment.id)">Comment</button>
-    <div *ngFor= "let comment of comments">
-        <li class="list-group-item">
+    <input type="button" style="padding: 15px 50px;" value="Comment" (click)="uploadComment()">
+    <div *ngFor= "let comment of comments" >
+        <li class="list-group-item" style="margin-bottom: 20px;height: 115px;">
         <p>{{comment.author}}</p>
         <p>{{comment.message}}</p>
-        </li>
         <a class="btn d-flex align-items-center btn-custom-edit" id="deleteMethod" style="float:left;" (click)="deleteComment(comment.id)">
             <span class="icon-trash"style="color:red; float:right;" ></span>
-          </a>
+        </a>
+        </li>
+        
     </div>
 </div>

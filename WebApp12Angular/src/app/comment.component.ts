@@ -46,7 +46,7 @@ export class commentComponent {
 
     }
 
-    uploadComment(id: number){
+    uploadComment(){
         let author= localStorage.getItem('name');
         console.log("message= "+ this.message);
         console.log("postcomment="+ this.postComment);
