@@ -482,3 +482,25 @@ María Flores García:
    - blog-list.component.ts
    - advertisement-list.component.ts
    - advertisement-list.component.ts
+   
+   Sebastian Fila: 
+
+* Tareas realizadas en la fase:  
+    - Componentes comentarios ,commentaryService y métodos comentario. 
+    - creacion del nuevo diagrama adaptado a angular . 
+    - Adaptado el componente de advertisement para los comentarios.  
+    
+  
+ * Listado de los 5 commits más significativos: 
+   - [fixed comments…]( https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/4224aadfc87d36b5ec3ee37ab520c9e346f1bb16)
+   - [Added more functionality to the comments](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/2f406b13b36406833d7e1beffcb23062a05d15a2)
+   - [Created comments in advertisements](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/ff273ea61f4d55f0c3ec8871b4c5d8f55791b3a5) 
+   - [updated comments for advertisements](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/4e90c58852ed7723840ce66984d98ba3cb0c5ae4)
+   - [Created new diagram](https://github.com/CodeURJC-DAW-2019-20/webapp12/commit/039ddc67f82094ff5bfa2e9bce4f67d0b2fd8732) 
+   
+ * Listado de los 5 ficheros que mas se haya participado: 
+   - comment.component.ts
+   - comment.service.ts
+   - comment.component.html
+   - advertisement-single.component.html
+   - comment.ts
