@@ -114,7 +114,7 @@ export class AdvertisementService{
     }
 
     deleteAdvertisementAdmin(id:number){
-        return this.http.delete<Advertisement>(DELETE_ADVERTISEMENT +  "byAdmin/"+id)
+        return this.http.delete<Advertisement>(GET_ADVERTISEMENT +  "byAdmin/"+id)
             .pipe(
                 //catchError(err => this.handleError(err))
             );
